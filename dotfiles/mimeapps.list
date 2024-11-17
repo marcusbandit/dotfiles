@@ -1,0 +1,13 @@
+[Added Associations]
+application/zip=peazip-4.desktop;peazip-3.desktop;peazip-2.desktop;
+
+[Default Applications]
+application/zip=peazip-4.desktop;
+image/gif=feh.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+text/html=zen.desktop
+x-scheme-handler/about=zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/terminal=kitty.desktop

@@ -1,0 +1,13 @@
+2024-11-15T13:36:18.269Z 0: 
+
+----------------------------------------------
+2024-11-15T13:36:18.278Z 1: Discord starting: {"releaseChannel":"stable","version":"0.0.74"}, modulepath: /home/bandit/.config/discord/0.0.74/modules
+2024-11-15T13:36:18.283Z 2: ✅ webContents.created web1 ""
+2024-11-15T13:36:18.290Z 3: ✅ window.created win1 "discord"
+2024-11-15T13:36:18.518Z 4: ✅ webContents.did-finish-load web1
+2024-11-15T13:36:41.605Z 5: ✅ webContents.created web2 ""
+2024-11-15T13:36:41.616Z 6: ✅ window.created win2 "Discord"
+2024-11-15T13:36:51.702Z 7: ✅ webContents.did-finish-load web2
+2024-11-15T13:36:51.803Z 8: window.close win1
+2024-11-15T13:36:51.847Z 9: webContents.destroyed web1
+2024-11-15T13:36:51.849Z 10: window.closed win1

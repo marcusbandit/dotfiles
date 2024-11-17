@@ -1,0 +1,42 @@
+/* Window Background and Rounding */
+window {
+    background-color: #2E3440;  /* Catppuccin Mocha base */
+    border-radius: 12px;        /* Smooth rounded corners */
+    padding: 10px;              /* Add some padding around content */
+}
+
+/* Entry Text and Background */
+entry {
+    color: #D8DEE9;             /* Soft text color */
+    background-color: #3B4252;  /* Background for entries */
+    border-radius: 8px;         /* Rounded corners for each entry */
+    padding: 8px 12px;          /* Space around text and icons */
+    margin-bottom: 5px;         /* Spacing between entries */
+    display: flex;              /* Align icons and text properly */
+    align-items: center;        /* Center-align icons and text */
+}
+
+/* Entry Icon Styling */
+entry > icon {
+    margin-right: 10px;         /* Space between icon and text */
+}
+
+/* Hover Effects */
+entry:hover {
+    background-color: #4C561A !important;  /* Highlight color on hover */
+    color: #E5E9F0;             /* Slightly brighter text on hover */
+}
+
+/* Selected Entry */
+entry:selected {
+    background-color: #F1A1F1 !important;  /* Light blue selection highlight */
+    color: #2E3440;             /* Dark text for contrast */
+}
+
+/* General Font Styling */
+* {
+    color: #D8DEE9;
+    font-family: "Roboto", sans-serif; /* Catppuccin-friendly font */
+    font-size: 14px;
+}
+

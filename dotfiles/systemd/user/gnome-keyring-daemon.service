@@ -1,0 +1,12 @@
+[Unit]
+Description=GNOME Keyring
+
+[Service]
+ExecStart=/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+Restart=on-failure
+Environment=DISPLAY=:0
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

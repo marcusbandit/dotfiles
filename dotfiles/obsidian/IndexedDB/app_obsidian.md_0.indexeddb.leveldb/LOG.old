@@ -1,0 +1,6 @@
+2024/11/01-13:55:35.200 1c4e8 Reusing MANIFEST /home/bandit/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/01-13:55:35.200 1c4e8 Recovering log #3
+2024/11/01-13:55:35.236 1c4e8 Reusing old log /home/bandit/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000003.log 
+2024/11/01-13:55:36.077 1c550 Level-0 table #5: started
+2024/11/01-13:55:36.115 1c550 Level-0 table #5: 1538919 bytes OK
+2024/11/01-13:55:36.118 1c550 Delete type=0 #3

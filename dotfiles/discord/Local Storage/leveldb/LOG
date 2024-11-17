@@ -1,0 +1,20 @@
+2024/11/15-14:36:18.177 19fac Reusing MANIFEST /home/bandit/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2024/11/15-14:36:18.184 19fac Recovering log #108
+2024/11/15-14:36:18.185 19fac Reusing old log /home/bandit/.config/discord/Local Storage/leveldb/000108.log 
+2024/11/15-14:52:02.654 19fad Level-0 table #112: started
+2024/11/15-14:52:02.717 19fad Level-0 table #112: 3329077 bytes OK
+2024/11/15-14:52:02.719 19fad Delete type=0 #108
+2024/11/15-14:54:52.471 19fc6 Level-0 table #114: started
+2024/11/15-14:54:52.484 19fc6 Level-0 table #114: 41351 bytes OK
+2024/11/15-14:54:52.485 19fc6 Delete type=0 #111
+2024/11/15-14:54:52.486 19fc6 Compacting 4@0 + 2@1 files
+2024/11/15-14:54:52.507 19fc6 Generated table #115@0: 6 keys, 2428895 bytes
+2024/11/15-14:54:52.526 19fc6 Generated table #116@0: 40 keys, 887053 bytes
+2024/11/15-14:54:52.527 19fc6 Compacted 4@0 + 2@1 files => 3315948 bytes
+2024/11/15-14:54:52.528 19fc6 compacted to: files[ 0 2 1 0 0 0 0 ]
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #104
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #105
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #107
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #109
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #112
+2024/11/15-14:54:52.528 19fc6 Delete type=2 #114
