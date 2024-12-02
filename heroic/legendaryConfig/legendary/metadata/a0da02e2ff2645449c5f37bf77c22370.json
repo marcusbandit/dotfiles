@@ -1,0 +1,116 @@
+{
+  "app_name": "a0da02e2ff2645449c5f37bf77c22370",
+  "app_title": "RealityCapture 1.5",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "a0da02e2ff2645449c5f37bf77c22370",
+      "asset_id": "a0da02e2ff2645449c5f37bf77c22370",
+      "build_version": "1.5.0.118050",
+      "catalog_item_id": "9d08bd6804194209b3c4817995e3f494",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "ecc92c9d225843f5827847052fb9f5f3",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "software"
+      },
+      {
+        "path": "appproxy"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2024-11-14T22:17:08.373Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "RealityCapture_1.5"
+      },
+      "PresenceID": {
+        "type": "STRING",
+        "value": "RealityCapture"
+      },
+      "ProcessNames": {
+        "type": "STRING",
+        "value": "RealityCapture.exe"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "[]"
+      },
+      "UseAccessControl": {
+        "type": "STRING",
+        "value": "false"
+      },
+      "com.epicgames.app.developerName": {
+        "type": "STRING",
+        "value": "Epic Games"
+      }
+    },
+    "description": "RealityCapture",
+    "developer": "Capturing Reality",
+    "developerId": "o-7le6rzkgmkataxcebsm3wpwcekr4xx",
+    "endOfSupport": false,
+    "entitlementName": "9d08bd6804194209b3c4817995e3f494",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "realitycapture2"
+    ],
+    "id": "9d08bd6804194209b3c4817995e3f494",
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1080,
+        "md5": "a9ee8fc3898838b615c7d13ccd4c075c",
+        "size": 4749850,
+        "type": "DieselGameBox",
+        "uploadedDate": "2024-11-20T15:30:26.753Z",
+        "url": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/EGS_Library_1920_1080_1920x1080-a9ee8fc3898838b615c7d13ccd4c075c",
+        "width": 1920
+      },
+      {
+        "height": 1600,
+        "md5": "74078872a2c0ec0b9ecb5c08f3e32840",
+        "size": 3708618,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2024-11-20T15:31:45.503Z",
+        "url": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/EGS_Library_1200_1600_1200x1600-74078872a2c0ec0b9ecb5c08f3e32840",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-11-20T15:32:10.369Z",
+    "namespace": "ecc92c9d225843f5827847052fb9f5f3",
+    "releaseInfo": [
+      {
+        "appId": "a0da02e2ff2645449c5f37bf77c22370",
+        "compatibleApps": [],
+        "dateAdded": "2024-04-19T10:17:00.000Z",
+        "id": "1450856723984e229dce21d86c5d2dd0",
+        "platform": [
+          "Windows"
+        ]
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "title": "RealityCapture 1.5",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

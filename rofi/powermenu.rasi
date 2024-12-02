@@ -1,0 +1,54 @@
+configuration {
+    font: "JetBrains Mono 12";
+    show-icons: true;
+    sidebar-mode: false;
+    location: 0;
+    fullscreen: false;
+    columns: 0;
+    auto-select: false;
+    hide-scrollbar: true;
+}
+
+* {
+    background-color: #1e1e2e;
+    foreground: #cdd6f4;
+    border-color: #313244;
+    border: 0px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+window {
+    border: 0px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #1e1e2e;
+    width: 50%;
+}
+
+mainbox {
+    orientation: horizontal; /* Align buttons horizontally */
+    spacing: 10px;
+}
+
+listview {
+    spacing: 10px;
+    padding: 0px;
+}
+
+element {
+    background-color: #313244;
+    border: 1px solid #414559;
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-align: center;
+    transition: all 0.2s ease; /* Smooth hover animation */
+}
+
+element.selected {
+    background-color: #89b4fa; /* Highlight on hover */
+    foreground: #1e1e2e;
+    transform: scale(1.1); /* Enlarge on hover */
+    box-shadow: 0px 0px 10px #89b4fa; /* Glow effect */
+}
+

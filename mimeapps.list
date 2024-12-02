@@ -1,0 +1,19 @@
+[Added Associations]
+application/json=nvim-3.desktop;nvim-2.desktop;
+application/zip=peazip-2.desktop;
+image/jpeg=imv.desktop;
+
+[Default Applications]
+application/json=nvim-3.desktop;
+application/x-7z-compressed=peazip-2.desktop
+application/x-bzip2=peazip-2.desktop
+application/x-gzip=peazip-2.desktop
+application/x-rar=peazip-2.desktop
+application/x-tar=peazip-2.desktop
+application/x-xz=peazip-2.desktop
+application/zip=peazip-2.desktop
+text/html=zen.desktop
+x-scheme-handler/about=zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/unknown=zen.desktop

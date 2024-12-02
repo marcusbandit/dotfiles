@@ -1,0 +1,55 @@
+{
+	"Celeste": {
+		"pcgamingwiki": {
+			"steamID": "",
+			"howLongToBeatID": "144955",
+			"metacritic": {
+				"score": "",
+				"urlid": ""
+			},
+			"opencritic": {
+				"score": "",
+				"urlid": ""
+			},
+			"igdb": {
+				"score": "",
+				"urlid": ""
+			},
+			"direct3DVersions": [
+				""
+			],
+			"genres": [
+				"Platform"
+			],
+			"releaseDate": [
+				"Windows: Jan 30, 2024",
+				"Linux: Jan 30, 2024",
+				"OS X: Feb 5, 2024"
+			]
+		},
+		"applegamingwiki": null,
+		"howlongtobeat": null,
+		"gamesdb": {
+			"steamID": "504230"
+		},
+		"steamInfo": {
+			"compatibilityLevel": "platinum",
+			"steamDeckCatagory": 3
+		},
+		"umuId": null
+	},
+	"__timestamp": {
+		"Celeste": "Wed Nov 20 2024 22:16:29 GMT+0100 (Central European Standard Time)",
+		"ARK ModKit (UE4)": "Thu Nov 21 2024 00:00:13 GMT+0100 (Central European Standard Time)"
+	},
+	"ARK ModKit (UE4)": {
+		"pcgamingwiki": null,
+		"applegamingwiki": null,
+		"howlongtobeat": null,
+		"gamesdb": {
+			"steamID": ""
+		},
+		"steamInfo": null,
+		"umuId": null
+	}
+}

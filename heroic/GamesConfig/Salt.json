@@ -1,0 +1,34 @@
+{
+  "Salt": {
+    "autoInstallDxvk": true,
+    "autoInstallDxvkNvapi": false,
+    "autoInstallVkd3d": true,
+    "preferSystemLibs": false,
+    "enableEsync": true,
+    "enableMsync": false,
+    "enableFsync": true,
+    "nvidiaPrime": false,
+    "enviromentOptions": [],
+    "wrapperOptions": [],
+    "savesPath": "/mnt/acer_disk/Program Files/Epic Games/Celeste/Saves/",
+    "showFps": false,
+    "useGameMode": false,
+    "battlEyeRuntime": true,
+    "eacRuntime": true,
+    "language": "",
+    "beforeLaunchScriptPath": "",
+    "afterLaunchScriptPath": "",
+    "wineVersion": {
+      "bin": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wine",
+      "name": "Wine - Wine-GE-Proton8-26",
+      "type": "wine",
+      "lib": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64",
+      "lib32": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib",
+      "wineserver": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wineserver"
+    },
+    "winePrefix": "/home/bandit/Games/Heroic/Prefixes/default/Celeste",
+    "wineCrossoverBottle": ""
+  },
+  "version": "v0",
+  "explicit": true
+}

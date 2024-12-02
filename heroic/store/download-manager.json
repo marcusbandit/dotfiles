@@ -1,0 +1,52 @@
+{
+	"finished": [
+		{
+			"params": {
+				"appName": "Salt",
+				"path": "/home/bandit/Games/Heroic",
+				"installDlcs": [],
+				"sdlList": [],
+				"installLanguage": "",
+				"runner": "legendary",
+				"platformToInstall": "Windows",
+				"gameInfo": {
+					"app_name": "Salt",
+					"art_cover": "https://cdn1.epicgames.com/item/b671fbc7be424e888c9346a9a6d3d9db/Celeste-landscapeofferimage-2560x1440-0b9b94fd493d817704ecfdf4c704989a_2560x1440-0b9b94fd493d817704ecfdf4c704989a",
+					"art_square": "https://cdn1.epicgames.com/item/b671fbc7be424e888c9346a9a6d3d9db/CodeRedemption_Celeste-340x440-873dacb76be8c59d659757b4b5284a611_1200x1600-9e39079f1ce19738e65d349a8bc98650",
+					"cloud_save_enabled": true,
+					"developer": "Maddy Makes Games",
+					"extra": {
+						"about": {
+							"description": "Celeste",
+							"shortDescription": ""
+						},
+						"reqs": [],
+						"storeUrl": "https://www.epicgames.com/store/product/celeste"
+					},
+					"folder_name": "Celeste",
+					"install": {
+						"install_size": "0",
+						"is_dlc": false
+					},
+					"is_installed": false,
+					"namespace": "b671fbc7be424e888c9346a9a6d3d9db",
+					"is_mac_native": true,
+					"save_folder": "{InstallDir}/Saves/",
+					"title": "Celeste",
+					"canRunOffline": true,
+					"isEAManaged": false,
+					"is_linux_native": false,
+					"runner": "legendary",
+					"store_url": "https://www.epicgames.com/store/product/celeste"
+				},
+				"size": "817.36 MiB"
+			},
+			"type": "install",
+			"addToQueueTime": 1732139604379,
+			"endTime": 1732139668059,
+			"startTime": 1732139604381,
+			"status": "done"
+		}
+	],
+	"queue": []
+}

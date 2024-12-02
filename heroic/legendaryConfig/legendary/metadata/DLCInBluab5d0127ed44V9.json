@@ -1,0 +1,182 @@
+{
+  "app_name": "DLCInBluab5d0127ed44V9",
+  "app_title": "DLC In Blueprints Pro V3",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "DLCInBluab5d0127ed44V9",
+      "asset_id": "DLCInBluab5d0127ed44V9",
+      "build_version": "5.5.0-38223218+++UE5+Dev-Marketplace-Windows",
+      "catalog_item_id": "f27e3b625a444defbf24f2d04ef2d1e6",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "89efe5924d3d467c839449ab6ab52e7f",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "categories": [
+      {
+        "path": "plugins/engine"
+      },
+      {
+        "path": "plugins"
+      },
+      {
+        "path": "asset-format/game-engine"
+      },
+      {
+        "path": "type/format-item"
+      },
+      {
+        "path": "asset-format/game-engine/unreal-engine"
+      },
+      {
+        "path": "type"
+      },
+      {
+        "path": "asset-format"
+      }
+    ],
+    "creationDate": "2024-09-17T17:00:29.787Z",
+    "customAttributes": {
+      "ListingIdentifier": {
+        "type": "STRING",
+        "value": "600aea4e-c67c-43a3-8312-c11f02df52fb"
+      }
+    },
+    "description": "DLC In Blueprints Pro V3",
+    "developer": "Komodobit Games",
+    "developerId": "o-gz3f5t658b3z56vbeee8dpzpdekcpk",
+    "endOfSupport": false,
+    "entitlementName": "f27e3b625a444defbf24f2d04ef2d1e6",
+    "entitlementType": "AUDIENCE",
+    "id": "f27e3b625a444defbf24f2d04ef2d1e6",
+    "itemType": "DURABLE",
+    "keyImages": [],
+    "lastModifiedDate": "2024-11-19T21:29:06.168Z",
+    "namespace": "89efe5924d3d467c839449ab6ab52e7f",
+    "releaseInfo": [
+      {
+        "appId": "SteamDLCInBP_4.25",
+        "compatibleApps": [
+          "UE_4.25"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "4ac775fd8e5746d6b2ddeccc5de797c6",
+        "platform": [
+          "Win32",
+          "Windows"
+        ],
+        "versionTitle": "DLC In Blueprints V2 ue4.25"
+      },
+      {
+        "appId": "SteamDLCInBP_4.26",
+        "compatibleApps": [
+          "UE_4.26"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "6e38b159ab644ed8831f4dfb83ea9a5b",
+        "platform": [
+          "Windows",
+          "Win32"
+        ],
+        "versionTitle": "DLC In Blueprints V2 ue4.26"
+      },
+      {
+        "appId": "SteamDLCInBP_4.27",
+        "compatibleApps": [
+          "UE_4.27"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "e3fe38d8193e4c4aaae66b9facd42e7c",
+        "platform": [
+          "Windows",
+          "Win32"
+        ],
+        "versionTitle": "DLC In Blueprints V3 4.27"
+      },
+      {
+        "appId": "SteamDLCInBP_5.0",
+        "compatibleApps": [
+          "UE_5.0"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "02d5589b4eea48199660f33a9729b91e",
+        "platform": [
+          "Windows",
+          "Win32"
+        ],
+        "versionTitle": "DLC In Blueprints V3 ue5"
+      },
+      {
+        "appId": "SteamDLCInBP_5.1",
+        "compatibleApps": [
+          "UE_5.1"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "5e841baee63946f99cd32f9085203f46",
+        "platform": [
+          "Win32",
+          "Windows"
+        ],
+        "versionTitle": "DLC In Blueprints V3 5.1"
+      },
+      {
+        "appId": "SteamDLCInBP_5.2",
+        "compatibleApps": [
+          "UE_5.2"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "96bc538040f540ddbb34e1dabb09428b",
+        "platform": [
+          "Windows",
+          "Win32"
+        ],
+        "versionTitle": "DLC In Blueprints V3 5.2"
+      },
+      {
+        "appId": "SteamDLCInBP_5.3",
+        "compatibleApps": [
+          "UE_5.3"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "fa5c59fed35c4b5c884798fac8744033",
+        "platform": [
+          "Windows",
+          "Win32"
+        ],
+        "versionTitle": "DLC in Blueprints V3 5.3"
+      },
+      {
+        "appId": "SteamDLCInBP_5.4",
+        "compatibleApps": [
+          "UE_5.4"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "f981936cd817493a8dae42db64c9ddc6",
+        "platform": [
+          "Windows"
+        ],
+        "versionTitle": "DLC In Blueprints V3 5.4"
+      },
+      {
+        "appId": "DLCInBluab5d0127ed44V9",
+        "compatibleApps": [
+          "UE_5.5"
+        ],
+        "dateAdded": "2024-11-18T18:45:40.811Z",
+        "id": "e4bf29ee337e43d186a13586da1672fc",
+        "platform": [
+          "Windows"
+        ],
+        "versionTitle": "5.5"
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "title": "DLC In Blueprints Pro V3",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

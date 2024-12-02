@@ -1,0 +1,446 @@
+/opt/olympus
+[sharp] New TCP connection: 127.0.0.1:44102
+[sharp] Executing getversionstring
+[sharp] Executing getrunningpath
+[sharp] Executing getmodidtonamemap
+[CmdGetIdToNameMap] Cache location set to: /home/bandit/.config/Olympus/cached-mod-ids-to-names.json
+[CmdGetIdToNameMap] Loading mod IDs from maddie480.ovh
+[sharp] Executing getuwppackagepath
+[sharp] Executing modlist
+[sharp] New CmdTask: (modlist)(thread#28>sharp.lua:431<scenes/modlist.lua:796)#1
+[CmdGetIdToNameMap] Loading mod IDs from /home/bandit/.config/Olympus/cached-mod-ids-to-names.json
+[sharp] Executing updateallmods
+[sharp] New CmdTask: (updateAllMods)(thread#34>sharp.lua:431<modupdater.lua:27)#1
+[CmdUpdateAllMods] Fetching mod updater database URL
+[CmdUpdateAllMods] Downloading last versions list from https://maddie480.ovh/celeste/everest_update.yaml
+[CmdUpdateAllMods] Downloaded 3654 item(s)
+[CmdGetIdToNameMap] Loading mod IDs from /home/bandit/.config/Olympus/cached-mod-ids-to-names.json
+[CmdUpdateAllMods] Mod 1DU: installed hash 0641b9f25dc55e91, latest hash(es) 0641b9f25dc55e91
+[CmdUpdateAllMods] Mod AchievementHelper: installed hash dcd03e391a16b42e, latest hash(es) dcd03e391a16b42e
+[CmdUpdateAllMods] Mod AdventureHelper: installed hash 0b8a1cbdd6e54a9b, latest hash(es) 0b8a1cbdd6e54a9b
+[CmdUpdateAllMods] Mod AltSidesHelper: installed hash 3a563d92a6d3de74, latest hash(es) 3a563d92a6d3de74
+[CmdUpdateAllMods] Mod AnarchyCollab2022: installed hash ab0c5086fabff61d, latest hash(es) ab0c5086fabff61d
+[CmdUpdateAllMods] Mod Anonhelper: installed hash bdcce187c9e25780, latest hash(es) bdcce187c9e25780
+[CmdUpdateAllMods] Mod ArphimigonsToyBox: installed hash 268be6f57b3a2b16, latest hash(es) c6ee7e26a3503563
+[CmdUpdateAllMods] Mod AuraHelper: installed hash 7772496885a25d77, latest hash(es) 7772496885a25d77
+[CmdUpdateAllMods] Mod AurorasHelper: installed hash 578a1aa6b46169f5, latest hash(es) df6cba709096e5f0
+[CmdUpdateAllMods] Mod Batteries: installed hash 18045f1ed3aab7a0, latest hash(es) 18045f1ed3aab7a0
+[CmdUpdateAllMods] Mod BGswitch: installed hash c59aa5bd3873b657, latest hash(es) c59aa5bd3873b657
+[CmdUpdateAllMods] Mod BounceHelper: installed hash 79481afb6a236e69, latest hash(es) 5a11111dab812825
+[CmdUpdateAllMods] Mod BrokemiaHelper: installed hash d40f02061a7d352d, latest hash(es) 8bdd5fb47eeb341e
+[CmdUpdateAllMods] Mod CanyonHelper: installed hash 71b58c28e75814af, latest hash(es) 71b58c28e75814af
+[CmdUpdateAllMods] Mod CavernHelper: installed hash c8e0354f3a424f51, latest hash(es) c8e0354f3a424f51
+[CmdUpdateAllMods] Mod CelesteNet.Client: installed hash b3335cee15e17977, latest hash(es) ead228d78286bb53
+[CmdUpdateAllMods] Mod CelesteTAS: installed hash 99d373dde6893725, latest hash(es) 5ed5cd758da3bba3
+[CmdUpdateAllMods] Mod CherryHelper: installed hash 091f46ded41711cc, latest hash(es) 5db612f7034b3a18
+[CmdUpdateAllMods] Mod ChineseNewYear2023Helper: installed hash 1f3a0dd966fb8659, latest hash(es) 1f3a0dd966fb8659
+[CmdUpdateAllMods] Mod ChineseNewYear2024Collab: installed hash b8907bd14647426f, latest hash(es) b8907bd14647426f
+[CmdUpdateAllMods] Mod ChronoHelper: installed hash acbc4edc68d07a7d, latest hash(es) bf3d534474bfcea6
+[CmdUpdateAllMods] Mod Cloudy Cliffs: installed hash 0bef55fdf984727f, latest hash(es) 0bef55fdf984727f
+[CmdUpdateAllMods] Mod CNY2024Helper: installed hash 52ad705d8628215e, latest hash(es) 31ebd150e211e28c
+[CmdUpdateAllMods] Mod CollabUtils2: installed hash 9e78155bd2987123, latest hash(es) d131123d944717fb
+[CmdUpdateAllMods] Mod ColoredLights: installed hash ccbc64f7f8deff5d, latest hash(es) ccbc64f7f8deff5d
+[CmdUpdateAllMods] Mod CommunalHelper: installed hash 2bd6a022261b2f38, latest hash(es) 2bd6a022261b2f38
+[CmdUpdateAllMods] Mod ContortHelper: installed hash 075ac8f66079dc61, latest hash(es) 075ac8f66079dc61
+[CmdUpdateAllMods] Mod CrystallineHelper: installed hash e0904d6ee2875546, latest hash(es) baa4b60f7200a04e
+[CmdUpdateAllMods] Mod DisposableTheo: installed hash c5fad1d2fbadd0a6, latest hash(es) c5fad1d2fbadd0a6
+[CmdUpdateAllMods] Mod DJMapHelper: installed hash 4a4929ba32ffc38b, latest hash(es) 4a4929ba32ffc38b
+[CmdUpdateAllMods] Mod EeveeHelper: installed hash ef55a5a7bce37056, latest hash(es) 36fe3b343d924ce3
+[CmdUpdateAllMods] Mod ElectionDSide: installed hash 9833408b1b3d0cf8, latest hash(es) 9833408b1b3d0cf8
+[CmdUpdateAllMods] Mod EmHelper: installed hash e6ee4a9e1c495090, latest hash(es) e6ee4a9e1c495090
+[CmdUpdateAllMods] Mod ExtendedVariantMode: installed hash 1cf756d6c85bc5d0, latest hash(es) 72a26daf7a13e947
+[CmdUpdateAllMods] Mod FactoryHelper: installed hash 782ffda478e0b015, latest hash(es) 782ffda478e0b015
+[CmdUpdateAllMods] Mod FancyTileEntities: installed hash 2ab2887ca7252406, latest hash(es) 2ab2887ca7252406
+[CmdUpdateAllMods] Mod FemtoHelper: installed hash 65839e3ff7807df8, latest hash(es) ff59c2d6338f1870
+[CmdUpdateAllMods] Mod FlaglinesAndSuch: installed hash a996080792545341, latest hash(es) 1c73c83b96c35a0d
+[CmdUpdateAllMods] Mod FlamecrafterAssetPack: installed hash 46e76dbd0a8ed146, latest hash(es) 46e76dbd0a8ed146
+[CmdUpdateAllMods] Mod Frieren_SkinOnly: installed hash 175f7f2ffbc03c3d, latest hash(es) 175f7f2ffbc03c3d
+[CmdUpdateAllMods] Mod FrostHelper: installed hash 5973cc5dbd63e88e, latest hash(es) b7d4e5174c3985ab
+[CmdUpdateAllMods] Mod FurryHelper: installed hash eb83d268d7fe2503, latest hash(es) eb83d268d7fe2503
+[CmdUpdateAllMods] Mod GalacticaHelper: installed hash 22d027f94ce5f6fb, latest hash(es) 22d027f94ce5f6fb
+[CmdUpdateAllMods] Mod GalleryCollabAudio: installed hash 7226164ff7c85a16, latest hash(es) 7226164ff7c85a16
+[CmdUpdateAllMods] Mod GatekeepHelper: installed hash 0f5ee8209c14b33e, latest hash(es) 0f5ee8209c14b33e
+[CmdUpdateAllMods] Mod GlassHelper: installed hash f55e24907adef5e0, latest hash(es) c00b519ea6574a53
+[CmdUpdateAllMods] Mod GlitchHelper: installed hash 49d41cd4aeea0433, latest hash(es) 49d41cd4aeea0433
+[CmdUpdateAllMods] Mod Glyph: installed hash 259e13f4384a0aa9, latest hash(es) f157cf1ac079bb81
+[CmdUpdateAllMods] Mod GlyphAudio: installed hash 9b69ef7fe279a8a6, latest hash(es) 9b69ef7fe279a8a6
+[CmdUpdateAllMods] Mod GravityHelper: installed hash 922abcf23b435ba0, latest hash(es) 922abcf23b435ba0
+[CmdUpdateAllMods] Mod GrayscaleStylegrounds: installed hash 5a4d7042671c3d37, latest hash(es) 5a4d7042671c3d37
+[CmdUpdateAllMods] Mod HelperTestMapHider: installed hash 4928ce769098c047, latest hash(es) 4928ce769098c047
+[CmdUpdateAllMods] Mod HitboxFixer: installed hash f6e47e2a44d2763d, latest hash(es) f6e47e2a44d2763d
+[CmdUpdateAllMods] Mod Holly_Inwards: installed hash 3ab6531591f1419d, latest hash(es) 3ab6531591f1419d
+[CmdUpdateAllMods] Mod HonlyHelper: installed hash 63cb16d7e31df4d4, latest hash(es) 63cb16d7e31df4d4
+[CmdUpdateAllMods] Mod IsaGrabBag: installed hash c48183fbbd80207a, latest hash(es) c48183fbbd80207a
+[CmdUpdateAllMods] Mod JackalHelper: installed hash b082132d70c48fa9, latest hash(es) 67a8e86af7b715f3
+[CmdUpdateAllMods] Mod JungleHelper: installed hash 561b92297447562b, latest hash(es) 561b92297447562b
+[CmdUpdateAllMods] Mod LuaCutscenes: installed hash 8db1263540f24322, latest hash(es) 482b756b4abdbaf3
+[CmdUpdateAllMods] Mod LunaticHelper: installed hash 684181314d7be3d6, latest hash(es) 684181314d7be3d6
+[CmdUpdateAllMods] Mod LylyraHelper: installed hash 6d83243d7c47efd1, latest hash(es) 8b834acea6ad610d
+[CmdUpdateAllMods] Mod MaxHelpingHand: installed hash 48170a47a8c4de7f, latest hash(es) 56d370e71094b988
+[CmdUpdateAllMods] Mod memorialHelper: installed hash 328b779b6af5289d, latest hash(es) 328b779b6af5289d
+[CmdUpdateAllMods] Mod Monika's D-Sides Audio: installed hash d76894e238ed80ce, latest hash(es) d76894e238ed80ce
+[CmdUpdateAllMods] Mod Monika's D-Sides: installed hash 8c0dc54601cd945f, latest hash(es) dcd23828f2442fe1
+[CmdUpdateAllMods] Mod MoreDasheline: installed hash 3bb574e4174d801d, latest hash(es) 3bb574e4174d801d
+[CmdUpdateAllMods] Mod NerdHelper: installed hash 6711342b84c9ef32, latest hash(es) cc9951c6fb3bc995
+[CmdUpdateAllMods] Mod OutbackHelper: installed hash 232e88c56dcd6c63, latest hash(es) 232e88c56dcd6c63
+[CmdUpdateAllMods] Mod PandorasBox: installed hash f6fd42823a801f81, latest hash(es) f6fd42823a801f81
+[CmdUpdateAllMods] Mod PrismaticHelper: installed hash 2ad56e7c3ca3a77b, latest hash(es) 2ad56e7c3ca3a77b
+[CmdUpdateAllMods] Mod qtpicatpack: installed hash 56bb89abff5d9725, latest hash(es) 56bb89abff5d9725
+[CmdUpdateAllMods] Mod qtpistroll: installed hash 4ddd68ff828b671e, latest hash(es) 4ddd68ff828b671e
+[CmdUpdateAllMods] Mod SafeRespawnCrumble: installed hash 27e6113ab71aaa23, latest hash(es) 27e6113ab71aaa23
+[CmdUpdateAllMods] Mod SaladimHelper: installed hash 7bea863158df1576, latest hash(es) 7cf772ed052e1ac7
+[CmdUpdateAllMods] Mod Sardine7: installed hash ea35fe697468ab86, latest hash(es) ea35fe697468ab86
+[CmdUpdateAllMods] Mod ShrimpHelper: installed hash 4509d866bb2667f6, latest hash(es) 9458435465e54392
+[CmdUpdateAllMods] Mod ShroomHelper: installed hash 5ede070aeedcfd70, latest hash(es) 6b2216391e39b8d6
+[CmdUpdateAllMods] Mod SkinModHelper: installed hash 25286b0d9e4c91b5, latest hash(es) 25286b0d9e4c91b5
+[CmdUpdateAllMods] Mod SkinModHelperPlus: installed hash bd26c7cb18d6fc7b, latest hash(es) 66695f5222ceb6a1
+[CmdUpdateAllMods] Mod SorbetHelper: installed hash e0e24c76992c99c8, latest hash(es) c78efded0a0c3529
+[CmdUpdateAllMods] Mod SpeedrunTool: installed hash f797001f3266c7b8, latest hash(es) f797001f3266c7b8
+[CmdUpdateAllMods] Mod SpirialisHelper: installed hash 4f3b825da1877960, latest hash(es) 4f3b825da1877960
+[CmdUpdateAllMods] Mod SSMHelper: installed hash 9b06dc28fd41acd4, latest hash(es) 15ea07d17b045020
+[CmdUpdateAllMods] Mod SteamAchievementPack: installed hash 7767c08cc49f8e76, latest hash(es) 7767c08cc49f8e76
+[CmdUpdateAllMods] Mod StrawberryJam2021: installed hash 050228972e03a32f, latest hash(es) 050228972e03a32f
+[CmdUpdateAllMods] Mod StrawberryJam2021Assets: installed hash d4dfd9d42f168c10, latest hash(es) d4dfd9d42f168c10
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioA: installed hash acb91335b7aa0b99, latest hash(es) acb91335b7aa0b99
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioB: installed hash 73ef9516663cda66, latest hash(es) 73ef9516663cda66
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioC: installed hash 3b296c7031db52ba, latest hash(es) 3b296c7031db52ba
+[CmdUpdateAllMods] Mod StyleMaskHelper: installed hash bfa32289da7df75e, latest hash(es) bfa32289da7df75e
+[CmdUpdateAllMods] Mod SwapBlockMap: installed hash 45f51f9fd0c07b72, latest hash(es) 45f51f9fd0c07b72
+[CmdUpdateAllMods] Mod TASHelper: installed hash 714a9f1a03a78eb9, latest hash(es) d8118a6d3d92f256
+[CmdUpdateAllMods] Mod Troll's Audio Grab Bag: installed hash 85eb1b8f924c77b8, latest hash(es) 85eb1b8f924c77b8
+[CmdUpdateAllMods] Mod trolls_effect_grab_bag: installed hash 7457175b4d635782, latest hash(es) 7457175b4d635782
+[CmdUpdateAllMods] Mod TrollSides: installed hash a3031fdb875b69e7, latest hash(es) 59a2189af7ca6122
+[CmdUpdateAllMods] Mod TwigHelper: installed hash 8926f94a66ddf8a5, latest hash(es) f54ab2fd93db92c3
+[CmdUpdateAllMods] Mod twoc: installed hash df7c4d4e9a8727c5, latest hash(es) df7c4d4e9a8727c5
+[CmdUpdateAllMods] Mod UnderDragonDec: installed hash 80c586f2d02cd8af, latest hash(es) 80c586f2d02cd8af
+[CmdUpdateAllMods] Mod UnderDragon's Repository: installed hash de5f35b3484db46a, latest hash(es) ecb215140504b5ba
+[CmdUpdateAllMods] Mod VivHelper: installed hash 792ff042d3c16852, latest hash(es) 792ff042d3c16852
+[CmdUpdateAllMods] Mod VortexHelper: installed hash 0fbe1fb05d5b86a6, latest hash(es) 760faa8109df89f2
+[CmdUpdateAllMods] Mod XaphanHelper: installed hash 5742524d51e4af14, latest hash(es) 5742524d51e4af14
+[CmdUpdateAllMods] Mod YetAnotherHelper: installed hash 002dad0a7bd327ab, latest hash(es) 002dad0a7bd327ab
+[CmdUpdateAllMods] Mod zbs_Hilda: installed hash 1b995070c0120ae7, latest hash(es) 67122b2bf9c3079e
+[CmdUpdateAllMods] 36 update(s) available
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1236938
+Downloading 1236938
+
+Downloaded 23882553 bytes in 11.96 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is c6ee7e26a3503563, expected hash is c6ee7e26a3503563
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ArphimigonsToyBox.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ArphimigonsToyBox.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1246583
+Downloading 1246583
+
+Downloaded 191100 bytes in 1.07 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is df6cba709096e5f0, expected hash is df6cba709096e5f0
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/AurorasHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/AurorasHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1323394
+Downloading 1323394
+
+Downloaded 433949 bytes in 1.05 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 5a11111dab812825, expected hash is 5a11111dab812825
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/BounceHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/BounceHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1302660
+Downloading 1302660
+
+Downloaded 386256 bytes in 1.04 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 8bdd5fb47eeb341e, expected hash is 8bdd5fb47eeb341e
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/BrokemiaHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/BrokemiaHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1266572
+Downloading 1266572
+
+Downloaded 523643 bytes in 1.15 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is ead228d78286bb53, expected hash is ead228d78286bb53
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CelesteNet.Client.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CelesteNet.Client.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1322873
+Downloading 1322873
+
+Downloaded 693196 bytes in 0.83 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 5ed5cd758da3bba3, expected hash is 5ed5cd758da3bba3
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CelesteTAS.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CelesteTAS.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1308713
+Downloading 1308713
+
+Downloaded 1344807 bytes in 0.95 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 5db612f7034b3a18, expected hash is 5db612f7034b3a18
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CherryHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CherryHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1323755
+Downloading 1323755
+
+Downloaded 529546 bytes in 1.41 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is bf3d534474bfcea6, expected hash is bf3d534474bfcea6
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ChronoHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ChronoHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1254256
+Downloading 1254256
+
+Downloaded 50539 bytes in 0.84 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 31ebd150e211e28c, expected hash is 31ebd150e211e28c
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CNY2024Helper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CNY2024Helper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1303159
+Downloading 1303159
+
+Downloaded 5305375 bytes in 1.45 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is d131123d944717fb, expected hash is d131123d944717fb
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CollabUtils2.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CollabUtils2.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1316131
+Downloading 1316131
+
+Downloaded 8878881 bytes in 5.06 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is baa4b60f7200a04e, expected hash is baa4b60f7200a04e
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CrystallineHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/CrystallineHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1297772
+Downloading 1297772
+
+Downloaded 215542 bytes in 0.96 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 36fe3b343d924ce3, expected hash is 36fe3b343d924ce3
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/EeveeHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/EeveeHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1293187
+Downloading 1293187
+
+Downloaded 462754 bytes in 1.13 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 72a26daf7a13e947, expected hash is 72a26daf7a13e947
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ExtendedVariantMode.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ExtendedVariantMode.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1309489
+Downloading 1309489
+
+Downloaded 7550977 bytes in 1.51 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is ff59c2d6338f1870, expected hash is ff59c2d6338f1870
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FemtoHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FemtoHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1291392
+Downloading 1291392
+
+Downloaded 684689 bytes in 1.12 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 1c73c83b96c35a0d, expected hash is 1c73c83b96c35a0d
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FlaglinesAndSuch.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FlaglinesAndSuch.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1326172
+Downloading 1326172
+
+Downloaded 1081261 bytes in 7.08 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is b7d4e5174c3985ab, expected hash is b7d4e5174c3985ab
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FrostHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/FrostHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1274205
+Downloading 1274205
+
+Downloaded 56411 bytes in 0.81 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is c00b519ea6574a53, expected hash is c00b519ea6574a53
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/GlassHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/GlassHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1247390
+Downloading 1247390
+
+Downloaded 29213443 bytes in 3.08 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is f157cf1ac079bb81, expected hash is f157cf1ac079bb81
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/Glyph.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/Glyph.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1308700
+Downloading 1308700
+
+Downloaded 9029565 bytes in 9.75 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 67a8e86af7b715f3, expected hash is 67a8e86af7b715f3
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/JackalHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/JackalHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1305773
+Downloading 1305773
+
+Downloaded 43788 bytes in 0.82 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 482b756b4abdbaf3, expected hash is 482b756b4abdbaf3
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/LuaCutscenes.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/LuaCutscenes.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1319831
+Downloading 1319831
+
+Downloaded 4142333 bytes in 1.41 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 8b834acea6ad610d, expected hash is 8b834acea6ad610d
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/LylyraHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/LylyraHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1324956
+Downloading 1324956
+
+Downloaded 1001987 bytes in 1.21 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 56d370e71094b988, expected hash is 56d370e71094b988
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/MaxHelpingHand.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/MaxHelpingHand.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1222357
+Downloading 1222357
+
+Downloaded 135338529 bytes in 20.93 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is dcd23828f2442fe1, expected hash is dcd23828f2442fe1
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/Monika's D-Sides.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/Monika's D-Sides.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1275381
+Downloading 1275381
+
+Downloaded 36061 bytes in 0.79 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is cc9951c6fb3bc995, expected hash is cc9951c6fb3bc995
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/NerdHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/NerdHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1324134
+Downloading 1324134
+
+Downloaded 519372 bytes in 1.14 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 7cf772ed052e1ac7, expected hash is 7cf772ed052e1ac7
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SaladimHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SaladimHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1217842
+Downloading 1217842
+
+Downloaded 84243 bytes in 0.86 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 9458435465e54392, expected hash is 9458435465e54392
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ShrimpHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ShrimpHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1315848
+Downloading 1315848
+
+Downloaded 1824144 bytes in 1.22 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 6b2216391e39b8d6, expected hash is 6b2216391e39b8d6
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ShroomHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/ShroomHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1325335
+Downloading 1325335
+
+Downloaded 113408 bytes in 0.62 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 66695f5222ceb6a1, expected hash is 66695f5222ceb6a1
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SkinModHelperPlus.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SkinModHelperPlus.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1324146
+Downloading 1324146
+
+Downloaded 191197 bytes in 1.27 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is c78efded0a0c3529, expected hash is c78efded0a0c3529
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SorbetHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SorbetHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1313876
+Downloading 1313876
+
+Downloaded 353081 bytes in 0.71 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 15ea07d17b045020, expected hash is 15ea07d17b045020
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SSMHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/SSMHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1317429
+Downloading 1317429
+
+Downloaded 350219 bytes in 1.30 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is d8118a6d3d92f256, expected hash is d8118a6d3d92f256
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TASHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TASHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1310326
+Downloading 1310326
+
+Downloaded 21081714 bytes in 2.54 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 59a2189af7ca6122, expected hash is 59a2189af7ca6122
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TrollSides.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TrollSides.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1294578
+Downloading 1294578
+
+Downloaded 293 bytes in 1.04 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is f54ab2fd93db92c3, expected hash is f54ab2fd93db92c3
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TwigHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/TwigHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1323149
+Downloading 1323149
+
+Downloaded 27545073 bytes in 3.08 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is ecb215140504b5ba, expected hash is ecb215140504b5ba
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/UnderDragon's Repository.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/UnderDragon's Repository.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1319100
+Downloading 1319100
+
+Downloaded 2194085 bytes in 1.51 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 760faa8109df89f2, expected hash is 760faa8109df89f2
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/VortexHelper.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/VortexHelper.zip
+[CmdUpdateAllMods] Downloading mod from https://gamebanana.com/mmdl/1305082
+Downloading 1305082
+
+Downloaded 10763730 bytes in 3.25 seconds.
+[CmdUpdateAllMods] Verifying checksum: actual hash is 67122b2bf9c3079e, expected hash is 67122b2bf9c3079e
+[CmdUpdateAllMods] Deleting mod .zip: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/zbs_Hilda.zip
+[CmdUpdateAllMods] Moving /home/bandit/.local/share/Steam/steamapps/common/Celeste/mod-update.zip to /home/bandit/.local/share/Steam/steamapps/common/Celeste/Mods/zbs_Hilda.zip
+[sharp] Executing modlist
+[sharp] New CmdTask: (modlist)(thread#250>sharp.lua:431<scenes/modlist.lua:796)#1
+[CmdGetIdToNameMap] Loading mod IDs from /home/bandit/.config/Olympus/cached-mod-ids-to-names.json
+[sharp] Executing getversionstring
+[sharp] Executing updateallmods
+[sharp] New CmdTask: (updateAllMods)(thread#255>sharp.lua:431<modupdater.lua:27)#1
+[CmdUpdateAllMods] Fetching mod updater database URL
+[CmdUpdateAllMods] Downloading last versions list from https://maddie480.ovh/celeste/everest_update.yaml
+[CmdUpdateAllMods] Downloaded 3654 item(s)
+[CmdGetIdToNameMap] Loading mod IDs from /home/bandit/.config/Olympus/cached-mod-ids-to-names.json
+[CmdUpdateAllMods] Mod AdventureHelper: installed hash 0b8a1cbdd6e54a9b, latest hash(es) 0b8a1cbdd6e54a9b
+[CmdUpdateAllMods] Mod Anonhelper: installed hash bdcce187c9e25780, latest hash(es) bdcce187c9e25780
+[CmdUpdateAllMods] Mod Batteries: installed hash 18045f1ed3aab7a0, latest hash(es) 18045f1ed3aab7a0
+[CmdUpdateAllMods] Mod BGswitch: installed hash c59aa5bd3873b657, latest hash(es) c59aa5bd3873b657
+[CmdUpdateAllMods] Mod BounceHelper: installed hash 5a11111dab812825, latest hash(es) 5a11111dab812825
+[CmdUpdateAllMods] Mod BrokemiaHelper: installed hash 8bdd5fb47eeb341e, latest hash(es) 8bdd5fb47eeb341e
+[CmdUpdateAllMods] Mod CanyonHelper: installed hash 71b58c28e75814af, latest hash(es) 71b58c28e75814af
+[CmdUpdateAllMods] Mod CavernHelper: installed hash c8e0354f3a424f51, latest hash(es) c8e0354f3a424f51
+[CmdUpdateAllMods] Mod CelesteTAS: installed hash 5ed5cd758da3bba3, latest hash(es) 5ed5cd758da3bba3
+[CmdUpdateAllMods] Mod CherryHelper: installed hash 5db612f7034b3a18, latest hash(es) 5db612f7034b3a18
+[CmdUpdateAllMods] Mod CollabUtils2: installed hash d131123d944717fb, latest hash(es) d131123d944717fb
+[CmdUpdateAllMods] Mod ColoredLights: installed hash ccbc64f7f8deff5d, latest hash(es) ccbc64f7f8deff5d
+[CmdUpdateAllMods] Mod CommunalHelper: installed hash 2bd6a022261b2f38, latest hash(es) 2bd6a022261b2f38
+[CmdUpdateAllMods] Mod ContortHelper: installed hash 075ac8f66079dc61, latest hash(es) 075ac8f66079dc61
+[CmdUpdateAllMods] Mod CrystallineHelper: installed hash baa4b60f7200a04e, latest hash(es) baa4b60f7200a04e
+[CmdUpdateAllMods] Mod DisposableTheo: installed hash c5fad1d2fbadd0a6, latest hash(es) c5fad1d2fbadd0a6
+[CmdUpdateAllMods] Mod DJMapHelper: installed hash 4a4929ba32ffc38b, latest hash(es) 4a4929ba32ffc38b
+[CmdUpdateAllMods] Mod EeveeHelper: installed hash 36fe3b343d924ce3, latest hash(es) 36fe3b343d924ce3
+[CmdUpdateAllMods] Mod EmHelper: installed hash e6ee4a9e1c495090, latest hash(es) e6ee4a9e1c495090
+[CmdUpdateAllMods] Mod ExtendedVariantMode: installed hash 72a26daf7a13e947, latest hash(es) 72a26daf7a13e947
+[CmdUpdateAllMods] Mod FactoryHelper: installed hash 782ffda478e0b015, latest hash(es) 782ffda478e0b015
+[CmdUpdateAllMods] Mod FancyTileEntities: installed hash 2ab2887ca7252406, latest hash(es) 2ab2887ca7252406
+[CmdUpdateAllMods] Mod FemtoHelper: installed hash ff59c2d6338f1870, latest hash(es) ff59c2d6338f1870
+[CmdUpdateAllMods] Mod FlaglinesAndSuch: installed hash 1c73c83b96c35a0d, latest hash(es) 1c73c83b96c35a0d
+[CmdUpdateAllMods] Mod FrostHelper: installed hash b7d4e5174c3985ab, latest hash(es) b7d4e5174c3985ab
+[CmdUpdateAllMods] Mod FurryHelper: installed hash eb83d268d7fe2503, latest hash(es) eb83d268d7fe2503
+[CmdUpdateAllMods] Mod GravityHelper: installed hash 922abcf23b435ba0, latest hash(es) 922abcf23b435ba0
+[CmdUpdateAllMods] Mod HitboxFixer: installed hash f6e47e2a44d2763d, latest hash(es) f6e47e2a44d2763d
+[CmdUpdateAllMods] Mod HonlyHelper: installed hash 63cb16d7e31df4d4, latest hash(es) 63cb16d7e31df4d4
+[CmdUpdateAllMods] Mod IsaGrabBag: installed hash c48183fbbd80207a, latest hash(es) c48183fbbd80207a
+[CmdUpdateAllMods] Mod JackalHelper: installed hash 67a8e86af7b715f3, latest hash(es) 67a8e86af7b715f3
+[CmdUpdateAllMods] Mod JungleHelper: installed hash 561b92297447562b, latest hash(es) 561b92297447562b
+[CmdUpdateAllMods] Mod LuaCutscenes: installed hash 482b756b4abdbaf3, latest hash(es) 482b756b4abdbaf3
+[CmdUpdateAllMods] Mod LunaticHelper: installed hash 684181314d7be3d6, latest hash(es) 684181314d7be3d6
+[CmdUpdateAllMods] Mod MaxHelpingHand: installed hash 56d370e71094b988, latest hash(es) 56d370e71094b988
+[CmdUpdateAllMods] Mod memorialHelper: installed hash 328b779b6af5289d, latest hash(es) 328b779b6af5289d
+[CmdUpdateAllMods] Mod MoreDasheline: installed hash 3bb574e4174d801d, latest hash(es) 3bb574e4174d801d
+[CmdUpdateAllMods] Mod OutbackHelper: installed hash 232e88c56dcd6c63, latest hash(es) 232e88c56dcd6c63
+[CmdUpdateAllMods] Mod PandorasBox: installed hash f6fd42823a801f81, latest hash(es) f6fd42823a801f81
+[CmdUpdateAllMods] Mod SafeRespawnCrumble: installed hash 27e6113ab71aaa23, latest hash(es) 27e6113ab71aaa23
+[CmdUpdateAllMods] Mod Sardine7: installed hash ea35fe697468ab86, latest hash(es) ea35fe697468ab86
+[CmdUpdateAllMods] Mod ShroomHelper: installed hash 6b2216391e39b8d6, latest hash(es) 6b2216391e39b8d6
+[CmdUpdateAllMods] Mod SorbetHelper: installed hash c78efded0a0c3529, latest hash(es) c78efded0a0c3529
+[CmdUpdateAllMods] Mod SpeedrunTool: installed hash f797001f3266c7b8, latest hash(es) f797001f3266c7b8
+[CmdUpdateAllMods] Mod SpirialisHelper: installed hash 4f3b825da1877960, latest hash(es) 4f3b825da1877960
+[CmdUpdateAllMods] Mod StrawberryJam2021: installed hash 050228972e03a32f, latest hash(es) 050228972e03a32f
+[CmdUpdateAllMods] Mod StrawberryJam2021Assets: installed hash d4dfd9d42f168c10, latest hash(es) d4dfd9d42f168c10
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioA: installed hash acb91335b7aa0b99, latest hash(es) acb91335b7aa0b99
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioB: installed hash 73ef9516663cda66, latest hash(es) 73ef9516663cda66
+[CmdUpdateAllMods] Mod StrawberryJam2021AudioC: installed hash 3b296c7031db52ba, latest hash(es) 3b296c7031db52ba
+[CmdUpdateAllMods] Mod TASHelper: installed hash d8118a6d3d92f256, latest hash(es) d8118a6d3d92f256
+[CmdUpdateAllMods] Mod TwigHelper: installed hash f54ab2fd93db92c3, latest hash(es) f54ab2fd93db92c3
+[CmdUpdateAllMods] Mod VivHelper: installed hash 792ff042d3c16852, latest hash(es) 792ff042d3c16852
+[CmdUpdateAllMods] Mod VortexHelper: installed hash 760faa8109df89f2, latest hash(es) 760faa8109df89f2
+[CmdUpdateAllMods] Mod XaphanHelper: installed hash 5742524d51e4af14, latest hash(es) 5742524d51e4af14
+[CmdUpdateAllMods] Mod YetAnotherHelper: installed hash 002dad0a7bd327ab, latest hash(es) 002dad0a7bd327ab
+[CmdUpdateAllMods] 0 update(s) available
+[sharp] Executing launch
+Starting Celeste process: /home/bandit/.local/share/Steam/steamapps/common/Celeste/Celeste (without args)
+steam.sh[62686]: Running Steam on arch rolling 64-bit
+steam.sh[62686]: STEAM_RUNTIME is enabled automatically
+setup.sh[62723]: Steam runtime environment up-to-date!

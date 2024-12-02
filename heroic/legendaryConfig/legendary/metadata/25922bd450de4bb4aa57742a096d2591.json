@@ -1,0 +1,59 @@
+{
+  "app_name": "25922bd450de4bb4aa57742a096d2591",
+  "app_title": "Primitive Characters (Pack) Format Audience",
+  "asset_infos": {},
+  "base_urls": [],
+  "metadata": {
+    "categories": [
+      {
+        "path": "asset-format/game-engine/unity"
+      },
+      {
+        "path": "asset-format/game-engine"
+      },
+      {
+        "path": "type/format-item"
+      },
+      {
+        "path": "type"
+      },
+      {
+        "path": "asset-format"
+      }
+    ],
+    "creationDate": "2024-09-15T15:28:02.963Z",
+    "customAttributes": {
+      "ListingIdentifier": {
+        "type": "STRING",
+        "value": "3ce14ea2-e944-46b1-afec-e10c50e7fa96"
+      }
+    },
+    "description": "Primitive Characters (Pack)",
+    "developer": "Bugrimov Maksim",
+    "developerId": "o-23df1b83e24cd4b50385b476038e20",
+    "endOfSupport": false,
+    "entitlementName": "c47c30a94f1e4aa2a93e4bc63191fdac",
+    "entitlementType": "AUDIENCE",
+    "id": "c47c30a94f1e4aa2a93e4bc63191fdac",
+    "itemType": "DURABLE",
+    "keyImages": [],
+    "lastModifiedDate": "2024-09-15T15:28:04.100Z",
+    "namespace": "89efe5924d3d467c839449ab6ab52e7f",
+    "releaseInfo": [
+      {
+        "appId": "25922bd450de4bb4aa57742a096d2591",
+        "compatibleApps": [],
+        "dateAdded": "2024-09-05T07:23:53.624Z",
+        "id": "79fba4c6db704180bde2908c79e77d54",
+        "platform": [
+          "Multiplatform"
+        ]
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "title": "Primitive Characters (Pack) Format Audience",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

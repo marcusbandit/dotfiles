@@ -1,0 +1,30 @@
+[[main]] pre-initializing
+[[main]] cwd: /opt/olympus
+[[main]] src: /opt/olympus
+[[main]] storageDir: /home/bandit/.config/Olympus
+[[main]] [finder] found Celeste.dll root /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[main]] [finder] found Celeste.dll root /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[main]] pre-initialized
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] starting thread
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] starting subprocess /opt/olympus/sharp/Olympus.Sharp.bin.x86_64 61495
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] logging to /home/bandit/.config/Olympus/log-sharp.txt
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] reading init
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] read init table: 0x7a42c4577d98
+[[thread#0>sharp.lua:16<sharp.lua:501]] [sharp init] startime 1732146891.0324
+[[main]] [finder] found Celeste.dll root /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[main]] love2d version 11.5.0.Mysterious Mysteries
+[[main]] SDL2 version 2.28.5
+[[main]] Olympus version 24.10.27.01-azure-4373-3ab5d
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam root /home/bandit/.local/share/Steam <same>
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam common /home/bandit/.local/share/Steam/steamapps/common
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam common /home/bandit/.local/share/Steam/steamapps/common
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam additional library /home/bandit/.local/share/Steam/steamapps/common
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam install /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam install /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[thread#3<scenes/mainmenu.lua:239]] [finder] steam root /home/bandit/.local/share/Steam <same>
+[[thread#3<scenes/mainmenu.lua:239]] [finder] itch db /home/bandit/.config/itch/db/butler.db false
+[[thread#3<scenes/mainmenu.lua:239]] [finder] lutris db /home/bandit/.local/share/lutris/pga.db <same>
+[[thread#3<scenes/mainmenu.lua:239]] [finder] lutris root /home/bandit/.config/lutris false
+[[thread#3<scenes/mainmenu.lua:239]] [finder] legendary root /home/bandit/.config/legendary false
+[[thread#3<scenes/mainmenu.lua:239]] [finder] found Celeste.dll root /home/bandit/.local/share/Steam/steamapps/common/Celeste
+[[thread#3<scenes/mainmenu.lua:239]] [finder] found Celeste.dll root /home/bandit/.local/share/Steam/steamapps/common/Celeste

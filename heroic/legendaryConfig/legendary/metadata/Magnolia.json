@@ -1,0 +1,124 @@
+{
+  "app_name": "Magnolia",
+  "app_title": "The Witness",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "Magnolia",
+      "asset_id": "Magnolia",
+      "build_version": "2019_1_23_fix",
+      "catalog_item_id": "a379f050fa3d47e4a0fa696b0ef744d5",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "magnolia",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "categories": [
+      {
+        "path": "games"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2019-03-04T18:17:27.383Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "TheWitness"
+      },
+      "MonitorPresence": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "PresenceID": {
+        "type": "STRING",
+        "value": "magnolia"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "{}"
+      }
+    },
+    "description": "The Witness",
+    "developer": "Thekla, Inc.",
+    "developerId": "o-ch8uj5xq8v7rkurtr6gpx8accufw8u",
+    "endOfSupport": false,
+    "entitlementName": "a379f050fa3d47e4a0fa696b0ef744d5",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "a379f050fa3d47e4a0fa696b0ef744d5",
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1444,
+        "md5": "aaba32e5541dc5c9d7d445a86c69a63f",
+        "size": 221124,
+        "type": "DieselGameBox",
+        "uploadedDate": "2019-04-04T12:20:54.359Z",
+        "url": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Promo_L1-2560x1444-aaba32e5541dc5c9d7d445a86c69a63f.jpg",
+        "width": 2560
+      },
+      {
+        "height": 352,
+        "md5": "761648dd715f3010a804ad5c23055215",
+        "size": 52337,
+        "type": "DieselGameBoxLogo",
+        "uploadedDate": "2019-04-04T12:24:15.660Z",
+        "url": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Logo_Color-1634x352-761648dd715f3010a804ad5c23055215.png",
+        "width": 1634
+      },
+      {
+        "height": 806,
+        "md5": "7e1ddf0b1e2032784afe97449794aa02",
+        "size": 70512,
+        "type": "Thumbnail",
+        "uploadedDate": "2019-04-04T12:25:36.913Z",
+        "url": "https://cdn1.epicgames.com/magnolia/item/TheWitness_IC2-806x806-7e1ddf0b1e2032784afe97449794aa02.png",
+        "width": 806
+      },
+      {
+        "height": 1440,
+        "md5": "2162531db1b9bfe233a9752d32528982",
+        "size": 113282,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2019-10-22T09:41:44.790Z",
+        "url": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Promo__S3-1280x1440-2162531db1b9bfe233a9752d32528982.jpg",
+        "width": 1280
+      }
+    ],
+    "lastModifiedDate": "2019-11-19T17:04:04.600Z",
+    "namespace": "magnolia",
+    "releaseInfo": [
+      {
+        "appId": "Magnolia",
+        "compatibleApps": [],
+        "dateAdded": "2019-03-04T00:00:00.000Z",
+        "id": "4c615330ff194d3d808dd7a44b7f03f4",
+        "platform": [
+          "Windows",
+          "Mac"
+        ],
+        "releaseNote": "",
+        "versionTitle": ""
+      }
+    ],
+    "selfRefundable": true,
+    "status": "ACTIVE",
+    "title": "The Witness",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

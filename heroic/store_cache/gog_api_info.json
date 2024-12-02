@@ -1,0 +1,1247 @@
+{
+	"epic_Salt": {
+		"id": "52582850071644353",
+		"game_id": "51142025042257822",
+		"platform_id": "epic",
+		"external_id": "Salt",
+		"dlcs_ids": [],
+		"dlcs": [],
+		"parent_id": null,
+		"supported_operating_systems": [
+			{
+				"slug": "linux",
+				"name": "Linux"
+			},
+			{
+				"slug": "osx",
+				"name": "macOS"
+			},
+			{
+				"slug": "windows",
+				"name": "Windows"
+			}
+		],
+		"available_languages": [
+			{
+				"code": "en-US"
+			}
+		],
+		"first_release_date": null,
+		"game": {
+			"id": "51142025042257822",
+			"parent_id": null,
+			"dlcs_ids": [
+				"52416867340271597",
+				"52645842537927033"
+			],
+			"first_release_date": "2018-01-25T00:00:00+0000",
+			"releases": [
+				{
+					"id": "51142025037086583",
+					"platform_id": "steam",
+					"external_id": "504230",
+					"release_per_platform_id": "steam_504230"
+				},
+				{
+					"id": "51701637421160620",
+					"platform_id": "xboxone",
+					"external_id": "245236582",
+					"release_per_platform_id": "xboxone_245236582"
+				},
+				{
+					"id": "52374210677604839",
+					"platform_id": "psn",
+					"external_id": "CUSA11235_00",
+					"release_per_platform_id": "psn_CUSA11235_00"
+				},
+				{
+					"id": "52374282870455249",
+					"platform_id": "psn",
+					"external_id": "CUSA11302_00",
+					"release_per_platform_id": "psn_CUSA11302_00"
+				},
+				{
+					"id": "52582850071644353",
+					"platform_id": "epic",
+					"external_id": "Salt",
+					"release_per_platform_id": "epic_Salt"
+				},
+				{
+					"id": "52614038738194405",
+					"platform_id": "test",
+					"external_id": "Salt",
+					"release_per_platform_id": "test_Salt"
+				},
+				{
+					"id": "52615524448342894",
+					"platform_id": "winstore",
+					"external_id": "4",
+					"release_per_platform_id": "winstore_4"
+				},
+				{
+					"id": "52620160148658715",
+					"platform_id": "egg",
+					"external_id": "4",
+					"release_per_platform_id": "egg_4"
+				},
+				{
+					"id": "52620304365776143",
+					"platform_id": "egg",
+					"external_id": "GDPS4",
+					"release_per_platform_id": "egg_GDPS4"
+				},
+				{
+					"id": "52623538793051422",
+					"platform_id": "weplay",
+					"external_id": "4",
+					"release_per_platform_id": "weplay_4"
+				},
+				{
+					"id": "52623768399801927",
+					"platform_id": "egg",
+					"external_id": "A4",
+					"release_per_platform_id": "egg_A4"
+				},
+				{
+					"id": "52649256167513355",
+					"platform_id": "nswitch",
+					"external_id": "01002B30028F6000",
+					"release_per_platform_id": "nswitch_01002B30028F6000"
+				},
+				{
+					"id": "52687608146679742",
+					"platform_id": "itch",
+					"external_id": "216996",
+					"release_per_platform_id": "itch_216996"
+				},
+				{
+					"id": "52961398569292014",
+					"platform_id": "test",
+					"external_id": "CUSA11302_00",
+					"release_per_platform_id": "test_CUSA11302_00"
+				},
+				{
+					"id": "53016090199708368",
+					"platform_id": "humble",
+					"external_id": "celeste_steam",
+					"release_per_platform_id": "humble_celeste_steam"
+				},
+				{
+					"id": "53047055529695671",
+					"platform_id": "humble",
+					"external_id": "celeste_us_switch",
+					"release_per_platform_id": "humble_celeste_us_switch"
+				},
+				{
+					"id": "53104263752677333",
+					"platform_id": "epic",
+					"external_id": "b671fbc7be424e888c9346a9a6d3d9db",
+					"release_per_platform_id": "epic_b671fbc7be424e888c9346a9a6d3d9db"
+				},
+				{
+					"id": "53412388407179421",
+					"platform_id": "itch",
+					"external_id": "celeste",
+					"release_per_platform_id": "itch_celeste"
+				},
+				{
+					"id": "53429626617570956",
+					"platform_id": "psn",
+					"external_id": "CUSA17335_00",
+					"release_per_platform_id": "psn_CUSA17335_00"
+				},
+				{
+					"id": "53453410821011879",
+					"platform_id": "test",
+					"external_id": "73eb2b63053923c63f628fd7b70bff4aee7ad45e",
+					"release_per_platform_id": "test_73eb2b63053923c63f628fd7b70bff4aee7ad45e"
+				},
+				{
+					"id": "53609790261649844",
+					"platform_id": "test",
+					"external_id": "216996",
+					"release_per_platform_id": "test_216996"
+				},
+				{
+					"id": "53803545950105593",
+					"platform_id": "stadia",
+					"external_id": "c911998e4f8d4c6ea6712c5ad33e4a54rcp1",
+					"release_per_platform_id": "stadia_c911998e4f8d4c6ea6712c5ad33e4a54rcp1"
+				},
+				{
+					"id": "53992078162323764",
+					"platform_id": "test",
+					"external_id": "/celeste-free-download/",
+					"release_per_platform_id": "test_/celeste-free-download/"
+				},
+				{
+					"id": "53992230582326372",
+					"platform_id": "test",
+					"external_id": "12364",
+					"release_per_platform_id": "test_12364"
+				},
+				{
+					"id": "54024447371983719",
+					"platform_id": "test",
+					"external_id": "celeste",
+					"release_per_platform_id": "test_celeste"
+				},
+				{
+					"id": "54762826106074037",
+					"platform_id": "itch",
+					"external_id": "507047",
+					"release_per_platform_id": "itch_507047"
+				},
+				{
+					"id": "54881317935981659",
+					"platform_id": "xboxog",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211030064527",
+					"release_per_platform_id": "xboxog_GAME_FROM_DATA_FILE-9-20211030064527"
+				},
+				{
+					"id": "54881323911335268",
+					"platform_id": "xboxog",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211030064825",
+					"release_per_platform_id": "xboxog_GAME_FROM_DATA_FILE-9-20211030064825"
+				},
+				{
+					"id": "54881345591483059",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211030065911",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211030065911"
+				},
+				{
+					"id": "54881356510755868",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211030070435",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211030070435"
+				},
+				{
+					"id": "54881378714581114",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-10-20211030071538",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-10-20211030071538"
+				},
+				{
+					"id": "54881388381773298",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-10-20211030072025",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-10-20211030072025"
+				},
+				{
+					"id": "54881400566473141",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-10-20211030072628",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-10-20211030072628"
+				},
+				{
+					"id": "54881412397361165",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211030073222",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211030073222"
+				},
+				{
+					"id": "54890322750610153",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102091812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102091812"
+				},
+				{
+					"id": "54890385051062715",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102094900",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102094900"
+				},
+				{
+					"id": "54890505748797948",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102104900",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102104900"
+				},
+				{
+					"id": "54890626495785575",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102114900",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102114900"
+				},
+				{
+					"id": "54890747581126089",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102124900",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102124900"
+				},
+				{
+					"id": "54890868393830957",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102134901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102134901"
+				},
+				{
+					"id": "54890988917302560",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102144901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102144901"
+				},
+				{
+					"id": "54891109768418424",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102154901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102154901"
+				},
+				{
+					"id": "54891230804755972",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102164901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102164901"
+				},
+				{
+					"id": "54891351614816734",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102174901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102174901"
+				},
+				{
+					"id": "54891472204037001",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102184901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102184901"
+				},
+				{
+					"id": "54891592931938851",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102194901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102194901"
+				},
+				{
+					"id": "54891713845445612",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102204901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102204901"
+				},
+				{
+					"id": "54891834510071596",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102214901",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102214901"
+				},
+				{
+					"id": "54891955578513303",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102224902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102224902"
+				},
+				{
+					"id": "54892076338019520",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211102234902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211102234902"
+				},
+				{
+					"id": "54892197037985296",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103004902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103004902"
+				},
+				{
+					"id": "54892317875375232",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103014902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103014902"
+				},
+				{
+					"id": "54892438655409426",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103024902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103024902"
+				},
+				{
+					"id": "54892559460418625",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103034902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103034902"
+				},
+				{
+					"id": "54892680226822667",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103044902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103044902"
+				},
+				{
+					"id": "54892801080203637",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103054902",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103054902"
+				},
+				{
+					"id": "54892921891181399",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103064903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103064903"
+				},
+				{
+					"id": "54893042667924281",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103074903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103074903"
+				},
+				{
+					"id": "54893163422737557",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103084903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103084903"
+				},
+				{
+					"id": "54893284162173404",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103094903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103094903"
+				},
+				{
+					"id": "54893405207961084",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103104903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103104903"
+				},
+				{
+					"id": "54893525866485693",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103114903",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103114903"
+				},
+				{
+					"id": "54893646645516837",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103124908",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103124908"
+				},
+				{
+					"id": "54893767739337076",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103134908",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103134908"
+				},
+				{
+					"id": "54893888434166266",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103144908",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103144908"
+				},
+				{
+					"id": "54894009244878971",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103154909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103154909"
+				},
+				{
+					"id": "54894129864104211",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103164909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103164909"
+				},
+				{
+					"id": "54894250730300529",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103174909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103174909"
+				},
+				{
+					"id": "54894371644934098",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103184909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103184909"
+				},
+				{
+					"id": "54894492597810433",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103194909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103194909"
+				},
+				{
+					"id": "54894613283052323",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103204909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103204909"
+				},
+				{
+					"id": "54894734037530180",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103214909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103214909"
+				},
+				{
+					"id": "54894854854650258",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103224909",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103224909"
+				},
+				{
+					"id": "54894975837356521",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211103234910",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211103234910"
+				},
+				{
+					"id": "54896121040298780",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104091814",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104091814"
+				},
+				{
+					"id": "54896241905984059",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104101811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104101811"
+				},
+				{
+					"id": "54896362941580255",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104111811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104111811"
+				},
+				{
+					"id": "54896483607448867",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104121811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104121811"
+				},
+				{
+					"id": "54896604435236515",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104131811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104131811"
+				},
+				{
+					"id": "54896725419398200",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104141811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104141811"
+				},
+				{
+					"id": "54896845994781756",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104151811",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104151811"
+				},
+				{
+					"id": "54896967034654795",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104161812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104161812"
+				},
+				{
+					"id": "54897087500538607",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104171812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104171812"
+				},
+				{
+					"id": "54897208337524406",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104181812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104181812"
+				},
+				{
+					"id": "54897329164158464",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104191812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104191812"
+				},
+				{
+					"id": "54897450246717185",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104201812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104201812"
+				},
+				{
+					"id": "54897570772963554",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104211812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104211812"
+				},
+				{
+					"id": "54897691594897263",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211104221812",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211104221812"
+				},
+				{
+					"id": "54900353197215139",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211105202020",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211105202020"
+				},
+				{
+					"id": "54927871644006628",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115070855",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115070855"
+				},
+				{
+					"id": "54927961492604118",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115075327",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115075327"
+				},
+				{
+					"id": "54928082347573338",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115085328",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115085328"
+				},
+				{
+					"id": "54928203054497509",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115095328",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115095328"
+				},
+				{
+					"id": "54928323976367549",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115105328",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115105328"
+				},
+				{
+					"id": "54928444653934090",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115115329",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115115329"
+				},
+				{
+					"id": "54928565601380617",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115125329",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115125329"
+				},
+				{
+					"id": "54928686246963332",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115135331",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115135331"
+				},
+				{
+					"id": "54928807215900671",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115145332",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115145332"
+				},
+				{
+					"id": "54928928098956553",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115155332",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115155332"
+				},
+				{
+					"id": "54929048861263264",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115165332",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115165332"
+				},
+				{
+					"id": "54929169878942718",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115175333",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115175333"
+				},
+				{
+					"id": "54929290366266401",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115185333",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115185333"
+				},
+				{
+					"id": "54929411324619733",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115195333",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115195333"
+				},
+				{
+					"id": "54929532046822030",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115205333",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115205333"
+				},
+				{
+					"id": "54929652858414885",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115215334",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115215334"
+				},
+				{
+					"id": "54929773706255245",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115225336",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115225336"
+				},
+				{
+					"id": "54929894374432885",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211115235336",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211115235336"
+				},
+				{
+					"id": "54930015187334963",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211116005336",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211116005336"
+				},
+				{
+					"id": "54937286003568258",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211118130503",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211118130503"
+				},
+				{
+					"id": "54937376802574230",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211118135008",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211118135008"
+				},
+				{
+					"id": "54937497619194767",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211118145009",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211118145009"
+				},
+				{
+					"id": "54937618565128837",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211118155008",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211118155008"
+				},
+				{
+					"id": "54986840481044468",
+					"platform_id": "winstore",
+					"external_id": "GAME_FROM_DATA_FILE-9-20211205151904",
+					"release_per_platform_id": "winstore_GAME_FROM_DATA_FILE-9-20211205151904"
+				},
+				{
+					"id": "55239186343440043",
+					"platform_id": "humble",
+					"external_id": "celeste_bundle_steam",
+					"release_per_platform_id": "humble_celeste_bundle_steam"
+				},
+				{
+					"id": "55403729208824472",
+					"platform_id": "beamdog",
+					"external_id": "00000000-0000-0000-0000-000000001630",
+					"release_per_platform_id": "beamdog_00000000-0000-0000-0000-000000001630"
+				},
+				{
+					"id": "55406709817544441",
+					"platform_id": "beamdog",
+					"external_id": "Salt",
+					"release_per_platform_id": "beamdog_Salt"
+				},
+				{
+					"id": "55407076995442357",
+					"platform_id": "humble",
+					"external_id": "Salt",
+					"release_per_platform_id": "humble_Salt"
+				},
+				{
+					"id": "55420955978771780",
+					"platform_id": "egg",
+					"external_id": "Salt",
+					"release_per_platform_id": "egg_Salt"
+				},
+				{
+					"id": "56283337649438551",
+					"platform_id": "test",
+					"external_id": "252ca41b32d506437385189ed721df47bb7e3ea7",
+					"release_per_platform_id": "test_252ca41b32d506437385189ed721df47bb7e3ea7"
+				},
+				{
+					"id": "56283550506878629",
+					"platform_id": "test",
+					"external_id": "d3d05c0d831572e9410ca774b90f088b40c3322b",
+					"release_per_platform_id": "test_d3d05c0d831572e9410ca774b90f088b40c3322b"
+				},
+				{
+					"id": "57161494885213876",
+					"platform_id": "nes",
+					"external_id": "58634",
+					"release_per_platform_id": "nes_58634"
+				},
+				{
+					"id": "57884860003862464",
+					"platform_id": "test",
+					"external_id": "62acbecd247ffc742cca1ef08dc3cf1a3eedc331",
+					"release_per_platform_id": "test_62acbecd247ffc742cca1ef08dc3cf1a3eedc331"
+				},
+				{
+					"id": "57884860267574203",
+					"platform_id": "test",
+					"external_id": "0fa624ea87ea03e183bf542ac79c6f2f1a0ff75e",
+					"release_per_platform_id": "test_0fa624ea87ea03e183bf542ac79c6f2f1a0ff75e"
+				},
+				{
+					"id": "57885818002916343",
+					"platform_id": "test",
+					"external_id": "50768dc436fbf72cc999a1784654bd7b08b22bf2",
+					"release_per_platform_id": "test_50768dc436fbf72cc999a1784654bd7b08b22bf2"
+				},
+				{
+					"id": "57891811740076132",
+					"platform_id": "test",
+					"external_id": "ce503c85c142e1e407bc3084da3687833972ee9a",
+					"release_per_platform_id": "test_ce503c85c142e1e407bc3084da3687833972ee9a"
+				},
+				{
+					"id": "58103678418311095",
+					"platform_id": "test",
+					"external_id": "f02bc1cdf3de9c2e66341d439d43e43bf62f47e7",
+					"release_per_platform_id": "test_f02bc1cdf3de9c2e66341d439d43e43bf62f47e7"
+				},
+				{
+					"id": "51142025042257822",
+					"platform_id": "generic",
+					"external_id": "51142025042257822",
+					"release_per_platform_id": "generic_51142025042257822"
+				}
+			],
+			"title": {
+				"*": "Celeste",
+				"en-US": "Celeste"
+			},
+			"sorting_title": {
+				"*": "Celeste",
+				"en-US": "Celeste"
+			},
+			"type": "game",
+			"developers_ids": [
+				"54320110862645565"
+			],
+			"developers": [
+				{
+					"id": "54320110862645565",
+					"name": "Extremely OK Games",
+					"slug": "extremely-ok-games"
+				}
+			],
+			"publishers_ids": [
+				"55667248395048632"
+			],
+			"publishers": [
+				{
+					"id": "55667248395048632",
+					"name": "Maddy Makes Games",
+					"slug": "maddy-makes-games"
+				}
+			],
+			"genres_ids": [
+				"51071842251704278",
+				"51121492616405278",
+				"51141224662579279"
+			],
+			"genres": [
+				{
+					"id": "51071842251704278",
+					"name": {
+						"*": "Adventure",
+						"en-US": "Adventure"
+					},
+					"slug": "adventure"
+				},
+				{
+					"id": "51121492616405278",
+					"name": {
+						"*": "Indie",
+						"en-US": "Indie"
+					},
+					"slug": "indie"
+				},
+				{
+					"id": "51141224662579279",
+					"name": {
+						"*": "Platform",
+						"en-US": "Platform"
+					},
+					"slug": "platform"
+				}
+			],
+			"themes_ids": [
+				"51071842231533391",
+				"51071842246739768"
+			],
+			"themes": [
+				{
+					"id": "51071842231533391",
+					"name": {
+						"*": "Action",
+						"en-US": "Action"
+					},
+					"slug": "action"
+				},
+				{
+					"id": "51071842246739768",
+					"name": {
+						"*": "Fantasy",
+						"en-US": "Fantasy"
+					},
+					"slug": "fantasy"
+				}
+			],
+			"screenshots": [
+				{
+					"url_format": "https://images.gog.com/359c60a9dd86b459df6490683dd2465ca0df419d70dd82bbd22166e6ab2e09af{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/a9d18fabf523facc595663681f283bb257050a9e3e10528a89afa6321721e9f6{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/c122d4a1fae3c389438a79a6168287f970a87259f4fccc81decb0b7de30600e5{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/f876c5d836f1b0d525cef2e7e7b068f398cc0f984b51e11974b3dec6a0e66dad{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/4ef505633ccaddbf6bec2e4c550aeb144cc7b6c5cd4638f79e8a93dff7ed1784{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/875bd733eda4bed1c0228c92c0a5379a778a6e78ef744ab2b8aa2631886fb4ab{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/cca449ecd012bb2b8514f1382e967d37c3c19884d54d359c8dd9f234669a5bd5{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/52b6cacc82863f03dd676fd3c5bb5f1ca6a003a9a42cdc5beeb08a7a85cb9fd3{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/971d7caffccb9993bbad9b897af55429b3c56ffd9e9cebf9c5a73d2704d5c9ef{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/03d344f7e715bf7750887f7b0f4399d53fa14ebb7c86af3ee1eb57afaede2491{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/21601e377b8a4f2d86b48ff54bd0009a2be21f046e796a2464993b4689a8174d{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/e2946af761939db7c5aac3d79aeb68ac4e55581778bd43aa406a12cb94d0a573{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/70ead77cc2f1c41dd337b34dbdea583781393c948738118727d8c2a61c03a3a9{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/fe69ab645f50c9e65ce35f8ba9a2d71b747f6a181f1759c8ed7230daaaaa7e74{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/1731c1a5b4e97f386236890bbb2250b53deff30fef331539836d7077b7873e66{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/44b11482676a6521bd1df96ae18043a0418a91293fa5d71cc9d61ac01ae4ca20{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/8a3c90e56ead407bffaf0c62ba5d93e76fd8df1f41786389d30ac9c3ad66dc37{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/6ae3b7359b079a5c9fe5d08cff8ea6a67f5ca371076c74b70f751240b9066e65{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/66cdfbb6d293d600a34d8d59fe209f62406b6719d6da6d7bad034d8f6b88665e{formatter}.{ext}?namespace=gamesdb"
+				},
+				{
+					"url_format": "https://images.gog.com/df6b2d3282648952f6fde364a9b76f64100adb1a9a72c0e6ae3d8f6e6c2e06aa{formatter}.{ext}?namespace=gamesdb"
+				}
+			],
+			"videos": [
+				{
+					"provider": "youtube",
+					"video_id": "FqBj2IGg6Uw",
+					"thumbnail_id": "FqBj2IGg6Uw",
+					"name": "Launch Trailer"
+				},
+				{
+					"provider": "youtube",
+					"video_id": "I2sxnLe_yTk",
+					"thumbnail_id": "I2sxnLe_yTk",
+					"name": "Trailer"
+				},
+				{
+					"provider": "youtube",
+					"video_id": "37njFGz8efs",
+					"thumbnail_id": "37njFGz8efs",
+					"name": "Trailer"
+				},
+				{
+					"provider": "youtube",
+					"video_id": "7XKSMt7NW6Q",
+					"thumbnail_id": "7XKSMt7NW6Q",
+					"name": "Gameplay video"
+				}
+			],
+			"artworks": [
+				{
+					"url_format": "https://images.gog.com/10006aa6137272d4fe7842fc7d5699feb55278c2212cd97140ba425dccd4fb80{formatter}.{ext}?namespace=gamesdb"
+				}
+			],
+			"summary": {
+				"*": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.",
+				"en-US": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain."
+			},
+			"visible_in_library": true,
+			"aggregated_rating": 91.3,
+			"game_modes": [
+				{
+					"id": "53051895165351137",
+					"name": "Single player",
+					"slug": "single-player"
+				}
+			],
+			"horizontal_artwork": {
+				"url_format": "https://images.gog.com/2fdcf97026f028ef2a41a9d4d37cff683b6d8bc2311393a1d8988edaaa3c7d88{formatter}.{ext}?namespace=gamesdb"
+			},
+			"background": {
+				"url_format": "https://images.gog.com/2fdcf97026f028ef2a41a9d4d37cff683b6d8bc2311393a1d8988edaaa3c7d88{formatter}.{ext}?namespace=gamesdb"
+			},
+			"vertical_cover": {
+				"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+			},
+			"cover": {
+				"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+			},
+			"logo": {
+				"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+			},
+			"icon": {
+				"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+			},
+			"square_icon": {
+				"url_format": "https://images.gog.com/10006aa6137272d4fe7842fc7d5699feb55278c2212cd97140ba425dccd4fb80{formatter}.{ext}?namespace=gamesdb"
+			},
+			"global_popularity_all_time": 0,
+			"global_popularity_current": 0
+		},
+		"title": {
+			"*": "Celeste",
+			"en-US": "Celeste"
+		},
+		"sorting_title": {
+			"*": "Celeste",
+			"en-US": "Celeste"
+		},
+		"type": "game",
+		"summary": {
+			"*": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.",
+			"en-US": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain."
+		},
+		"videos": [],
+		"game_modes": [
+			{
+				"id": "53051895165351137",
+				"name": "Single player",
+				"slug": "single-player"
+			}
+		],
+		"icon": {
+			"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+		},
+		"logo": {
+			"url_format": "https://images.gog.com/dd671b444f966deadc2d9902b3e8f71f5ab0b159545b3dcbd05cbe5d9c313798{formatter}.{ext}?namespace=gamesdb"
+		},
+		"etag": "W/\"227383152a7158670afff1b3c9f359f3\""
+	},
+	"__timestamp": {
+		"epic_Salt": "Wed Nov 20 2024 22:16:25 GMT+0100 (Central European Standard Time)",
+		"epic_ARKDevKit": "Thu Nov 21 2024 00:00:12 GMT+0100 (Central European Standard Time)"
+	},
+	"epic_ARKDevKit": {
+		"id": "53454545269254367",
+		"game_id": "53454545278274504",
+		"platform_id": "epic",
+		"external_id": "ARKDevKit",
+		"dlcs_ids": [],
+		"dlcs": [],
+		"parent_id": "53414885039404064",
+		"supported_operating_systems": [
+			{
+				"slug": "windows",
+				"name": "Windows"
+			},
+			{
+				"slug": "osx",
+				"name": "macOS"
+			}
+		],
+		"available_languages": [
+			{
+				"code": "en-US"
+			}
+		],
+		"first_release_date": null,
+		"game": {
+			"id": "53454545278274504",
+			"parent_id": "51141387560247467",
+			"dlcs_ids": [],
+			"first_release_date": "2017-08-29T00:00:00+0000",
+			"releases": [
+				{
+					"id": "53454545269254367",
+					"platform_id": "epic",
+					"external_id": "ARKDevKit",
+					"release_per_platform_id": "epic_ARKDevKit"
+				},
+				{
+					"id": "53496528261332815",
+					"platform_id": "test",
+					"external_id": "ARKDevKit",
+					"release_per_platform_id": "test_ARKDevKit"
+				},
+				{
+					"id": "55406709820542739",
+					"platform_id": "beamdog",
+					"external_id": "ARKDevKit",
+					"release_per_platform_id": "beamdog_ARKDevKit"
+				},
+				{
+					"id": "55407076990671703",
+					"platform_id": "humble",
+					"external_id": "ARKDevKit",
+					"release_per_platform_id": "humble_ARKDevKit"
+				},
+				{
+					"id": "55420955963235211",
+					"platform_id": "egg",
+					"external_id": "ARKDevKit",
+					"release_per_platform_id": "egg_ARKDevKit"
+				},
+				{
+					"id": "53454545278274504",
+					"platform_id": "generic",
+					"external_id": "53454545278274504",
+					"release_per_platform_id": "generic_53454545278274504"
+				}
+			],
+			"title": {
+				"*": "ARK Editor",
+				"en-US": "ARK Editor"
+			},
+			"sorting_title": {
+				"*": "ARK Editor",
+				"en-US": "ARK Editor"
+			},
+			"type": "dlc",
+			"developers_ids": [],
+			"developers": [],
+			"publishers_ids": [],
+			"publishers": [],
+			"genres_ids": [
+				"51071842242881003",
+				"51071842251704278",
+				"51121492616405278",
+				"51141224821260861"
+			],
+			"genres": [
+				{
+					"id": "51071842242881003",
+					"name": {
+						"*": "Role-playing (RPG)",
+						"en-US": "Role-playing (RPG)"
+					},
+					"slug": "role-playing-rpg"
+				},
+				{
+					"id": "51071842251704278",
+					"name": {
+						"*": "Adventure",
+						"en-US": "Adventure"
+					},
+					"slug": "adventure"
+				},
+				{
+					"id": "51121492616405278",
+					"name": {
+						"*": "Indie",
+						"en-US": "Indie"
+					},
+					"slug": "indie"
+				},
+				{
+					"id": "51141224821260861",
+					"name": {
+						"*": "Shooter",
+						"en-US": "Shooter"
+					},
+					"slug": "shooter"
+				}
+			],
+			"themes_ids": [
+				"51071842227872529",
+				"51071842231533391",
+				"51141226418224461"
+			],
+			"themes": [
+				{
+					"id": "51071842227872529",
+					"name": {
+						"*": "Open world",
+						"en-US": "Open world"
+					},
+					"slug": "open-world"
+				},
+				{
+					"id": "51071842231533391",
+					"name": {
+						"*": "Action",
+						"en-US": "Action"
+					},
+					"slug": "action"
+				},
+				{
+					"id": "51141226418224461",
+					"name": {
+						"*": "Survival",
+						"en-US": "Survival"
+					},
+					"slug": "survival"
+				}
+			],
+			"screenshots": [],
+			"videos": [
+				{
+					"provider": "youtube",
+					"video_id": "5-I92iPYOWs",
+					"thumbnail_id": "5-I92iPYOWs",
+					"name": "Trailer"
+				},
+				{
+					"provider": "youtube",
+					"video_id": "hh2VkuYQQHE",
+					"thumbnail_id": "hh2VkuYQQHE",
+					"name": "Gamescom 2015 Trailer"
+				},
+				{
+					"provider": "youtube",
+					"video_id": "kJ8Io-vOejA",
+					"thumbnail_id": "kJ8Io-vOejA",
+					"name": "Reveal Trailer"
+				}
+			],
+			"artworks": [],
+			"summary": {
+				"*": "ARK: Survival Evolved takes on the survival genre with a unique blend of emergent multiplayer cooperation and competition. Players awake naked and starving on the beach of a mysterious island among a herd of other confused humans. On ARK, they must then hunt, harvest, craft, research technology, and build shelters to protect against scorching days, freezing nights, volatile weather systems, dangerous wildlife, and potential enemies. \r\n \r\nUse cunning strategy and tactics to tame and ride the many dinosaurs and other primeval creatures roaming the dynamic, persistent ecosystems across land, sea, air, and even underground. Build your character’s strengths and gain items, skills, and pet creatures using in-depth role-playing systems. Start a tribe with hundreds of other players to survive and dominate competing tribes...and ultimately discover the ARK’s true purpose.",
+				"en-US": "ARK: Survival Evolved takes on the survival genre with a unique blend of emergent multiplayer cooperation and competition. Players awake naked and starving on the beach of a mysterious island among a herd of other confused humans. On ARK, they must then hunt, harvest, craft, research technology, and build shelters to protect against scorching days, freezing nights, volatile weather systems, dangerous wildlife, and potential enemies. \r\n \r\nUse cunning strategy and tactics to tame and ride the many dinosaurs and other primeval creatures roaming the dynamic, persistent ecosystems across land, sea, air, and even underground. Build your character’s strengths and gain items, skills, and pet creatures using in-depth role-playing systems. Start a tribe with hundreds of other players to survive and dominate competing tribes...and ultimately discover the ARK’s true purpose."
+			},
+			"visible_in_library": true,
+			"aggregated_rating": null,
+			"game_modes": [],
+			"global_popularity_all_time": 0,
+			"global_popularity_current": 0
+		},
+		"title": {
+			"*": "ARK Editor",
+			"en-US": "ARK Editor"
+		},
+		"sorting_title": {
+			"*": "ARK Editor",
+			"en-US": "ARK Editor"
+		},
+		"type": "dlc",
+		"summary": {
+			"*": "ARK: Survival Evolved takes on the survival genre with a unique blend of emergent multiplayer cooperation and competition. Players awake naked and starving on the beach of a mysterious island among a herd of other confused humans. On ARK, they must then hunt, harvest, craft, research technology, and build shelters to protect against scorching days, freezing nights, volatile weather systems, dangerous wildlife, and potential enemies. \r\n \r\nUse cunning strategy and tactics to tame and ride the many dinosaurs and other primeval creatures roaming the dynamic, persistent ecosystems across land, sea, air, and even underground. Build your character’s strengths and gain items, skills, and pet creatures using in-depth role-playing systems. Start a tribe with hundreds of other players to survive and dominate competing tribes...and ultimately discover the ARK’s true purpose.",
+			"en-US": "ARK: Survival Evolved takes on the survival genre with a unique blend of emergent multiplayer cooperation and competition. Players awake naked and starving on the beach of a mysterious island among a herd of other confused humans. On ARK, they must then hunt, harvest, craft, research technology, and build shelters to protect against scorching days, freezing nights, volatile weather systems, dangerous wildlife, and potential enemies. \r\n \r\nUse cunning strategy and tactics to tame and ride the many dinosaurs and other primeval creatures roaming the dynamic, persistent ecosystems across land, sea, air, and even underground. Build your character’s strengths and gain items, skills, and pet creatures using in-depth role-playing systems. Start a tribe with hundreds of other players to survive and dominate competing tribes...and ultimately discover the ARK’s true purpose."
+		},
+		"videos": [],
+		"game_modes": [],
+		"etag": "W/\"b112763e2f3d9909911c170353450e3b\""
+	}
+}

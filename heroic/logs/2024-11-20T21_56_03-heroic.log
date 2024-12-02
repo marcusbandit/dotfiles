@@ -1,0 +1,286 @@
+(22:56:03) INFO:    [Legendary]:        Legendary location: /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary
+(22:56:03) INFO:    [Gog]:              GOGDL location: /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl
+(22:56:03) INFO:    [Connection]:       Connectivity: check-online
+(22:56:03) INFO:    [Connection]:       Pinging external endpoints
+(22:56:03) INFO:    [Gog]:              Checking for existing gog manifests
+(22:56:03) WARNING: [Backend]:          Protocol already registered.
+(22:56:03) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+(22:56:03) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json --version
+(22:56:03) INFO:    [Nile]:             Running command: NILE_CONFIG_PATH=/home/bandit/.config/heroic/nile_config /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/nile --version
+(22:56:03) INFO:    [Connection]:       Connectivity: online
+(22:56:03) ERROR:   [Gog]:              Unable to syncQueued playtime, userData not present
+(22:56:03) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json auth
+(22:56:03) INFO:    [Backend]:          AreWeAntiCheatYet data downloaded
+(22:56:04) INFO:    [Backend]:          
+System Information:
+CPU: 12x 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz
+Memory: 67.29 GB (used: 8.28 GB)
+GPUs:
+  GPU 0:
+    Name: NVIDIA Corporation GA102 [GeForce RTX 3090]
+    IDs: D=2204 V=10de SD=3881 SV=1462
+    Driver: nvidia
+OS: Arch Linux 6.11.9-arch1-1 (linux)
+
+The current system is not a Steam Deck
+We are not running inside a Flatpak container
+
+Software Versions:
+  Heroic: 2.15.2 Emeth
+  Legendary: 0.20.36 Urban Flight (Heroic)
+  gogdl: 1.1.2
+  comet: comet 0.1.2
+
+  Nile: 1.1.2 Will A. Zeppeli
+
+(22:56:04) INFO:    [Frontend]:         Refreshing undefined Library
+(22:56:04) WARNING: [Backend]:          refresh not implemented on Sideload Library Manager
+(22:56:04) INFO:    [Legendary]:        Refreshing library...
+(22:56:04) INFO:    [Legendary]:        Refreshing Epic Games...
+(22:56:04) INFO:    [Backend]:          Frontend Ready
+(22:56:04) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:56:04) INFO:    [Backend]:          Checking for new Heroic Updates
+(22:56:04) INFO:    [Backend]:          Checking for current version changelog
+(22:56:05) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(22:56:05) WARNING: [Backend]:          listUpdateableGames not implemented on Sideload Library Manager
+(22:56:05) INFO:    [Legendary]:        Checking for game updates: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:56:06) INFO:    [Winetricks]:       Downloading Winetricks
+(22:56:07) INFO:    [Legendary]:        Found 0 games to update
+(22:56:08) INFO:    [WineDownloader]:   Updating wine versions info
+(22:56:08) INFO:    [WineDownloader]:   Fetching upstream information...
+(22:56:09) INFO:    [Backend]:          Starting the Download Queue
+(22:56:09) INFO:    [WineDownloader]:   wine versions updated
+(22:57:18) INFO:    [WineDownloader]:   Start installation of wine version Wine-GE-Proton8-26
+(22:57:21) INFO:    [Backend]:          Downloaded: 29.01 MB / 222.76 MB  @12.96 MB/s (13.02%)
+(22:57:23) INFO:    [Backend]:          Downloaded: 48.76 MB / 222.76 MB  @11.44 MB/s (21.89%)
+(22:57:25) INFO:    [Backend]:          Downloaded: 70.77 MB / 222.76 MB  @13.58 MB/s (31.77%)
+(22:57:26) INFO:    [Backend]:          Downloaded: 86.22 MB / 222.76 MB  @13.56 MB/s (38.71%)
+(22:57:27) INFO:    [Backend]:          Downloaded: 106.28 MB / 222.76 MB  @13.58 MB/s (47.71%)
+(22:57:29) INFO:    [Backend]:          Downloaded: 136.21 MB / 222.76 MB  @13.58 MB/s (61.15%)
+(22:57:30) INFO:    [Backend]:          Downloaded: 150.71 MB / 222.76 MB  @13.57 MB/s (67.65%)
+(22:57:32) INFO:    [Backend]:          Downloaded: 174.54 MB / 222.76 MB  @13.28 MB/s (78.36%)
+(22:57:34) INFO:    [Backend]:          Downloaded: 192.99 MB / 222.76 MB  @13.58 MB/s (86.64%)
+(22:57:35) INFO:    [Backend]:          Downloaded: 209.39 MB / 222.76 MB  @13.54 MB/s (94.00%)
+(22:57:36) INFO:    [Backend]:          Downloaded: 222.76 MB / 222.76 MB  @10.72 MB/s (100.00%)
+(22:57:36) INFO:    [DownloadManager]:  Downloader: Finished downloading https://github.com/GloriousEggroll/wine-ge-custom/releases/download/GE-Proton8-26/wine-lutris-GE-Proton8-26-x86_64.tar.xz
+(22:57:44) INFO:    [WineDownloader]:   Finished installation of wine version Wine-GE-Proton8-26
+(22:58:02) INFO:    [Backend]:          Writing config for Heroic
+(22:58:02) INFO:    [Backend]:          Changed config: customThemesPath from undefined to 
+(22:58:11) INFO:    [Backend]:          Writing config for Heroic
+(22:58:12) INFO:    [Backend]:          Heroic: Setting wineVersion to {"bin":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wine","name":"Wine - Wine-GE-Proton8-26","type":"wine","lib":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64","lib32":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib","wineserver":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wineserver"} (previous value: {"bin":"","name":"Default Wine - Not Found","type":"wine"})
+(22:58:17) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+(22:58:17) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json --version
+(22:58:17) INFO:    [Nile]:             Running command: NILE_CONFIG_PATH=/home/bandit/.config/heroic/nile_config /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/nile --version
+(22:58:17) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+(22:58:17) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json --version
+(22:58:17) INFO:    [Nile]:             Running command: NILE_CONFIG_PATH=/home/bandit/.config/heroic/nile_config /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/nile --version
+(23:00:27) INFO:    [Frontend]:         Refreshing undefined Library
+(23:00:27) WARNING: [Backend]:          refresh not implemented on Sideload Library Manager
+(23:00:27) INFO:    [Legendary]:        Refreshing library...
+(23:00:27) INFO:    [Legendary]:        Refreshing Epic Games...
+(23:00:28) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(23:00:29) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(23:02:03) INFO:    [Legendary]:        Computing save path for save folder {InstallDir}/Saves/
+(23:02:03) DEBUG:   [Legendary]:        Legendary has a save path stored, discarding it: /home/bandit/Games/Heroic/Celeste/Saves
+(23:02:03) INFO:    [Backend]:          Checking if wine version exists: Default Wine - Not Found
+(23:02:03) INFO:    [Legendary]:        Computing default save path for Salt
+(23:02:03) ERROR:   [Backend]:          Couldn't find all library folders of Default Wine - Not Found!
+Missing undefined and/or undefined!
+Falling back to system libraries!
+(23:02:03) INFO:    [Legendary]:        Getting default save path: WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+(23:02:03) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:02:04) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:02:04) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:02:04) ERROR:   [Legendary]:        Unable to compute default save path for Salt
+(23:15:19) INFO:    [Backend]:          Launching Celeste (Salt)
+(23:15:19) INFO:    [Backend]:          Preventing display from sleep
+(23:15:19) INFO:    [Backend]:          Checking if wine version exists: Default Wine - Not Found
+(23:15:19) ERROR:   [Backend]:          Wine version Default Wine - Not Found is not valid, trying another one.
+(23:15:19) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:19) INFO:    [Backend]:          Preventing machine to sleep
+(23:15:47) INFO:    [Backend]:          Changing wine version to Wine - Wine-GE-Proton8-26
+(23:15:47) INFO:    [Backend]:          Salt: Setting wineVersion to {"bin":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wine","name":"Wine - Wine-GE-Proton8-26","type":"wine","lib":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64","lib32":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib","wineserver":"/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wineserver"}
+(23:15:48) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:48) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:48) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:48) DEBUG:   [Backend]:          Running Wine command: wineboot --init
+(23:15:52) INFO:    [Backend]:          Created/Updated Wineprefix at /home/bandit/Games/Heroic/Prefixes/default/Celeste
+(23:15:52) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:52) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CLASSES_ROOT\com.epicgames.launcher /f
+(23:15:53) DEBUG:   [Legendary]:        Using cached install info
+(23:15:53) INFO:    [Legendary]:        Checking if EOS Overlay is enabled: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary eos-overlay info --prefix /home/bandit/Games/Heroic/Prefixes/default/Celeste
+(23:15:53) INFO:    [Legendary]:        Abort command "LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary eos-overlay info --prefix /home/bandit/Games/Heroic/Prefixes/default/Celeste"
+(23:15:53) INFO:    [DXVKInstaller]:    installing dxvk on... /home/bandit/Games/Heroic/Prefixes/default/Celeste
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [DXVKInstaller]:    installing vkd3d on... /home/bandit/Games/Heroic/Prefixes/default/Celeste
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d12core /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d12 /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d12core /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d12 /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v dxgi /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d9 /d native,builtin /f
+(23:15:53) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d8 /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d11 /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d10core /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v dxgi /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d9 /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d8 /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d11 /d native,builtin /f
+(23:15:54) DEBUG:   [Backend]:          Running Wine command: reg add HKEY_CURRENT_USER\Software\Wine\DllOverrides /v d3d10core /d native,builtin /f
+(23:15:54) INFO:    [Runtime]:          Downloading runtime eac_runtime with download link https://github.com/lutris/buildbot/releases/download/2022.06.23/eac_runtime-20240114.tar.xz
+(23:15:55) INFO:    [Runtime]:          Downloading runtime battleye_runtime with download link https://github.com/lutris/buildbot/releases/download/2024-05-21/battleeye_runtime.tar.xz
+(23:15:56) INFO:    [Legendary]:        Launching Celeste: HEROIC_APP_NAME=Salt HEROIC_APP_RUNNER=legendary GAMEID=umu-0 HEROIC_APP_SOURCE=epic STORE=egs STEAM_COMPAT_INSTALL_PATH=/home/bandit/Games/Heroic/Celeste LD_PRELOAD= WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LD_LIBRARY_PATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib GST_PLUGIN_SYSTEM_PATH_1_0=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/gstreamer-1.0:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/gstreamer-1.0 WINEDLLPATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/wine:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/wine LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary launch Salt --wine /home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wine --language en
+(23:15:56) INFO:    [Backend]:          Preventing display to sleep
+(23:16:28) INFO:    [Backend]:          Stopping Display Power Saver Blocker
+(23:16:28) INFO:    [Frontend]:         Refreshing legendary Library
+(23:16:28) INFO:    [Legendary]:        Refreshing library...
+(23:16:28) INFO:    [Legendary]:        Refreshing Epic Games...
+(23:16:28) INFO:    [Backend]:          Stopping Power Saver Blocker
+(23:16:28) INFO:    [Backend]:          Stopping Display Sleep Blocker
+(23:16:28) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(23:16:29) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(23:16:31) INFO:    [Legendary]:        Computing save path for save folder {InstallDir}/Saves/
+(23:16:31) DEBUG:   [Legendary]:        Legendary has a save path stored, discarding it: /home/bandit/Games/Heroic/Celeste/Saves
+(23:16:31) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:16:31) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:16:31) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:16:31) DEBUG:   [Backend]:          Running Wine command: wineboot --init
+(23:16:32) INFO:    [Legendary]:        Computing default save path for Salt
+(23:16:32) INFO:    [Legendary]:        Getting default save path: WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LD_LIBRARY_PATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib GST_PLUGIN_SYSTEM_PATH_1_0=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/gstreamer-1.0:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/gstreamer-1.0 WINEDLLPATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/wine:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/wine LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+(23:16:33) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:16:33) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:16:33) ERROR:   [Legendary]:        Unable to compute default save path for Salt
+(23:16:41) INFO:    [Backend]:          Writing config for Heroic
+(23:17:37) INFO:    [Backend]:          Writing config for Heroic
+(23:17:37) INFO:    [Backend]:          Changed config: customThemesPath from  to /home/bandit/Games/epic-games-store
+(23:17:45) INFO:    [Legendary]:        Computing save path for save folder {InstallDir}/Saves/
+(23:17:45) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:17:45) INFO:    [Backend]:          Checking if wine version exists: Wine - Wine-GE-Proton8-26
+(23:17:45) DEBUG:   [Backend]:          Running Wine command: wineboot --init
+(23:17:46) INFO:    [Legendary]:        Computing default save path for Salt
+(23:17:46) INFO:    [Legendary]:        Getting default save path: WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LD_LIBRARY_PATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib GST_PLUGIN_SYSTEM_PATH_1_0=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/gstreamer-1.0:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/gstreamer-1.0 WINEDLLPATH=/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64/wine:/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib/wine LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+(23:17:47) INFO:    [Legendary]:        Computed save path: /home/bandit/Games/Heroic/Celeste/Saves
+(23:17:47) INFO:    [Backend]:          Salt: Setting savesPath to "/home/bandit/Games/Heroic/Celeste/Saves"
+(23:53:02) INFO:    [Backend]:          Salt: Setting savesPath to "/mnt/acer_disk/Program Files/Epic Games/Celeste/Saves/"
+(23:53:28) INFO:    [Legendary]:        Syncing saves for Celeste: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --save-path "/mnt/acer_disk/Program Files/Epic Games/Celeste/Saves/" -y
+(23:53:29) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:53:29) INFO:    [Legendary]:        installed.json updated, refreshing library
+(23:53:29) INFO:    [Backend]:          [Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Got 1 remote save game(s)
+[cli] INFO: Checking "Celeste" (Salt)
+[cli] INFO: Overriding save path with "/mnt/acer_disk/Program Files/Epic Games/Celeste/Saves/"...
+[cli] INFO: Local save for "Celeste" is newer
+[cli] INFO: - Cloud save date: 2024-09-26 19:00:38
+[cli] INFO: - Local save date: 2024-09-26 20:00:32
+[cli] INFO: Save game uploading is disabled, skipping...
+
+(00:00:07) INFO:    [Legendary]:        Uninstalling Salt: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary uninstall Salt -y
+(00:00:08) INFO:    [Backend]:          Preventing machine to sleep
+(00:00:08) INFO:    [Legendary]:        installed.json updated, refreshing library
+(00:00:08) INFO:    [Backend]:          Finished uninstalling
+(00:00:08) INFO:    [Frontend]:         Refreshing legendary Library
+(00:00:08) INFO:    [Legendary]:        Refreshing library...
+(00:00:08) INFO:    [Legendary]:        Refreshing Epic Games...
+(00:00:08) INFO:    [Backend]:          Desktop shortcut removed
+(00:00:08) INFO:    [Backend]:          Applications shortcut removed
+(00:00:08) INFO:    [Backend]:          Stopping Power Saver Blocker
+(00:00:08) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(00:00:09) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting ExtraGameInfo data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting PCGamingWiki data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting HowLongToBeat data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting GamesDB data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting ExtraGameInfo data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting PCGamingWiki data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting HowLongToBeat data for ARK ModKit (UE4)
+(00:00:12) INFO:    [ExtraGameInfo]:    Getting GamesDB data for ARK ModKit (UE4)
+(00:00:12) INFO:    [Legendary]:        Getting more details with 'legendary info'
+(00:00:12) INFO:    [Legendary]:        Getting more details with 'legendary info'
+(00:00:12) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary info ARKDevKit --json --platform Windows
+(00:00:12) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary info ARKDevKit --json --platform Windows
+(00:00:13) ERROR:   [ExtraGameInfo]:    Got AxiosError when sending HowLongToBeat request for ARK ModKit (UE4): {
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "stack": "Error: Request failed with status code 404\n    at createError (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/opt/Heroic/resources/app.asar/node_modules/axios/lib/adapters/http.js:322:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "*/*",
+      "Content-Type": "application/json",
+      "User-Agent": "HeroicGamesLauncher/2.15.2",
+      "Referer": "https://howlongtobeat.com/",
+      "Content-Length": 355
+    },
+    "method": "post",
+    "url": "https://www.howlongtobeat.com/api/search",
+    "data": "{\"searchType\":\"games\",\"searchTerms\":[\"ARK\",\"ModKit\",\"(UE4)\"],\"searchPage\":1,\"size\":20,\"searchOptions\":{\"games\":{\"userId\":0,\"platform\":\"\",\"sortCategory\":\"popular\",\"rangeCategory\":\"main\",\"rangeTime\":{\"min\":0,\"max\":0},\"gameplay\":{\"perspective\":\"\",\"flow\":\"\",\"genre\":\"\"},\"modifier\":\"\"},\"users\":{\"sortCategory\":\"postcount\"},\"filter\":\"\",\"sort\":0,\"randomizer\":0}}"
+  },
+  "status": 404
+}
+(00:00:13) ERROR:   [ExtraGameInfo]:    Got AxiosError when sending HowLongToBeat request for ARK ModKit (UE4): {
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "stack": "Error: Request failed with status code 404\n    at createError (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/opt/Heroic/resources/app.asar/node_modules/axios/lib/adapters/http.js:322:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "*/*",
+      "Content-Type": "application/json",
+      "User-Agent": "HeroicGamesLauncher/2.15.2",
+      "Referer": "https://howlongtobeat.com/",
+      "Content-Length": 355
+    },
+    "method": "post",
+    "url": "https://www.howlongtobeat.com/api/search",
+    "data": "{\"searchType\":\"games\",\"searchTerms\":[\"ARK\",\"ModKit\",\"(UE4)\"],\"searchPage\":1,\"size\":20,\"searchOptions\":{\"games\":{\"userId\":0,\"platform\":\"\",\"sortCategory\":\"popular\",\"rangeCategory\":\"main\",\"rangeTime\":{\"min\":0,\"max\":0},\"gameplay\":{\"perspective\":\"\",\"flow\":\"\",\"genre\":\"\"},\"modifier\":\"\"},\"users\":{\"sortCategory\":\"postcount\"},\"filter\":\"\",\"sort\":0,\"randomizer\":0}}"
+  },
+  "status": 404
+}
+(00:00:13) DEBUG:   [Backend]:          No SteamID, not getting ProtonDB info
+(00:00:13) DEBUG:   [Backend]:          No SteamID, not getting Stem Deck info
+(00:00:13) INFO:    [Legendary]:        Getting Info from Epic API
+(00:00:13) DEBUG:   [Backend]:          No SteamID, not getting ProtonDB info
+(00:00:13) DEBUG:   [Backend]:          No SteamID, not getting Stem Deck info

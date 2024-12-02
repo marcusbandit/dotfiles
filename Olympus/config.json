@@ -1,0 +1,38 @@
+{
+  "updates":"stable",
+  "loennRootPath":"/home/bandit/.config/Olympus/loenn",
+  "loennInstalledVersion":"",
+  "updateModsOnStartup":"enabled",
+  "vsync":true,
+  "currentrun":4373,
+  "lastrun":4373,
+  "install":1,
+  "installs":[{
+      "path":"/home/bandit/.local/share/Steam/steamapps/common/Celeste",
+      "name":"steam (#1)",
+      "type":"steam"
+    }],
+  "mirrorPreferences":"gb,jade,otobot,wegfan",
+  "closeAfterOneClickInstall":"disabled",
+  "extradata":[],
+  "theme":"default",
+  "bg":0,
+  "quality":{
+    "bgBlur":true,
+    "id":"high",
+    "bg":true,
+    "bgSnow":true
+  },
+  "overlay":1,
+  "parallax":1,
+  "mapeditor":"loenn",
+  "useOpenGL":"disabled",
+  "ahorn":{
+    "rootPath":"",
+    "vhdPath":"",
+    "mode":"local",
+    "theme":"",
+    "vhdMountPath":""
+  },
+  "csd":false
+}

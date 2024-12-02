@@ -1,0 +1,12 @@
+2024/12/01-01:47:04.425 2b340 Reusing MANIFEST /home/bandit/.config/discord/IndexedDB/https_discord.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/01-01:47:04.425 2b340 Recovering log #11
+2024/12/01-01:47:04.431 2b340 Reusing old log /home/bandit/.config/discord/IndexedDB/https_discord.com_0.indexeddb.leveldb/000011.log 
+2024/12/01-03:35:13.532 2b341 Level-0 table #16: started
+2024/12/01-03:35:13.543 2b341 Level-0 table #16: 1628834 bytes OK
+2024/12/01-03:35:13.544 2b341 Delete type=0 #11
+2024/12/01-03:44:35.796 2b340 Compacting 1@1 + 1@2 files
+2024/12/01-03:44:35.801 2b340 Generated table #17@1: 47 keys, 29141 bytes
+2024/12/01-03:44:35.801 2b340 Compacted 1@1 + 1@2 files => 29141 bytes
+2024/12/01-03:44:35.802 2b340 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/01-03:44:35.802 2b340 Delete type=2 #13
+2024/12/01-03:44:35.802 2b340 Delete type=2 #16

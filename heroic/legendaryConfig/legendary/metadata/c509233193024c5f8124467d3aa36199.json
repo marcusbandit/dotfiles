@@ -1,0 +1,108 @@
+{
+  "app_name": "c509233193024c5f8124467d3aa36199",
+  "app_title": "Satisfactory Dedicated Server - Experimental",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "c509233193024c5f8124467d3aa36199",
+      "asset_id": "c509233193024c5f8124467d3aa36199",
+      "build_version": "379322.30",
+      "catalog_item_id": "66e035c6d926467ebea27f6821a0e6e6",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "crab",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "digitalextras"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2022-01-27T01:57:53.098Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "DisablePresenceWhileRunning": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "SatisfactoryDSExperiment"
+      },
+      "PresenceId": {
+        "type": "STRING",
+        "value": "crab"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "{}"
+      }
+    },
+    "description": "Satisfactory Dedicated Server - Experimental",
+    "developer": "Coffee Stain Publishing",
+    "developerId": "o-9r9hp69ccnr39qp9f9mgpsznznu4as",
+    "endOfSupport": false,
+    "entitlementName": "66e035c6d926467ebea27f6821a0e6e6",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "66e035c6d926467ebea27f6821a0e6e6",
+    "installModes": [],
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "0cd5815fab95fa0e5c02e3a2df1e3f33",
+        "size": 693010,
+        "type": "DieselGameBox",
+        "uploadedDate": "2024-09-04T22:39:38.485Z",
+        "url": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Landscape_2560x1440_with_10_2560x1440-0cd5815fab95fa0e5c02e3a2df1e3f33",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "84f7b2d44e83ce634a65ee5eb0a793f7",
+        "size": 446574,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2024-09-04T22:39:43.288Z",
+        "url": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Portrait_1200x1600_with_10_1200x1600-84f7b2d44e83ce634a65ee5eb0a793f7",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-09-10T15:01:23.002Z",
+    "namespace": "crab",
+    "releaseInfo": [
+      {
+        "appId": "c509233193024c5f8124467d3aa36199",
+        "compatibleApps": [],
+        "dateAdded": "2019-04-03T00:00:00.000Z",
+        "id": "44285c59b1554cafbfa46ad97bccc1d0",
+        "platform": [
+          "Windows"
+        ],
+        "releaseNote": "",
+        "versionTitle": ""
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "title": "Satisfactory Dedicated Server - Experimental",
+    "unsearchable": true
+  },
+  "sidecar": null
+}

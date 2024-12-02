@@ -1,0 +1,94 @@
+{
+  "app_name": "ARKDevKit",
+  "app_title": "ARK ModKit (UE4)",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "ARKDevKit",
+      "asset_id": "ARKDevKit",
+      "build_version": "358.2",
+      "catalog_item_id": "8077d89481064a9097dd4b8fe7bca090",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "ark",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "engines"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2015-07-20T19:57:00.724Z",
+    "customAttributes": {
+      "AllowMultipleInstances": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "ARKEditor"
+      }
+    },
+    "description": "Flavored Editor for ARK Development",
+    "developer": "Studio Wildcard",
+    "developerId": "o-usvfbmlqdt678vrp36qvm2d5cz2cpr",
+    "endOfSupport": false,
+    "entitlementName": "8077d89481064a9097dd4b8fe7bca090",
+    "entitlementStartDate": "2015-07-20T00:00:00.000Z",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "(ark && unreal_engine)"
+    ],
+    "id": "8077d89481064a9097dd4b8fe7bca090",
+    "installModes": [],
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "c316afb7c33a9dfb892eef6b99169e43",
+        "size": 966339,
+        "type": "DieselGameBox",
+        "uploadedDate": "2023-10-19T23:27:22.236Z",
+        "url": "https://cdn1.epicgames.com/item/ark/EGS_ARKSurvivalEvolved_StudioWildcard_S1-2560x1440-c316afb7c33a9dfb892eef6b99169e43_2560x1440-c316afb7c33a9dfb892eef6b99169e43",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "5b58fdefea9f885c7426e894a1034921",
+        "size": 710510,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2023-10-19T23:27:25.489Z",
+        "url": "https://cdn1.epicgames.com/item/ark/EGS_ARKSurvivalEvolved_StudioWildcard_S2-1200x1600-5b58fdefea9f885c7426e894a1034921_1200x1600-5b58fdefea9f885c7426e894a1034921",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2023-10-19T23:35:46.837Z",
+    "namespace": "ark",
+    "releaseInfo": [
+      {
+        "appId": "ARKDevKit",
+        "compatibleApps": [],
+        "dateAdded": "2015-07-22T00:00:00.000Z",
+        "id": "0aa9149b87754f39925fa2f655924d1a",
+        "platform": [
+          "Windows"
+        ]
+      }
+    ],
+    "status": "ACTIVE",
+    "title": "ARK ModKit (UE4)",
+    "unsearchable": true
+  },
+  "sidecar": null
+}

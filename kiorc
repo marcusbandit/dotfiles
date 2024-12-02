@@ -1,0 +1,8 @@
+[Mimetypes]
+application/zip=peazip-2.desktop
+application/x-7z-compressed=peazip-2.desktop
+application/x-rar=peazip-2.desktop
+application/x-tar=peazip-2.desktop
+application/x-xz=peazip-2.desktop
+application/x-bzip2=peazip-2.desktop
+

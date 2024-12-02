@@ -1,0 +1,115 @@
+{
+  "app_name": "CrabEA",
+  "app_title": "Satisfactory",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "CrabEA",
+      "asset_id": "CrabEA",
+      "build_version": "379322.30",
+      "catalog_item_id": "b915dfe8dcf74770841c82a4162dc954",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "crab",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "games"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2019-02-26T15:59:56.670Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CloudIncludeList": {
+        "type": "STRING",
+        "value": "*.sav"
+      },
+      "CloudSaveFolder": {
+        "type": "STRING",
+        "value": "{AppData}/FactoryGame/Saved/SaveGames/{EpicID}/"
+      },
+      "DisablePresenceWhileRunning": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "Satisfactory"
+      },
+      "MaxSizeMB": {
+        "type": "STRING",
+        "value": "30000"
+      },
+      "PresenceID": {
+        "type": "STRING",
+        "value": "crab"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "{}"
+      }
+    },
+    "description": "Satisfactory",
+    "developer": "Coffee Stain Publishing",
+    "developerId": "o-9r9hp69ccnr39qp9f9mgpsznznu4as",
+    "endOfSupport": false,
+    "entitlementName": "b915dfe8dcf74770841c82a4162dc954",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "b915dfe8dcf74770841c82a4162dc954",
+    "installModes": [],
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "4d68c4229e649463c317109338a53a15",
+        "size": 656415,
+        "type": "DieselGameBox",
+        "uploadedDate": "2024-09-09T18:56:21.715Z",
+        "url": "https://cdn1.epicgames.com/item/crab/EGS_Satisfactory_CoffeeStainStudios_S1_2560x1440-4d68c4229e649463c317109338a53a15",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "697c0bc822cb143ccc446d5a307c3cdb",
+        "size": 414338,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2024-09-09T18:56:25.756Z",
+        "url": "https://cdn1.epicgames.com/item/crab/EGS_Satisfactory_CoffeeStainStudios_S2_1200x1600-697c0bc822cb143ccc446d5a307c3cdb",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-09-10T15:01:23.016Z",
+    "namespace": "crab",
+    "releaseInfo": [
+      {
+        "appId": "CrabEA",
+        "compatibleApps": [],
+        "dateAdded": "2019-02-26T00:00:00.000Z",
+        "id": "4a3712858c3b466eae2dc781f5c445ad",
+        "platform": [
+          "Windows"
+        ],
+        "releaseNote": "",
+        "versionTitle": ""
+      }
+    ],
+    "status": "ACTIVE",
+    "title": "Satisfactory",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

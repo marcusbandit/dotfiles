@@ -1,0 +1,7 @@
+2024/11/24-19:48:28.595 38a Reusing MANIFEST /home/bandit/.config/discord/IndexedDB/https_discordapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/24-19:48:28.595 38a Recovering log #3
+2024/11/24-19:48:28.595 38a Reusing old log /home/bandit/.config/discord/IndexedDB/https_discordapp.com_0.indexeddb.leveldb/000003.log 
+2024/11/24-22:14:27.254 387 Level-0 table #5: started
+2024/11/24-22:14:27.255 387 Level-0 table #5: 14851 bytes OK
+2024/11/24-22:14:27.256 387 Delete type=0 #3
+2024/11/24-22:14:27.256 387 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

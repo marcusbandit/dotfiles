@@ -1,0 +1,5899 @@
+{
+	"library": [
+		{
+			"app_name": "Salt",
+			"art_cover": "https://cdn1.epicgames.com/item/b671fbc7be424e888c9346a9a6d3d9db/Celeste-landscapeofferimage-2560x1440-0b9b94fd493d817704ecfdf4c704989a_2560x1440-0b9b94fd493d817704ecfdf4c704989a",
+			"art_square": "https://cdn1.epicgames.com/item/b671fbc7be424e888c9346a9a6d3d9db/CodeRedemption_Celeste-340x440-873dacb76be8c59d659757b4b5284a611_1200x1600-9e39079f1ce19738e65d349a8bc98650",
+			"cloud_save_enabled": true,
+			"developer": "Maddy Makes Games",
+			"extra": {
+				"about": {
+					"description": "Celeste",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/celeste"
+			},
+			"folder_name": "Celeste",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "b671fbc7be424e888c9346a9a6d3d9db",
+			"is_mac_native": true,
+			"save_folder": "{InstallDir}/Saves/",
+			"title": "Celeste",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/celeste"
+		},
+		{
+			"app_name": "ARKDevKit",
+			"art_cover": "https://cdn1.epicgames.com/item/ark/EGS_ARKSurvivalEvolved_StudioWildcard_S1-2560x1440-c316afb7c33a9dfb892eef6b99169e43_2560x1440-c316afb7c33a9dfb892eef6b99169e43",
+			"art_square": "https://cdn1.epicgames.com/item/ark/EGS_ARKSurvivalEvolved_StudioWildcard_S2-1200x1600-5b58fdefea9f885c7426e894a1034921_1200x1600-5b58fdefea9f885c7426e894a1034921",
+			"cloud_save_enabled": false,
+			"developer": "Studio Wildcard",
+			"extra": {
+				"about": {
+					"description": "Flavored Editor for ARK Development",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/ark-modkit-(ue4)"
+			},
+			"folder_name": "ARKEditor",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "ark",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "ARK ModKit (UE4)",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/ark-modkit-(ue4)"
+		},
+		{
+			"app_name": "Dodo",
+			"art_cover": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/BL2_Wide-2560x1440-e4f153cd792f973e00583178d8408128.jpg",
+			"art_square": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/BL2_Tall-860x1148-5fac54ddb8789d5c4bf354100058ca67.jpg",
+			"cloud_save_enabled": true,
+			"developer": "2K Games, Inc.",
+			"extra": {
+				"about": {
+					"description": "Borderlands 2",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/borderlands-2"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"categories": [
+						{
+							"path": "games"
+						},
+						{
+							"path": "developer"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2019-07-10T15:38:16.572Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						},
+						"FolderName": {
+							"type": "STRING",
+							"value": "CommanderLilithDLC"
+						}
+					},
+					"description": "Commander Lilith DLC",
+					"developer": "2K Games, Inc.",
+					"developerId": "o-37m6jbj5wcvrcvm4wusv7nazdfvbjk",
+					"endOfSupport": false,
+					"entitlementName": "3475e0d5f87f4e9c9932a71be1066c8a",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "3475e0d5f87f4e9c9932a71be1066c8a",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "002105a833091caf94efd12de6e6d5bb",
+							"size": 986780,
+							"type": "DieselGameBox",
+							"uploadedDate": "2020-09-01T12:47:44.697Z",
+							"url": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/EGS_CommanderLiliththeWide-2560x1440-002105a833091caf94efd12de6e6d5bb.jpg",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "19350814b699d534577da5e40f16972e",
+							"size": 928925,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2020-09-01T12:48:00.399Z",
+							"url": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/CommanderLilithtDLCTall-1200x1600-19350814b699d534577da5e40f16972e.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2020-09-01T12:50:50.712Z",
+					"mainGameItem": {
+						"id": "445a01ff01344692a69a092595849f03",
+						"namespace": "f4a7772a4da24870a3ea6dfb8aeac662",
+						"unsearchable": false
+					},
+					"namespace": "f4a7772a4da24870a3ea6dfb8aeac662",
+					"releaseInfo": [
+						{
+							"appId": "DodoDLC1Anemone",
+							"dateAdded": "2019-07-10T00:00:00.000Z",
+							"id": "39e23d64522f43daacc7d7f6e98ba26a",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"status": "ACTIVE",
+					"title": "Commander Lilith DLC",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"categories": [
+						{
+							"path": "games"
+						},
+						{
+							"path": "developer"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2019-07-10T15:39:48.384Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						},
+						"FolderName": {
+							"type": "STRING",
+							"value": "Borderlands2HDPack"
+						}
+					},
+					"description": "Ultra HD Texture Pack",
+					"developer": "2K Games, Inc.",
+					"developerId": "o-37m6jbj5wcvrcvm4wusv7nazdfvbjk",
+					"endOfSupport": false,
+					"entitlementName": "d6593a369f774d7dae0edebb965a25cc",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "d6593a369f774d7dae0edebb965a25cc",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 180,
+							"md5": "3578903b4ae29b5443d2587862ef0713",
+							"size": 24348,
+							"type": "DieselGameBox",
+							"uploadedDate": "2020-05-27T19:08:19.053Z",
+							"url": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/EGS_Borderlands2UltraHDTexturePack_GearboxSoftware_AddOn_IC1_A-320x180-3578903b4ae29b5443d2587862ef0713.jpg",
+							"width": 320
+						},
+						{
+							"height": 1600,
+							"md5": "cded5587c40dfd68097dd1fcaa589a8a",
+							"size": 990104,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2020-05-27T19:08:32.720Z",
+							"url": "https://cdn1.epicgames.com/f4a7772a4da24870a3ea6dfb8aeac662/item/EGS_Borderlands2UltraHDTexturePack_GearboxSoftware_AddOn_S2-1200x1600-cded5587c40dfd68097dd1fcaa589a8a.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2020-05-28T14:30:39.506Z",
+					"mainGameItem": {
+						"id": "445a01ff01344692a69a092595849f03",
+						"namespace": "f4a7772a4da24870a3ea6dfb8aeac662",
+						"unsearchable": false
+					},
+					"namespace": "f4a7772a4da24870a3ea6dfb8aeac662",
+					"releaseInfo": [
+						{
+							"appId": "DodoDLC2Mancana",
+							"dateAdded": "2019-07-10T00:00:00.000Z",
+							"id": "eb36615d2b434317a97e05ae56107072",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"status": "ACTIVE",
+					"title": "Ultra HD Texture Pack",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "Borderlands2",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "f4a7772a4da24870a3ea6dfb8aeac662",
+			"is_mac_native": false,
+			"save_folder": "{UserDir}/My Games/Borderlands 2/WillowGame/SaveData/{EpicId}/",
+			"title": "Borderlands 2",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/borderlands-2"
+		},
+		{
+			"app_name": "Turkey",
+			"art_cover": "https://cdn1.epicgames.com/6110c92696a54f108c8e9002713ea5f9/item/EGS_BorderlandsThePreSequel_Wide-2560x1440-0e1682595bdaab7a226149a5154c426e.jpg",
+			"art_square": "https://cdn1.epicgames.com/6110c92696a54f108c8e9002713ea5f9/item/EGS_BorderlandsThePreSequel_Tall-860x1148-f2cb4bbd853d7c73918bb26c99d1baae.jpg",
+			"cloud_save_enabled": true,
+			"developer": "Epic Dev Test Account",
+			"extra": {
+				"about": {
+					"description": "Borderlands: The Pre-Sequel",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/borderlands-the-presequel"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"categories": [
+						{
+							"path": "public"
+						},
+						{
+							"path": "games"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2019-07-10T16:16:10.633Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						},
+						"FolderName": {
+							"type": "STRING",
+							"value": "BorderlandsPSHDPack"
+						}
+					},
+					"description": "Ultra HD Texture Pack",
+					"developer": "2K Games, Inc.",
+					"developerId": "o-37m6jbj5wcvrcvm4wusv7nazdfvbjk",
+					"endOfSupport": false,
+					"entitlementName": "6d47b659c7f749bd927d5f455ad3c283",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "6d47b659c7f749bd927d5f455ad3c283",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1080,
+							"md5": "0f6d48fcb8323914cbc26e1bdda1105e",
+							"size": 439236,
+							"type": "DieselGameBox",
+							"uploadedDate": "2020-05-27T20:22:58.755Z",
+							"url": "https://cdn1.epicgames.com/6110c92696a54f108c8e9002713ea5f9/item/EGS_BorderlandsThePreSequelUltraHDTexturePack_GearboxSoftware_Expansion_G1A_00-1920x1080-0f6d48fcb8323914cbc26e1bdda1105e.jpg",
+							"width": 1920
+						},
+						{
+							"height": 1600,
+							"md5": "97098ad0da753c6ff5e19255d6b0105c",
+							"size": 935109,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2020-05-27T20:23:07.907Z",
+							"url": "https://cdn1.epicgames.com/6110c92696a54f108c8e9002713ea5f9/item/EGS_BorderlandsThePreSequelUltraHDTexturePack_GearboxSoftware_Expansion_S2-1200x1600-97098ad0da753c6ff5e19255d6b0105c.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2020-05-28T14:32:09.815Z",
+					"mainGameItem": {
+						"id": "7aa957cbc73446d08bbfc234d693001a",
+						"namespace": "6110c92696a54f108c8e9002713ea5f9",
+						"unsearchable": false
+					},
+					"namespace": "6110c92696a54f108c8e9002713ea5f9",
+					"releaseInfo": [
+						{
+							"appId": "TurkeyDLCAilanthus",
+							"dateAdded": "2019-07-10T00:00:00.000Z",
+							"id": "426258848cd448459df723380366dffd",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"status": "ACTIVE",
+					"title": "Ultra HD Texture Pack",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "BorderlandsThePreSequel",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "6110c92696a54f108c8e9002713ea5f9",
+			"is_mac_native": false,
+			"save_folder": "{UserDir}/My Games/Borderlands The Pre-Sequel/WillowGame/SaveData/{EpicId}/",
+			"title": "Borderlands: The Pre-Sequel",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/borderlands-the-presequel"
+		},
+		{
+			"app_name": "9d943a160fa841859ac5c1f233789fcb",
+			"art_cover": "https://cdn1.epicgames.com/item/53ec6d9f552241549c4d8aa1a42bcb3b/EGS_DeliverUsMars_KeokeNInteractive_S1_2560x1440-b5b36e7ef7feabf180837cc9d15efdae",
+			"art_square": "https://cdn1.epicgames.com/item/53ec6d9f552241549c4d8aa1a42bcb3b/EGS_DeliverUsMars_KeokeNInteractive_S2_1200x1600-8c8042da2f394f7d2ce9403e713b17c9",
+			"cloud_save_enabled": false,
+			"developer": "Frontier Developments",
+			"extra": {
+				"about": {
+					"description": "Deliver Us Mars",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/deliver-us-mars"
+			},
+			"folder_name": "DeliverUsMars",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "53ec6d9f552241549c4d8aa1a42bcb3b",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Deliver Us Mars",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/deliver-us-mars"
+		},
+		{
+			"app_name": "DLCInBluab5d0127ed44V9",
+			"art_cover": "fallback",
+			"art_square": "fallback",
+			"cloud_save_enabled": false,
+			"developer": "Komodobit Games",
+			"extra": {
+				"about": {
+					"description": "DLC In Blueprints Pro V3",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/dlc-in-blueprints-pro-v3"
+			},
+			"folder_name": "DLCInBluab5d0127ed44V9",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "89efe5924d3d467c839449ab6ab52e7f",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "DLC In Blueprints Pro V3",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/dlc-in-blueprints-pro-v3"
+		},
+		{
+			"app_name": "4d0ff75b922447649057c237c0bd1545",
+			"art_cover": "https://cdn1.epicgames.com/item/27aa2ebdcda14b3bb8a669aab73ca55f/EGS_TheElderScrollsOnline_ZeniMaxOnlineStudios_S1_2560x1440-c6c2917d1d80ae3c0e6d78b92445496b",
+			"art_square": "https://cdn1.epicgames.com/item/27aa2ebdcda14b3bb8a669aab73ca55f/EGS_TheElderScrollsOnline_ZeniMaxOnlineStudios_S2_1200x1600-5fc6dfa46dd3fe68292cd6b9ae75b0ee",
+			"cloud_save_enabled": false,
+			"developer": "Bethesda Softworks LLC",
+			"extra": {
+				"about": {
+					"description": "The Elder Scrolls Online",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/the-elder-scrolls-online"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:41:44.574Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Morrowind Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "935fd847674b4b85b9bff42aedcc20e4",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "935fd847674b4b85b9bff42aedcc20e4",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-06-17T14:11:21.259Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Morrowind Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:39:33.623Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Hailcinder Mount audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "1996bb13538349fdb4f2741d3e4d4e0d",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "1996bb13538349fdb4f2741d3e4d4e0d",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-09-04T13:56:30.877Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Hailcinder Mount audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:33:46.245Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Blackwood CE Content audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "73acf60f07434cceba352c603529ac1a",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "73acf60f07434cceba352c603529ac1a",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.619Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Blackwood CE Content audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:06:37.055Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Summerset CE Content audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "ac597329c9a744d78fc45536259cf55d",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "ac597329c9a744d78fc45536259cf55d",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.633Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Summerset CE Content audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:42:18.034Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Flame Skin Salamander audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "1437d971155745d8866970c5aa8e74ee",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "1437d971155745d8866970c5aa8e74ee",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.594Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Flame Skin Salamander audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:29:18.628Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "1500 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "0eeac9674cf84a669d9b48468ceeaf92",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "0eeac9674cf84a669d9b48468ceeaf92",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.591Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "1500 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:34:39.511Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "14000 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "5d0009768eeb4ea797b8ada37e91ae00",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "5d0009768eeb4ea797b8ada37e91ae00",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.617Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "14000 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:44:51.396Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Hailcinder Mount Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "1d94418b61654764baf9b4d79ff9cd58",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "1d94418b61654764baf9b4d79ff9cd58",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-09-04T13:56:30.878Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Hailcinder Mount Pack audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:04:50.664Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Summerset Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "5678cbc4b1da4854a71e79a626dce944",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "5678cbc4b1da4854a71e79a626dce944",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.615Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Summerset Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:51:30.144Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Newcomer Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "a0c65c872af1470399b1d3ca382ff678",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "a0c65c872af1470399b1d3ca382ff678",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.626Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Newcomer Pack audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:35:04.119Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "21000 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "54287fa4afe848818a56e9b98ed59983",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "54287fa4afe848818a56e9b98ed59983",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.614Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "21000 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:59:45.535Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Morrowind CE Content audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "498b34b482bc4942baefcd7c19076c35",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "498b34b482bc4942baefcd7c19076c35",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.611Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Morrowind CE Content audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:30:36.691Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "5500 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "deb4fba6c757498ea0a44726af9c9968",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "deb4fba6c757498ea0a44726af9c9968",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.642Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "5500 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:12:38.952Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Elsweyr CE Content audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "9300b927d32c45c5a49f4d3756cd34b0",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "9300b927d32c45c5a49f4d3756cd34b0",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.624Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Elsweyr CE Content audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:21:44.578Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "750 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "82480dc612444cc19a17449d3abfa314",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "82480dc612444cc19a17449d3abfa314",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.621Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "750 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T20:30:08.227Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "3000 Crown Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "db8ad9334d2c4e56bf5d22b338c73249",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "db8ad9334d2c4e56bf5d22b338c73249",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-09-04T13:56:30.887Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "3000 Crown Pack audience",
+					"unsearchable": false,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:08:21.844Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Elsweyr Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "ae466852833c479391f34e07e0921207",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "ae466852833c479391f34e07e0921207",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.634Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Elsweyr Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:14:20.109Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Greymoor Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "a4472b3ac4f74fd081e960c4c785cedf",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "a4472b3ac4f74fd081e960c4c785cedf",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.628Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Greymoor Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:30:36.714Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Blackwood Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "1437e394063246e4823383d0da76626f",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "1437e394063246e4823383d0da76626f",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.594Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Blackwood Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:51:04.610Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom CE Pre-Purchase bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "00df3de5e96049369ae5c78127cab0aa",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "00df3de5e96049369ae5c78127cab0aa",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.587Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom CE Pre-Purchase bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:37:02.486Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom ZC audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "91a2a864c40b48f3b6536cc9bd279bb0",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "91a2a864c40b48f3b6536cc9bd279bb0",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.624Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom ZC audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:33:39.091Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom LTO audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "027bbd33c689495fa6450d7f76958421",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "027bbd33c689495fa6450d7f76958421",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.588Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom LTO audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {
+						"ACB": {
+							"ageControl": 15,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "Mature",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ACB_M_192_192x192-b702f1ebcbc6daa7458356527d4bba16",
+							"ratingSystem": "ACB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/AUS-M_530x530-0cd57de8a21291d9377b2a9dc312c0b4",
+							"title": "Mature"
+						},
+						"ClassInd": {
+							"ageControl": 14,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "14 anos",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ClassInd_14_192_192x192-57d9ea8adad94d2c39355abf7b8e06f8",
+							"ratingSystem": "ClassInd",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/CLASSIND-14_530x530-864d4db6713acbcf6749962ce2053814",
+							"title": "14 anos"
+						},
+						"ESRB": {
+							"ageControl": 17,
+							"descriptor": "Sexual Themes,Use of Alcohol,Violence,Blood and Gore",
+							"descriptorIds": [
+								24,
+								31,
+								34,
+								4
+							],
+							"element": "Users Interact,In-Game Purchases (Includes Random Items)",
+							"elementIds": [
+								11,
+								23
+							],
+							"gameRating": "Mature 17+",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ESRB_M_192_192x192-1984f5076d6fb905bba422c8700c663e",
+							"ratingSystem": "ESRB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/ESRB-EN-M_355x530-dcad729ba3738cd2007b4ba16f05074f",
+							"title": "Mature 17+"
+						},
+						"GRAC": {
+							"ageControl": 19,
+							"descriptor": "범죄,약물,언어의 부적절성,폭력성",
+							"descriptorIds": [
+								444,
+								443,
+								442,
+								440
+							],
+							"elementIds": [],
+							"gameRating": "청소년이용불가",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC_19_272_272x272-65537df11aa656d20950e22b4600b8ba",
+							"ratingSystem": "GRAC",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC_Mature_icon_827x966-ff9cf048be23bf94370075e62c0ef9ab",
+							"title": "청소년이용불가"
+						},
+						"OFLC": {
+							"ageControl": 15,
+							"elementIds": [],
+							"gameRating": "M",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/oflc_m_256x256-964c7e676583c9c490ec45fbbc792621",
+							"ratingSystem": "OFLC",
+							"title": "M"
+						},
+						"PEGI": {
+							"ageControl": 18,
+							"descriptor": "Violence,In-Game Purchases",
+							"descriptorIds": [
+								51,
+								895
+							],
+							"elementIds": [],
+							"gameRating": "PEGI 18",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/PEGI_18_192_192x192-d6a2111e4c05a18bc5ec235df88a7382",
+							"ratingSystem": "PEGI",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/PEGI-18_436x530-f31bca6eb9a143791a8525f8b278462f",
+							"title": "PEGI 18"
+						},
+						"USK": {
+							"ageControl": 16,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "USK ab 16",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/USK_16_192_192x192-a60ba37513eb339e23cee67c25ff9f7b",
+							"ratingSystem": "USK",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/USK-16_530x530-93311702f3dddbf0d4d8c4e4e60a52cc",
+							"title": "USK ab 16"
+						}
+					},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:52:08.648Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "32be9c03ca70402e8dfe792ab5834ad0",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "32be9c03ca70402e8dfe792ab5834ad0",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-06-01T03:06:16.847Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:50:01.400Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom CE LTO bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "b4c9ed8a369446388d71707effb5ab59",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "b4c9ed8a369446388d71707effb5ab59",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.635Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom CE LTO bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:32:54.384Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom CE Pack audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "518cb803275744438aa03c299e64dc60",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "518cb803275744438aa03c299e64dc60",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.613Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom CE Pack audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:38:45.913Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom Pre-Purchase audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "bc89bbd39d7b4ac5bc16b1dea7afe323",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "bc89bbd39d7b4ac5bc16b1dea7afe323",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.637Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom Pre-Purchase audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:48:59.598Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom Full Tracking audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "49343d159c0b4b178f1314ec9b55dfbb",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "49343d159c0b4b178f1314ec9b55dfbb",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.611Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom Full Tracking audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {
+						"ACB": {
+							"ageControl": 15,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "Mature",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ACB_M_192_192x192-b702f1ebcbc6daa7458356527d4bba16",
+							"ratingSystem": "ACB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/AUS-M_530x530-0cd57de8a21291d9377b2a9dc312c0b4",
+							"title": "Mature"
+						},
+						"ClassInd": {
+							"ageControl": 14,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "14 anos",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ClassInd_14_192_192x192-57d9ea8adad94d2c39355abf7b8e06f8",
+							"ratingSystem": "ClassInd",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/CLASSIND-14_530x530-864d4db6713acbcf6749962ce2053814",
+							"title": "14 anos"
+						},
+						"ESRB": {
+							"ageControl": 17,
+							"descriptor": "Sexual Themes,Use of Alcohol,Violence,Blood and Gore",
+							"descriptorIds": [
+								24,
+								31,
+								34,
+								4
+							],
+							"element": "Users Interact,In-Game Purchases (Includes Random Items)",
+							"elementIds": [
+								11,
+								23
+							],
+							"gameRating": "Mature 17+",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ESRB_M_192_192x192-1984f5076d6fb905bba422c8700c663e",
+							"ratingSystem": "ESRB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/ESRB-EN-M_355x530-dcad729ba3738cd2007b4ba16f05074f",
+							"title": "Mature 17+"
+						},
+						"GRAC": {
+							"ageControl": 19,
+							"descriptor": "범죄,약물,언어의 부적절성,폭력성",
+							"descriptorIds": [
+								444,
+								443,
+								442,
+								440
+							],
+							"elementIds": [],
+							"gameRating": "청소년이용불가",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC_19_272_272x272-65537df11aa656d20950e22b4600b8ba",
+							"ratingSystem": "GRAC",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC_Mature_icon_827x966-ff9cf048be23bf94370075e62c0ef9ab",
+							"title": "청소년이용불가"
+						},
+						"OFLC": {
+							"ageControl": 15,
+							"elementIds": [],
+							"gameRating": "M",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/oflc_m_256x256-964c7e676583c9c490ec45fbbc792621",
+							"ratingSystem": "OFLC",
+							"title": "M"
+						},
+						"PEGI": {
+							"ageControl": 18,
+							"descriptor": "Violence,In-Game Purchases",
+							"descriptorIds": [
+								51,
+								895
+							],
+							"elementIds": [],
+							"gameRating": "PEGI 18",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/PEGI_18_192_192x192-d6a2111e4c05a18bc5ec235df88a7382",
+							"ratingSystem": "PEGI",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/PEGI-18_436x530-f31bca6eb9a143791a8525f8b278462f",
+							"title": "PEGI 18"
+						},
+						"USK": {
+							"ageControl": 16,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "USK ab 16",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/USK_16_192_192x192-a60ba37513eb339e23cee67c25ff9f7b",
+							"ratingSystem": "USK",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/USK-16_530x530-93311702f3dddbf0d4d8c4e4e60a52cc",
+							"title": "USK ab 16"
+						}
+					},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:51:49.903Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom CE bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "3bf486cc4e0d4202957cf3158c9e09ca",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "3bf486cc4e0d4202957cf3158c9e09ca",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-06-01T03:06:16.848Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom CE bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:48:32.178Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom Pre-Order audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "06c2eb79a878400e99ec3413abb393f3",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "06c2eb79a878400e99ec3413abb393f3",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.589Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom Pre-Order audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:50:21.345Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Necrom LTO bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "0e6efe4e8d454557b85b16aa65b612a8",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "0e6efe4e8d454557b85b16aa65b612a8",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.591Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Necrom LTO bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-10-26T11:28:24.677Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "High Isle CE Upgrade bundle audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "bfc75b4db7a54ca080c82e5b8c2f27e3",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "bfc75b4db7a54ca080c82e5b8c2f27e3",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.637Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "High Isle CE Upgrade bundle audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:36:53.421Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "High Isle Upgrade audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "842f8c50c9f443b89a08c6f702b8099e",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "842f8c50c9f443b89a08c6f702b8099e",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.621Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "High Isle Upgrade audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2022-06-13T21:38:27.427Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "High Isle CE Content audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "abc6b80fda424c8aa0b422db0f2b3ee1",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "abc6b80fda424c8aa0b422db0f2b3ee1",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.633Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "High Isle CE Content audience",
+					"unsearchable": false
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2023-06-13T12:12:58.032Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "The Elder Scrolls Online Deluxe Upgrade: Necrom",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "d7a82426531249c296bc3181dcb14db4",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "d7a82426531249c296bc3181dcb14db4",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.641Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online Deluxe Upgrade: Necrom",
+					"unsearchable": true
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2023-06-13T12:13:59.267Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "The Elder Scrolls Online Upgrade: Necrom",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "ab460dfe1ca14ee58f7de45c78f92da6",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "ab460dfe1ca14ee58f7de45c78f92da6",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.632Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online Upgrade: Necrom",
+					"unsearchable": true
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2023-11-07T20:14:36.100Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Peninsula Upgrade",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "14e548006cdb480ea89d086b680e0e3c",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "14e548006cdb480ea89d086b680e0e3c",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.596Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Peninsula Upgrade",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2023-11-07T20:22:40.031Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Peninsula Deluxe Upgrade",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "96b3275e849142d387f66d83710364e7",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "96b3275e849142d387f66d83710364e7",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.625Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Peninsula Deluxe Upgrade",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-11-08T19:17:15.027Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Gold Road Upgrade Pre-Purchase LTO audience\n",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "27258b6f67354eb6b77195c59920e9e9",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "27258b6f67354eb6b77195c59920e9e9",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.602Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Gold Road Upgrade Pre-Purchase LTO audience",
+					"unsearchable": true
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2024-03-05T00:41:08.482Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "The Elder Scrolls Online: Promo Bundle audience",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "8c5cc179e7e746a38cd45b284f24fbeb",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "8c5cc179e7e746a38cd45b284f24fbeb",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-03-19T17:04:39.623Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online: Promo Bundle audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2024-05-10T10:57:01.338Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "The Elder Scrolls Online: 800 Crowns audience",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "f1d67b34c4e24222a6989fe844fdb0f2",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "f1d67b34c4e24222a6989fe844fdb0f2",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-09-04T13:56:30.888Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online: 800 Crowns audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-05-10T11:01:01.083Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "The Elder Scrolls Online: House Pack",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "bbc8d756021b4d088a616a578332001a",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "bbc8d756021b4d088a616a578332001a",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-09-04T13:56:30.886Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online: House Pack",
+					"unsearchable": true
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-05-10T11:01:11.144Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "The Elder Scrolls Online: Horse Pack",
+					"developer": "Bethesda Softworks LLC",
+					"developerId": "o-bthbhn6wd7fzj73v5p4436ucn3k37u",
+					"endOfSupport": false,
+					"entitlementName": "8d57bbb9615d4a2eaa0b94dc4adb7115",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "8d57bbb9615d4a2eaa0b94dc4adb7115",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-05-10T11:01:11.144Z",
+					"mainGameItem": {
+						"id": "b9e3c7e855044cbb82c82ea939241db7",
+						"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+						"unsearchable": false
+					},
+					"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Elder Scrolls Online: Horse Pack",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "TheElderScrollsOnline",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "27aa2ebdcda14b3bb8a669aab73ca55f",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "The Elder Scrolls Online",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/the-elder-scrolls-online"
+		},
+		{
+			"app_name": "0a2d9f6403244d12969e11da6713137b",
+			"art_cover": "https://cdn1.epicgames.com/item/50118b7f954e450f8823df1614b24e80/FGSS04_KeyArt_OfferImageLandscape_2560x1440_2560x1440-89c8edd4ffe307f5d760f286a28c3404",
+			"art_square": "https://cdn1.epicgames.com/item/50118b7f954e450f8823df1614b24e80/FGSS04_KeyArt_OfferImagePortrait_1200x1600_1200x1600-4bd46574e78464352e1f2c55714701f7",
+			"cloud_save_enabled": false,
+			"developer": "EGFG LLC",
+			"extra": {
+				"about": {
+					"description": "Fall Guys",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/fall-guys"
+			},
+			"folder_name": "FallGuys",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "50118b7f954e450f8823df1614b24e80",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Fall Guys",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/fall-guys"
+		},
+		{
+			"app_name": "Fortnite",
+			"art_cover": "https://cdn1.epicgames.com/item/fn/Blade_2560x1440_2560x1440-95718a8046a942675a0bc4d27560e2bb",
+			"art_square": "https://cdn1.epicgames.com/item/fn/Blade_1200x1600_1200x1600-fcea56f5eb92df731a89121e2b4416b5",
+			"cloud_save_enabled": false,
+			"developer": "Epic Games",
+			"extra": {
+				"about": {
+					"description": "Play Fortnite your way. \n\nBe the last player standing in Battle Royale, Zero Build and Reload, explore and survive in LEGO Fortnite, blast to the finish with Rocket Racing or headline a concert with Fortnite Festival. Play thousands of free creator made islands with friends including deathruns, tycoons, racing, zombie survival and more! Join the creator community and build your own island with Unreal Editor for Fortnite (UEFN) or Fortnite Creative tools.\n\nEach Fortnite island has an individual age rating so you can find the one that's right for you and your friends. Find it all in Fortnite!",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/fortnite"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2023-02-24T22:47:11.016Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite -IslandOverride=playlist_defaultsolo"
+						}
+					},
+					"description": "Fortnite Battle Royale",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "d75daf91c89b49ecb110b69a7bd68996",
+					"entitlementType": "ENTITLEMENT",
+					"eulaIds": [],
+					"id": "d75daf91c89b49ecb110b69a7bd68996",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "efd3e389b79bafd80e87f38f2ace2a32",
+							"size": 2184193,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-08-16T01:51:53.415Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNBR_31-00_C5S4_EGS_Launcher_KeyArt_Blade_2560x1440_2560x1440-efd3e389b79bafd80e87f38f2ace2a32",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "9460a01e3ca95f67d6f6c88e4fdd4fc6",
+							"size": 1407927,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-08-16T01:51:56.444Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNBR_31-00_C5S4_EGS_Launcher_KeyArt_Blade_1200x1600_1200x1600-9460a01e3ca95f67d6f6c88e4fdd4fc6",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-10-08T23:15:25.503Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "afdb5a85efcc45d8ae8e406e2121d81c",
+							"compatibleApps": [],
+							"dateAdded": "2023-03-14T17:27:41.306Z",
+							"id": "a1a774fdd85c4e0dbf99d5379a8dd608",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Fortnite Battle Royale",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {
+						"ACB": {
+							"ageControl": 0,
+							"descriptor": "General,Online Interactivity,In-Game Purchases",
+							"descriptorIds": [
+								196,
+								198,
+								964
+							],
+							"elementIds": [],
+							"gameRating": "General",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ACB_G_192_192x192-7b943fb85a42a888515791340eff2366",
+							"ratingSystem": "ACB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/AUS-G_530x530-8de1de50350653f6bf4b2a55fbc1fa05",
+							"title": "General"
+						},
+						"CERO": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "全年齢対象",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/cero_a_208x256-0a7bc37aeba34b1c641c1f3812fcf7d1",
+							"ratingSystem": "CERO",
+							"title": "全年齢対象"
+						},
+						"ClassInd": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"element": "Usuários Interagem,Compras on-line (Inclui itens aleatórios)",
+							"elementIds": [
+								11,
+								23
+							],
+							"gameRating": "Livre",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ClassInd_L_192_192x192-aa1269028601dc012f85035c1d7d7051",
+							"ratingSystem": "ClassInd",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/CLASSIND-L_530x530-c5b29e0ece4d40ec2f4ebea341c60e23",
+							"title": "Livre"
+						},
+						"ESRB": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"element": "Users Interact,In-Game Purchases",
+							"elementIds": [
+								11,
+								21
+							],
+							"gameRating": "Everyone",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ESRB_E_192_192x192-d19524ed4facfee97d7372b6e5cd51f8",
+							"ratingSystem": "ESRB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/ESRB-EN-E_354x530-77d61f8b877ae9687a4a40985a5f0105",
+							"title": "Everyone"
+						},
+						"GRAC": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "전체이용가",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/GRAC_All_192_192x192-0973b9b3768114fdfa4d864efd697ae2",
+							"ratingSystem": "GRAC",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC-ALL_396x530-56fd85544364d3eab30fe93ed24e9394",
+							"title": "전체이용가"
+						},
+						"OFLC": {
+							"ageControl": 0,
+							"elementIds": [],
+							"gameRating": "G",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/oflc_g_256x256-764f8356f86a1b98da62bda28b8d2792",
+							"ratingSystem": "OFLC",
+							"title": "G"
+						},
+						"PEGI": {
+							"ageControl": 3,
+							"descriptorIds": [],
+							"element": "In-Game Purchases",
+							"elementIds": [
+								21
+							],
+							"gameRating": "PEGI 3",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/PEGI_3_192_192x192-490b93ddf59fb4ac1148d1eb9083626a",
+							"ratingSystem": "PEGI",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/PEGI-3_435x530-c931ab5bb4eb190f6e8e542081c49dc4",
+							"title": "PEGI 3"
+						},
+						"USK": {
+							"ageControl": 12,
+							"descriptorIds": [],
+							"element": "In-Game-Käufe,Chats",
+							"elementIds": [
+								21,
+								11
+							],
+							"gameRating": "USK ab 12",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/USK_12_192_192x192-656fa1e0a9c59f9495ee94c58ffbebf5",
+							"ratingSystem": "USK",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/USK-12_530x530-dc467955d1aaff843843ee070d83c596",
+							"title": "USK ab 12"
+						}
+					},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons/launchable"
+						},
+						{
+							"path": "addons"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2023-11-20T23:38:45.741Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite -IslandOverride=playlist_delmar_ranked_root"
+						},
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Rocket Racing",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "dc0f82460af8457baf3b40e817dcc2b5",
+					"entitlementType": "ENTITLEMENT",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "dc0f82460af8457baf3b40e817dcc2b5",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "a9d3c2f38d6fe1670f08bac6af5d6f32",
+							"size": 2047635,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-10-11T14:54:12.694Z",
+							"url": "https://cdn1.epicgames.com/item/fn/EN_28RR_1P_EGS_2560x1440_2560x1440-a9d3c2f38d6fe1670f08bac6af5d6f32",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "916d6c983e085304b8a7964a9d443092",
+							"size": 1236904,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-10-11T14:54:19.076Z",
+							"url": "https://cdn1.epicgames.com/item/fn/EN_28RR_1P_EGS_1200x1600_thumb_1200x1600-916d6c983e085304b8a7964a9d443092",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-10-11T14:55:45.228Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "5291abb43ba449859549cb41535e8c8f",
+							"compatibleApps": [],
+							"dateAdded": "2023-12-06T23:16:44.185Z",
+							"id": "6e09ed659c0c42c3986751f9ecb50bfa",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Rocket Racing",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {
+						"ACB": {
+							"ageControl": 15,
+							"descriptor": "Mild Drug References,Sexual References,Online Interactivity,In-Game Purchases",
+							"descriptorIds": [
+								163,
+								149,
+								198,
+								964
+							],
+							"elementIds": [],
+							"gameRating": "Parental guidance",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ACB_PG_192_192x192-e0cb71e555d104463b8cb6ace89895d9",
+							"ratingSystem": "ACB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/AUS-PG_530x530-b3b0143b27b1e3837cca000e7d5f2912",
+							"title": "Parental guidance"
+						},
+						"CERO": {
+							"ageControl": 12,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "12歳以上対象",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/cero_b_208x256-65b61e49ae62c43559b290c6f1ce87eb",
+							"ratingSystem": "CERO",
+							"title": "12歳以上対象"
+						},
+						"ClassInd": {
+							"ageControl": 12,
+							"descriptor": "Violência,Conteúdo Sexual,Linguagem Imprópria",
+							"descriptorIds": [
+								60,
+								62,
+								69
+							],
+							"element": "Usuários Interagem,Compras on-line (Inclui itens aleatórios)",
+							"elementIds": [
+								11,
+								23
+							],
+							"gameRating": "12 anos",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ClassInd_12_192_192x192-74a171f6c8e7f9ee5d7583241d68d081",
+							"ratingSystem": "ClassInd",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/CLASSIND-12_530x530-7f499e56148e56d5e17b6b6c18b854cd",
+							"title": "12 anos"
+						},
+						"ESRB": {
+							"ageControl": 13,
+							"descriptor": "Lyrics",
+							"descriptorIds": [
+								217
+							],
+							"element": "Users Interact,In-Game Purchases",
+							"elementIds": [
+								11,
+								21
+							],
+							"gameRating": "Teen",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ESRB_T_192_192x192-a0885066a34083cd647dc10db21717f1",
+							"ratingSystem": "ESRB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/ESRB-EN-T_354x530-baae04c009da6ffc5139341c31182e67",
+							"title": "Teen"
+						},
+						"GRAC": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "전체이용가",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/GRAC_All_192_192x192-0973b9b3768114fdfa4d864efd697ae2",
+							"ratingSystem": "GRAC",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC-ALL_396x530-56fd85544364d3eab30fe93ed24e9394",
+							"title": "전체이용가"
+						},
+						"OFLC": {
+							"ageControl": 8,
+							"elementIds": [],
+							"gameRating": "PG",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/oflc_pg_256x256-ba3755202c132b84708dadf34e17b930",
+							"ratingSystem": "OFLC",
+							"title": "PG"
+						},
+						"PEGI": {
+							"ageControl": 12,
+							"descriptor": "Bad Language,Sex,In-Game Purchases",
+							"descriptorIds": [
+								890,
+								54,
+								895
+							],
+							"elementIds": [],
+							"gameRating": "PEGI 12",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/PEGI_12_192_192x192-afa4df43f131bc83eb380ccf22f8d904",
+							"ratingSystem": "PEGI",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/PEGI-12_436x530-0cd1f06607086f3cc1bc2b8643f21b0a",
+							"title": "PEGI 12"
+						},
+						"USK": {
+							"ageControl": 12,
+							"descriptorIds": [],
+							"element": "In-Game-Käufe,Chats",
+							"elementIds": [
+								21,
+								11
+							],
+							"gameRating": "USK ab 12",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/USK_12_192_192x192-656fa1e0a9c59f9495ee94c58ffbebf5",
+							"ratingSystem": "USK",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/USK-12_530x530-dc467955d1aaff843843ee070d83c596",
+							"title": "USK ab 12"
+						}
+					},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons/launchable"
+						},
+						{
+							"path": "addons"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2023-11-20T23:39:05.921Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite -IslandOverride=playlist_pilgrimquickplay"
+						},
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Fortnite Festival",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "7f17fff066664078ba6a244f4b31644f",
+					"entitlementType": "ENTITLEMENT",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "7f17fff066664078ba6a244f4b31644f",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "ea8556f9ad0df184648031041770a3ee",
+							"size": 489481,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-10-29T21:28:07.442Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNSP_06_EGS_Launcher_Blades_Vertical_2560x1440_2560x1440-ea8556f9ad0df184648031041770a3ee",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "ac903b965cb8f20a0d413537badddf83",
+							"size": 316513,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-10-29T21:28:14.492Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNSP_06_EGS_Launcher_Blades_Portrait_1200x1600_1200x1600-ac903b965cb8f20a0d413537badddf83",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-11-02T06:40:37.529Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "09e442f830a341f698b4da42abd98c9b",
+							"compatibleApps": [],
+							"dateAdded": "2023-12-06T23:24:51.803Z",
+							"id": "33204d8fa8a04c229e7712127e8fa49f",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Fortnite Festival",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {
+						"ACB": {
+							"ageControl": 15,
+							"descriptor": "Mild Violence,Online Interactivity,In-Game Purchases",
+							"descriptorIds": [
+								140,
+								198,
+								964
+							],
+							"elementIds": [],
+							"gameRating": "Parental guidance",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ACB_PG_192_192x192-e0cb71e555d104463b8cb6ace89895d9",
+							"ratingSystem": "ACB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/AUS-PG_530x530-b3b0143b27b1e3837cca000e7d5f2912",
+							"title": "Parental guidance"
+						},
+						"CERO": {
+							"ageControl": 0,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "全年齢対象",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/cero_a_208x256-0a7bc37aeba34b1c641c1f3812fcf7d1",
+							"ratingSystem": "CERO",
+							"title": "全年齢対象"
+						},
+						"ClassInd": {
+							"ageControl": 10,
+							"descriptor": "Violência",
+							"descriptorIds": [
+								60
+							],
+							"element": "Interação de usuários,Compras on-line (Inclui itens aleatórios)",
+							"elementIds": [
+								11,
+								23
+							],
+							"gameRating": "10 anos",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ClassInd_10_192_192x192-a212678a1fe969ab23f35930abfb75c1",
+							"ratingSystem": "ClassInd",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/CLASSIND-10_530x530-2e90e467e1a24e63b4fd4804ca9e7931",
+							"title": "10 anos"
+						},
+						"ESRB": {
+							"ageControl": 10,
+							"descriptor": "Fantasy Violence",
+							"descriptorIds": [
+								8
+							],
+							"element": "Users Interact,In-Game Purchases",
+							"elementIds": [
+								11,
+								21
+							],
+							"gameRating": "Everyone 10+",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/ESRB_E10_192_192x192-a046506419451571f45dad71361cf56d",
+							"ratingSystem": "ESRB",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/ESRB-EN-E10_354x530-75085475e398dc8aa8b84fa7040f6119",
+							"title": "Everyone 10+"
+						},
+						"GRAC": {
+							"ageControl": 12,
+							"descriptor": "폭력성",
+							"descriptorIds": [
+								440
+							],
+							"elementIds": [],
+							"gameRating": "12세이용가",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/GRAC_12_192_192x192-2873c81e2512ccd4d3fb02a00458ab19",
+							"ratingSystem": "GRAC",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/GRAC-12_397x530-84396e7355c346dd8875a2f9afdfce89",
+							"title": "12세이용가"
+						},
+						"OFLC": {
+							"ageControl": 8,
+							"elementIds": [],
+							"gameRating": "PG",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/oflc_pg_256x256-ba3755202c132b84708dadf34e17b930",
+							"ratingSystem": "OFLC",
+							"title": "PG"
+						},
+						"PEGI": {
+							"ageControl": 7,
+							"descriptor": "Violence,In-Game Purchases",
+							"descriptorIds": [
+								51,
+								895
+							],
+							"elementIds": [],
+							"gameRating": "PEGI 7",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/PEGI_7_192_192x192-30e2e712d0682dad01add90a6ccbed5b",
+							"ratingSystem": "PEGI",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/PEGI-7_435x530-9439a136999d3dd762c7a61c3b8c7683",
+							"title": "PEGI 7"
+						},
+						"USK": {
+							"ageControl": 12,
+							"descriptorIds": [],
+							"elementIds": [],
+							"gameRating": "USK ab 12",
+							"isIARC": false,
+							"isTrad": true,
+							"ratingImage": "https://cdn1.epicgames.com/gameRating/gameRating/USK_12_192_192x192-656fa1e0a9c59f9495ee94c58ffbebf5",
+							"ratingSystem": "USK",
+							"rectangularRatingImage": "https://cdn1.epicgames.com/salesEvent/salesEvent/USK-12_530x530-dc467955d1aaff843843ee070d83c596",
+							"title": "USK ab 12"
+						}
+					},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons/launchable"
+						},
+						{
+							"path": "addons"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2023-11-10T23:43:38.326Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite -IslandOverride=playlist_juno"
+						}
+					},
+					"description": "LEGO® Fortnite®",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "8f33cce63b3f4a46aca59ff8c85ff1cd",
+					"entitlementType": "ENTITLEMENT",
+					"eulaIds": [],
+					"id": "8f33cce63b3f4a46aca59ff8c85ff1cd",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "7fe29ccae709fe851821433f56f3ef70",
+							"size": 976142,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-09-11T22:06:05.868Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNJN_31-20_Lost-Isles_EGS_Launcher_KeyArt_Blade_2560x1440_2560x1440-7fe29ccae709fe851821433f56f3ef70",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "d6a9ec2c3bd47521206d7b1708c6824d",
+							"size": 377030,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-09-11T22:06:12.573Z",
+							"url": "https://cdn1.epicgames.com/item/fn/FNJN_31-20_Lost-Isles_EGS_Launcher_KeyArt_Blade_1200x1600_1200x1600-d6a9ec2c3bd47521206d7b1708c6824d",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-10-17T16:00:25.965Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "d8f7763e07d74c209d760a679f9ed6ac",
+							"compatibleApps": [],
+							"dateAdded": "2023-12-06T23:13:31.921Z",
+							"id": "ff932a2d29144640ad1a8ac3aa607dc8",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "LEGO® Fortnite®",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-03-16T16:59:08.569Z",
+					"customAttributes": {},
+					"description": "UEFN Free Audience",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "045a89e535a1419ba1f790b7e1954af8",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "045a89e535a1419ba1f790b7e1954af8",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-03-22T15:23:36.228Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "UEFN Free Audience",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons/launchable"
+						},
+						{
+							"path": "software"
+						},
+						{
+							"path": "addons"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2021-08-04T22:15:10.018Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite"
+						},
+						"CanSkipCabinedWarning": {
+							"type": "STRING",
+							"value": "true"
+						},
+						"CanSkipKoreanIdVerification": {
+							"type": "STRING",
+							"value": "true"
+						},
+						"DlcProcessNames": {
+							"type": "STRING",
+							"value": "UnrealEditorFortnite-Win64-Shipping.exe,CrashReportClientEditor.exe,urc.exe"
+						}
+					},
+					"description": "Unreal Editor for Fortnite",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "1e8bda5cfbb641b9a9aea8bd62285f73",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [],
+					"id": "1e8bda5cfbb641b9a9aea8bd62285f73",
+					"installModes": [],
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "bc992b49496068f859100ec4cc6e0f3c",
+							"size": 605897,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-03-20T17:20:56.037Z",
+							"url": "https://cdn1.epicgames.com/item/fn/UEFN_29-01_EGS_UEFN_Assets_S1OfferImage_2560x1440_2560x1440-bc992b49496068f859100ec4cc6e0f3c",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "ad0410dce2ef92f4dca09bcb63056be4",
+							"size": 313973,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-03-20T17:20:59.316Z",
+							"url": "https://cdn1.epicgames.com/item/fn/UEFN_29-01_EGS_UEFN_Assets_S2OfferImage_1200x1600_1200x1600-ad0410dce2ef92f4dca09bcb63056be4",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-03-25T15:51:51.616Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "Fortnite_Studio",
+							"compatibleApps": [],
+							"dateAdded": "2023-03-10T16:11:34.775Z",
+							"id": "58bd32e303844c90842d28480a6786ae",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Unreal Editor for Fortnite",
+					"unsearchable": true
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons/launchable"
+						},
+						{
+							"path": "addons"
+						},
+						{
+							"path": "applications"
+						}
+					],
+					"creationDate": "2024-08-05T20:23:37.201Z",
+					"customAttributes": {
+						"AdditionalCommandLine": {
+							"type": "STRING",
+							"value": "-epicapp=Fortnite -IslandOverride=Playlist_BlastBerrySquad"
+						},
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Fortnite Reload",
+					"developer": "Epic Games",
+					"developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+					"endOfSupport": false,
+					"entitlementName": "e86c48dd240e41bc9565c6b6b16a9ec1",
+					"entitlementType": "ENTITLEMENT",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "e86c48dd240e41bc9565c6b6b16a9ec1",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1440,
+							"md5": "c1109965a802018ce601f34160ce2f6a",
+							"size": 2770947,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-11-02T11:14:07.706Z",
+							"url": "https://cdn1.epicgames.com/item/fn/EN_FNBR_32-00_Reload_EGS_PDP_CarouselImage_2560x1440_2560x1440-c1109965a802018ce601f34160ce2f6a",
+							"width": 2560
+						},
+						{
+							"height": 1600,
+							"md5": "25a9bfedb030d4600dcf6ea2a54fc7d6",
+							"size": 1440031,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-11-02T11:14:13.683Z",
+							"url": "https://cdn1.epicgames.com/item/fn/EN_FNBR_32-00_Reload_EGS_MobileCarouselThumbnail_1200x1600_1200x1600-25a9bfedb030d4600dcf6ea2a54fc7d6",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-11-02T11:38:25.403Z",
+					"mainGameItem": {
+						"id": "4fe75bbc5a674f4f9b356b5c90567da5",
+						"namespace": "fn",
+						"unsearchable": false
+					},
+					"namespace": "fn",
+					"releaseInfo": [
+						{
+							"appId": "21339bc36b00459aa034300a9a7ad99e",
+							"compatibleApps": [],
+							"dateAdded": "2023-12-06T23:16:00.000Z",
+							"id": "6e09ed659c0c42c3986751f9ecb50bfa",
+							"platform": [
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Fortnite Reload",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "Fortnite",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "fn",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "Fortnite",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/fortnite"
+		},
+		{
+			"app_name": "41869934302e4b8cafac2d3c0e7c293d",
+			"art_cover": "https://cdn1.epicgames.com/salesEvent/salesEvent/Landscape Product image-EN_2560x1440-91c6cd7312cc2647c3ebccca10f30399",
+			"art_square": "https://cdn1.epicgames.com/salesEvent/salesEvent/Portrait Product Image-en_1200x1600-c12cdcc2cac330df2185aa58c508e820",
+			"cloud_save_enabled": false,
+			"developer": "COGNOSPHERE PTE. LTD.",
+			"extra": {
+				"about": {
+					"description": "Genshin Impact",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/genshin-impact"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2021-07-15T20:18:31.037Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "DLC11 Audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "468a3a89128640faa443c80628ac680b",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "468a3a89128640faa443c80628ac680b",
+					"installModes": [],
+					"itemType": "CONSUMABLE",
+					"keyImages": [],
+					"lastModifiedDate": "2024-07-26T09:09:46.199Z",
+					"mainGameItem": {
+						"id": "7d690c122fde4c60bed85405f343ad10",
+						"namespace": "879b0d8776ab46a59a129983ba78f0ce",
+						"unsearchable": false
+					},
+					"namespace": "879b0d8776ab46a59a129983ba78f0ce",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "DLC11 Audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-04-18T18:18:35.537Z",
+					"customAttributes": {
+						"CanRunOffline": {
+							"type": "STRING",
+							"value": "true"
+						}
+					},
+					"description": "Genshin Impact MEGA Sale Bundle",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "ef2cb524c64a425c9e7758cd5c9f185d",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "ef2cb524c64a425c9e7758cd5c9f185d",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.453Z",
+					"mainGameItem": {
+						"id": "7d690c122fde4c60bed85405f343ad10",
+						"namespace": "879b0d8776ab46a59a129983ba78f0ce",
+						"unsearchable": false
+					},
+					"namespace": "879b0d8776ab46a59a129983ba78f0ce",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Genshin Impact MEGA Sale Bundle",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "GenshinImpact",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "879b0d8776ab46a59a129983ba78f0ce",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Genshin Impact",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/genshin-impact"
+		},
+		{
+			"app_name": "0eeaae41305043f7a465310eb2cbaff9",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/d3aec59bfafa4dd392d5c9b01abbaefd/golden-light-yknj4.jpg",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/d3aec59bfafa4dd392d5c9b01abbaefd/golden-light-176gb.png",
+			"cloud_save_enabled": false,
+			"developer": "Hypetrain Digital",
+			"extra": {
+				"about": {
+					"description": "Eat weapons, be scared and question your own mind in this Survival-Horror FPS Prop Hunt Roguelike about meat. Walls are watching you!",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/golden-light"
+			},
+			"folder_name": "GoldenLightq5unh",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "ca05bd340e84436ebea4a0c0ca55befa",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Golden Light",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/golden-light"
+		},
+		{
+			"app_name": "9d2d0eb64d5c44529cece33fe2a46482",
+			"art_cover": "https://cdn1.epicgames.com/0584d2013f0149a791e7b9bad0eec102/item/GTAV_EGS_Artwork_2560x1440_Landscaped Store-2560x1440-79155f950f32c9790073feaccae570fb.jpg",
+			"art_square": "https://cdn1.epicgames.com/0584d2013f0149a791e7b9bad0eec102/item/GTAV_EGS_Artwork_1200x1600_Portrait Store Banner-1200x1600-382243057711adf80322ed2aeea42191.jpg",
+			"cloud_save_enabled": false,
+			"developer": "Rockstar Games",
+			"extra": {
+				"about": {
+					"description": "Grand Theft Auto V",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/grand-theft-auto-v"
+			},
+			"folder_name": "GTAV",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "0584d2013f0149a791e7b9bad0eec102",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Grand Theft Auto V",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/grand-theft-auto-v"
+		},
+		{
+			"app_name": "86ae9acccf8443e18fca6950e0181288",
+			"art_cover": "https://cdn1.epicgames.com/offer/a2dcbb9e34204bda9da8415f97b3f4ea/1200x1600_EN_1200x1600-6676c66f75c714d4492d6abffb9834b1",
+			"art_square": "https://cdn1.epicgames.com/offer/a2dcbb9e34204bda9da8415f97b3f4ea/1200x1600_EN_1200x1600-6676c66f75c714d4492d6abffb9834b1",
+			"cloud_save_enabled": false,
+			"developer": "COGNOSPHERE PTE. LTD.",
+			"extra": {
+				"about": {
+					"description": "Honkai: Star Rail",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/honkai-star-rail"
+			},
+			"dlcList": [
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:43:09.681Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×60 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "7022dd6751774f09bb801fb055008a68",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "7022dd6751774f09bb801fb055008a68",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.114Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×60 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:43:34.271Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×300 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "b7f1769c07c2479ba9f23860b645cb86",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "b7f1769c07c2479ba9f23860b645cb86",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.128Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×300 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:44:00.423Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Express Supply Pass audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "a577f5fad49d42fa89cdcd9f525cbf73",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "a577f5fad49d42fa89cdcd9f525cbf73",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.142Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Express Supply Pass audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:45:03.256Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "The Nameless Glory audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "3127e8d125cc41c0a95657c0f7d7f7d0",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "3127e8d125cc41c0a95657c0f7d7f7d0",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.156Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Nameless Glory audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:45:29.850Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Honor Badge audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "290f4aa6fb7c495dbf30e235a85cf655",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "290f4aa6fb7c495dbf30e235a85cf655",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.170Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Honor Badge audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:45:43.654Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×980 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "a94946fc2c7a496eac9c40d043fde561",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "a94946fc2c7a496eac9c40d043fde561",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.185Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×980 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:45:57.770Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "The Nameless Medal audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "895b8b8d0e35426bb51b676004a9f159",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "895b8b8d0e35426bb51b676004a9f159",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.199Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "The Nameless Medal audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:46:16.168Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×1980 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "6b9705d7d7cc40729547ad0b89394518",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "6b9705d7d7cc40729547ad0b89394518",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.216Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×1980 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:47:01.846Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×3280 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "6d45c503d62544c8bedbc70ad7211baa",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "6d45c503d62544c8bedbc70ad7211baa",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.231Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×3280 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:47:20.113Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Oneiric Shard ×6480 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "d99a5aa0c74747f8bf473b8f8c638a14",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "d99a5aa0c74747f8bf473b8f8c638a14",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.246Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Oneiric Shard ×6480 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:47:44.811Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×60 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "02bdb82577ce4719b0ea156042c4bf37",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "02bdb82577ce4719b0ea156042c4bf37",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.260Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×60 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:48:00.835Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×300 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "c3a7b8e70baf4b929d0911c217cddf23",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "c3a7b8e70baf4b929d0911c217cddf23",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.274Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×300 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:48:14.743Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Express Supply Pass audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "e1cdbcc90fe94ca99cdb6cfd43a50fb3",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "e1cdbcc90fe94ca99cdb6cfd43a50fb3",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.288Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Express Supply Pass audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:48:35.147Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_The Nameless Glory audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "da0cbaf5afcc4c29ba8da64e559731aa",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "da0cbaf5afcc4c29ba8da64e559731aa",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.304Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_The Nameless Glory audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:48:50.258Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Honor Badge audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "334516b8ce2b47d5a6742725d0a99b0b",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "334516b8ce2b47d5a6742725d0a99b0b",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.318Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Honor Badge audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:49:07.022Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×980 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "a1d8d01005f247fc9549f7afa9466df6",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "a1d8d01005f247fc9549f7afa9466df6",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.332Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×980 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:49:22.916Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_The Nameless Medal audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "9e1069060fba4f119db0de10da5e5fe1",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "9e1069060fba4f119db0de10da5e5fe1",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.347Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_The Nameless Medal audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						}
+					],
+					"creationDate": "2023-07-18T18:49:39.036Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×1980 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "d15a3b7f84274f29b1c7b880f439181e",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "d15a3b7f84274f29b1c7b880f439181e",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T19:10:28.807Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×1980 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:49:54.777Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×3280 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "02d230fe0f5e4feda2dc184b6cef4e70",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "02d230fe0f5e4feda2dc184b6cef4e70",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.378Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×3280 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-07-18T18:50:16.454Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "test_Oneiric Shard ×6480 audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "079e87d1b2f041738ea5e5ccff3ed813",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "079e87d1b2f041738ea5e5ccff3ed813",
+					"itemType": "CONSUMABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.392Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "test_Oneiric Shard ×6480 audience",
+					"unsearchable": true,
+					"useCount": 1
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2024-04-18T18:35:45.749Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "Honkai: Star Rail Epic Mega Sales event bundle audience",
+					"developer": "COGNOSPHERE PTE. LTD.",
+					"developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+					"endOfSupport": false,
+					"entitlementName": "23cc4089d7074303b8718296607d52d1",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "23cc4089d7074303b8718296607d52d1",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2024-07-26T09:09:48.468Z",
+					"mainGameItem": {
+						"id": "101391ece6024e069a7cb8cf22104399",
+						"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+						"unsearchable": false
+					},
+					"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Honkai: Star Rail Epic Mega Sales event bundle audience",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "HonkaiStarRail",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Honkai: Star Rail",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/honkai-star-rail"
+		},
+		{
+			"app_name": "c7b3c16f56cb45abbfd915d59fd39689",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/006ad04cca8f4cd89d80210e142abb89/infinifactory-1mvvc.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/006ad04cca8f4cd89d80210e142abb89/infinifactory-164ef.png",
+			"cloud_save_enabled": false,
+			"developer": "Alliance Metaversal Studio LLC",
+			"extra": {
+				"about": {
+					"description": "Infinifactory",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/infinifactory"
+			},
+			"folder_name": "InfinifactoryHhxuB",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "1260f09c5ab842b9a645e14f085ed5af",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "Infinifactory",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/infinifactory"
+		},
+		{
+			"app_name": "456f53b28c384f02865874299f956501",
+			"art_cover": "https://cdn1.epicgames.com/item/964f58c4c2074404bf9c359483ab1a48/EGS_MidnightGhostHunt_VaultedSkyGames_S1_2560x1440-05551e661e36a253a7ecd4ead27b58bc",
+			"art_square": "https://cdn1.epicgames.com/item/964f58c4c2074404bf9c359483ab1a48/EGS_MidnightGhostHunt_VaultedSkyGames_S2_1200x1600-d7dc1bb773a7ec5987e756f53219fa16",
+			"cloud_save_enabled": false,
+			"developer": "Coffee Stain Publishing",
+			"extra": {
+				"about": {
+					"description": "Midnight Ghost Hunt",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/midnight-ghost-hunt"
+			},
+			"dlcList": [
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2023-04-27T21:06:34.533Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "MGH Early Backer Pack audience",
+					"developer": "Vaulted Sky Games",
+					"developerId": "o-b846xks2gyj8yx92gzyrb4f5zch5sj",
+					"endOfSupport": false,
+					"entitlementName": "64b768edb44a4453b94cd072ffcda0e1",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "64b768edb44a4453b94cd072ffcda0e1",
+					"itemType": "DURABLE",
+					"lastModifiedDate": "2023-11-08T23:52:49.459Z",
+					"mainGameItem": {
+						"id": "c8ce15a561cc480e9c43c3297e80c90c",
+						"namespace": "964f58c4c2074404bf9c359483ab1a48",
+						"unsearchable": false
+					},
+					"namespace": "964f58c4c2074404bf9c359483ab1a48",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "MGH Early Backer Pack audience",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "MidnightGhostHunt",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "964f58c4c2074404bf9c359483ab1a48",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Midnight Ghost Hunt",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/midnight-ghost-hunt"
+		},
+		{
+			"app_name": "4a31c45c04e243cc97f3e47bc663fb18",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-9z2bz.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-19dtm.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Complete Edition",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-complete-edition"
+			},
+			"dlcList": [
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.154Z",
+					"customAttributes": {},
+					"description": "Model Builder: Frostpunk DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "aeffbc8710e4472a867a6bba6ad5b687",
+					"entitlementType": "EXECUTABLE",
+					"id": "aeffbc8710e4472a867a6bba6ad5b687",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Frostpunk DLC Offer",
+							"height": 1440,
+							"md5": "faf8838529ec7ad07cecbea181c424ac",
+							"size": 2510815,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T11:04:07.261Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-9u7e8.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Frostpunk DLC Offer",
+							"height": 1600,
+							"md5": "2dd327a314d25a11783f40b59da030e9",
+							"size": 1633985,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T11:04:12.109Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1s8w7.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.154Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "1360dbfe60a04beaab046f50c42f51f0",
+							"id": "c043999516dc422d961a5b698e3c3359",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Frostpunk DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.152Z",
+					"customAttributes": {},
+					"description": "Model Builder: Titan-Forge DLC no.2",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "91cdc33a1d944e3983693e6d3af16d96",
+					"entitlementType": "EXECUTABLE",
+					"id": "91cdc33a1d944e3983693e6d3af16d96",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Titan-Forge DLC no.2 Offer",
+							"height": 1440,
+							"md5": "85d2791ba2e3544ba7b7c41d156a8ddb",
+							"size": 1862309,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T10:46:16.502Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1423k.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Titan-Forge DLC no.2 Offer",
+							"height": 1600,
+							"md5": "6aa1f711d7cd7971b55edacaf606d690",
+							"size": 1127091,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T10:46:10.482Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-cjc4s.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.152Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "9c162cd16b7c44b9abfa21296343dfea",
+							"id": "9b5db1224c604287a9ec91965a5df231",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Titan-Forge DLC no.2",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.149Z",
+					"customAttributes": {},
+					"description": "Model Builder: Titan-Forge DLC no.1",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "1505d7fab80143bfb3458228e9a8d17e",
+					"entitlementType": "EXECUTABLE",
+					"id": "1505d7fab80143bfb3458228e9a8d17e",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Titan-Forge DLC no.1 Offer",
+							"height": 1440,
+							"md5": "8f1d74f358356317ca58c731f28141ce",
+							"size": 1331383,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T10:43:16.994Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1kk1a.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Titan-Forge DLC no.1 Offer",
+							"height": 1600,
+							"md5": "faae921aff6c5ff60eff4e4ceebe49f3",
+							"size": 942066,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T10:43:19.683Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-g1rhw.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.149Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "987f387bd9324f1391cc87cd07348bf7",
+							"id": "415f2b084dae45c4894814414fd4dd2b",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Titan-Forge DLC no.1",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.153Z",
+					"customAttributes": {},
+					"description": "Model Builder: Alaskan Road Truckers DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "a004546d145b4173b9da5ce8594eef05",
+					"entitlementType": "EXECUTABLE",
+					"id": "a004546d145b4173b9da5ce8594eef05",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Alaskan Road Truckers DLC Offer",
+							"height": 1440,
+							"md5": "b447e16afad2be9aece63ea1f64f7ff2",
+							"size": 1642335,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T11:51:55.257Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-3hp1n.jpg",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Alaskan Road Truckers DLC Offer",
+							"height": 1600,
+							"md5": "41a4c4cb56a1a1d78f0cbd822f29df81",
+							"size": 957315,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T11:51:55.418Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-kuc9p.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.153Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "d94a06ef698942669bd001b2dd0fb3ee",
+							"id": "90823907ad9c4a1287181b5300a3a813",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Alaskan Road Truckers DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.151Z",
+					"customAttributes": {},
+					"description": "Model Builder: Cars Pack DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "5e51bb450ffa442483a686f4a9b3a8f4",
+					"entitlementType": "EXECUTABLE",
+					"id": "5e51bb450ffa442483a686f4a9b3a8f4",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Cars Pack DLC Offer",
+							"height": 1440,
+							"md5": "f06ee0d610129ac1a2b4c8396fc3f839",
+							"size": 2441849,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-06-27T09:15:32.132Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1qotp.jpg",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Cars Pack DLC Offer",
+							"height": 1600,
+							"md5": "ecf7897d6006751277cb7b02b2c5ce26",
+							"size": 1354123,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-06-27T09:15:31.042Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-18v23.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.151Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "b681fecb34194e8a97ef6d69cbf71ca6",
+							"id": "6248e19829654663a4b7ae0ffdaa3fb7",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Cars Pack DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.155Z",
+					"customAttributes": {},
+					"description": "Model Builder: Into The Stars DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "b317c844b85b4ef087f4f7b92cdcaad5",
+					"entitlementType": "EXECUTABLE",
+					"id": "b317c844b85b4ef087f4f7b92cdcaad5",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Into The Stars DLC Offer",
+							"height": 1440,
+							"md5": "b19ab6a04b2525daa18fd74afaa3cdb6",
+							"size": 2391172,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T11:39:48.426Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1fzsc.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Into The Stars DLC Offer",
+							"height": 1600,
+							"md5": "63c0feebfb136b57a74731b63fc700a8",
+							"size": 2241720,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T11:39:47.039Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-rampn.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.155Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "b65e183e8f204281b8eb1bbbb6f7a98a",
+							"id": "d939a06825964d219bb86fe2833f0895",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Into The Stars DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.158Z",
+					"customAttributes": {},
+					"description": "Model Builder: Expansion Pack no.1",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "fe35d875265c4698ad5ef1efd66183d1",
+					"entitlementType": "EXECUTABLE",
+					"id": "fe35d875265c4698ad5ef1efd66183d1",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Expansion Pack no.1 Offer",
+							"height": 1440,
+							"md5": "d67262c17446116551064194fa585668",
+							"size": 2749659,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T10:57:13.552Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-11qhf.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Expansion Pack no.1 Offer",
+							"height": 1600,
+							"md5": "0ab58ca3cb80885a578703de9eda174e",
+							"size": 842237,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T10:57:14.658Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-h944v.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.158Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "c4e284ae71ed49a285cc00dfce564e03",
+							"id": "2ba8f307f1614a2d9e6740d867c0c2e8",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Expansion Pack no.1",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.157Z",
+					"customAttributes": {},
+					"description": "Model Builder: Military Pack DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "baa5252ae48e48aea6a649cfc5253012",
+					"entitlementType": "EXECUTABLE",
+					"id": "baa5252ae48e48aea6a649cfc5253012",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Military Pack DLC Offer",
+							"height": 1440,
+							"md5": "c779038dc7d14123d5d2e53550c2b582",
+							"size": 1189773,
+							"type": "DieselGameBox",
+							"uploadedDate": "2024-02-12T16:56:53.663Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-11i6n.jpg",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Military Pack DLC Offer",
+							"height": 1600,
+							"md5": "f25372d4dc57e591e977ef34f0fd49f0",
+							"size": 703752,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2024-02-12T16:56:53.112Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-9y6ax.jpg",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.157Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "25a83a57cf5f487d98e073b8a92e1f8d",
+							"id": "7a90d43731ce4585b317535c998a91bb",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Military Pack DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.157Z",
+					"customAttributes": {},
+					"description": "Model Builder: Aether DLC",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "c5d553e831a548ccacd7334998cd2e17",
+					"entitlementType": "EXECUTABLE",
+					"id": "c5d553e831a548ccacd7334998cd2e17",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: Aether DLC Offer",
+							"height": 1440,
+							"md5": "58dd499c87b9f826329eb8c4a465a1c5",
+							"size": 1460693,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T11:12:46.419Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-14ih8.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: Aether DLC Offer",
+							"height": 1600,
+							"md5": "3eb42d7028b152eb19065008d0888a01",
+							"size": 927264,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T11:12:40.971Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1f31a.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.157Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "574977bf807c4c3cabfe8ab19708205c",
+							"id": "9985282cf63048488e24a3c2805daf87",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: Aether DLC",
+					"unsearchable": false
+				},
+				{
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-06-27T21:57:30.150Z",
+					"customAttributes": {},
+					"description": "Model Builder: The Invincible Helmet",
+					"developer": "Green Man Gaming Publishing",
+					"developerId": "o-l2jhzf6ltgxbz83h2dd8yj7zudhkvh",
+					"endOfSupport": false,
+					"entitlementName": "1f3ac7f08a3845c18ffd16bc20f5649f",
+					"entitlementType": "EXECUTABLE",
+					"id": "1f3ac7f08a3845c18ffd16bc20f5649f",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"alt": "Model Builder Model Builder: The Invincible Helmet Offer",
+							"height": 1440,
+							"md5": "79dfcb0ddce6a3702e3151cb147fae13",
+							"size": 1449900,
+							"type": "DieselGameBox",
+							"uploadedDate": "2023-11-20T11:31:15.952Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1rd6v.png",
+							"width": 2560
+						},
+						{
+							"alt": "Download Model Builder Model Builder: The Invincible Helmet Offer",
+							"height": 1600,
+							"md5": "0cfaab93b5691f9212e9f5445e9663a1",
+							"size": 547047,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2023-11-20T11:31:15.129Z",
+							"url": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-sizy4.png",
+							"width": 1200
+						}
+					],
+					"lastModifiedDate": "2024-06-27T21:57:30.150Z",
+					"mainGameItem": {
+						"id": "b3dde22db4e14b4cb644271f02038e25",
+						"namespace": "23499f64e5304139b514c3e674c5c0d6",
+						"unsearchable": false
+					},
+					"namespace": "23499f64e5304139b514c3e674c5c0d6",
+					"releaseInfo": [
+						{
+							"appId": "370325fee5104176a6e5329936656965",
+							"id": "52415e522aa5494ca813168635df2df2",
+							"platform": [
+								"Win32",
+								"Windows"
+							]
+						}
+					],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "Model Builder: The Invincible Helmet",
+					"unsearchable": false
+				}
+			],
+			"folder_name": "ModelBuilder",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Complete Edition",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-complete-edition"
+		},
+		{
+			"app_name": "25922bd450de4bb4aa57742a096d2591",
+			"art_cover": "fallback",
+			"art_square": "fallback",
+			"cloud_save_enabled": false,
+			"developer": "Bugrimov Maksim",
+			"extra": {
+				"about": {
+					"description": "Primitive Characters (Pack)",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/primitive-characters-(pack)-format-audience"
+			},
+			"folder_name": "25922bd450de4bb4aa57742a096d2591",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "89efe5924d3d467c839449ab6ab52e7f",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Primitive Characters (Pack) Format Audience",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/primitive-characters-(pack)-format-audience"
+		},
+		{
+			"app_name": "fghi4567HV122b61M44UAcRv99wbCxt7",
+			"art_cover": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/RC_Thumbnail_1920x1080-1fbcf9ed3e0d5224d00324c88ef8d939",
+			"art_square": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/RC_Thumbnail_Tall_1200x1600-c226aaa0a7e30feb4260fda5682e1734",
+			"cloud_save_enabled": false,
+			"developer": "Capturing Reality",
+			"extra": {
+				"about": {
+					"description": "RealityCapture",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/realitycapture-142"
+			},
+			"folder_name": "RealityCapture",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "ecc92c9d225843f5827847052fb9f5f3",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "RealityCapture 1.4.2",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/realitycapture-142"
+		},
+		{
+			"app_name": "a0da02e2ff2645449c5f37bf77c22370",
+			"art_cover": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/EGS_Library_1920_1080_1920x1080-a9ee8fc3898838b615c7d13ccd4c075c",
+			"art_square": "https://cdn1.epicgames.com/item/ecc92c9d225843f5827847052fb9f5f3/EGS_Library_1200_1600_1200x1600-74078872a2c0ec0b9ecb5c08f3e32840",
+			"cloud_save_enabled": false,
+			"developer": "Capturing Reality",
+			"extra": {
+				"about": {
+					"description": "RealityCapture",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/realitycapture-15"
+			},
+			"folder_name": "RealityCapture_1.5",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "ecc92c9d225843f5827847052fb9f5f3",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "RealityCapture 1.5",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/realitycapture-15"
+		},
+		{
+			"app_name": "CrabEA",
+			"art_cover": "https://cdn1.epicgames.com/item/crab/EGS_Satisfactory_CoffeeStainStudios_S1_2560x1440-4d68c4229e649463c317109338a53a15",
+			"art_square": "https://cdn1.epicgames.com/item/crab/EGS_Satisfactory_CoffeeStainStudios_S2_1200x1600-697c0bc822cb143ccc446d5a307c3cdb",
+			"cloud_save_enabled": true,
+			"developer": "Coffee Stain Publishing",
+			"extra": {
+				"about": {
+					"description": "Satisfactory",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/satisfactory"
+			},
+			"folder_name": "Satisfactory",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "crab",
+			"is_mac_native": false,
+			"save_folder": "{AppData}/FactoryGame/Saved/SaveGames/{EpicID}/",
+			"title": "Satisfactory",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/satisfactory"
+		},
+		{
+			"app_name": "CrabDedicatedServer",
+			"art_cover": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Landscape_2560x1440_with_10_2560x1440-0cd5815fab95fa0e5c02e3a2df1e3f33",
+			"art_square": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Portrait_1200x1600_with_10_1200x1600-84f7b2d44e83ce634a65ee5eb0a793f7",
+			"cloud_save_enabled": false,
+			"developer": "Coffee Stain Publishing",
+			"extra": {
+				"about": {
+					"description": "Satisfactory Dedicated Server",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/satisfactory-dedicated-server"
+			},
+			"folder_name": "SatisfactoryDS",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "crab",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Satisfactory Dedicated Server",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/satisfactory-dedicated-server"
+		},
+		{
+			"app_name": "c509233193024c5f8124467d3aa36199",
+			"art_cover": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Landscape_2560x1440_with_10_2560x1440-0cd5815fab95fa0e5c02e3a2df1e3f33",
+			"art_square": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Portrait_1200x1600_with_10_1200x1600-84f7b2d44e83ce634a65ee5eb0a793f7",
+			"cloud_save_enabled": false,
+			"developer": "Coffee Stain Publishing",
+			"extra": {
+				"about": {
+					"description": "Satisfactory Dedicated Server - Experimental",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/satisfactory-dedicated-server--experimental"
+			},
+			"folder_name": "SatisfactoryDSExperiment",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "crab",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Satisfactory Dedicated Server - Experimental",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/satisfactory-dedicated-server--experimental"
+		},
+		{
+			"app_name": "CrabTest",
+			"art_cover": "https://cdn1.epicgames.com/item/crab/Satisfactory_U8_Epic_2560x1440_Logo_2560x1440-7c2149c828336352a3e79541fa5de064",
+			"art_square": "https://cdn1.epicgames.com/item/crab/Satisfactory_U8_Epic_1200x1600_Logo_1200x1600-778e8ef32d757f423acdbed200e8fac6",
+			"cloud_save_enabled": true,
+			"developer": "Coffee Stain Publishing",
+			"extra": {
+				"about": {
+					"description": "Satisfactory Experimental",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/satisfactory-experimental"
+			},
+			"folder_name": "SatisfactoryExperimental",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "crab",
+			"is_mac_native": false,
+			"save_folder": "{AppData}/FactoryGame/Saved/SaveGames/{EpicID}/",
+			"title": "Satisfactory Experimental",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/satisfactory-experimental"
+		},
+		{
+			"app_name": "Driftfish",
+			"art_cover": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_TotallyAccurateBattleSimulator_LandfallGames_S3-2560x1440-5a7fa2ad3029ef94c70ca19f088ee9c3.jpg",
+			"art_square": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_TotallyAccurateBattleSimulator_LandfallGames_S4-1200x1600-6c3faa0bfc6514db0630522fa628ed84.jpg",
+			"cloud_save_enabled": true,
+			"developer": "Landfall Games",
+			"extra": {
+				"about": {
+					"description": "Totally Accurate Battle Simulator",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/totally-accurate-battle-simulator"
+			},
+			"dlcList": [
+				{
+					"categories": [
+						{
+							"path": "audience"
+						},
+						{
+							"path": "public"
+						}
+					],
+					"creationDate": "2024-03-26T17:39:25.724Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "BUG DLC Audience",
+					"developer": "Landfall Games",
+					"developerId": "o-davtxzvpdnjmd82c247y6zdxg7wabq",
+					"endOfSupport": false,
+					"entitlementName": "2681bacf4e394c71a570980360ffb5e6",
+					"entitlementType": "AUDIENCE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "2681bacf4e394c71a570980360ffb5e6",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1080,
+							"md5": "7afd2f220aa7ec3cb6c11ea851b0b287",
+							"size": 343664,
+							"type": "DieselGameBox",
+							"uploadedDate": "2020-03-30T18:46:19.237Z",
+							"url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_BUGDLC_Landfall_DLC_G1A_00-1920x1080-7afd2f220aa7ec3cb6c11ea851b0b287.jpg",
+							"width": 1920
+						},
+						{
+							"height": 680,
+							"md5": "bd48acab6fcbddd7cee9dfbed578af20",
+							"size": 245564,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2020-03-30T18:47:37.353Z",
+							"url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_LandfallGames_TotallyAccurateBattleSimulator_S4-510x680-bd48acab6fcbddd7cee9dfbed578af20-510x680-bd48acab6fcbddd7cee9dfbed578af20.jpg",
+							"width": 510
+						}
+					],
+					"lastModifiedDate": "2024-07-18T13:00:18.726Z",
+					"longDescription": "BUG DLC Audience",
+					"mainGameItem": {
+						"id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+						"namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+						"unsearchable": false
+					},
+					"namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+					"releaseInfo": [],
+					"status": "ACTIVE",
+					"title": "BUG DLC Audience",
+					"unsearchable": false
+				},
+				{
+					"ageGatings": {},
+					"applicationId": "",
+					"categories": [
+						{
+							"path": "addons"
+						}
+					],
+					"creationDate": "2024-07-18T13:00:18.494Z",
+					"customAttributes": {
+						"SupportedPlatforms": {
+							"type": "STRING",
+							"value": "Windows"
+						}
+					},
+					"description": "BUG DLC Audience Buffer",
+					"developer": "Landfall Games",
+					"developerId": "o-davtxzvpdnjmd82c247y6zdxg7wabq",
+					"endOfSupport": false,
+					"entitlementName": "38db2a3efa864813855c448f2a6d98b3",
+					"entitlementType": "EXECUTABLE",
+					"eulaIds": [
+						"egstore"
+					],
+					"id": "38db2a3efa864813855c448f2a6d98b3",
+					"itemType": "DURABLE",
+					"keyImages": [
+						{
+							"height": 1080,
+							"md5": "7afd2f220aa7ec3cb6c11ea851b0b287",
+							"size": 343664,
+							"type": "DieselGameBox",
+							"uploadedDate": "2020-03-30T18:46:19.237Z",
+							"url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_BUGDLC_Landfall_DLC_G1A_00-1920x1080-7afd2f220aa7ec3cb6c11ea851b0b287.jpg",
+							"width": 1920
+						},
+						{
+							"height": 680,
+							"md5": "bd48acab6fcbddd7cee9dfbed578af20",
+							"size": 245564,
+							"type": "DieselGameBoxTall",
+							"uploadedDate": "2020-03-30T18:47:37.353Z",
+							"url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_LandfallGames_TotallyAccurateBattleSimulator_S4-510x680-bd48acab6fcbddd7cee9dfbed578af20-510x680-bd48acab6fcbddd7cee9dfbed578af20.jpg",
+							"width": 510
+						}
+					],
+					"lastModifiedDate": "2024-07-18T13:00:18.494Z",
+					"longDescription": "BUG DLC Audience Buffer",
+					"mainGameItem": {
+						"id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+						"namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+						"unsearchable": false
+					},
+					"namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+					"releaseInfo": [],
+					"requiresSecureAccount": false,
+					"status": "ACTIVE",
+					"title": "BUG DLC Audience Buffer",
+					"unsearchable": true
+				}
+			],
+			"folder_name": "TABS",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+			"is_mac_native": true,
+			"save_folder": "{AppData}/../LocalLow/Landfall Games/Totally Accurate Battle Simulator/Saved/",
+			"title": "Totally Accurate Battle Simulator",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/totally-accurate-battle-simulator"
+		},
+		{
+			"app_name": "3d34f303a68c44c2a9b44a3988533e90",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/9456221af5d04968ba41426fdb2c4557/turnip-boy-commits-tax-evasion-offer-2re86.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/9456221af5d04968ba41426fdb2c4557/download-turnip-boy-commits-tax-evasion-offer-1vu2b.png",
+			"cloud_save_enabled": false,
+			"developer": "Graffiti Games",
+			"extra": {
+				"about": {
+					"description": "Turnip Boy Commits Tax Evasion",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/turnip-boy-commits-tax-evasion"
+			},
+			"folder_name": "TurnipBoyCommitsTaxEvad",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "80be39e522204fd0942916d73234d044",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Turnip Boy Commits Tax Evasion",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/turnip-boy-commits-tax-evasion"
+		},
+		{
+			"app_name": "a54bbf09b0e24dc28b59c193de6aa3cc",
+			"art_cover": "https://cdn1.epicgames.com/item/poodle/TM-dieselGameBox-1920x1080logo_1920x1080-c85752a35ef8f9f7f49d8eb5249991b9",
+			"art_square": "https://cdn1.epicgames.com/item/poodle/TM-DieselGameBoxTall-1200x1600logo_1200x1600-8ef8e0f3c9bc1c2ea60f4b2bd7735151",
+			"cloud_save_enabled": false,
+			"developer": "Epic Games",
+			"extra": {
+				"about": {
+					"description": "Twinmotion 2023.2.4",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/twinmotion-202324"
+			},
+			"folder_name": "Twinmotion2023.2.4",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "poodle",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "Twinmotion 2023.2.4",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/twinmotion-202324"
+		},
+		{
+			"app_name": "ced650a8bdcf4d39bfe97baf03f0ae2d",
+			"art_cover": "https://cdn1.epicgames.com/item/poodle/TM-dieselGameBox-1920x1080logo_1920x1080-c85752a35ef8f9f7f49d8eb5249991b92_1920x1080-2469b46905bec3939ab1ba600ba968a1",
+			"art_square": "https://cdn1.epicgames.com/item/poodle/TM-DieselGameBoxTall-1200x1600logo_1200x1600-8ef8e0f3c9bc1c2ea60f4b2bd77351512_1200x1600-154fb4422379a8e4332fbec0b0db9a00",
+			"cloud_save_enabled": false,
+			"developer": "Epic Games",
+			"extra": {
+				"about": {
+					"description": "Twinmotion 2024.1.2",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/twinmotion-202412"
+			},
+			"folder_name": "Twinmotion2024.1",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "poodle",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "Twinmotion 2024.1.2",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/twinmotion-202412"
+		},
+		{
+			"app_name": "Magnolia",
+			"art_cover": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Promo_L1-2560x1444-aaba32e5541dc5c9d7d445a86c69a63f.jpg",
+			"art_logo": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Logo_Color-1634x352-761648dd715f3010a804ad5c23055215.png",
+			"art_square": "https://cdn1.epicgames.com/magnolia/item/TheWitness_Promo__S3-1280x1440-2162531db1b9bfe233a9752d32528982.jpg",
+			"cloud_save_enabled": false,
+			"developer": "Thekla, Inc.",
+			"extra": {
+				"about": {
+					"description": "The Witness",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/the-witness"
+			},
+			"folder_name": "TheWitness",
+			"install": {
+				"install_size": "0",
+				"is_dlc": false
+			},
+			"is_installed": false,
+			"namespace": "magnolia",
+			"is_mac_native": true,
+			"save_folder": "",
+			"title": "The Witness",
+			"canRunOffline": true,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/the-witness"
+		},
+		{
+			"app_name": "1360dbfe60a04beaab046f50c42f51f0",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-9u7e8.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1s8w7.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Frostpunk DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-frostpunk-dlc"
+			},
+			"folder_name": "1360dbfe60a04beaab046f50c42f51f0",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Frostpunk DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-frostpunk-dlc"
+		},
+		{
+			"app_name": "25a83a57cf5f487d98e073b8a92e1f8d",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-11i6n.jpg",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-9y6ax.jpg",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Military Pack DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-military-pack-dlc"
+			},
+			"folder_name": "25a83a57cf5f487d98e073b8a92e1f8d",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Military Pack DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-military-pack-dlc"
+		},
+		{
+			"app_name": "370325fee5104176a6e5329936656965",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1rd6v.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-sizy4.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: The Invincible Helmet",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-the-invincible-helmet"
+			},
+			"folder_name": "370325fee5104176a6e5329936656965",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: The Invincible Helmet",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-the-invincible-helmet"
+		},
+		{
+			"app_name": "574977bf807c4c3cabfe8ab19708205c",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-14ih8.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1f31a.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Aether DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-aether-dlc"
+			},
+			"folder_name": "574977bf807c4c3cabfe8ab19708205c",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Aether DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-aether-dlc"
+		},
+		{
+			"app_name": "987f387bd9324f1391cc87cd07348bf7",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1kk1a.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-g1rhw.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Titan-Forge DLC no.1",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-titanforge-dlc-no1"
+			},
+			"folder_name": "987f387bd9324f1391cc87cd07348bf7",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Titan-Forge DLC no.1",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-titanforge-dlc-no1"
+		},
+		{
+			"app_name": "9c162cd16b7c44b9abfa21296343dfea",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1423k.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-cjc4s.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Titan-Forge DLC no.2",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-titanforge-dlc-no2"
+			},
+			"folder_name": "9c162cd16b7c44b9abfa21296343dfea",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Titan-Forge DLC no.2",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-titanforge-dlc-no2"
+		},
+		{
+			"app_name": "b65e183e8f204281b8eb1bbbb6f7a98a",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1fzsc.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-rampn.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Into The Stars DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-into-the-stars-dlc"
+			},
+			"folder_name": "b65e183e8f204281b8eb1bbbb6f7a98a",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Into The Stars DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-into-the-stars-dlc"
+		},
+		{
+			"app_name": "b681fecb34194e8a97ef6d69cbf71ca6",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-1qotp.jpg",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-18v23.jpg",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Cars Pack DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-cars-pack-dlc"
+			},
+			"folder_name": "b681fecb34194e8a97ef6d69cbf71ca6",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Cars Pack DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-cars-pack-dlc"
+		},
+		{
+			"app_name": "c4e284ae71ed49a285cc00dfce564e03",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-11qhf.png",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-h944v.png",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Expansion Pack no.1",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-expansion-pack-no1"
+			},
+			"folder_name": "c4e284ae71ed49a285cc00dfce564e03",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Expansion Pack no.1",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-expansion-pack-no1"
+		},
+		{
+			"app_name": "d94a06ef698942669bd001b2dd0fb3ee",
+			"art_cover": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-3hp1n.jpg",
+			"art_square": "https://cdn1.epicgames.com/spt-assets/7472ec268e344e77a85e95976c0ffc6d/model-builder-kuc9p.jpg",
+			"cloud_save_enabled": false,
+			"developer": "Green Man Gaming Publishing",
+			"extra": {
+				"about": {
+					"description": "Model Builder: Alaskan Road Truckers DLC",
+					"shortDescription": ""
+				},
+				"reqs": [],
+				"storeUrl": "https://www.epicgames.com/store/product/model-builder-alaskan-road-truckers-dlc"
+			},
+			"folder_name": "d94a06ef698942669bd001b2dd0fb3ee",
+			"install": {
+				"install_size": "0",
+				"is_dlc": true
+			},
+			"is_installed": false,
+			"namespace": "23499f64e5304139b514c3e674c5c0d6",
+			"is_mac_native": false,
+			"save_folder": "",
+			"title": "Model Builder: Alaskan Road Truckers DLC",
+			"canRunOffline": false,
+			"isEAManaged": false,
+			"is_linux_native": false,
+			"runner": "legendary",
+			"store_url": "https://www.epicgames.com/store/product/model-builder-alaskan-road-truckers-dlc"
+		}
+	],
+	"__timestamp": {
+		"library": "Thu Nov 21 2024 00:00:09 GMT+0100 (Central European Standard Time)"
+	}
+}

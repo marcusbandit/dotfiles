@@ -1,0 +1,88 @@
+{
+	"Salt": {
+		"game": {
+			"app_name": "Salt",
+			"title": "Celeste",
+			"version": "1.4.0.0-Windows",
+			"platform_versions": {
+				"Windows": "1.4.0.0-Windows"
+			},
+			"cloud_saves_supported": true,
+			"cloud_save_folder": "{InstallDir}/Saves/",
+			"cloud_save_folder_mac": "{UserLibrary}/Application Support/Celeste/Saves/",
+			"is_dlc": false,
+			"external_activation": null,
+			"launch_options": [],
+			"command_line": null,
+			"owned_dlc": []
+		},
+		"install": null,
+		"manifest": {
+			"size": 115842,
+			"type": "binary",
+			"version": 17,
+			"feature_level": 17,
+			"app_name": "Salt",
+			"launch_exe": "Celeste.exe",
+			"launch_command": "",
+			"build_version": "1.4.0.0-Windows",
+			"build_id": "7P9Ud09mIYjhUGk9m9OMcJaSxOg",
+			"prerequisites": null,
+			"uninstaller": null,
+			"install_tags": [
+				""
+			],
+			"num_files": 1225,
+			"num_chunks": 1107,
+			"disk_size": 1171334315,
+			"download_size": 857061270,
+			"tag_disk_size": [],
+			"tag_download_size": []
+		}
+	},
+	"__timestamp": {
+		"Salt": "Wed Nov 20 2024 22:15:30 GMT+0100 (Central European Standard Time)",
+		"ARKDevKit": "Thu Nov 21 2024 00:00:23 GMT+0100 (Central European Standard Time)"
+	},
+	"ARKDevKit": {
+		"game": {
+			"app_name": "ARKDevKit",
+			"title": "ARK ModKit (UE4)",
+			"version": "358.2",
+			"platform_versions": {
+				"Windows": "358.2"
+			},
+			"cloud_saves_supported": false,
+			"cloud_save_folder": null,
+			"cloud_save_folder_mac": null,
+			"is_dlc": false,
+			"external_activation": null,
+			"launch_options": [],
+			"command_line": null,
+			"owned_dlc": []
+		},
+		"install": null,
+		"manifest": {
+			"size": 48180602,
+			"type": "binary",
+			"version": 17,
+			"feature_level": 17,
+			"app_name": "418ea44bead14a83bfecd38bd4a282b8",
+			"launch_exe": "Engine/Binaries/Win64/UE4Editor.exe",
+			"launch_command": "ShooterGame/ShooterGame.uproject -log",
+			"build_version": "358.2",
+			"build_id": "BcfcYkk6vU4fldZ41SjUmZlbJsM",
+			"prerequisites": null,
+			"uninstaller": null,
+			"install_tags": [
+				""
+			],
+			"num_files": 437641,
+			"num_chunks": 382799,
+			"disk_size": 408058394691,
+			"download_size": 287928905689,
+			"tag_disk_size": [],
+			"tag_download_size": []
+		}
+	}
+}

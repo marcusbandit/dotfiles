@@ -1,0 +1,85 @@
+{
+	"general-logs": {
+		"currentLogFile": "/home/bandit/.config/heroic/logs/2024-11-20T21_56_03-heroic.log",
+		"lastLogFile": "/home/bandit/.config/heroic/logs/2024-11-20T21_14_19-heroic.log",
+		"legendaryLogFile": "/home/bandit/.config/heroic/logs/2024-11-20T21_56_03-legendary.log",
+		"gogdlLogFile": "/home/bandit/.config/heroic/logs/2024-11-20T21_56_03-gogdl.log",
+		"nileLogFile": "/home/bandit/.config/heroic/logs/2024-11-20T21_56_03-nile.log"
+	},
+	"userHome": "/home/bandit",
+	"language": "en",
+	"window-props": {
+		"x": 4126,
+		"y": 22,
+		"width": 1692,
+		"height": 1396,
+		"maximized": false
+	},
+	"userInfo": {
+		"account_id": "232e2efcb71b4bf89fd36d8125c110ed",
+		"displayName": "marcusbandit",
+		"user": "bandit"
+	},
+	"zoomPercent": 100,
+	"settings": {
+		"checkUpdatesInterval": 10,
+		"enableUpdates": false,
+		"addDesktopShortcuts": false,
+		"addStartMenuShortcuts": false,
+		"autoInstallDxvk": true,
+		"autoInstallVkd3d": true,
+		"autoInstallDxvkNvapi": false,
+		"addSteamShortcuts": false,
+		"preferSystemLibs": false,
+		"checkForUpdatesOnStartup": true,
+		"autoUpdateGames": false,
+		"customWinePaths": [],
+		"defaultInstallPath": "/home/bandit/Games/Heroic",
+		"libraryTopSection": "disabled",
+		"defaultSteamPath": "/home/bandit/.steam/steam",
+		"defaultWinePrefix": "/home/bandit/Games/Heroic/Prefixes/default",
+		"hideChangelogsOnStartup": false,
+		"language": "en",
+		"maxWorkers": 0,
+		"minimizeOnLaunch": false,
+		"nvidiaPrime": false,
+		"enviromentOptions": [],
+		"wrapperOptions": [],
+		"showFps": false,
+		"useGameMode": false,
+		"wineCrossoverBottle": "Heroic",
+		"winePrefix": "/home/bandit/Games/Heroic/Prefixes/default",
+		"wineVersion": {
+			"bin": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wine",
+			"name": "Wine - Wine-GE-Proton8-26",
+			"type": "wine",
+			"lib": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib64",
+			"lib32": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/lib",
+			"wineserver": "/home/bandit/.config/heroic/tools/wine/Wine-GE-Proton8-26/bin/wineserver"
+		},
+		"enableEsync": true,
+		"enableFsync": true,
+		"enableMsync": false,
+		"eacRuntime": true,
+		"battlEyeRuntime": true,
+		"framelessWindow": false,
+		"beforeLaunchScriptPath": "",
+		"afterLaunchScriptPath": "",
+		"experimentalFeatures": {
+			"enableNewDesign": true,
+			"enableHelp": false,
+			"automaticWinetricksFixes": true,
+			"cometSupport": false,
+			"umuSupport": false
+		},
+		"customThemesPath": "/home/bandit/Games/epic-games-store"
+	},
+	"games": {
+		"recent": [
+			{
+				"appName": "Salt",
+				"title": "Celeste"
+			}
+		]
+	}
+}

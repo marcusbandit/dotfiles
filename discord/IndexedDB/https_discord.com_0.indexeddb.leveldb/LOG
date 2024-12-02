@@ -1,0 +1,48 @@
+2024/12/01-17:48:49.863 5812 Reusing MANIFEST /home/bandit/.config/discord/IndexedDB/https_discord.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/01-17:48:49.863 5812 Recovering log #15
+2024/12/01-17:48:49.871 5812 Reusing old log /home/bandit/.config/discord/IndexedDB/https_discord.com_0.indexeddb.leveldb/000015.log 
+2024/12/01-18:24:13.989 5812 Level-0 table #20: started
+2024/12/01-18:24:13.996 5812 Level-0 table #20: 1705175 bytes OK
+2024/12/01-18:24:13.998 5812 Delete type=0 #15
+2024/12/01-18:34:57.592 5816 Compacting 1@1 + 1@2 files
+2024/12/01-18:34:57.596 5816 Generated table #21@1: 48 keys, 22687 bytes
+2024/12/01-18:34:57.596 5816 Compacted 1@1 + 1@2 files => 22687 bytes
+2024/12/01-18:34:57.597 5816 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/01-18:34:57.597 5816 Delete type=2 #17
+2024/12/01-18:34:57.597 5816 Delete type=2 #20
+2024/12/01-19:41:27.509 5813 Level-0 table #23: started
+2024/12/01-19:41:27.519 5813 Level-0 table #23: 1771927 bytes OK
+2024/12/01-19:41:27.520 5813 Delete type=0 #19
+2024/12/01-19:51:41.925 5812 Compacting 1@1 + 1@2 files
+2024/12/01-19:51:41.929 5812 Generated table #24@1: 44 keys, 22537 bytes
+2024/12/01-19:51:41.929 5812 Compacted 1@1 + 1@2 files => 22537 bytes
+2024/12/01-19:51:41.930 5812 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/01-19:51:41.930 5812 Delete type=2 #21
+2024/12/01-19:51:41.930 5812 Delete type=2 #23
+2024/12/01-20:51:24.380 5812 Level-0 table #26: started
+2024/12/01-20:51:24.387 5812 Level-0 table #26: 1807468 bytes OK
+2024/12/01-20:51:24.388 5812 Delete type=0 #22
+2024/12/01-21:02:55.735 5816 Compacting 1@1 + 1@2 files
+2024/12/01-21:02:55.738 5816 Generated table #27@1: 47 keys, 29122 bytes
+2024/12/01-21:02:55.738 5816 Compacted 1@1 + 1@2 files => 29122 bytes
+2024/12/01-21:02:55.739 5816 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/01-21:02:55.739 5816 Delete type=2 #24
+2024/12/01-21:02:55.739 5816 Delete type=2 #26
+2024/12/01-22:29:25.545 5813 Level-0 table #29: started
+2024/12/01-22:29:25.563 5813 Level-0 table #29: 1666911 bytes OK
+2024/12/01-22:29:25.564 5813 Delete type=0 #25
+2024/12/01-22:42:06.034 5816 Compacting 1@1 + 1@2 files
+2024/12/01-22:42:06.040 5816 Generated table #30@1: 47 keys, 29121 bytes
+2024/12/01-22:42:06.040 5816 Compacted 1@1 + 1@2 files => 29121 bytes
+2024/12/01-22:42:06.041 5816 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/01-22:42:06.041 5816 Delete type=2 #27
+2024/12/01-22:42:06.041 5816 Delete type=2 #29
+2024/12/02-00:43:53.609 5813 Level-0 table #32: started
+2024/12/02-00:43:53.623 5813 Level-0 table #32: 1601087 bytes OK
+2024/12/02-00:43:53.625 5813 Delete type=0 #28
+2024/12/02-00:52:26.941 5816 Compacting 1@1 + 1@2 files
+2024/12/02-00:52:26.948 5816 Generated table #33@1: 47 keys, 29120 bytes
+2024/12/02-00:52:26.948 5816 Compacted 1@1 + 1@2 files => 29120 bytes
+2024/12/02-00:52:26.949 5816 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/02-00:52:26.949 5816 Delete type=2 #30
+2024/12/02-00:52:26.949 5816 Delete type=2 #32

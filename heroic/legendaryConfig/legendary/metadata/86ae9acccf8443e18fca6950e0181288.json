@@ -1,0 +1,947 @@
+{
+  "app_name": "86ae9acccf8443e18fca6950e0181288",
+  "app_title": "Honkai: Star Rail",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "86ae9acccf8443e18fca6950e0181288",
+      "asset_id": "86ae9acccf8443e18fca6950e0181288",
+      "build_version": "1.2.2",
+      "catalog_item_id": "101391ece6024e069a7cb8cf22104399",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "Honkai: Star Rail (fghi4567LtKxgSPxsV3jJoX8A4QNO30H)",
+    "categories": [
+      {
+        "path": "games"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2022-11-30T18:45:07.829Z",
+    "customAttributes": {
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "HonkaiStarRail"
+      },
+      "MonitorPresence": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "PresenceId": {
+        "type": "STRING",
+        "value": "a2dcbb9e34204bda9da8415f97b3f4ea"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "[]"
+      },
+      "UseAccessControl": {
+        "type": "STRING",
+        "value": "false"
+      }
+    },
+    "description": "Honkai: Star Rail",
+    "developer": "COGNOSPHERE PTE. LTD.",
+    "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+    "dlcItemList": [
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:43:09.681Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d760 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "7022dd6751774f09bb801fb055008a68",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "7022dd6751774f09bb801fb055008a68",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.114Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d760 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:43:34.271Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d7300 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "b7f1769c07c2479ba9f23860b645cb86",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "b7f1769c07c2479ba9f23860b645cb86",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.128Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d7300 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:44:00.423Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Express Supply Pass audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "a577f5fad49d42fa89cdcd9f525cbf73",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "a577f5fad49d42fa89cdcd9f525cbf73",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.142Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Express Supply Pass audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:45:03.256Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "The Nameless Glory audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "3127e8d125cc41c0a95657c0f7d7f7d0",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "3127e8d125cc41c0a95657c0f7d7f7d0",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.156Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "The Nameless Glory audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:45:29.850Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Honor Badge audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "290f4aa6fb7c495dbf30e235a85cf655",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "290f4aa6fb7c495dbf30e235a85cf655",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.170Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Honor Badge audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:45:43.654Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d7980 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "a94946fc2c7a496eac9c40d043fde561",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "a94946fc2c7a496eac9c40d043fde561",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.185Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d7980 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:45:57.770Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "The Nameless Medal audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "895b8b8d0e35426bb51b676004a9f159",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "895b8b8d0e35426bb51b676004a9f159",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.199Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "The Nameless Medal audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:46:16.168Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d71980 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "6b9705d7d7cc40729547ad0b89394518",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "6b9705d7d7cc40729547ad0b89394518",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.216Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d71980 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:47:01.846Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d73280 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "6d45c503d62544c8bedbc70ad7211baa",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "6d45c503d62544c8bedbc70ad7211baa",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.231Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d73280 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:47:20.113Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Oneiric Shard \u00d76480 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "d99a5aa0c74747f8bf473b8f8c638a14",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "d99a5aa0c74747f8bf473b8f8c638a14",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.246Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Oneiric Shard \u00d76480 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:47:44.811Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d760 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "02bdb82577ce4719b0ea156042c4bf37",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "02bdb82577ce4719b0ea156042c4bf37",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.260Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d760 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:48:00.835Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d7300 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "c3a7b8e70baf4b929d0911c217cddf23",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "c3a7b8e70baf4b929d0911c217cddf23",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.274Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d7300 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:48:14.743Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Express Supply Pass audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "e1cdbcc90fe94ca99cdb6cfd43a50fb3",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "e1cdbcc90fe94ca99cdb6cfd43a50fb3",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.288Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Express Supply Pass audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:48:35.147Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_The Nameless Glory audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "da0cbaf5afcc4c29ba8da64e559731aa",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "da0cbaf5afcc4c29ba8da64e559731aa",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.304Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_The Nameless Glory audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:48:50.258Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Honor Badge audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "334516b8ce2b47d5a6742725d0a99b0b",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "334516b8ce2b47d5a6742725d0a99b0b",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.318Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Honor Badge audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:49:07.022Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d7980 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "a1d8d01005f247fc9549f7afa9466df6",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "a1d8d01005f247fc9549f7afa9466df6",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.332Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d7980 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:49:22.916Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_The Nameless Medal audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "9e1069060fba4f119db0de10da5e5fe1",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "9e1069060fba4f119db0de10da5e5fe1",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.347Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_The Nameless Medal audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "ageGatings": {},
+        "applicationId": "",
+        "categories": [
+          {
+            "path": "audience"
+          }
+        ],
+        "creationDate": "2023-07-18T18:49:39.036Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d71980 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "d15a3b7f84274f29b1c7b880f439181e",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "d15a3b7f84274f29b1c7b880f439181e",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T19:10:28.807Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "releaseInfo": [],
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d71980 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:49:54.777Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d73280 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "02d230fe0f5e4feda2dc184b6cef4e70",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "02d230fe0f5e4feda2dc184b6cef4e70",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.378Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d73280 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2023-07-18T18:50:16.454Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "test_Oneiric Shard \u00d76480 audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "079e87d1b2f041738ea5e5ccff3ed813",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "079e87d1b2f041738ea5e5ccff3ed813",
+        "itemType": "CONSUMABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.392Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "test_Oneiric Shard \u00d76480 audience",
+        "unsearchable": true,
+        "useCount": 1
+      },
+      {
+        "ageGatings": {},
+        "applicationId": "",
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2024-04-18T18:35:45.749Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "Honkai: Star Rail Epic Mega Sales event bundle audience",
+        "developer": "COGNOSPHERE PTE. LTD.",
+        "developerId": "o-wlaqew5gv79ufa3slnqhhsqbpjdvnb",
+        "endOfSupport": false,
+        "entitlementName": "23cc4089d7074303b8718296607d52d1",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "23cc4089d7074303b8718296607d52d1",
+        "itemType": "DURABLE",
+        "lastModifiedDate": "2024-07-26T09:09:48.468Z",
+        "mainGameItem": {
+          "id": "101391ece6024e069a7cb8cf22104399",
+          "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+          "unsearchable": false
+        },
+        "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+        "releaseInfo": [],
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "Honkai: Star Rail Epic Mega Sales event bundle audience",
+        "unsearchable": true
+      }
+    ],
+    "endOfSupport": false,
+    "entitlementName": "101391ece6024e069a7cb8cf22104399",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "101391ece6024e069a7cb8cf22104399",
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "1295c4399099873d0d329e1c39d12ed5",
+        "size": 3593292,
+        "type": "DieselGameBoxWide",
+        "uploadedDate": "2024-10-17T18:08:27.159Z",
+        "url": "https://cdn1.epicgames.com/item/a2dcbb9e34204bda9da8415f97b3f4ea/2560x1440_EN_2560x1440-1295c4399099873d0d329e1c39d12ed5",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "6676c66f75c714d4492d6abffb9834b1",
+        "size": 442113,
+        "type": "DieselGameBox",
+        "uploadedDate": "2024-10-17T18:08:41.276Z",
+        "url": "https://cdn1.epicgames.com/offer/a2dcbb9e34204bda9da8415f97b3f4ea/1200x1600_EN_1200x1600-6676c66f75c714d4492d6abffb9834b1",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-10-23T03:02:10.022Z",
+    "namespace": "a2dcbb9e34204bda9da8415f97b3f4ea",
+    "releaseInfo": [
+      {
+        "appId": "86ae9acccf8443e18fca6950e0181288",
+        "id": "049173d18e784cef97e75ebbb400950b",
+        "platform": [
+          "Windows"
+        ]
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "title": "Honkai: Star Rail",
+    "unsearchable": true
+  },
+  "sidecar": null
+}

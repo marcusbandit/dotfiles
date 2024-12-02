@@ -1,0 +1,107 @@
+{
+  "app_name": "CrabDedicatedServer",
+  "app_title": "Satisfactory Dedicated Server",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "CrabDedicatedServer",
+      "asset_id": "CrabDedicatedServer",
+      "build_version": "379322.30",
+      "catalog_item_id": "a8960f04c29f4e17b8da4efea523ef6e",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "crab",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "digitalextras"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2020-02-06T13:28:14.094Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "DisablePresenceWhileRunning": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "SatisfactoryDS"
+      },
+      "PresenceId": {
+        "type": "STRING",
+        "value": "crab"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "{}"
+      }
+    },
+    "description": "Satisfactory Dedicated Server",
+    "developer": "Coffee Stain Publishing",
+    "developerId": "o-9r9hp69ccnr39qp9f9mgpsznznu4as",
+    "endOfSupport": false,
+    "entitlementName": "a8960f04c29f4e17b8da4efea523ef6e",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "a8960f04c29f4e17b8da4efea523ef6e",
+    "installModes": [],
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "0cd5815fab95fa0e5c02e3a2df1e3f33",
+        "size": 693010,
+        "type": "DieselGameBox",
+        "uploadedDate": "2024-09-04T22:40:21.295Z",
+        "url": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Landscape_2560x1440_with_10_2560x1440-0cd5815fab95fa0e5c02e3a2df1e3f33",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "84f7b2d44e83ce634a65ee5eb0a793f7",
+        "size": 446574,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2024-09-04T22:40:24.731Z",
+        "url": "https://cdn1.epicgames.com/item/crab/Epic_DEDICATEDSERVERS_Portrait_1200x1600_with_10_1200x1600-84f7b2d44e83ce634a65ee5eb0a793f7",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-09-10T15:01:23.013Z",
+    "namespace": "crab",
+    "releaseInfo": [
+      {
+        "appId": "CrabDedicatedServer",
+        "compatibleApps": [],
+        "dateAdded": "2019-04-03T00:00:00.000Z",
+        "id": "6679a55971074a10913ba2814e185839",
+        "platform": [
+          "Windows"
+        ],
+        "releaseNote": "",
+        "versionTitle": ""
+      }
+    ],
+    "status": "ACTIVE",
+    "title": "Satisfactory Dedicated Server",
+    "unsearchable": true
+  },
+  "sidecar": null
+}

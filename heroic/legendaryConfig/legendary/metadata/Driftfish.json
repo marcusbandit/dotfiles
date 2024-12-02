@@ -1,0 +1,244 @@
+{
+  "app_name": "Driftfish",
+  "app_title": "Totally Accurate Battle Simulator",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "Driftfish",
+      "asset_id": "Driftfish",
+      "build_version": "1.1.8_win64",
+      "catalog_item_id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+      "sidecar_rev": 0
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "public"
+      },
+      {
+        "path": "games"
+      },
+      {
+        "path": "applications"
+      }
+    ],
+    "creationDate": "2024-03-26T17:39:25.728Z",
+    "customAttributes": {
+      "CanRunOffline": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CanSkipKoreanIdVerification": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "CloudIncludeList": {
+        "type": "STRING",
+        "value": "TABSSAVE.TABSProgress"
+      },
+      "CloudSaveFolder": {
+        "type": "STRING",
+        "value": "{AppData}/../LocalLow/Landfall Games/Totally Accurate Battle Simulator/Saved/"
+      },
+      "CloudSaveFolder_MAC": {
+        "type": "STRING",
+        "value": "{AppData}/Landfall Games/Totally Accurate Battle Simulator/Saved/"
+      },
+      "FolderName": {
+        "type": "STRING",
+        "value": "TABS"
+      },
+      "MonitorPresence": {
+        "type": "STRING",
+        "value": "true"
+      },
+      "PresenceId": {
+        "type": "STRING",
+        "value": "ffe512fa1e594ee6a75d4643d1e21b43"
+      },
+      "RequirementsJson": {
+        "type": "STRING",
+        "value": "[]"
+      },
+      "UseAccessControl": {
+        "type": "STRING",
+        "value": "false"
+      }
+    },
+    "description": "Totally Accurate Battle Simulator",
+    "developer": "Landfall Games",
+    "developerId": "o-davtxzvpdnjmd82c247y6zdxg7wabq",
+    "dlcItemList": [
+      {
+        "categories": [
+          {
+            "path": "audience"
+          },
+          {
+            "path": "public"
+          }
+        ],
+        "creationDate": "2024-03-26T17:39:25.724Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "BUG DLC Audience",
+        "developer": "Landfall Games",
+        "developerId": "o-davtxzvpdnjmd82c247y6zdxg7wabq",
+        "endOfSupport": false,
+        "entitlementName": "2681bacf4e394c71a570980360ffb5e6",
+        "entitlementType": "AUDIENCE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "2681bacf4e394c71a570980360ffb5e6",
+        "itemType": "DURABLE",
+        "keyImages": [
+          {
+            "height": 1080,
+            "md5": "7afd2f220aa7ec3cb6c11ea851b0b287",
+            "size": 343664,
+            "type": "DieselGameBox",
+            "uploadedDate": "2020-03-30T18:46:19.237Z",
+            "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_BUGDLC_Landfall_DLC_G1A_00-1920x1080-7afd2f220aa7ec3cb6c11ea851b0b287.jpg",
+            "width": 1920
+          },
+          {
+            "height": 680,
+            "md5": "bd48acab6fcbddd7cee9dfbed578af20",
+            "size": 245564,
+            "type": "DieselGameBoxTall",
+            "uploadedDate": "2020-03-30T18:47:37.353Z",
+            "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_LandfallGames_TotallyAccurateBattleSimulator_S4-510x680-bd48acab6fcbddd7cee9dfbed578af20-510x680-bd48acab6fcbddd7cee9dfbed578af20.jpg",
+            "width": 510
+          }
+        ],
+        "lastModifiedDate": "2024-07-18T13:00:18.726Z",
+        "longDescription": "BUG DLC Audience",
+        "mainGameItem": {
+          "id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+          "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+          "unsearchable": false
+        },
+        "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+        "releaseInfo": [],
+        "status": "ACTIVE",
+        "title": "BUG DLC Audience",
+        "unsearchable": false
+      },
+      {
+        "ageGatings": {},
+        "applicationId": "",
+        "categories": [
+          {
+            "path": "addons"
+          }
+        ],
+        "creationDate": "2024-07-18T13:00:18.494Z",
+        "customAttributes": {
+          "SupportedPlatforms": {
+            "type": "STRING",
+            "value": "Windows"
+          }
+        },
+        "description": "BUG DLC Audience Buffer",
+        "developer": "Landfall Games",
+        "developerId": "o-davtxzvpdnjmd82c247y6zdxg7wabq",
+        "endOfSupport": false,
+        "entitlementName": "38db2a3efa864813855c448f2a6d98b3",
+        "entitlementType": "EXECUTABLE",
+        "eulaIds": [
+          "egstore"
+        ],
+        "id": "38db2a3efa864813855c448f2a6d98b3",
+        "itemType": "DURABLE",
+        "keyImages": [
+          {
+            "height": 1080,
+            "md5": "7afd2f220aa7ec3cb6c11ea851b0b287",
+            "size": 343664,
+            "type": "DieselGameBox",
+            "uploadedDate": "2020-03-30T18:46:19.237Z",
+            "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_BUGDLC_Landfall_DLC_G1A_00-1920x1080-7afd2f220aa7ec3cb6c11ea851b0b287.jpg",
+            "width": 1920
+          },
+          {
+            "height": 680,
+            "md5": "bd48acab6fcbddd7cee9dfbed578af20",
+            "size": 245564,
+            "type": "DieselGameBoxTall",
+            "uploadedDate": "2020-03-30T18:47:37.353Z",
+            "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_LandfallGames_TotallyAccurateBattleSimulator_S4-510x680-bd48acab6fcbddd7cee9dfbed578af20-510x680-bd48acab6fcbddd7cee9dfbed578af20.jpg",
+            "width": 510
+          }
+        ],
+        "lastModifiedDate": "2024-07-18T13:00:18.494Z",
+        "longDescription": "BUG DLC Audience Buffer",
+        "mainGameItem": {
+          "id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+          "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+          "unsearchable": false
+        },
+        "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+        "releaseInfo": [],
+        "requiresSecureAccount": false,
+        "status": "ACTIVE",
+        "title": "BUG DLC Audience Buffer",
+        "unsearchable": true
+      }
+    ],
+    "endOfSupport": false,
+    "entitlementName": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "egstore"
+    ],
+    "id": "4e7c8122d7b546dc8fe9ab05e4b0f38a",
+    "itemType": "DURABLE",
+    "keyImages": [
+      {
+        "height": 1440,
+        "md5": "5a7fa2ad3029ef94c70ca19f088ee9c3",
+        "size": 835452,
+        "type": "DieselGameBox",
+        "uploadedDate": "2021-03-31T22:31:45.302Z",
+        "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_TotallyAccurateBattleSimulator_LandfallGames_S3-2560x1440-5a7fa2ad3029ef94c70ca19f088ee9c3.jpg",
+        "width": 2560
+      },
+      {
+        "height": 1600,
+        "md5": "6c3faa0bfc6514db0630522fa628ed84",
+        "size": 937274,
+        "type": "DieselGameBoxTall",
+        "uploadedDate": "2021-03-31T22:31:52.455Z",
+        "url": "https://cdn1.epicgames.com/ffe512fa1e594ee6a75d4643d1e21b43/item/EGS_TotallyAccurateBattleSimulator_LandfallGames_S4-1200x1600-6c3faa0bfc6514db0630522fa628ed84.jpg",
+        "width": 1200
+      }
+    ],
+    "lastModifiedDate": "2024-07-18T13:00:18.726Z",
+    "namespace": "ffe512fa1e594ee6a75d4643d1e21b43",
+    "releaseInfo": [
+      {
+        "appId": "Driftfish",
+        "id": "0919c24faa6848808d4283681b06556b",
+        "platform": [
+          "Mac",
+          "Windows"
+        ]
+      }
+    ],
+    "status": "ACTIVE",
+    "title": "Totally Accurate Battle Simulator",
+    "unsearchable": false
+  },
+  "sidecar": null
+}

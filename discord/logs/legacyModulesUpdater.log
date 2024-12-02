@@ -1,0 +1,743 @@
+2024-11-26T22:23:21.685Z [Modules] Modules initializing
+2024-11-26T22:23:21.685Z [Modules] Distribution: remote
+2024-11-26T22:23:21.685Z [Modules] Host updates: enabled
+2024-11-26T22:23:21.686Z [Modules] Module updates: enabled
+2024-11-26T22:23:21.686Z [Modules] Module install path: /home/bandit/.config/discord/0.0.76/modules
+2024-11-26T22:23:21.686Z [Modules] Module installed file path: /home/bandit/.config/discord/0.0.76/modules/installed.json
+2024-11-26T22:23:21.686Z [Modules] Module download path: /home/bandit/.config/discord/0.0.76/modules/pending
+2024-11-26T22:23:22.013Z [Modules] Bootstrapping...
+2024-11-26T22:23:22.013Z [Modules] Installing discord_desktop_core@0 from /opt/discord/resources/bootstrap/discord_desktop_core.zip
+2024-11-26T22:23:22.014Z [Modules] Failed installing discord_desktop_core@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_desktop_core.zip'
+2024-11-26T22:23:22.014Z [Modules] Installing discord_erlpack@0 from /opt/discord/resources/bootstrap/discord_erlpack.zip
+2024-11-26T22:23:22.015Z [Modules] Failed installing discord_erlpack@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_erlpack.zip'
+2024-11-26T22:23:22.015Z [Modules] Installing discord_spellcheck@0 from /opt/discord/resources/bootstrap/discord_spellcheck.zip
+2024-11-26T22:23:22.015Z [Modules] Failed installing discord_spellcheck@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_spellcheck.zip'
+2024-11-26T22:23:22.015Z [Modules] Installing discord_utils@0 from /opt/discord/resources/bootstrap/discord_utils.zip
+2024-11-26T22:23:22.016Z [Modules] Failed installing discord_utils@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_utils.zip'
+2024-11-26T22:23:22.016Z [Modules] Installing discord_voice@0 from /opt/discord/resources/bootstrap/discord_voice.zip
+2024-11-26T22:23:22.016Z [Modules] Failed installing discord_voice@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_voice.zip'
+2024-11-26T22:23:22.016Z [Modules] Installing discord_zstd@0 from /opt/discord/resources/bootstrap/discord_zstd.zip
+2024-11-26T22:23:22.016Z [Modules] Failed installing discord_zstd@0: Error: ENOENT: no such file or directory, open '/opt/discord/resources/bootstrap/discord_zstd.zip'
+2024-11-26T22:23:22.017Z [Modules] Finished module installations. [success: 0] [failure: 6]
+2024-11-26T22:23:22.017Z [Modules] Checking for host updates.
+2024-11-26T22:23:22.270Z [Modules] Host is up to date.
+2024-11-26T22:23:22.271Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T22:23:22.307Z [Modules] Module update available: discord_desktop_core@1 [installed: 0]
+2024-11-26T22:23:22.308Z [Modules] Module update available: discord_erlpack@1 [installed: 0]
+2024-11-26T22:23:22.308Z [Modules] Module update available: discord_spellcheck@1 [installed: 0]
+2024-11-26T22:23:22.308Z [Modules] Module update available: discord_utils@1 [installed: 0]
+2024-11-26T22:23:22.308Z [Modules] Module update available: discord_voice@1 [installed: 0]
+2024-11-26T22:23:22.308Z [Modules] Module update available: discord_zstd@1 [installed: 0]
+2024-11-26T22:23:22.309Z [Modules] Fetching discord_desktop_core@1 from https://discord.com/api/modules/stable/discord_desktop_core/1
+2024-11-26T22:23:22.309Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip
+2024-11-26T22:23:22.598Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 1%
+2024-11-26T22:23:22.606Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 2%
+2024-11-26T22:23:22.618Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 3%
+2024-11-26T22:23:22.630Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 4%
+2024-11-26T22:23:22.632Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 5%
+2024-11-26T22:23:22.636Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 6%
+2024-11-26T22:23:22.642Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 7%
+2024-11-26T22:23:22.652Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 8%
+2024-11-26T22:23:22.658Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 9%
+2024-11-26T22:23:22.660Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 10%
+2024-11-26T22:23:22.662Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 11%
+2024-11-26T22:23:22.666Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 12%
+2024-11-26T22:23:22.670Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 13%
+2024-11-26T22:23:22.676Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 14%
+2024-11-26T22:23:22.678Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 15%
+2024-11-26T22:23:22.684Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 16%
+2024-11-26T22:23:22.686Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 17%
+2024-11-26T22:23:22.690Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 18%
+2024-11-26T22:23:22.690Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 19%
+2024-11-26T22:23:22.692Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 20%
+2024-11-26T22:23:22.694Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 21%
+2024-11-26T22:23:22.697Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 22%
+2024-11-26T22:23:22.700Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 23%
+2024-11-26T22:23:22.702Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 24%
+2024-11-26T22:23:22.706Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 25%
+2024-11-26T22:23:22.710Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 26%
+2024-11-26T22:23:22.712Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 27%
+2024-11-26T22:23:22.716Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 28%
+2024-11-26T22:23:22.718Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 29%
+2024-11-26T22:23:22.719Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 30%
+2024-11-26T22:23:22.720Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 31%
+2024-11-26T22:23:22.720Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 32%
+2024-11-26T22:23:22.723Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 33%
+2024-11-26T22:23:22.725Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 34%
+2024-11-26T22:23:22.726Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 35%
+2024-11-26T22:23:22.727Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 36%
+2024-11-26T22:23:22.727Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 37%
+2024-11-26T22:23:22.729Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 38%
+2024-11-26T22:23:22.729Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 39%
+2024-11-26T22:23:22.730Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 40%
+2024-11-26T22:23:22.734Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 41%
+2024-11-26T22:23:22.736Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 42%
+2024-11-26T22:23:22.740Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 43%
+2024-11-26T22:23:22.743Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 44%
+2024-11-26T22:23:22.743Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 46%
+2024-11-26T22:23:22.746Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 47%
+2024-11-26T22:23:22.748Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 48%
+2024-11-26T22:23:22.749Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 50%
+2024-11-26T22:23:22.750Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 51%
+2024-11-26T22:23:22.752Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 52%
+2024-11-26T22:23:22.755Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 54%
+2024-11-26T22:23:22.755Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 55%
+2024-11-26T22:23:22.756Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 56%
+2024-11-26T22:23:22.758Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 57%
+2024-11-26T22:23:22.758Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 59%
+2024-11-26T22:23:22.759Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 61%
+2024-11-26T22:23:22.760Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 63%
+2024-11-26T22:23:22.760Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 64%
+2024-11-26T22:23:22.763Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 65%
+2024-11-26T22:23:22.764Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 66%
+2024-11-26T22:23:22.765Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 67%
+2024-11-26T22:23:22.766Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 69%
+2024-11-26T22:23:22.768Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 70%
+2024-11-26T22:23:22.774Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 71%
+2024-11-26T22:23:22.775Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 72%
+2024-11-26T22:23:22.775Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 73%
+2024-11-26T22:23:22.777Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 74%
+2024-11-26T22:23:22.777Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 75%
+2024-11-26T22:23:22.778Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 76%
+2024-11-26T22:23:22.781Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 77%
+2024-11-26T22:23:22.781Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 78%
+2024-11-26T22:23:22.782Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 79%
+2024-11-26T22:23:22.784Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 80%
+2024-11-26T22:23:22.784Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 81%
+2024-11-26T22:23:22.784Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 83%
+2024-11-26T22:23:22.785Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 85%
+2024-11-26T22:23:22.785Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 87%
+2024-11-26T22:23:22.786Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 89%
+2024-11-26T22:23:22.786Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 91%
+2024-11-26T22:23:22.787Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 92%
+2024-11-26T22:23:22.787Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 93%
+2024-11-26T22:23:22.788Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 95%
+2024-11-26T22:23:22.789Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 96%
+2024-11-26T22:23:22.789Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 97%
+2024-11-26T22:23:22.789Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 99%
+2024-11-26T22:23:22.791Z [Modules] Streaming discord_desktop_core@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip: 100%
+2024-11-26T22:23:22.791Z [Modules] Fetching discord_erlpack@1 from https://discord.com/api/modules/stable/discord_erlpack/1
+2024-11-26T22:23:22.791Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip
+2024-11-26T22:23:22.996Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 1%
+2024-11-26T22:23:22.997Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 3%
+2024-11-26T22:23:22.997Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 4%
+2024-11-26T22:23:22.998Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 7%
+2024-11-26T22:23:22.998Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 9%
+2024-11-26T22:23:22.999Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 11%
+2024-11-26T22:23:23.000Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 12%
+2024-11-26T22:23:23.000Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 13%
+2024-11-26T22:23:23.001Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 16%
+2024-11-26T22:23:23.001Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 17%
+2024-11-26T22:23:23.002Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 19%
+2024-11-26T22:23:23.003Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 21%
+2024-11-26T22:23:23.003Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 23%
+2024-11-26T22:23:23.004Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 27%
+2024-11-26T22:23:23.004Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 30%
+2024-11-26T22:23:23.005Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 31%
+2024-11-26T22:23:23.006Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 32%
+2024-11-26T22:23:23.006Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 33%
+2024-11-26T22:23:23.007Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 35%
+2024-11-26T22:23:23.007Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 38%
+2024-11-26T22:23:23.008Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 41%
+2024-11-26T22:23:23.008Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 42%
+2024-11-26T22:23:23.009Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 43%
+2024-11-26T22:23:23.009Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 44%
+2024-11-26T22:23:23.016Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 45%
+2024-11-26T22:23:23.023Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 46%
+2024-11-26T22:23:23.023Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 47%
+2024-11-26T22:23:23.023Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 49%
+2024-11-26T22:23:23.024Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 50%
+2024-11-26T22:23:23.024Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 51%
+2024-11-26T22:23:23.025Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 53%
+2024-11-26T22:23:23.025Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 54%
+2024-11-26T22:23:23.026Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 55%
+2024-11-26T22:23:23.027Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 56%
+2024-11-26T22:23:23.028Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 58%
+2024-11-26T22:23:23.028Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 60%
+2024-11-26T22:23:23.028Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 61%
+2024-11-26T22:23:23.030Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 62%
+2024-11-26T22:23:23.030Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 63%
+2024-11-26T22:23:23.031Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 64%
+2024-11-26T22:23:23.031Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 66%
+2024-11-26T22:23:23.032Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 67%
+2024-11-26T22:23:23.032Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 68%
+2024-11-26T22:23:23.032Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 70%
+2024-11-26T22:23:23.033Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 72%
+2024-11-26T22:23:23.034Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 73%
+2024-11-26T22:23:23.035Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 74%
+2024-11-26T22:23:23.035Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 75%
+2024-11-26T22:23:23.035Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 77%
+2024-11-26T22:23:23.036Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 79%
+2024-11-26T22:23:23.036Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 80%
+2024-11-26T22:23:23.036Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 82%
+2024-11-26T22:23:23.037Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 84%
+2024-11-26T22:23:23.037Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 86%
+2024-11-26T22:23:23.037Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 88%
+2024-11-26T22:23:23.038Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 89%
+2024-11-26T22:23:23.038Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 92%
+2024-11-26T22:23:23.039Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 93%
+2024-11-26T22:23:23.039Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 94%
+2024-11-26T22:23:23.041Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 95%
+2024-11-26T22:23:23.047Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 96%
+2024-11-26T22:23:23.048Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 98%
+2024-11-26T22:23:23.048Z [Modules] Streaming discord_erlpack@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip: 100%
+2024-11-26T22:23:23.049Z [Modules] Fetching discord_spellcheck@1 from https://discord.com/api/modules/stable/discord_spellcheck/1
+2024-11-26T22:23:23.049Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip
+2024-11-26T22:23:23.262Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 1%
+2024-11-26T22:23:23.265Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 2%
+2024-11-26T22:23:23.267Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 3%
+2024-11-26T22:23:23.290Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 4%
+2024-11-26T22:23:23.290Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 5%
+2024-11-26T22:23:23.291Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 6%
+2024-11-26T22:23:23.298Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 7%
+2024-11-26T22:23:23.298Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 8%
+2024-11-26T22:23:23.299Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 9%
+2024-11-26T22:23:23.299Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 10%
+2024-11-26T22:23:23.300Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 11%
+2024-11-26T22:23:23.300Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 12%
+2024-11-26T22:23:23.301Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 13%
+2024-11-26T22:23:23.301Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 14%
+2024-11-26T22:23:23.305Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 15%
+2024-11-26T22:23:23.306Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 16%
+2024-11-26T22:23:23.307Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 18%
+2024-11-26T22:23:23.307Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 20%
+2024-11-26T22:23:23.312Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 21%
+2024-11-26T22:23:23.318Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 22%
+2024-11-26T22:23:23.322Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 23%
+2024-11-26T22:23:23.323Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 24%
+2024-11-26T22:23:23.326Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 25%
+2024-11-26T22:23:23.327Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 26%
+2024-11-26T22:23:23.331Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 27%
+2024-11-26T22:23:23.332Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 28%
+2024-11-26T22:23:23.334Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 29%
+2024-11-26T22:23:23.338Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 30%
+2024-11-26T22:23:23.339Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 31%
+2024-11-26T22:23:23.341Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 32%
+2024-11-26T22:23:23.345Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 33%
+2024-11-26T22:23:23.351Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 34%
+2024-11-26T22:23:23.359Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 35%
+2024-11-26T22:23:23.366Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 36%
+2024-11-26T22:23:23.373Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 37%
+2024-11-26T22:23:23.380Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 38%
+2024-11-26T22:23:23.387Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 39%
+2024-11-26T22:23:23.394Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 40%
+2024-11-26T22:23:23.402Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 41%
+2024-11-26T22:23:23.409Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 42%
+2024-11-26T22:23:23.416Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 43%
+2024-11-26T22:23:23.423Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 44%
+2024-11-26T22:23:23.430Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 45%
+2024-11-26T22:23:23.438Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 46%
+2024-11-26T22:23:23.529Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 47%
+2024-11-26T22:23:23.534Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 48%
+2024-11-26T22:23:23.539Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 49%
+2024-11-26T22:23:23.544Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 50%
+2024-11-26T22:23:23.550Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 51%
+2024-11-26T22:23:23.555Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 52%
+2024-11-26T22:23:23.560Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 53%
+2024-11-26T22:23:23.564Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 54%
+2024-11-26T22:23:23.570Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 55%
+2024-11-26T22:23:23.573Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 56%
+2024-11-26T22:23:23.578Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 57%
+2024-11-26T22:23:23.584Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 58%
+2024-11-26T22:23:23.588Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 59%
+2024-11-26T22:23:23.593Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 60%
+2024-11-26T22:23:23.598Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 61%
+2024-11-26T22:23:23.604Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 62%
+2024-11-26T22:23:23.605Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 63%
+2024-11-26T22:23:23.606Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 64%
+2024-11-26T22:23:23.606Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 66%
+2024-11-26T22:23:23.607Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 68%
+2024-11-26T22:23:23.607Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 69%
+2024-11-26T22:23:23.609Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 70%
+2024-11-26T22:23:23.616Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 71%
+2024-11-26T22:23:23.711Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 72%
+2024-11-26T22:23:23.714Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 73%
+2024-11-26T22:23:23.719Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 74%
+2024-11-26T22:23:23.720Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 75%
+2024-11-26T22:23:23.724Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 76%
+2024-11-26T22:23:23.728Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 77%
+2024-11-26T22:23:23.731Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 78%
+2024-11-26T22:23:23.812Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 79%
+2024-11-26T22:23:23.812Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 81%
+2024-11-26T22:23:23.813Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 82%
+2024-11-26T22:23:23.813Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 84%
+2024-11-26T22:23:23.814Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 86%
+2024-11-26T22:23:23.814Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 87%
+2024-11-26T22:23:23.814Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 90%
+2024-11-26T22:23:23.815Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 91%
+2024-11-26T22:23:23.815Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 93%
+2024-11-26T22:23:23.815Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 95%
+2024-11-26T22:23:23.816Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 96%
+2024-11-26T22:23:23.824Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 97%
+2024-11-26T22:23:23.829Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 98%
+2024-11-26T22:23:23.831Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 99%
+2024-11-26T22:23:23.837Z [Modules] Streaming discord_spellcheck@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip: 100%
+2024-11-26T22:23:23.838Z [Modules] Fetching discord_utils@1 from https://discord.com/api/modules/stable/discord_utils/1
+2024-11-26T22:23:23.838Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip
+2024-11-26T22:23:24.031Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 2%
+2024-11-26T22:23:24.032Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 3%
+2024-11-26T22:23:24.032Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 4%
+2024-11-26T22:23:24.034Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 5%
+2024-11-26T22:23:24.035Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 6%
+2024-11-26T22:23:24.035Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 7%
+2024-11-26T22:23:24.036Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 8%
+2024-11-26T22:23:24.037Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 9%
+2024-11-26T22:23:24.038Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 10%
+2024-11-26T22:23:24.039Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 11%
+2024-11-26T22:23:24.040Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 12%
+2024-11-26T22:23:24.041Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 13%
+2024-11-26T22:23:24.041Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 14%
+2024-11-26T22:23:24.042Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 15%
+2024-11-26T22:23:24.044Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 16%
+2024-11-26T22:23:24.045Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 17%
+2024-11-26T22:23:24.045Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 18%
+2024-11-26T22:23:24.047Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 19%
+2024-11-26T22:23:24.047Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 20%
+2024-11-26T22:23:24.048Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 21%
+2024-11-26T22:23:24.049Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 22%
+2024-11-26T22:23:24.050Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 23%
+2024-11-26T22:23:24.050Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 24%
+2024-11-26T22:23:24.051Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 25%
+2024-11-26T22:23:24.053Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 26%
+2024-11-26T22:23:24.053Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 27%
+2024-11-26T22:23:24.054Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 28%
+2024-11-26T22:23:24.055Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 29%
+2024-11-26T22:23:24.056Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 30%
+2024-11-26T22:23:24.056Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 31%
+2024-11-26T22:23:24.057Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 32%
+2024-11-26T22:23:24.059Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 33%
+2024-11-26T22:23:24.060Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 34%
+2024-11-26T22:23:24.060Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 35%
+2024-11-26T22:23:24.061Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 36%
+2024-11-26T22:23:24.063Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 37%
+2024-11-26T22:23:24.063Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 38%
+2024-11-26T22:23:24.064Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 39%
+2024-11-26T22:23:24.066Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 40%
+2024-11-26T22:23:24.066Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 41%
+2024-11-26T22:23:24.067Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 42%
+2024-11-26T22:23:24.067Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 43%
+2024-11-26T22:23:24.068Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 44%
+2024-11-26T22:23:24.070Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 45%
+2024-11-26T22:23:24.071Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 46%
+2024-11-26T22:23:24.071Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 47%
+2024-11-26T22:23:24.072Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 48%
+2024-11-26T22:23:24.073Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 49%
+2024-11-26T22:23:24.074Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 50%
+2024-11-26T22:23:24.074Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 51%
+2024-11-26T22:23:24.076Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 52%
+2024-11-26T22:23:24.077Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 53%
+2024-11-26T22:23:24.078Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 54%
+2024-11-26T22:23:24.078Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 55%
+2024-11-26T22:23:24.080Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 56%
+2024-11-26T22:23:24.080Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 57%
+2024-11-26T22:23:24.083Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 58%
+2024-11-26T22:23:24.083Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 59%
+2024-11-26T22:23:24.083Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 60%
+2024-11-26T22:23:24.084Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 61%
+2024-11-26T22:23:24.084Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 62%
+2024-11-26T22:23:24.087Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 63%
+2024-11-26T22:23:24.087Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 64%
+2024-11-26T22:23:24.088Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 65%
+2024-11-26T22:23:24.091Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 66%
+2024-11-26T22:23:24.091Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 67%
+2024-11-26T22:23:24.092Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 68%
+2024-11-26T22:23:24.093Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 71%
+2024-11-26T22:23:24.094Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 72%
+2024-11-26T22:23:24.095Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 73%
+2024-11-26T22:23:24.095Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 74%
+2024-11-26T22:23:24.096Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 75%
+2024-11-26T22:23:24.096Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 76%
+2024-11-26T22:23:24.097Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 77%
+2024-11-26T22:23:24.098Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 78%
+2024-11-26T22:23:24.101Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 79%
+2024-11-26T22:23:24.101Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 80%
+2024-11-26T22:23:24.102Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 81%
+2024-11-26T22:23:24.102Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 82%
+2024-11-26T22:23:24.103Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 83%
+2024-11-26T22:23:24.103Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 84%
+2024-11-26T22:23:24.105Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 85%
+2024-11-26T22:23:24.105Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 86%
+2024-11-26T22:23:24.106Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 87%
+2024-11-26T22:23:24.107Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 88%
+2024-11-26T22:23:24.107Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 89%
+2024-11-26T22:23:24.110Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 90%
+2024-11-26T22:23:24.110Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 91%
+2024-11-26T22:23:24.111Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 92%
+2024-11-26T22:23:24.111Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 93%
+2024-11-26T22:23:24.113Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 94%
+2024-11-26T22:23:24.114Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 95%
+2024-11-26T22:23:24.114Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 96%
+2024-11-26T22:23:24.114Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 97%
+2024-11-26T22:23:24.115Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 98%
+2024-11-26T22:23:24.117Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 99%
+2024-11-26T22:23:24.117Z [Modules] Streaming discord_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip: 100%
+2024-11-26T22:23:24.118Z [Modules] Fetching discord_voice@1 from https://discord.com/api/modules/stable/discord_voice/1
+2024-11-26T22:23:24.118Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip
+2024-11-26T22:23:24.414Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 1%
+2024-11-26T22:23:24.417Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 2%
+2024-11-26T22:23:24.422Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 3%
+2024-11-26T22:23:24.425Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 4%
+2024-11-26T22:23:24.430Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 5%
+2024-11-26T22:23:24.433Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 6%
+2024-11-26T22:23:24.439Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 7%
+2024-11-26T22:23:24.446Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 8%
+2024-11-26T22:23:24.483Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 9%
+2024-11-26T22:23:24.487Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 10%
+2024-11-26T22:23:24.491Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 11%
+2024-11-26T22:23:24.495Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 12%
+2024-11-26T22:23:24.499Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 13%
+2024-11-26T22:23:24.503Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 14%
+2024-11-26T22:23:24.507Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 15%
+2024-11-26T22:23:24.512Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 16%
+2024-11-26T22:23:24.514Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 17%
+2024-11-26T22:23:24.522Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 18%
+2024-11-26T22:23:24.535Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 19%
+2024-11-26T22:23:24.552Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 20%
+2024-11-26T22:23:24.570Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 21%
+2024-11-26T22:23:24.587Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 22%
+2024-11-26T22:23:24.604Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 23%
+2024-11-26T22:23:24.700Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 24%
+2024-11-26T22:23:24.714Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 25%
+2024-11-26T22:23:24.726Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 26%
+2024-11-26T22:23:24.726Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 27%
+2024-11-26T22:23:24.736Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 28%
+2024-11-26T22:23:24.750Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 29%
+2024-11-26T22:23:24.763Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 30%
+2024-11-26T22:23:24.778Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 31%
+2024-11-26T22:23:24.854Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 32%
+2024-11-26T22:23:24.855Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 33%
+2024-11-26T22:23:24.855Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 34%
+2024-11-26T22:23:24.861Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 35%
+2024-11-26T22:23:24.872Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 36%
+2024-11-26T22:23:24.880Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 37%
+2024-11-26T22:23:24.887Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 38%
+2024-11-26T22:23:24.900Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 39%
+2024-11-26T22:23:24.912Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 40%
+2024-11-26T22:23:24.923Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 41%
+2024-11-26T22:23:24.936Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 42%
+2024-11-26T22:23:24.950Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 43%
+2024-11-26T22:23:25.324Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 44%
+2024-11-26T22:23:25.327Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 45%
+2024-11-26T22:23:25.330Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 46%
+2024-11-26T22:23:25.333Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 47%
+2024-11-26T22:23:25.336Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 48%
+2024-11-26T22:23:25.341Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 49%
+2024-11-26T22:23:25.343Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 50%
+2024-11-26T22:23:25.348Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 51%
+2024-11-26T22:23:25.382Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 52%
+2024-11-26T22:23:25.387Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 53%
+2024-11-26T22:23:25.390Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 54%
+2024-11-26T22:23:25.393Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 55%
+2024-11-26T22:23:25.397Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 56%
+2024-11-26T22:23:25.401Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 57%
+2024-11-26T22:23:25.405Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 58%
+2024-11-26T22:23:25.408Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 59%
+2024-11-26T22:23:25.411Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 60%
+2024-11-26T22:23:25.469Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 61%
+2024-11-26T22:23:25.473Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 62%
+2024-11-26T22:23:25.476Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 63%
+2024-11-26T22:23:25.479Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 64%
+2024-11-26T22:23:25.494Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 65%
+2024-11-26T22:23:25.510Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 66%
+2024-11-26T22:23:25.528Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 67%
+2024-11-26T22:23:25.545Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 68%
+2024-11-26T22:23:25.562Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 69%
+2024-11-26T22:23:25.736Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 70%
+2024-11-26T22:23:25.737Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 71%
+2024-11-26T22:23:25.737Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 72%
+2024-11-26T22:23:25.738Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 73%
+2024-11-26T22:23:25.738Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 74%
+2024-11-26T22:23:25.739Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 75%
+2024-11-26T22:23:25.832Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 76%
+2024-11-26T22:23:25.837Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 77%
+2024-11-26T22:23:25.839Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 78%
+2024-11-26T22:23:25.840Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 79%
+2024-11-26T22:23:25.841Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 80%
+2024-11-26T22:23:25.844Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 81%
+2024-11-26T22:23:25.850Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 82%
+2024-11-26T22:23:25.947Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 83%
+2024-11-26T22:23:25.948Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 84%
+2024-11-26T22:23:25.949Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 85%
+2024-11-26T22:23:25.949Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 86%
+2024-11-26T22:23:25.950Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 87%
+2024-11-26T22:23:25.950Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 88%
+2024-11-26T22:23:25.950Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 89%
+2024-11-26T22:23:26.010Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 90%
+2024-11-26T22:23:26.015Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 91%
+2024-11-26T22:23:26.024Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 92%
+2024-11-26T22:23:26.033Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 93%
+2024-11-26T22:23:26.040Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 94%
+2024-11-26T22:23:26.051Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 95%
+2024-11-26T22:23:26.058Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 96%
+2024-11-26T22:23:26.067Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 97%
+2024-11-26T22:23:26.074Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 98%
+2024-11-26T22:23:26.083Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 99%
+2024-11-26T22:23:26.093Z [Modules] Streaming discord_voice@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip: 100%
+2024-11-26T22:23:26.093Z [Modules] Fetching discord_zstd@1 from https://discord.com/api/modules/stable/discord_zstd/1
+2024-11-26T22:23:26.093Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip
+2024-11-26T22:23:26.298Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 2%
+2024-11-26T22:23:26.299Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 20%
+2024-11-26T22:23:26.300Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 37%
+2024-11-26T22:23:26.300Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 64%
+2024-11-26T22:23:26.301Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 74%
+2024-11-26T22:23:26.301Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 88%
+2024-11-26T22:23:26.301Z [Modules] Streaming discord_zstd@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip: 100%
+2024-11-26T22:23:26.302Z [Modules] Finished module downloads. [success: 6] [failure: 0]
+2024-11-26T22:23:26.302Z [Modules] Installing updates...
+2024-11-26T22:23:26.302Z [Modules] Installing discord_desktop_core@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_desktop_core-1.zip
+2024-11-26T22:23:26.352Z [Modules] Installing discord_erlpack@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_erlpack-1.zip
+2024-11-26T22:23:26.385Z [Modules] Installing discord_spellcheck@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_spellcheck-1.zip
+2024-11-26T22:23:26.807Z [Modules] Installing discord_utils@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_utils-1.zip
+2024-11-26T22:23:26.898Z [Modules] Installing discord_voice@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_voice-1.zip
+2024-11-26T22:23:27.206Z [Modules] Installing discord_zstd@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_zstd-1.zip
+2024-11-26T22:23:27.213Z [Modules] Finished module installations. [success: 6] [failure: 0]
+2024-11-26T22:23:27.213Z [Modules] Checking for host updates.
+2024-11-26T22:23:27.407Z [Modules] Host is up to date.
+2024-11-26T22:23:27.407Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T22:23:27.414Z [Modules] No module updates available.
+2024-11-26T22:23:28.205Z [Modules] Starting to install discord_krisp...
+2024-11-26T22:23:28.205Z [Modules] Fetching discord_krisp@1 from https://discord.com/api/modules/stable/discord_krisp/1
+2024-11-26T22:23:28.205Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip
+2024-11-26T22:23:28.214Z [Modules] Starting to install discord_game_utils...
+2024-11-26T22:23:28.425Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 1%
+2024-11-26T22:23:28.430Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 2%
+2024-11-26T22:23:28.433Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 3%
+2024-11-26T22:23:28.438Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 4%
+2024-11-26T22:23:28.439Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 5%
+2024-11-26T22:23:28.440Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 6%
+2024-11-26T22:23:28.444Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 7%
+2024-11-26T22:23:28.447Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 8%
+2024-11-26T22:23:28.509Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 9%
+2024-11-26T22:23:28.593Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 10%
+2024-11-26T22:23:28.594Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 11%
+2024-11-26T22:23:28.684Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 12%
+2024-11-26T22:23:28.685Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 13%
+2024-11-26T22:23:28.714Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 15%
+2024-11-26T22:23:28.743Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 16%
+2024-11-26T22:23:28.762Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 17%
+2024-11-26T22:23:28.865Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 18%
+2024-11-26T22:23:28.873Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 19%
+2024-11-26T22:23:28.889Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 20%
+2024-11-26T22:23:28.890Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 21%
+2024-11-26T22:23:28.890Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 22%
+2024-11-26T22:23:28.900Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 23%
+2024-11-26T22:23:28.911Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 24%
+2024-11-26T22:23:28.936Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 25%
+2024-11-26T22:23:29.012Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 26%
+2024-11-26T22:23:29.032Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 27%
+2024-11-26T22:23:29.036Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 28%
+2024-11-26T22:23:29.036Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 29%
+2024-11-26T22:23:29.037Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 30%
+2024-11-26T22:23:29.037Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 31%
+2024-11-26T22:23:29.037Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 32%
+2024-11-26T22:23:29.040Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 33%
+2024-11-26T22:23:29.044Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 34%
+2024-11-26T22:23:29.045Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 35%
+2024-11-26T22:23:29.045Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 36%
+2024-11-26T22:23:29.045Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 37%
+2024-11-26T22:23:29.046Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 38%
+2024-11-26T22:23:29.062Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 39%
+2024-11-26T22:23:29.080Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 40%
+2024-11-26T22:23:29.097Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 41%
+2024-11-26T22:23:29.198Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 42%
+2024-11-26T22:23:29.211Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 43%
+2024-11-26T22:23:29.226Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 44%
+2024-11-26T22:23:29.240Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 45%
+2024-11-26T22:23:29.254Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 46%
+2024-11-26T22:23:29.268Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 47%
+2024-11-26T22:23:29.285Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 48%
+2024-11-26T22:23:29.408Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 50%
+2024-11-26T22:23:29.498Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 57%
+2024-11-26T22:23:29.545Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 58%
+2024-11-26T22:23:29.547Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 61%
+2024-11-26T22:23:29.552Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 62%
+2024-11-26T22:23:29.554Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 63%
+2024-11-26T22:23:29.560Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 64%
+2024-11-26T22:23:29.575Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 65%
+2024-11-26T22:23:29.586Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 66%
+2024-11-26T22:23:29.597Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 67%
+2024-11-26T22:23:29.606Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 68%
+2024-11-26T22:23:29.619Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 69%
+2024-11-26T22:23:29.632Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 70%
+2024-11-26T22:23:29.654Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 71%
+2024-11-26T22:23:29.674Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 72%
+2024-11-26T22:23:29.693Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 73%
+2024-11-26T22:23:29.715Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 74%
+2024-11-26T22:23:29.734Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 75%
+2024-11-26T22:23:29.756Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 76%
+2024-11-26T22:23:29.775Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 77%
+2024-11-26T22:23:29.796Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 78%
+2024-11-26T22:23:29.816Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 79%
+2024-11-26T22:23:29.837Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 80%
+2024-11-26T22:23:29.856Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 81%
+2024-11-26T22:23:29.879Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 82%
+2024-11-26T22:23:29.897Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 83%
+2024-11-26T22:23:29.920Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 84%
+2024-11-26T22:23:29.939Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 85%
+2024-11-26T22:23:29.959Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 86%
+2024-11-26T22:23:29.980Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 87%
+2024-11-26T22:23:29.999Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 88%
+2024-11-26T22:23:30.020Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 89%
+2024-11-26T22:23:30.043Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 90%
+2024-11-26T22:23:30.062Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 91%
+2024-11-26T22:23:30.085Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 92%
+2024-11-26T22:23:30.106Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 93%
+2024-11-26T22:23:30.129Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 94%
+2024-11-26T22:23:30.148Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 95%
+2024-11-26T22:23:30.171Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 96%
+2024-11-26T22:23:30.192Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 97%
+2024-11-26T22:23:30.214Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 98%
+2024-11-26T22:23:30.239Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 99%
+2024-11-26T22:23:30.261Z [Modules] Streaming discord_krisp@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip: 100%
+2024-11-26T22:23:30.261Z [Modules] Fetching discord_game_utils@1 from https://discord.com/api/modules/stable/discord_game_utils/1
+2024-11-26T22:23:30.261Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip
+2024-11-26T22:23:30.261Z [Modules] Installing discord_krisp@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_krisp-1.zip
+2024-11-26T22:23:30.424Z [Modules] Checking for host updates.
+2024-11-26T22:23:30.481Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 1%
+2024-11-26T22:23:30.485Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 2%
+2024-11-26T22:23:30.487Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 3%
+2024-11-26T22:23:30.490Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 4%
+2024-11-26T22:23:30.491Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 5%
+2024-11-26T22:23:30.493Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 6%
+2024-11-26T22:23:30.494Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2024-11-26T22:23:30.495Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 7%
+2024-11-26T22:23:30.497Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 8%
+2024-11-26T22:23:30.500Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 9%
+2024-11-26T22:23:30.502Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 10%
+2024-11-26T22:23:30.505Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 11%
+2024-11-26T22:23:30.506Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 12%
+2024-11-26T22:23:30.506Z [Modules] Starting to install discord_rpc...
+2024-11-26T22:23:30.508Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 13%
+2024-11-26T22:23:30.510Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 14%
+2024-11-26T22:23:30.513Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 15%
+2024-11-26T22:23:30.516Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 16%
+2024-11-26T22:23:30.516Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 17%
+2024-11-26T22:23:30.519Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 18%
+2024-11-26T22:23:30.524Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 19%
+2024-11-26T22:23:30.524Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 20%
+2024-11-26T22:23:30.526Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 21%
+2024-11-26T22:23:30.528Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 22%
+2024-11-26T22:23:30.531Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 23%
+2024-11-26T22:23:30.533Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 24%
+2024-11-26T22:23:30.534Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 25%
+2024-11-26T22:23:30.536Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 26%
+2024-11-26T22:23:30.538Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 27%
+2024-11-26T22:23:30.540Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 28%
+2024-11-26T22:23:30.543Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 29%
+2024-11-26T22:23:30.544Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 30%
+2024-11-26T22:23:30.546Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 31%
+2024-11-26T22:23:30.548Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 32%
+2024-11-26T22:23:30.549Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 33%
+2024-11-26T22:23:30.551Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 34%
+2024-11-26T22:23:30.554Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 35%
+2024-11-26T22:23:30.554Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 36%
+2024-11-26T22:23:30.557Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 37%
+2024-11-26T22:23:30.557Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 38%
+2024-11-26T22:23:30.559Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 39%
+2024-11-26T22:23:30.561Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 40%
+2024-11-26T22:23:30.562Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 41%
+2024-11-26T22:23:30.564Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 42%
+2024-11-26T22:23:30.565Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 43%
+2024-11-26T22:23:30.568Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 44%
+2024-11-26T22:23:30.570Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 45%
+2024-11-26T22:23:30.572Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 46%
+2024-11-26T22:23:30.576Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 47%
+2024-11-26T22:23:30.578Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 48%
+2024-11-26T22:23:30.581Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 49%
+2024-11-26T22:23:30.582Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 50%
+2024-11-26T22:23:30.584Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 51%
+2024-11-26T22:23:30.586Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 52%
+2024-11-26T22:23:30.587Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 53%
+2024-11-26T22:23:30.588Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 54%
+2024-11-26T22:23:30.590Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 55%
+2024-11-26T22:23:30.591Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 56%
+2024-11-26T22:23:30.594Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 57%
+2024-11-26T22:23:30.595Z [Modules] Host is up to date.
+2024-11-26T22:23:30.595Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T22:23:30.595Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 58%
+2024-11-26T22:23:30.596Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 59%
+2024-11-26T22:23:30.596Z [Modules] No module updates available.
+2024-11-26T22:23:30.598Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 60%
+2024-11-26T22:23:30.601Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 61%
+2024-11-26T22:23:30.601Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 62%
+2024-11-26T22:23:30.604Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 63%
+2024-11-26T22:23:30.605Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 64%
+2024-11-26T22:23:30.606Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 65%
+2024-11-26T22:23:30.608Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 66%
+2024-11-26T22:23:30.610Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 67%
+2024-11-26T22:23:30.610Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 68%
+2024-11-26T22:23:30.612Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 69%
+2024-11-26T22:23:30.614Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 70%
+2024-11-26T22:23:30.616Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 71%
+2024-11-26T22:23:30.617Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 72%
+2024-11-26T22:23:30.620Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 73%
+2024-11-26T22:23:30.621Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 74%
+2024-11-26T22:23:30.622Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 75%
+2024-11-26T22:23:30.624Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 76%
+2024-11-26T22:23:30.626Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 77%
+2024-11-26T22:23:30.627Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 78%
+2024-11-26T22:23:30.629Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 79%
+2024-11-26T22:23:30.631Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 80%
+2024-11-26T22:23:30.633Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 81%
+2024-11-26T22:23:30.633Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 82%
+2024-11-26T22:23:30.634Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 83%
+2024-11-26T22:23:30.636Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 84%
+2024-11-26T22:23:30.639Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 85%
+2024-11-26T22:23:30.639Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 86%
+2024-11-26T22:23:30.642Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 87%
+2024-11-26T22:23:30.643Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 88%
+2024-11-26T22:23:30.644Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 89%
+2024-11-26T22:23:30.646Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 90%
+2024-11-26T22:23:30.648Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 91%
+2024-11-26T22:23:30.649Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 92%
+2024-11-26T22:23:30.652Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 93%
+2024-11-26T22:23:30.652Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 94%
+2024-11-26T22:23:30.654Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 95%
+2024-11-26T22:23:30.655Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 96%
+2024-11-26T22:23:30.657Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 97%
+2024-11-26T22:23:30.659Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 98%
+2024-11-26T22:23:30.660Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 99%
+2024-11-26T22:23:30.662Z [Modules] Streaming discord_game_utils@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip: 100%
+2024-11-26T22:23:30.663Z [Modules] Fetching discord_rpc@1 from https://discord.com/api/modules/stable/discord_rpc/1
+2024-11-26T22:23:30.663Z [Modules] Streaming discord_rpc@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip
+2024-11-26T22:23:30.663Z [Modules] Installing discord_game_utils@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_game_utils-1.zip
+2024-11-26T22:23:30.702Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2024-11-26T22:23:30.855Z [Modules] Streaming discord_rpc@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip: 35%
+2024-11-26T22:23:30.856Z [Modules] Streaming discord_rpc@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip: 72%
+2024-11-26T22:23:30.856Z [Modules] Streaming discord_rpc@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip: 75%
+2024-11-26T22:23:30.857Z [Modules] Streaming discord_rpc@1 to /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip: 100%
+2024-11-26T22:23:30.857Z [Modules] Finished module downloads. [success: 3] [failure: 0]
+2024-11-26T22:23:30.857Z [Modules] Installing discord_rpc@1 from /home/bandit/.config/discord/0.0.76/modules/pending/discord_rpc-1.zip
+2024-11-26T22:23:30.864Z [Modules] Finished module installations. [success: 1] [failure: 0]
+2024-11-26T22:54:09.039Z [Modules] Modules initializing
+2024-11-26T22:54:09.040Z [Modules] Distribution: remote
+2024-11-26T22:54:09.040Z [Modules] Host updates: enabled
+2024-11-26T22:54:09.040Z [Modules] Module updates: enabled
+2024-11-26T22:54:09.040Z [Modules] Module install path: /home/bandit/.config/discord/0.0.76/modules
+2024-11-26T22:54:09.040Z [Modules] Module installed file path: /home/bandit/.config/discord/0.0.76/modules/installed.json
+2024-11-26T22:54:09.040Z [Modules] Module download path: /home/bandit/.config/discord/0.0.76/modules/pending
+2024-11-26T22:54:09.415Z [Modules] No updates to install
+2024-11-26T22:54:09.416Z [Modules] Checking for host updates.
+2024-11-26T22:54:09.699Z [Modules] Host is up to date.
+2024-11-26T22:54:09.699Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T22:54:09.722Z [Modules] No module updates available.
+2024-11-26T22:54:11.160Z [Modules] Checking for host updates.
+2024-11-26T22:54:11.321Z [Modules] Host is up to date.
+2024-11-26T22:54:11.322Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T22:54:11.323Z [Modules] No module updates available.
+2024-11-26T23:07:36.753Z [Modules] Modules initializing
+2024-11-26T23:07:36.753Z [Modules] Distribution: remote
+2024-11-26T23:07:36.753Z [Modules] Host updates: enabled
+2024-11-26T23:07:36.753Z [Modules] Module updates: enabled
+2024-11-26T23:07:36.753Z [Modules] Module install path: /home/bandit/.config/discord/0.0.76/modules
+2024-11-26T23:07:36.753Z [Modules] Module installed file path: /home/bandit/.config/discord/0.0.76/modules/installed.json
+2024-11-26T23:07:36.753Z [Modules] Module download path: /home/bandit/.config/discord/0.0.76/modules/pending
+2024-11-26T23:07:37.083Z [Modules] No updates to install
+2024-11-26T23:07:37.083Z [Modules] Checking for host updates.
+2024-11-26T23:07:37.331Z [Modules] Host is up to date.
+2024-11-26T23:07:37.332Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T23:07:37.363Z [Modules] No module updates available.
+2024-11-26T23:07:38.844Z [Modules] Checking for host updates.
+2024-11-26T23:07:39.014Z [Modules] Host is up to date.
+2024-11-26T23:07:39.014Z [Modules] Checking for module updates at https://discord.com/api/modules/stable/versions.json
+2024-11-26T23:07:39.017Z [Modules] No module updates available.

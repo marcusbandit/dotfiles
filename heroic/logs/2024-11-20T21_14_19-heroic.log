@@ -1,0 +1,270 @@
+(22:14:19) INFO:    [Legendary]:        Legendary location: /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary
+(22:14:19) INFO:    [Gog]:              GOGDL location: /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl
+(22:14:19) INFO:    [Connection]:       Connectivity: check-online
+(22:14:19) INFO:    [Connection]:       Pinging external endpoints
+(22:14:19) INFO:    [Gog]:              Checking for existing gog manifests
+(22:14:20) WARNING: [Backend]:          Protocol already registered.
+(22:14:20) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+(22:14:20) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json --version
+(22:14:20) INFO:    [Nile]:             Running command: NILE_CONFIG_PATH=/home/bandit/.config/heroic/nile_config /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/nile --version
+(22:14:20) INFO:    [Connection]:       Connectivity: online
+(22:14:20) INFO:    [Backend]:          User Not Found, removing it from Store
+(22:14:20) ERROR:   [Gog]:              Unable to syncQueued playtime, userData not present
+(22:14:20) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json auth
+(22:14:20) INFO:    [Backend]:          AreWeAntiCheatYet data downloaded
+(22:14:20) INFO:    [Backend]:          
+System Information:
+CPU: 12x 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz
+Memory: 67.29 GB (used: 6.6 GB)
+GPUs:
+  GPU 0:
+    Name: NVIDIA Corporation GA102 [GeForce RTX 3090]
+    IDs: D=2204 V=10de SD=3881 SV=1462
+    Driver: nvidia
+OS: Arch Linux 6.11.9-arch1-1 (linux)
+
+The current system is not a Steam Deck
+We are not running inside a Flatpak container
+
+Software Versions:
+  Heroic: 2.15.2 Emeth
+  Legendary: 0.20.36 Urban Flight (Heroic)
+  gogdl: 1.1.2
+  comet: comet 0.1.2
+
+  Nile: 1.1.2 Will A. Zeppeli
+
+(22:14:20) INFO:    [Backend]:          Frontend Ready
+(22:14:20) INFO:    [Backend]:          Checking for new Heroic Updates
+(22:14:20) INFO:    [Backend]:          Checking for current version changelog
+(22:14:22) DEBUG:   [Backend]:          Unable to load Steam Libraries, libraryfolders.vdf not found
+(22:14:22) INFO:    [Winetricks]:       Downloading Winetricks
+(22:14:24) INFO:    [WineDownloader]:   Updating wine versions info
+(22:14:24) INFO:    [WineDownloader]:   Fetching upstream information...
+(22:14:25) INFO:    [WineDownloader]:   wine versions updated
+(22:14:25) INFO:    [Backend]:          Starting the Download Queue
+(22:15:03) INFO:    [Legendary]:        Logging in: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary auth --code <redacted>
+(22:15:03) INFO:    [Frontend]:         Refreshing legendary Library
+(22:15:03) INFO:    [Legendary]:        Refreshing library...
+(22:15:03) INFO:    [Legendary]:        Refreshing Epic Games...
+(22:15:03) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:15:06) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(22:15:06) INFO:    [Frontend]:         No cache found, getting data from legendary...
+(22:15:06) INFO:    [Legendary]:        Refreshing library...
+(22:15:06) INFO:    [Legendary]:        Refreshing Epic Games...
+(22:15:06) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:15:07) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(22:15:07) INFO:    [Frontend]:         Force Update
+(22:15:12) INFO:    [Frontend]:         Refreshing undefined Library
+(22:15:12) WARNING: [Backend]:          refresh not implemented on Sideload Library Manager
+(22:15:12) INFO:    [Legendary]:        Refreshing library...
+(22:15:12) INFO:    [Legendary]:        Refreshing Epic Games...
+(22:15:12) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:15:13) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(22:15:27) INFO:    [Legendary]:        Getting more details with 'legendary info'
+(22:15:27) DEBUG:   [Backend]:          Unable to load Steam Libraries, libraryfolders.vdf not found
+(22:15:27) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary info Salt --json --platform Windows
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting ExtraGameInfo data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting PCGamingWiki data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting HowLongToBeat data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting GamesDB data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting ExtraGameInfo data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting PCGamingWiki data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting HowLongToBeat data for Celeste
+(22:16:25) INFO:    [ExtraGameInfo]:    Getting GamesDB data for Celeste
+(22:16:25) DEBUG:   [Legendary]:        Using cached install info
+(22:16:25) DEBUG:   [Legendary]:        Using cached install info
+(22:16:26) ERROR:   [ExtraGameInfo]:    Got AxiosError when sending HowLongToBeat request for Celeste: {
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "stack": "Error: Request failed with status code 404\n    at createError (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/opt/Heroic/resources/app.asar/node_modules/axios/lib/adapters/http.js:322:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "*/*",
+      "Content-Type": "application/json",
+      "User-Agent": "HeroicGamesLauncher/2.15.2",
+      "Referer": "https://howlongtobeat.com/",
+      "Content-Length": 342
+    },
+    "method": "post",
+    "url": "https://www.howlongtobeat.com/api/search",
+    "data": "{\"searchType\":\"games\",\"searchTerms\":[\"Celeste\"],\"searchPage\":1,\"size\":20,\"searchOptions\":{\"games\":{\"userId\":0,\"platform\":\"\",\"sortCategory\":\"popular\",\"rangeCategory\":\"main\",\"rangeTime\":{\"min\":0,\"max\":0},\"gameplay\":{\"perspective\":\"\",\"flow\":\"\",\"genre\":\"\"},\"modifier\":\"\"},\"users\":{\"sortCategory\":\"postcount\"},\"filter\":\"\",\"sort\":0,\"randomizer\":0}}"
+  },
+  "status": 404
+}
+(22:16:26) ERROR:   [ExtraGameInfo]:    Got AxiosError when sending HowLongToBeat request for Celeste: {
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "stack": "Error: Request failed with status code 404\n    at createError (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/opt/Heroic/resources/app.asar/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/opt/Heroic/resources/app.asar/node_modules/axios/lib/adapters/http.js:322:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "config": {
+    "transitional": {
+      "silentJSONParsing": true,
+      "forcedJSONParsing": true,
+      "clarifyTimeoutError": false
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "maxBodyLength": -1,
+    "headers": {
+      "Accept": "*/*",
+      "Content-Type": "application/json",
+      "User-Agent": "HeroicGamesLauncher/2.15.2",
+      "Referer": "https://howlongtobeat.com/",
+      "Content-Length": 342
+    },
+    "method": "post",
+    "url": "https://www.howlongtobeat.com/api/search",
+    "data": "{\"searchType\":\"games\",\"searchTerms\":[\"Celeste\"],\"searchPage\":1,\"size\":20,\"searchOptions\":{\"games\":{\"userId\":0,\"platform\":\"\",\"sortCategory\":\"popular\",\"rangeCategory\":\"main\",\"rangeTime\":{\"min\":0,\"max\":0},\"gameplay\":{\"perspective\":\"\",\"flow\":\"\",\"genre\":\"\"},\"modifier\":\"\"},\"users\":{\"sortCategory\":\"postcount\"},\"filter\":\"\",\"sort\":0,\"randomizer\":0}}"
+  },
+  "status": 404
+}
+(22:16:26) INFO:    [Legendary]:        Getting Info from Epic API
+(22:16:28) DEBUG:   [Backend]:          ProtonDB data for 504230 {"bestReportedTier":"platinum","confidence":"strong","score":0.85,"tier":"platinum","total":142,"trendingTier":"platinum"}
+(22:16:28) DEBUG:   [Backend]:          SteamDeck data for 504230 {"success":1,"results":{"appid":504230,"resolved_category":3,"resolved_items":[{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_DefaultControllerConfigFullyFunctional"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_ControllerGlyphsMatchDeckDevice"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_InterfaceTextIsLegible"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_DefaultConfigurationIsPerformant"}],"steam_deck_blog_url":"","search_id":null}}
+(22:16:29) DEBUG:   [Backend]:          ProtonDB data for 504230 {"bestReportedTier":"platinum","confidence":"strong","score":0.85,"tier":"platinum","total":142,"trendingTier":"platinum"}
+(22:16:29) DEBUG:   [Backend]:          SteamDeck data for 504230 {"success":1,"results":{"appid":504230,"resolved_category":3,"resolved_items":[{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_DefaultControllerConfigFullyFunctional"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_ControllerGlyphsMatchDeckDevice"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_InterfaceTextIsLegible"},{"display_type":4,"loc_token":"#SteamDeckVerified_TestResult_DefaultConfigurationIsPerformant"}],"steam_deck_blog_url":"","search_id":null}}
+(22:24:54) DEBUG:   [Backend]:          Unable to load Steam Libraries, libraryfolders.vdf not found
+(22:53:15) INFO:    [ExtraGameInfo]:    Using cached ExtraGameInfo data for Celeste
+(22:53:15) INFO:    [ExtraGameInfo]:    Using cached ExtraGameInfo data for Celeste
+(22:53:15) DEBUG:   [Legendary]:        Using cached install info
+(22:53:15) DEBUG:   [Legendary]:        Using cached install info
+(22:53:17) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) INFO:    [Backend]:          Writing config for Salt
+(22:53:24) INFO:    [Backend]:          Changed config: winePrefix from /home/bandit/Games/Heroic/Prefixes/default to /home/bandit/Games/Heroic/Prefixes/default/Celeste
+(22:53:24) INFO:    [Backend]:          Changed config: wineCrossoverBottle from undefined to 
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) INFO:    [DownloadManager]:  Celeste  was added to the download queue.
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) INFO:    [Legendary]:        Installing Salt: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary install Salt --platform Windows --base-path /home/bandit/Games/Heroic --skip-dlcs -y --skip-sdl
+(22:53:24) DEBUG:   [Legendary]:        Logging to file "/home/bandit/.config/heroic/GamesConfig/Salt.log"
+(22:53:24) INFO:    [Backend]:          Preventing machine to sleep
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:24) DEBUG:   [Legendary]:        Using cached install info
+(22:53:25) INFO:    [Legendary]:        Progress for Celeste: 0%/0.00MB/00:00:00 Down: 0MB/s / Disk: 0MB/s
+(22:53:26) INFO:    [Legendary]:        Progress for Celeste: 1.15%/9.36MB/00:02:50 Down: 9.36MB/s / Disk: 7.34MB/s
+(22:53:27) INFO:    [Legendary]:        Progress for Celeste: 2.66%/21.73MB/00:00:53 Down: 12.36MB/s / Disk: 16.52MB/s
+(22:53:28) INFO:    [Legendary]:        Progress for Celeste: 4.49%/36.72MB/00:01:08 Down: 14.97MB/s / Disk: 14.99MB/s
+(22:53:29) INFO:    [Legendary]:        Progress for Celeste: 6.2%/50.71MB/00:01:19 Down: 13.99MB/s / Disk: 14MB/s
+(22:53:30) INFO:    [Legendary]:        Progress for Celeste: 7.67%/62.70MB/00:01:25 Down: 11.99MB/s / Disk: 18MB/s
+(22:53:31) INFO:    [Legendary]:        Progress for Celeste: 9.22%/75.37MB/00:01:31 Down: 12.66MB/s / Disk: 12.99MB/s
+(22:53:32) INFO:    [Legendary]:        Progress for Celeste: 10.83%/88.54MB/00:01:37 Down: 13.16MB/s / Disk: 11.99MB/s
+(22:53:33) INFO:    [Legendary]:        Progress for Celeste: 12.72%/103.95MB/00:01:37 Down: 15.39MB/s / Disk: 17.91MB/s
+(22:53:34) INFO:    [Legendary]:        Progress for Celeste: 14.55%/118.92MB/00:01:42 Down: 14.95MB/s / Disk: 10.99MB/s
+(22:53:35) INFO:    [Legendary]:        Progress for Celeste: 15.77%/128.88MB/00:01:47 Down: 9.95MB/s / Disk: 10.99MB/s
+(22:53:36) INFO:    [Legendary]:        Progress for Celeste: 17.48%/142.85MB/00:01:49 Down: 13.96MB/s / Disk: 14.99MB/s
+(22:53:37) INFO:    [Legendary]:        Progress for Celeste: 19.18%/156.81MB/00:01:50 Down: 13.95MB/s / Disk: 15.99MB/s
+(22:53:38) INFO:    [Legendary]:        Progress for Celeste: 20.77%/169.79MB/00:01:53 Down: 12.97MB/s / Disk: 10.99MB/s
+(22:53:39) INFO:    [Legendary]:        Progress for Celeste: 22.48%/183.77MB/00:01:53 Down: 13.97MB/s / Disk: 15.99MB/s
+(22:53:40) INFO:    [Legendary]:        Progress for Celeste: 24.07%/196.74MB/00:01:55 Down: 12.95MB/s / Disk: 12.99MB/s
+(22:53:41) INFO:    [Legendary]:        Progress for Celeste: 25.53%/208.71MB/00:01:57 Down: 11.97MB/s / Disk: 11.99MB/s
+(22:53:42) INFO:    [Legendary]:        Progress for Celeste: 27.12%/221.66MB/00:01:58 Down: 12.94MB/s / Disk: 12.99MB/s
+(22:53:43) INFO:    [Legendary]:        Progress for Celeste: 28.95%/236.65MB/00:01:59 Down: 14.99MB/s / Disk: 14MB/s
+(22:53:44) INFO:    [Legendary]:        Progress for Celeste: 30.65%/250.53MB/00:01:59 Down: 13.87MB/s / Disk: 14.99MB/s
+(22:53:45) INFO:    [Legendary]:        Progress for Celeste: 32.11%/262.48MB/00:02:00 Down: 11.94MB/s / Disk: 11.99MB/s
+(22:53:46) INFO:    [Legendary]:        Progress for Celeste: 33.95%/277.47MB/00:02:00 Down: 14.97MB/s / Disk: 14.99MB/s
+(22:53:47) INFO:    [Legendary]:        Progress for Celeste: 35.64%/291.31MB/00:02:00 Down: 13.83MB/s / Disk: 12.98MB/s
+(22:53:48) INFO:    [Legendary]:        Progress for Celeste: 36.71%/300.02MB/00:02:02 Down: 8.7MB/s / Disk: 9.99MB/s
+(22:53:49) INFO:    [Legendary]:        Progress for Celeste: 38.66%/315.96MB/00:02:01 Down: 15.92MB/s / Disk: 15.98MB/s
+(22:53:50) INFO:    [Legendary]:        Progress for Celeste: 40.61%/331.94MB/00:02:00 Down: 15.97MB/s / Disk: 15.99MB/s
+(22:53:51) INFO:    [Legendary]:        Progress for Celeste: 42.32%/345.93MB/00:02:00 Down: 13.97MB/s / Disk: 13.98MB/s
+(22:53:52) INFO:    [Legendary]:        Progress for Celeste: 44.03%/359.91MB/00:02:00 Down: 13.98MB/s / Disk: 14MB/s
+(22:53:53) INFO:    [Legendary]:        Progress for Celeste: 45.25%/369.89MB/00:02:01 Down: 9.98MB/s / Disk: 9.25MB/s
+(22:53:54) INFO:    [Legendary]:        Progress for Celeste: 46.96%/383.81MB/00:02:00 Down: 13.9MB/s / Disk: 13.98MB/s
+(22:53:55) INFO:    [Legendary]:        Progress for Celeste: 48.79%/398.79MB/00:02:00 Down: 14.96MB/s / Disk: 14.98MB/s
+(22:53:56) INFO:    [Legendary]:        Progress for Celeste: 50.58%/413.41MB/00:01:59 Down: 14.6MB/s / Disk: 14.98MB/s
+(22:53:57) INFO:    [Legendary]:        Progress for Celeste: 52.17%/426.41MB/00:01:59 Down: 12.98MB/s / Disk: 11.99MB/s
+(22:53:58) INFO:    [Legendary]:        Progress for Celeste: 53.87%/440.33MB/00:01:58 Down: 13.91MB/s / Disk: 14.98MB/s
+(22:53:59) INFO:    [Legendary]:        Progress for Celeste: 55.46%/453.33MB/00:01:58 Down: 12.98MB/s / Disk: 12.99MB/s
+(22:54:00) INFO:    [Legendary]:        Progress for Celeste: 57.02%/466.06MB/00:01:58 Down: 12.72MB/s / Disk: 11.99MB/s
+(22:54:01) INFO:    [Legendary]:        Progress for Celeste: 58.94%/481.79MB/00:01:56 Down: 15.73MB/s / Disk: 18.07MB/s
+(22:54:02) INFO:    [Legendary]:        Progress for Celeste: 60.65%/495.76MB/00:01:54 Down: 13.95MB/s / Disk: 16.01MB/s
+(22:54:03) INFO:    [Legendary]:        Progress for Celeste: 62.48%/510.70MB/00:01:52 Down: 14.93MB/s / Disk: 18.6MB/s
+(22:54:04) INFO:    [Legendary]:        Progress for Celeste: 63.7%/520.66MB/00:01:51 Down: 9.94MB/s / Disk: 15.05MB/s
+(22:54:05) INFO:    [Legendary]:        Progress for Celeste: 65.28%/533.60MB/00:01:50 Down: 12.94MB/s / Disk: 14.04MB/s
+(22:54:06) INFO:    [Legendary]:        Progress for Celeste: 67.12%/548.59MB/00:01:49 Down: 14.97MB/s / Disk: 13.12MB/s
+(22:54:07) INFO:    [Legendary]:        Progress for Celeste: 69.19%/565.50MB/00:01:47 Down: 16.9MB/s / Disk: 18.41MB/s
+(22:54:08) INFO:    [Legendary]:        Progress for Celeste: 70.77%/578.46MB/00:01:46 Down: 12.95MB/s / Disk: 12.13MB/s
+(22:54:09) INFO:    [Legendary]:        Progress for Celeste: 72.35%/591.40MB/00:01:47 Down: 12.92MB/s / Disk: 8.28MB/s
+(22:54:10) INFO:    [Legendary]:        Progress for Celeste: 73.45%/600.35MB/00:01:46 Down: 8.95MB/s / Disk: 13.67MB/s
+(22:54:11) INFO:    [Legendary]:        Progress for Celeste: 75.63%/618.21MB/00:01:44 Down: 17.84MB/s / Disk: 15.81MB/s
+(22:54:12) INFO:    [Legendary]:        Progress for Celeste: 77.7%/635.08MB/00:01:22 Down: 16.86MB/s / Disk: 37.21MB/s
+(22:54:13) INFO:    [Legendary]:        Progress for Celeste: 79.25%/647.75MB/00:01:16 Down: 12.65MB/s / Disk: 32.6MB/s
+(22:54:15) INFO:    [Legendary]:        Progress for Celeste: 81.04%/662.37MB/00:01:12 Down: 14.6MB/s / Disk: 34.96MB/s
+(22:54:16) INFO:    [Legendary]:        Progress for Celeste: 82.71%/676.05MB/00:01:08 Down: 13.67MB/s / Disk: 32.96MB/s
+(22:54:17) INFO:    [Legendary]:        Progress for Celeste: 84.48%/690.50MB/00:01:02 Down: 14.43MB/s / Disk: 44.17MB/s
+(22:54:18) INFO:    [Legendary]:        Progress for Celeste: 86.03%/703.16MB/00:00:56 Down: 12.65MB/s / Disk: 32.13MB/s
+(22:54:19) INFO:    [Legendary]:        Progress for Celeste: 87.48%/715.00MB/00:00:54 Down: 11.83MB/s / Disk: 24.97MB/s
+(22:54:20) INFO:    [Legendary]:        Progress for Celeste: 89.2%/729.12MB/00:00:50 Down: 14.09MB/s / Disk: 33.12MB/s
+(22:54:21) INFO:    [Legendary]:        Progress for Celeste: 91%/743.81MB/00:00:48 Down: 14.68MB/s / Disk: 32.97MB/s
+(22:54:22) INFO:    [Legendary]:        Progress for Celeste: 92.69%/757.65MB/00:00:45 Down: 13.83MB/s / Disk: 18.34MB/s
+(22:54:23) INFO:    [Legendary]:        Progress for Celeste: 94.13%/769.41MB/00:00:42 Down: 11.74MB/s / Disk: 29.98MB/s
+(22:54:24) INFO:    [Legendary]:        Progress for Celeste: 95.95%/784.28MB/00:00:11 Down: 14.86MB/s / Disk: 37.9MB/s
+(22:54:25) INFO:    [Legendary]:        Progress for Celeste: 97.69%/798.45MB/00:00:04 Down: 14.16MB/s / Disk: 29.81MB/s
+(22:54:26) INFO:    [Legendary]:        Progress for Celeste: 99.3%/811.65MB/00:00:02 Down: 13.18MB/s / Disk: 35.95MB/s
+(22:54:27) INFO:    [Legendary]:        Progress for Celeste: 100%/817.36MB/00:00:00 Down: 5.7MB/s / Disk: 20.09MB/s
+(22:54:28) INFO:    [Backend]:          Adding shortcuts for Celeste
+(22:54:28) INFO:    [DownloadManager]:  Finished Installation of Salt
+(22:54:28) INFO:    [DownloadManager]:  Salt added to download manager finished.
+(22:54:28) INFO:    [DownloadManager]:  Salt removed from download manager.
+(22:54:28) INFO:    [Frontend]:         Refreshing legendary Library
+(22:54:28) INFO:    [Legendary]:        Refreshing library...
+(22:54:28) INFO:    [Legendary]:        Refreshing Epic Games...
+(22:54:28) DEBUG:   [Legendary]:        Using cached install info
+(22:54:28) DEBUG:   [Legendary]:        Using cached install info
+(22:54:28) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+(22:54:28) INFO:    [DownloadManager]:  Downloader: Finished downloading https://cdn1.epicgames.com/item/b671fbc7be424e888c9346a9a6d3d9db/CodeRedemption_Celeste-340x440-873dacb76be8c59d659757b4b5284a611_1200x1600-9e39079f1ce19738e65d349a8bc98650
+(22:54:29) INFO:    [Legendary]:        Game list updated, got 38 games & DLCs
+(22:54:29) DEBUG:   [Legendary]:        Using cached install info
+(22:54:29) DEBUG:   [Legendary]:        Using cached install info
+(22:54:29) DEBUG:   [Legendary]:        Using cached install info
+(22:54:29) DEBUG:   [Legendary]:        Using cached install info
+(22:54:33) DEBUG:   [Legendary]:        Using cached install info
+(22:54:45) INFO:    [Legendary]:        Computing save path for save folder {InstallDir}/Saves/
+(22:54:45) INFO:    [Backend]:          Checking if wine version exists: Default Wine - Not Found
+(22:54:45) INFO:    [Legendary]:        Computing default save path for Salt
+(22:54:45) ERROR:   [Backend]:          Couldn't find all library folders of Default Wine - Not Found!
+Missing undefined and/or undefined!
+Falling back to system libraries!
+(22:54:45) INFO:    [Legendary]:        Getting default save path: WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+(22:54:46) ERROR:   [Legendary]:        Unable to compute default save path for Salt
+(22:54:46) INFO:    [Backend]:          Salt: Setting savesPath to ""
+(22:55:00) INFO:    [Legendary]:        Computing save path for save folder {InstallDir}/Saves/
+(22:55:00) INFO:    [Backend]:          Checking if wine version exists: Default Wine - Not Found
+(22:55:00) INFO:    [Legendary]:        Computing default save path for Salt
+(22:55:00) ERROR:   [Backend]:          Couldn't find all library folders of Default Wine - Not Found!
+Missing undefined and/or undefined!
+Falling back to system libraries!
+(22:55:00) INFO:    [Legendary]:        Getting default save path: WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+(22:55:01) ERROR:   [Legendary]:        Unable to compute default save path for Salt
+(22:55:34) DEBUG:   [Legendary]:        Using cached install info
+(22:55:49) INFO:    [Legendary]:        Running command: LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+(22:55:49) INFO:    [Gog]:              Running command: GOGDL_CONFIG_PATH=/home/bandit/.config/heroic/gogdlConfig /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/gogdl --auth-config-path /home/bandit/.config/heroic/gog_store/auth.json --version
+(22:55:49) INFO:    [Nile]:             Running command: NILE_CONFIG_PATH=/home/bandit/.config/heroic/nile_config /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/nile --version
+(22:55:53) INFO:    [Backend]:          Heroic: Setting experimentalFeatures to {"enableNewDesign":true,"enableHelp":false,"automaticWinetricksFixes":true,"cometSupport":true,"umuSupport":false} (previous value: undefined)
+(22:55:58) INFO:    [Backend]:          Heroic: Setting experimentalFeatures to {"enableNewDesign":true,"enableHelp":false,"automaticWinetricksFixes":true,"cometSupport":false,"umuSupport":false} (previous value: {"enableNewDesign":true,"enableHelp":false,"automaticWinetricksFixes":true,"cometSupport":true,"umuSupport":false})

@@ -1,0 +1,555 @@
+[20/11/2024, 22.14.20] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+legendary version "0.20.36", codename "Urban Flight (Heroic)"
+[20/11/2024, 22.15.03] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary auth --code <redacted>
+[cli] INFO: Testing existing login data if present...
+[cli] INFO: Successfully logged in as "marcusbandit"
+[20/11/2024, 22.15.03] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+[cli] INFO: Logging in...
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Getting game list... (this may take a while)
+[Core] INFO: Fetching metadata for 37 app(s).
+
+Available games:
+ * ARK ModKit (UE4) (App name: ARKDevKit | Version: 358.2)
+ * Borderlands 2 (App name: Dodo | Version: 2.0.2_BN347_CL2863302)
+ * Borderlands: The Pre-Sequel (App name: Turkey | Version: 2.0.2_BN160_CL2863302)
+ * Celeste (App name: Salt | Version: 1.4.0.0-Windows)
+ * Deliver Us Mars (App name: 9d943a160fa841859ac5c1f233789fcb | Version: 2.0035387)
+ * DLC In Blueprints Pro V3 (App name: DLCInBluab5d0127ed44V9 | Version: 5.5.0-38223218+++UE5+Dev-Marketplace-Windows)
+ * Fall Guys (App name: 0a2d9f6403244d12969e11da6713137b | Version: EGS_8449)
+ * Fortnite (App name: Fortnite | Version: ++Fortnite+Release-32.10-CL-37958378-Windows)
+ * Genshin Impact (App name: 41869934302e4b8cafac2d3c0e7c293d | Version: 95)
+ * Golden Light (App name: 0eeaae41305043f7a465310eb2cbaff9 | Version: 1.0.5)
+ * Grand Theft Auto V (App name: 9d2d0eb64d5c44529cece33fe2a46482 | Version: 1.0.3351.0_v2)
+ * Honkai: Star Rail (App name: 86ae9acccf8443e18fca6950e0181288 | Version: 1.2.2)
+ * Infinifactory (App name: c7b3c16f56cb45abbfd915d59fd39689 | Version: 1.0.13)
+ * Midnight Ghost Hunt (App name: 456f53b28c384f02865874299f956501 | Version: 1.3.1)
+ * Model Builder: Complete Edition (App name: 4a31c45c04e243cc97f3e47bc663fb18 | Version: 1.1.8i)
+  + Model Builder: Aether DLC (App name: 574977bf807c4c3cabfe8ab19708205c | Version: 1.1.8i)
+  + Model Builder: Alaskan Road Truckers DLC (App name: d94a06ef698942669bd001b2dd0fb3ee | Version: 1.1.8i)
+  + Model Builder: Cars Pack DLC (App name: b681fecb34194e8a97ef6d69cbf71ca6 | Version: 1.1.8i)
+  + Model Builder: Expansion Pack no.1 (App name: c4e284ae71ed49a285cc00dfce564e03 | Version: 1.1.8i)
+  + Model Builder: Frostpunk DLC (App name: 1360dbfe60a04beaab046f50c42f51f0 | Version: 1.1.8i)
+  + Model Builder: Into The Stars DLC (App name: b65e183e8f204281b8eb1bbbb6f7a98a | Version: 1.1.8i)
+  + Model Builder: Military Pack DLC (App name: 25a83a57cf5f487d98e073b8a92e1f8d | Version: 1.1.8i)
+  + Model Builder: The Invincible Helmet (App name: 370325fee5104176a6e5329936656965 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.1 (App name: 987f387bd9324f1391cc87cd07348bf7 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.2 (App name: 9c162cd16b7c44b9abfa21296343dfea | Version: 1.1.8i)
+ * Primitive Characters (Pack) Format Audience (App name: 25922bd450de4bb4aa57742a096d2591 | Version: None)
+  ! No version information (unknown cause)
+ * RealityCapture 1.4.2 (App name: fghi4567HV122b61M44UAcRv99wbCxt7 | Version: 1.4.2.117426b)
+ * RealityCapture 1.5 (App name: a0da02e2ff2645449c5f37bf77c22370 | Version: 1.5.0.118050)
+ * Satisfactory (App name: CrabEA | Version: 379322.30)
+ * Satisfactory Dedicated Server (App name: CrabDedicatedServer | Version: 379322.30)
+ * Satisfactory Dedicated Server - Experimental (App name: c509233193024c5f8124467d3aa36199 | Version: 379322.30)
+ * Satisfactory Experimental (App name: CrabTest | Version: 379322.30)
+ * The Elder Scrolls Online (App name: 4d0ff75b922447649057c237c0bd1545 | Version: EGSStarter_v2.9a_d6_live_public)
+ * The Witness (App name: Magnolia | Version: 2019_1_23_fix)
+ * Totally Accurate Battle Simulator (App name: Driftfish | Version: 1.1.8_win64)
+ * Turnip Boy Commits Tax Evasion (App name: 3d34f303a68c44c2a9b44a3988533e90 | Version: 1.1.2f2)
+ * Twinmotion 2023.2.4 (App name: a54bbf09b0e24dc28b59c193de6aa3cc | Version: RELEASE_WINDOWS_2023.2.33001994)
+ * Twinmotion 2024.1.2 (App name: ced650a8bdcf4d39bfe97baf03f0ae2d | Version: RELEASE_WINDOWS_2024.1.37443387)
+
+Total: 28
+[20/11/2024, 22.15.06] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+[cli] INFO: Logging in...
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Getting game list... (this may take a while)
+
+Available games:
+ * ARK ModKit (UE4) (App name: ARKDevKit | Version: 358.2)
+ * Borderlands 2 (App name: Dodo | Version: 2.0.2_BN347_CL2863302)
+ * Borderlands: The Pre-Sequel (App name: Turkey | Version: 2.0.2_BN160_CL2863302)
+ * Celeste (App name: Salt | Version: 1.4.0.0-Windows)
+ * Deliver Us Mars (App name: 9d943a160fa841859ac5c1f233789fcb | Version: 2.0035387)
+ * DLC In Blueprints Pro V3 (App name: DLCInBluab5d0127ed44V9 | Version: 5.5.0-38223218+++UE5+Dev-Marketplace-Windows)
+ * Fall Guys (App name: 0a2d9f6403244d12969e11da6713137b | Version: EGS_8449)
+ * Fortnite (App name: Fortnite | Version: ++Fortnite+Release-32.10-CL-37958378-Windows)
+ * Genshin Impact (App name: 41869934302e4b8cafac2d3c0e7c293d | Version: 95)
+ * Golden Light (App name: 0eeaae41305043f7a465310eb2cbaff9 | Version: 1.0.5)
+ * Grand Theft Auto V (App name: 9d2d0eb64d5c44529cece33fe2a46482 | Version: 1.0.3351.0_v2)
+ * Honkai: Star Rail (App name: 86ae9acccf8443e18fca6950e0181288 | Version: 1.2.2)
+ * Infinifactory (App name: c7b3c16f56cb45abbfd915d59fd39689 | Version: 1.0.13)
+ * Midnight Ghost Hunt (App name: 456f53b28c384f02865874299f956501 | Version: 1.3.1)
+ * Model Builder: Complete Edition (App name: 4a31c45c04e243cc97f3e47bc663fb18 | Version: 1.1.8i)
+  + Model Builder: Aether DLC (App name: 574977bf807c4c3cabfe8ab19708205c | Version: 1.1.8i)
+  + Model Builder: Alaskan Road Truckers DLC (App name: d94a06ef698942669bd001b2dd0fb3ee | Version: 1.1.8i)
+  + Model Builder: Cars Pack DLC (App name: b681fecb34194e8a97ef6d69cbf71ca6 | Version: 1.1.8i)
+  + Model Builder: Expansion Pack no.1 (App name: c4e284ae71ed49a285cc00dfce564e03 | Version: 1.1.8i)
+  + Model Builder: Frostpunk DLC (App name: 1360dbfe60a04beaab046f50c42f51f0 | Version: 1.1.8i)
+  + Model Builder: Into The Stars DLC (App name: b65e183e8f204281b8eb1bbbb6f7a98a | Version: 1.1.8i)
+  + Model Builder: Military Pack DLC (App name: 25a83a57cf5f487d98e073b8a92e1f8d | Version: 1.1.8i)
+  + Model Builder: The Invincible Helmet (App name: 370325fee5104176a6e5329936656965 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.1 (App name: 987f387bd9324f1391cc87cd07348bf7 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.2 (App name: 9c162cd16b7c44b9abfa21296343dfea | Version: 1.1.8i)
+ * Primitive Characters (Pack) Format Audience (App name: 25922bd450de4bb4aa57742a096d2591 | Version: None)
+  ! No version information (unknown cause)
+ * RealityCapture 1.4.2 (App name: fghi4567HV122b61M44UAcRv99wbCxt7 | Version: 1.4.2.117426b)
+ * RealityCapture 1.5 (App name: a0da02e2ff2645449c5f37bf77c22370 | Version: 1.5.0.118050)
+ * Satisfactory (App name: CrabEA | Version: 379322.30)
+ * Satisfactory Dedicated Server (App name: CrabDedicatedServer | Version: 379322.30)
+ * Satisfactory Dedicated Server - Experimental (App name: c509233193024c5f8124467d3aa36199 | Version: 379322.30)
+ * Satisfactory Experimental (App name: CrabTest | Version: 379322.30)
+ * The Elder Scrolls Online (App name: 4d0ff75b922447649057c237c0bd1545 | Version: EGSStarter_v2.9a_d6_live_public)
+ * The Witness (App name: Magnolia | Version: 2019_1_23_fix)
+ * Totally Accurate Battle Simulator (App name: Driftfish | Version: 1.1.8_win64)
+ * Turnip Boy Commits Tax Evasion (App name: 3d34f303a68c44c2a9b44a3988533e90 | Version: 1.1.2f2)
+ * Twinmotion 2023.2.4 (App name: a54bbf09b0e24dc28b59c193de6aa3cc | Version: RELEASE_WINDOWS_2023.2.33001994)
+ * Twinmotion 2024.1.2 (App name: ced650a8bdcf4d39bfe97baf03f0ae2d | Version: RELEASE_WINDOWS_2024.1.37443387)
+
+Total: 28
+[20/11/2024, 22.15.12] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+[cli] INFO: Logging in...
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Getting game list... (this may take a while)
+
+Available games:
+ * ARK ModKit (UE4) (App name: ARKDevKit | Version: 358.2)
+ * Borderlands 2 (App name: Dodo | Version: 2.0.2_BN347_CL2863302)
+ * Borderlands: The Pre-Sequel (App name: Turkey | Version: 2.0.2_BN160_CL2863302)
+ * Celeste (App name: Salt | Version: 1.4.0.0-Windows)
+ * Deliver Us Mars (App name: 9d943a160fa841859ac5c1f233789fcb | Version: 2.0035387)
+ * DLC In Blueprints Pro V3 (App name: DLCInBluab5d0127ed44V9 | Version: 5.5.0-38223218+++UE5+Dev-Marketplace-Windows)
+ * Fall Guys (App name: 0a2d9f6403244d12969e11da6713137b | Version: EGS_8449)
+ * Fortnite (App name: Fortnite | Version: ++Fortnite+Release-32.10-CL-37958378-Windows)
+ * Genshin Impact (App name: 41869934302e4b8cafac2d3c0e7c293d | Version: 95)
+ * Golden Light (App name: 0eeaae41305043f7a465310eb2cbaff9 | Version: 1.0.5)
+ * Grand Theft Auto V (App name: 9d2d0eb64d5c44529cece33fe2a46482 | Version: 1.0.3351.0_v2)
+ * Honkai: Star Rail (App name: 86ae9acccf8443e18fca6950e0181288 | Version: 1.2.2)
+ * Infinifactory (App name: c7b3c16f56cb45abbfd915d59fd39689 | Version: 1.0.13)
+ * Midnight Ghost Hunt (App name: 456f53b28c384f02865874299f956501 | Version: 1.3.1)
+ * Model Builder: Complete Edition (App name: 4a31c45c04e243cc97f3e47bc663fb18 | Version: 1.1.8i)
+  + Model Builder: Aether DLC (App name: 574977bf807c4c3cabfe8ab19708205c | Version: 1.1.8i)
+  + Model Builder: Alaskan Road Truckers DLC (App name: d94a06ef698942669bd001b2dd0fb3ee | Version: 1.1.8i)
+  + Model Builder: Cars Pack DLC (App name: b681fecb34194e8a97ef6d69cbf71ca6 | Version: 1.1.8i)
+  + Model Builder: Expansion Pack no.1 (App name: c4e284ae71ed49a285cc00dfce564e03 | Version: 1.1.8i)
+  + Model Builder: Frostpunk DLC (App name: 1360dbfe60a04beaab046f50c42f51f0 | Version: 1.1.8i)
+  + Model Builder: Into The Stars DLC (App name: b65e183e8f204281b8eb1bbbb6f7a98a | Version: 1.1.8i)
+  + Model Builder: Military Pack DLC (App name: 25a83a57cf5f487d98e073b8a92e1f8d | Version: 1.1.8i)
+  + Model Builder: The Invincible Helmet (App name: 370325fee5104176a6e5329936656965 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.1 (App name: 987f387bd9324f1391cc87cd07348bf7 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.2 (App name: 9c162cd16b7c44b9abfa21296343dfea | Version: 1.1.8i)
+ * Primitive Characters (Pack) Format Audience (App name: 25922bd450de4bb4aa57742a096d2591 | Version: None)
+  ! No version information (unknown cause)
+ * RealityCapture 1.4.2 (App name: fghi4567HV122b61M44UAcRv99wbCxt7 | Version: 1.4.2.117426b)
+ * RealityCapture 1.5 (App name: a0da02e2ff2645449c5f37bf77c22370 | Version: 1.5.0.118050)
+ * Satisfactory (App name: CrabEA | Version: 379322.30)
+ * Satisfactory Dedicated Server (App name: CrabDedicatedServer | Version: 379322.30)
+ * Satisfactory Dedicated Server - Experimental (App name: c509233193024c5f8124467d3aa36199 | Version: 379322.30)
+ * Satisfactory Experimental (App name: CrabTest | Version: 379322.30)
+ * The Elder Scrolls Online (App name: 4d0ff75b922447649057c237c0bd1545 | Version: EGSStarter_v2.9a_d6_live_public)
+ * The Witness (App name: Magnolia | Version: 2019_1_23_fix)
+ * Totally Accurate Battle Simulator (App name: Driftfish | Version: 1.1.8_win64)
+ * Turnip Boy Commits Tax Evasion (App name: 3d34f303a68c44c2a9b44a3988533e90 | Version: 1.1.2f2)
+ * Twinmotion 2023.2.4 (App name: a54bbf09b0e24dc28b59c193de6aa3cc | Version: RELEASE_WINDOWS_2023.2.33001994)
+ * Twinmotion 2024.1.2 (App name: ced650a8bdcf4d39bfe97baf03f0ae2d | Version: RELEASE_WINDOWS_2024.1.37443387)
+
+Total: 28
+[20/11/2024, 22.15.27] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary info Salt --json --platform Windows
+[Core] INFO: Trying to re-use existing login session...
+{"game": {"app_name": "Salt", "title": "Celeste", "version": "1.4.0.0-Windows", "platform_versions": {"Windows": "1.4.0.0-Windows"}, "cloud_saves_supported": true, "cloud_save_folder": "{InstallDir}/Saves/", "cloud_save_folder_mac": "{UserLibrary}/Application Support/Celeste/Saves/", "is_dlc": false, "external_activation": null, "launch_options": [], "command_line": null, "owned_dlc": []}, "install": null, "manifest": {"size": 115842, "type": "binary", "version": 17, "feature_level": 17, "app_name": "Salt", "launch_exe": "Celeste.exe", "launch_command": "", "build_version": "1.4.0.0-Windows", "build_id": "7P9Ud09mIYjhUGk9m9OMcJaSxOg", "prerequisites": null, "uninstaller": null, "install_tags": [""], "num_files": 1225, "num_chunks": 1107, "disk_size": 1171334315, "download_size": 857061270, "tag_disk_size": [], "tag_download_size": []}}
+[20/11/2024, 22.53.24] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary install Salt --platform Windows --base-path /home/bandit/Games/Heroic --skip-dlcs -y --skip-sdl
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Preparing download for "Celeste" (Salt)...
+[Core] INFO: Parsing game manifest...
+[Core] INFO: "/home/bandit/Games/Heroic" does not exist, creating...
+[Core] INFO: Install path: /home/bandit/Games/Heroic/Celeste
+[Core] INFO: Selected CDN: cloudflare.epicgamescdn.com (https)
+[DLM] INFO: Found 0 missing files.
+[cli] INFO: Install size: 1117.07 MiB
+[cli] INFO: Download size: 817.36 MiB (Compression savings: 26.2%)
+[cli] INFO: Reusable size: 0.00 MiB (chunks) / 0.00 MiB (unchanged / skipped)
+[cli] INFO: Downloads are resumable, you can interrupt the download with CTRL-C and resume it using the same command later on.
+
+Installation requirements check returned the following results:
+ - Warning: (Linux) This game is using XNA/FNA and may not run in WINE
+
+
+This game may have compatibility issues or require additional setup, see: https://github.com/CommandMC/EpicLinux/wiki/Celeste
+
+[DLManager] INFO: Download Manager running with process-id: 40333
+[DLManager] INFO: Starting download workers...
+[DLManager] INFO: Starting file writing worker...
+[DLManager] INFO: = Progress: 0.00% (0/2401), Running for 00:00:00, ETA: 00:00:00
+[DLManager] INFO:  - Downloaded: 0.00 MiB, Written: 0.00 MiB
+[DLManager] INFO:  - Cache usage: 2.00 MiB, active tasks: 1
+[DLManager] INFO:  + Download	- 0.00 MiB/s (raw) / 0.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 0.00 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 0.58% (14/2401), Running for 00:00:01, ETA: 00:02:50
+[DLManager] INFO:  - Downloaded: 9.36 MiB, Written: 7.34 MiB
+[DLManager] INFO:  - Cache usage: 42.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 9.36 MiB/s (raw) / 16.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 7.34 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 3.58% (86/2401), Running for 00:00:02, ETA: 00:00:53
+[DLManager] INFO:  - Downloaded: 21.73 MiB, Written: 23.87 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.36 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 16.52 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 4.21% (101/2401), Running for 00:00:03, ETA: 00:01:08
+[DLManager] INFO:  - Downloaded: 36.72 MiB, Written: 38.87 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.97 MiB/s (raw) / 14.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 4.79% (115/2401), Running for 00:00:04, ETA: 00:01:19
+[DLManager] INFO:  - Downloaded: 50.71 MiB, Written: 52.87 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.99 MiB/s (raw) / 14.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.00 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 5.54% (133/2401), Running for 00:00:05, ETA: 00:01:25
+[DLManager] INFO:  - Downloaded: 62.70 MiB, Written: 70.87 MiB
+[DLManager] INFO:  - Cache usage: 33.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 11.99 MiB/s (raw) / 12.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 18.00 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 6.16% (148/2401), Running for 00:00:06, ETA: 00:01:31
+[DLManager] INFO:  - Downloaded: 75.37 MiB, Written: 83.87 MiB
+[DLManager] INFO:  - Cache usage: 33.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.66 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 6.71% (161/2401), Running for 00:00:07, ETA: 00:01:37
+[DLManager] INFO:  - Downloaded: 88.54 MiB, Written: 95.87 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.16 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 11.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 7.62% (183/2401), Running for 00:00:08, ETA: 00:01:37
+[DLManager] INFO:  - Downloaded: 103.95 MiB, Written: 113.80 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 15.39 MiB/s (raw) / 15.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 17.91 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 8.08% (194/2401), Running for 00:00:09, ETA: 00:01:42
+[DLManager] INFO:  - Downloaded: 118.92 MiB, Written: 124.80 MiB
+[DLManager] INFO:  - Cache usage: 38.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.95 MiB/s (raw) / 14.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 10.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 8.54% (205/2401), Running for 00:00:10, ETA: 00:01:47
+[DLManager] INFO:  - Downloaded: 128.88 MiB, Written: 135.80 MiB
+[DLManager] INFO:  - Cache usage: 40.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 9.95 MiB/s (raw) / 9.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 10.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 9.16% (220/2401), Running for 00:00:11, ETA: 00:01:49
+[DLManager] INFO:  - Downloaded: 142.85 MiB, Written: 150.80 MiB
+[DLManager] INFO:  - Cache usage: 41.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.96 MiB/s (raw) / 13.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 9.83% (236/2401), Running for 00:00:12, ETA: 00:01:50
+[DLManager] INFO:  - Downloaded: 156.81 MiB, Written: 166.80 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.95 MiB/s (raw) / 13.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 10.29% (247/2401), Running for 00:00:13, ETA: 00:01:53
+[DLManager] INFO:  - Downloaded: 169.79 MiB, Written: 177.80 MiB
+[DLManager] INFO:  - Cache usage: 41.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.97 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 10.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 10.95% (263/2401), Running for 00:00:14, ETA: 00:01:53
+[DLManager] INFO:  - Downloaded: 183.77 MiB, Written: 193.80 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.97 MiB/s (raw) / 13.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 11.50% (276/2401), Running for 00:00:15, ETA: 00:01:55
+[DLManager] INFO:  - Downloaded: 196.74 MiB, Written: 206.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.95 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 12.00% (288/2401), Running for 00:00:16, ETA: 00:01:57
+[DLManager] INFO:  - Downloaded: 208.71 MiB, Written: 218.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 11.97 MiB/s (raw) / 11.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 11.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 12.54% (301/2401), Running for 00:00:17, ETA: 00:01:58
+[DLManager] INFO:  - Downloaded: 221.66 MiB, Written: 231.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.94 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 13.12% (315/2401), Running for 00:00:18, ETA: 00:01:59
+[DLManager] INFO:  - Downloaded: 236.65 MiB, Written: 245.80 MiB
+[DLManager] INFO:  - Cache usage: 46.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.99 MiB/s (raw) / 15.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.00 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 13.74% (330/2401), Running for 00:00:19, ETA: 00:01:59
+[DLManager] INFO:  - Downloaded: 250.53 MiB, Written: 260.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.87 MiB/s (raw) / 13.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 14.24% (342/2401), Running for 00:00:20, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 262.48 MiB, Written: 272.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 11.94 MiB/s (raw) / 11.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 11.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 14.87% (357/2401), Running for 00:00:21, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 277.47 MiB, Written: 287.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.97 MiB/s (raw) / 14.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 15.41% (370/2401), Running for 00:00:22, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 291.31 MiB, Written: 300.80 MiB
+[DLManager] INFO:  - Cache usage: 46.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.83 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 15.83% (380/2401), Running for 00:00:23, ETA: 00:02:02
+[DLManager] INFO:  - Downloaded: 300.02 MiB, Written: 310.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 8.70 MiB/s (raw) / 8.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 9.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 16.49% (396/2401), Running for 00:00:24, ETA: 00:02:01
+[DLManager] INFO:  - Downloaded: 315.96 MiB, Written: 326.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 15.92 MiB/s (raw) / 15.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 17.16% (412/2401), Running for 00:00:25, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 331.94 MiB, Written: 342.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 15.97 MiB/s (raw) / 15.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 17.74% (426/2401), Running for 00:00:26, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 345.93 MiB, Written: 356.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.97 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 13.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 18.33% (440/2401), Running for 00:00:27, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 359.91 MiB, Written: 370.80 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.98 MiB/s (raw) / 14.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.00 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 18.78% (451/2401), Running for 00:00:28, ETA: 00:02:01
+[DLManager] INFO:  - Downloaded: 369.89 MiB, Written: 380.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 9.98 MiB/s (raw) / 10.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 9.25 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 19.37% (465/2401), Running for 00:00:29, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 383.81 MiB, Written: 394.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.90 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 13.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 19.99% (480/2401), Running for 00:00:30, ETA: 00:02:00
+[DLManager] INFO:  - Downloaded: 398.79 MiB, Written: 409.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.96 MiB/s (raw) / 14.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 20.62% (495/2401), Running for 00:00:31, ETA: 00:01:59
+[DLManager] INFO:  - Downloaded: 413.41 MiB, Written: 424.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.60 MiB/s (raw) / 14.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 21.12% (507/2401), Running for 00:00:32, ETA: 00:01:59
+[DLManager] INFO:  - Downloaded: 426.41 MiB, Written: 436.05 MiB
+[DLManager] INFO:  - Cache usage: 46.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.98 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 11.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 21.74% (522/2401), Running for 00:00:33, ETA: 00:01:58
+[DLManager] INFO:  - Downloaded: 440.33 MiB, Written: 451.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.91 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 22.28% (535/2401), Running for 00:00:34, ETA: 00:01:58
+[DLManager] INFO:  - Downloaded: 453.33 MiB, Written: 464.05 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.98 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 22.78% (547/2401), Running for 00:00:35, ETA: 00:01:58
+[DLManager] INFO:  - Downloaded: 466.06 MiB, Written: 476.05 MiB
+[DLManager] INFO:  - Cache usage: 47.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.72 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 11.99 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 23.62% (567/2401), Running for 00:00:36, ETA: 00:01:56
+[DLManager] INFO:  - Downloaded: 481.79 MiB, Written: 494.12 MiB
+[DLManager] INFO:  - Cache usage: 45.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 15.73 MiB/s (raw) / 15.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 18.07 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 24.36% (585/2401), Running for 00:00:37, ETA: 00:01:54
+[DLManager] INFO:  - Downloaded: 495.76 MiB, Written: 510.14 MiB
+[DLManager] INFO:  - Cache usage: 43.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.95 MiB/s (raw) / 13.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 16.01 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 25.28% (607/2401), Running for 00:00:38, ETA: 00:01:52
+[DLManager] INFO:  - Downloaded: 510.70 MiB, Written: 528.76 MiB
+[DLManager] INFO:  - Cache usage: 40.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.93 MiB/s (raw) / 14.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 18.60 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 25.99% (624/2401), Running for 00:00:39, ETA: 00:01:51
+[DLManager] INFO:  - Downloaded: 520.66 MiB, Written: 543.83 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 9.94 MiB/s (raw) / 9.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.05 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 26.61% (639/2401), Running for 00:00:40, ETA: 00:01:50
+[DLManager] INFO:  - Downloaded: 533.60 MiB, Written: 557.87 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.94 MiB/s (raw) / 13.00 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 14.04 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 27.24% (654/2401), Running for 00:00:41, ETA: 00:01:49
+[DLManager] INFO:  - Downloaded: 548.59 MiB, Written: 571.00 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.97 MiB/s (raw) / 14.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 13.12 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 28.20% (677/2401), Running for 00:00:42, ETA: 00:01:47
+[DLManager] INFO:  - Downloaded: 565.50 MiB, Written: 589.44 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 16.90 MiB/s (raw) / 16.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 18.41 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 28.74% (690/2401), Running for 00:00:43, ETA: 00:01:46
+[DLManager] INFO:  - Downloaded: 578.46 MiB, Written: 601.58 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.95 MiB/s (raw) / 12.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 12.13 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 29.11% (699/2401), Running for 00:00:44, ETA: 00:01:47
+[DLManager] INFO:  - Downloaded: 591.40 MiB, Written: 609.87 MiB
+[DLManager] INFO:  - Cache usage: 39.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.92 MiB/s (raw) / 12.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 8.28 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 29.78% (715/2401), Running for 00:00:45, ETA: 00:01:46
+[DLManager] INFO:  - Downloaded: 600.35 MiB, Written: 623.56 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 8.95 MiB/s (raw) / 8.99 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 13.67 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 30.53% (733/2401), Running for 00:00:46, ETA: 00:01:44
+[DLManager] INFO:  - Downloaded: 618.21 MiB, Written: 639.38 MiB
+[DLManager] INFO:  - Cache usage: 41.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 17.84 MiB/s (raw) / 21.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 15.81 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 36.28% (871/2401), Running for 00:00:47, ETA: 00:01:22
+[DLManager] INFO:  - Downloaded: 635.08 MiB, Written: 676.62 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 16.86 MiB/s (raw) / 30.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 37.21 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 38.61% (927/2401), Running for 00:00:48, ETA: 00:01:16
+[DLManager] INFO:  - Downloaded: 647.75 MiB, Written: 709.26 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.65 MiB/s (raw) / 31.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 32.60 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 40.36% (969/2401), Running for 00:00:49, ETA: 00:01:12
+[DLManager] INFO:  - Downloaded: 662.37 MiB, Written: 744.26 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.60 MiB/s (raw) / 35.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 34.96 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 42.36% (1017/2401), Running for 00:00:50, ETA: 00:01:08
+[DLManager] INFO:  - Downloaded: 676.05 MiB, Written: 777.26 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.67 MiB/s (raw) / 32.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 32.96 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 45.02% (1081/2401), Running for 00:00:51, ETA: 00:01:02
+[DLManager] INFO:  - Downloaded: 690.50 MiB, Written: 821.49 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.43 MiB/s (raw) / 42.95 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 44.17 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 48.02% (1153/2401), Running for 00:00:52, ETA: 00:00:56
+[DLManager] INFO:  - Downloaded: 703.16 MiB, Written: 853.65 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 12.65 MiB/s (raw) / 32.97 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 32.13 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 49.15% (1180/2401), Running for 00:00:53, ETA: 00:00:54
+[DLManager] INFO:  - Downloaded: 715.00 MiB, Written: 878.65 MiB
+[DLManager] INFO:  - Cache usage: 35.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 11.83 MiB/s (raw) / 24.97 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 24.97 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 51.65% (1240/2401), Running for 00:00:54, ETA: 00:00:50
+[DLManager] INFO:  - Downloaded: 729.12 MiB, Written: 911.81 MiB
+[DLManager] INFO:  - Cache usage: 34.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.09 MiB/s (raw) / 31.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 33.12 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 53.39% (1282/2401), Running for 00:00:55, ETA: 00:00:48
+[DLManager] INFO:  - Downloaded: 743.81 MiB, Written: 944.81 MiB
+[DLManager] INFO:  - Cache usage: 36.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.68 MiB/s (raw) / 34.97 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 32.97 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 55.27% (1327/2401), Running for 00:00:56, ETA: 00:00:45
+[DLManager] INFO:  - Downloaded: 757.65 MiB, Written: 963.17 MiB
+[DLManager] INFO:  - Cache usage: 44.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 13.83 MiB/s (raw) / 26.97 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 18.34 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 57.39% (1378/2401), Running for 00:00:57, ETA: 00:00:42
+[DLManager] INFO:  - Downloaded: 769.41 MiB, Written: 993.18 MiB
+[DLManager] INFO:  - Cache usage: 38.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 11.74 MiB/s (raw) / 23.97 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 29.98 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 83.05% (1994/2401), Running for 00:00:58, ETA: 00:00:11
+[DLManager] INFO:  - Downloaded: 784.28 MiB, Written: 1031.11 MiB
+[DLManager] INFO:  - Cache usage: 37.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.86 MiB/s (raw) / 36.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 37.90 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 92.38% (2218/2401), Running for 00:00:59, ETA: 00:00:04
+[DLManager] INFO:  - Downloaded: 798.45 MiB, Written: 1060.96 MiB
+[DLManager] INFO:  - Cache usage: 41.00 MiB, active tasks: 32
+[DLManager] INFO:  + Download	- 14.16 MiB/s (raw) / 33.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 29.81 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 96.67% (2321/2401), Running for 00:01:00, ETA: 00:00:02
+[DLManager] INFO:  - Downloaded: 811.65 MiB, Written: 1096.95 MiB
+[DLManager] INFO:  - Cache usage: 22.00 MiB, active tasks: 12
+[DLManager] INFO:  + Download	- 13.18 MiB/s (raw) / 36.96 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 35.95 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: = Progress: 100.00% (2401/2401), Running for 00:01:01, ETA: 00:00:00
+[DLManager] INFO:  - Downloaded: 817.36 MiB, Written: 1117.07 MiB
+[DLManager] INFO:  - Cache usage: 0.00 MiB, active tasks: 0
+[DLManager] INFO:  + Download	- 5.70 MiB/s (raw) / 11.98 MiB/s (decompressed)
+[DLManager] INFO:  + Disk	- 20.09 MiB/s (write) / 0.00 MiB/s (read)
+[DLManager] INFO: Waiting for installation to finish...
+[DLManager] INFO: All done! Download manager quitting...
+[cli] INFO: This game supports cloud saves, syncing is handled by the "sync-saves" command. To download saves for this game run "legendary sync-saves Salt"
+[cli] INFO: Finished installation process in 62.09 seconds.
+
+This game may require additional setup, see: https://github.com/CommandMC/EpicLinux/wiki/Celeste
+
+[20/11/2024, 22.54.28] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary list --third-party
+[cli] INFO: Logging in...
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Getting game list... (this may take a while)
+
+Available games:
+ * ARK ModKit (UE4) (App name: ARKDevKit | Version: 358.2)
+ * Borderlands 2 (App name: Dodo | Version: 2.0.2_BN347_CL2863302)
+ * Borderlands: The Pre-Sequel (App name: Turkey | Version: 2.0.2_BN160_CL2863302)
+ * Celeste (App name: Salt | Version: 1.4.0.0-Windows)
+ * Deliver Us Mars (App name: 9d943a160fa841859ac5c1f233789fcb | Version: 2.0035387)
+ * DLC In Blueprints Pro V3 (App name: DLCInBluab5d0127ed44V9 | Version: 5.5.0-38223218+++UE5+Dev-Marketplace-Windows)
+ * Fall Guys (App name: 0a2d9f6403244d12969e11da6713137b | Version: EGS_8449)
+ * Fortnite (App name: Fortnite | Version: ++Fortnite+Release-32.10-CL-37958378-Windows)
+ * Genshin Impact (App name: 41869934302e4b8cafac2d3c0e7c293d | Version: 95)
+ * Golden Light (App name: 0eeaae41305043f7a465310eb2cbaff9 | Version: 1.0.5)
+ * Grand Theft Auto V (App name: 9d2d0eb64d5c44529cece33fe2a46482 | Version: 1.0.3351.0_v2)
+ * Honkai: Star Rail (App name: 86ae9acccf8443e18fca6950e0181288 | Version: 1.2.2)
+ * Infinifactory (App name: c7b3c16f56cb45abbfd915d59fd39689 | Version: 1.0.13)
+ * Midnight Ghost Hunt (App name: 456f53b28c384f02865874299f956501 | Version: 1.3.1)
+ * Model Builder: Complete Edition (App name: 4a31c45c04e243cc97f3e47bc663fb18 | Version: 1.1.8i)
+  + Model Builder: Aether DLC (App name: 574977bf807c4c3cabfe8ab19708205c | Version: 1.1.8i)
+  + Model Builder: Alaskan Road Truckers DLC (App name: d94a06ef698942669bd001b2dd0fb3ee | Version: 1.1.8i)
+  + Model Builder: Cars Pack DLC (App name: b681fecb34194e8a97ef6d69cbf71ca6 | Version: 1.1.8i)
+  + Model Builder: Expansion Pack no.1 (App name: c4e284ae71ed49a285cc00dfce564e03 | Version: 1.1.8i)
+  + Model Builder: Frostpunk DLC (App name: 1360dbfe60a04beaab046f50c42f51f0 | Version: 1.1.8i)
+  + Model Builder: Into The Stars DLC (App name: b65e183e8f204281b8eb1bbbb6f7a98a | Version: 1.1.8i)
+  + Model Builder: Military Pack DLC (App name: 25a83a57cf5f487d98e073b8a92e1f8d | Version: 1.1.8i)
+  + Model Builder: The Invincible Helmet (App name: 370325fee5104176a6e5329936656965 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.1 (App name: 987f387bd9324f1391cc87cd07348bf7 | Version: 1.1.8i)
+  + Model Builder: Titan-Forge DLC no.2 (App name: 9c162cd16b7c44b9abfa21296343dfea | Version: 1.1.8i)
+ * Primitive Characters (Pack) Format Audience (App name: 25922bd450de4bb4aa57742a096d2591 | Version: None)
+  ! No version information (unknown cause)
+ * RealityCapture 1.4.2 (App name: fghi4567HV122b61M44UAcRv99wbCxt7 | Version: 1.4.2.117426b)
+ * RealityCapture 1.5 (App name: a0da02e2ff2645449c5f37bf77c22370 | Version: 1.5.0.118050)
+ * Satisfactory (App name: CrabEA | Version: 379322.30)
+ * Satisfactory Dedicated Server (App name: CrabDedicatedServer | Version: 379322.30)
+ * Satisfactory Dedicated Server - Experimental (App name: c509233193024c5f8124467d3aa36199 | Version: 379322.30)
+ * Satisfactory Experimental (App name: CrabTest | Version: 379322.30)
+ * The Elder Scrolls Online (App name: 4d0ff75b922447649057c237c0bd1545 | Version: EGSStarter_v2.9a_d6_live_public)
+ * The Witness (App name: Magnolia | Version: 2019_1_23_fix)
+ * Totally Accurate Battle Simulator (App name: Driftfish | Version: 1.1.8_win64)
+ * Turnip Boy Commits Tax Evasion (App name: 3d34f303a68c44c2a9b44a3988533e90 | Version: 1.1.2f2)
+ * Twinmotion 2023.2.4 (App name: a54bbf09b0e24dc28b59c193de6aa3cc | Version: RELEASE_WINDOWS_2023.2.33001994)
+ * Twinmotion 2024.1.2 (App name: ced650a8bdcf4d39bfe97baf03f0ae2d | Version: RELEASE_WINDOWS_2024.1.37443387)
+
+Total: 28
+[20/11/2024, 22.54.45] WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Got 1 remote save game(s)
+[cli] INFO: Checking "Celeste" (Salt)
+[cli] INFO: Computed save path: "/home/bandit/Games/Heroic/Celeste/Saves"
+[cli] INFO: Cloud save for "Celeste" is newer:
+[cli] INFO: - Cloud save date: 2024-09-26 19:00:38
+[cli] INFO: - Local save date: N/A
+[cli] INFO: Save game downloading is disabled, skipping...
+[20/11/2024, 22.55.00] WINEPREFIX=/home/bandit/Games/Heroic/Prefixes/default/Celeste WINEDLLOVERRIDES=winemenubuilder.exe=d WINE_FULLSCREEN_FSR=0 WINEESYNC=1 WINEFSYNC=1 PROTON_EAC_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/eac_runtime PROTON_BATTLEYE_RUNTIME=/home/bandit/.config/heroic/tools/runtimes/battleye_runtime ORIG_LD_LIBRARY_PATH= LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary sync-saves Salt --skip-upload --skip-download --accept-path
+[Core] INFO: Trying to re-use existing login session...
+[cli] INFO: Got 1 remote save game(s)
+[cli] INFO: Checking "Celeste" (Salt)
+[cli] INFO: Cloud save for "Celeste" is newer:
+[cli] INFO: - Cloud save date: 2024-09-26 19:00:38
+[cli] INFO: - Local save date: N/A
+[cli] INFO: Save game downloading is disabled, skipping...
+[20/11/2024, 22.55.49] LEGENDARY_CONFIG_PATH=/home/bandit/.config/heroic/legendaryConfig/legendary /opt/Heroic/resources/app.asar.unpacked/build/bin/x64/linux/legendary --version
+legendary version "0.20.36", codename "Urban Flight (Heroic)"

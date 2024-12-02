@@ -1,0 +1,11 @@
+2024/12/01-17:48:43.830 5813 Reusing MANIFEST /home/bandit/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2024/12/01-17:48:43.833 5813 Recovering log #175
+2024/12/01-17:48:43.833 5813 Level-0 table #180: started
+2024/12/01-17:48:43.834 5813 Level-0 table #180: 44986 bytes OK
+2024/12/01-17:48:43.835 5813 Delete type=0 #175
+2024/12/01-18:01:10.974 5812 Level-0 table #183: started
+2024/12/01-18:01:10.991 5812 Level-0 table #183: 3312661 bytes OK
+2024/12/01-18:01:10.992 5812 Delete type=0 #181
+2024/12/01-19:57:36.388 5813 Level-0 table #185: started
+2024/12/01-19:57:36.389 5813 Level-0 table #185: 50833 bytes OK
+2024/12/01-19:57:36.390 5813 Delete type=0 #182
