@@ -225,9 +225,9 @@ All configuration options are in `~/.config/caelestia/shell.json`.
         "wallpaperDir": "~/Pictures/Wallpapers"
     },
     "services": {
-      "weatherLocation": "10,10",
-      "useFahrenheit": false,
-      "useTwelveHourClock": false
+        "weatherLocation": "10,10",
+        "useFahrenheit": false,
+        "useTwelveHourClock": false
     },
     "session": {
         "dragThreshold": 30,
