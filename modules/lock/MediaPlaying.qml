@@ -229,7 +229,7 @@ RowLayout {
         implicitHeight: implicitWidth
 
         radius: Appearance.rounding.full
-        color: primary && canUse ? Colours.palette.m3primary : "transparent"
+        color: Qt.alpha(Colours.palette.m3primary, primary && canUse ? 1 : 0)
 
         StateLayer {
             disabled: !control.canUse

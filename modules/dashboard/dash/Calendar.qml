@@ -55,7 +55,7 @@ Column {
                 implicitHeight: parent.implicitHeight
 
                 radius: Appearance.rounding.full
-                color: day.model.today ? Colours.palette.m3primary : "transparent"
+                color: Qt.alpha(Colours.palette.m3primary, day.model.today ? 1 : 0)
 
                 StyledText {
                     id: text

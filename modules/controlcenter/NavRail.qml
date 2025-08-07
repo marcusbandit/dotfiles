@@ -210,7 +210,7 @@ Item {
             id: background
 
             radius: Appearance.rounding.full
-            color: item.active ? Colours.palette.m3secondaryContainer : "transparent"
+            color: Qt.alpha(Colours.palette.m3secondaryContainer, item.active ? 1 : 0)
 
             implicitWidth: icon.implicitWidth + icon.anchors.leftMargin * 2
             implicitHeight: icon.implicitHeight + Appearance.padding.small
