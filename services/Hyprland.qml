@@ -21,6 +21,10 @@ Singleton {
         Hyprland.dispatch(request);
     }
 
+    function monitorFor(screen: ShellScreen): HyprlandMonitor {
+        return Hyprland.monitorFor(screen);
+    }
+
     Connections {
         target: Hyprland
 
