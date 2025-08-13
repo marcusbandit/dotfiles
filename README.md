@@ -194,6 +194,9 @@ All configuration options are in `~/.config/caelestia/shell.json`.
         }
     },
     "background": {
+        "desktopClock": {
+            "enabled": false
+        },
         "enabled": true
     },
     "bar": {
@@ -285,7 +288,7 @@ All configuration options are in `~/.config/caelestia/shell.json`.
         }
     },
     "lock": {
-        "maxNotifs": 5
+        "recolourLogo": false
     },
     "notifs": {
         "actionOnClick": false,
