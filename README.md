@@ -306,7 +306,8 @@ All configuration options are in `~/.config/caelestia/shell.json`.
         "audioIncrement": 0.1,
         "weatherLocation": "10,10",
         "useFahrenheit": false,
-        "useTwelveHourClock": false
+        "useTwelveHourClock": false,
+        "smartScheme": true
     },
     "session": {
         "dragThreshold": 30,
