@@ -248,6 +248,10 @@ All configuration options are in `~/.config/caelestia/shell.json`.
             "showKbLayout": false,
             "showNetwork": true
         },
+        "tray": {
+            "background": false,
+            "recolour": false
+        },
         "workspaces": {
             "activeIndicator": true,
             "activeLabel": "󰮯 ",
