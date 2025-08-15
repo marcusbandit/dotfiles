@@ -177,6 +177,5 @@ ColumnLayout {
 
         visible: enabled
         active: enabled
-        asynchronous: true
     }
 }
