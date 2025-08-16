@@ -191,7 +191,7 @@ Singleton {
         if (name === "communication")
             return "forum";
         if (name === "music")
-            return "music_note";
+            return "music_cast";
         if (name === "todo")
             return "checklist";
         if (name === "sysmon")

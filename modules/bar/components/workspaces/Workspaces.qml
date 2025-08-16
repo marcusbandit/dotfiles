@@ -6,12 +6,14 @@ import qs.components
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 
-StyledRect {
+StyledClippingRect {
     id: root
 
     required property ShellScreen screen
 
+    readonly property bool onSpecial: (Config.bar.workspaces.perMonitorWorkspaces ? Hyprland.monitorFor(screen) : Hyprland.focusedMonitor)?.lastIpcObject.specialWorkspace.name !== ""
     readonly property int activeWsId: Config.bar.workspaces.perMonitorWorkspaces ? (Hyprland.monitorFor(screen).activeWorkspace?.id ?? 1) : Hyprland.activeWsId
 
     readonly property var occupied: Hyprland.workspaces.values.reduce((acc, curr) => {
@@ -20,54 +22,125 @@ StyledRect {
     }, {})
     readonly property int groupOffset: Math.floor((activeWsId - 1) / Config.bar.workspaces.shown) * Config.bar.workspaces.shown
 
-    implicitHeight: layout.implicitHeight + Appearance.padding.small * 2
+    property real blur: onSpecial ? 1 : 0
+
     implicitWidth: Config.bar.sizes.innerWidth
+    implicitHeight: layout.implicitHeight + Appearance.padding.small * 2
 
     color: Colours.tPalette.m3surfaceContainer
     radius: Appearance.rounding.full
 
-    Loader {
-        active: Config.bar.workspaces.occupiedBg
-        asynchronous: true
-
+    Item {
         anchors.fill: parent
-        anchors.margins: Appearance.padding.small
+        scale: root.onSpecial ? 0.8 : 1
+        opacity: root.onSpecial ? 0.5 : 1
 
-        sourceComponent: OccupiedBg {
-            workspaces: workspaces
-            occupied: root.occupied
-            groupOffset: root.groupOffset
+        layer.enabled: root.blur > 0
+        layer.effect: MultiEffect {
+            blurEnabled: true
+            blur: root.blur
+            blurMax: 32
         }
-    }
 
-    ColumnLayout {
-        id: layout
+        Loader {
+            active: Config.bar.workspaces.occupiedBg
+            asynchronous: true
 
-        anchors.centerIn: parent
-        spacing: Math.floor(Appearance.spacing.small / 2)
+            anchors.fill: parent
+            anchors.margins: Appearance.padding.small
 
-        Repeater {
-            id: workspaces
-
-            model: Config.bar.workspaces.shown
-
-            Workspace {
-                activeWsId: root.activeWsId
+            sourceComponent: OccupiedBg {
+                workspaces: workspaces
                 occupied: root.occupied
                 groupOffset: root.groupOffset
             }
         }
+
+        ColumnLayout {
+            id: layout
+
+            anchors.centerIn: parent
+            spacing: Math.floor(Appearance.spacing.small / 2)
+
+            Repeater {
+                id: workspaces
+
+                model: Config.bar.workspaces.shown
+
+                Workspace {
+                    activeWsId: root.activeWsId
+                    occupied: root.occupied
+                    groupOffset: root.groupOffset
+                }
+            }
+        }
+
+        Loader {
+            anchors.horizontalCenter: parent.horizontalCenter
+            active: Config.bar.workspaces.activeIndicator
+            asynchronous: true
+
+            sourceComponent: ActiveIndicator {
+                activeWsId: root.activeWsId
+                workspaces: workspaces
+                mask: layout
+            }
+        }
+
+        MouseArea {
+            anchors.fill: layout
+            onClicked: event => {
+                const ws = layout.childAt(event.x, event.y).index + root.groupOffset + 1;
+                if (Hyprland.activeWsId !== ws)
+                    Hyprland.dispatch(`workspace ${ws}`);
+                else
+                    Hyprland.dispatch("togglespecialworkspace special");
+            }
+        }
+
+        Behavior on scale {
+            Anim {}
+        }
+
+        Behavior on opacity {
+            Anim {}
+        }
     }
 
     Loader {
-        anchors.horizontalCenter: parent.horizontalCenter
-        active: Config.bar.workspaces.activeIndicator
+        id: specialWs
+
+        anchors.fill: parent
+        anchors.margins: Appearance.padding.small
+
+        active: opacity > 0
         asynchronous: true
 
-        sourceComponent: ActiveIndicator {
-            activeWsId: root.activeWsId
-            workspaces: workspaces
-            mask: layout
+        scale: root.onSpecial ? 1 : 0.5
+        opacity: root.onSpecial ? 1 : 0
+
+        sourceComponent: SpecialWorkspaces {
+            screen: root.screen
         }
+
+        Behavior on scale {
+            Anim {}
+        }
+
+        Behavior on opacity {
+            Anim {}
+        }
+    }
+
+    Behavior on blur {
+        Anim {
+            duration: Appearance.anim.durations.small
+        }
+    }
+
+    component Anim: NumberAnimation {
+        duration: Appearance.anim.durations.normal
+        easing.type: Easing.BezierSpline
+        easing.bezierCurve: Appearance.anim.curves.standard
     }
 }
