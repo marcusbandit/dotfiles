@@ -120,6 +120,7 @@ Item {
 
             required property HyprlandWorkspace modelData
             readonly property int size: label.Layout.preferredHeight + (hasWindows ? windows.implicitHeight + Appearance.padding.small : 0)
+            property int wsId
             property string icon
             property bool hasWindows
 
@@ -129,6 +130,7 @@ Item {
             spacing: 0
 
             Component.onCompleted: {
+                wsId = modelData.id;
                 icon = Icons.getSpecialWsIcon(modelData.name);
                 hasWindows = Config.bar.workspaces.showWindows && modelData.lastIpcObject.windows > 0;
             }
@@ -136,6 +138,11 @@ Item {
             // Hacky thing cause modelData gets destroyed before the remove anim finishes
             Connections {
                 target: ws.modelData
+
+                function onIdChanged(): void {
+                    if (ws.modelData)
+                        ws.wsId = ws.modelData.id;
+                }
 
                 function onNameChanged(): void {
                     if (ws.modelData)
@@ -222,7 +229,7 @@ Item {
 
                     Repeater {
                         model: ScriptModel {
-                            values: Hyprland.toplevels.values.filter(c => c.workspace?.id === ws.modelData.id)
+                            values: Hyprland.toplevels.values.filter(c => c.workspace?.id === ws.wsId)
                         }
 
                         MaterialIcon {

@@ -56,10 +56,11 @@ ColumnLayout {
         const ch = childAt(width / 2, y) as WrappedLoader;
         if (ch?.id === "workspaces") {
             // Workspace scroll
-            const activeWs = Hyprland.activeToplevel?.workspace?.name;
-            if (activeWs?.startsWith("special:"))
-                Hyprland.dispatch(`togglespecialworkspace ${activeWs.slice(8)}`);
-            else if (angleDelta.y < 0 || Hyprland.activeWsId > 1)
+            const mon = (Config.bar.workspaces.perMonitorWorkspaces ? Hyprland.monitorFor(screen) : Hyprland.focusedMonitor);
+            const specialWs = mon?.lastIpcObject.specialWorkspace.name;
+            if (specialWs?.length > 0)
+                Hyprland.dispatch(`togglespecialworkspace ${specialWs.slice(8)}`);
+            else if (angleDelta.y < 0 || (Config.bar.workspaces.perMonitorWorkspaces ? mon.activeWorkspace?.id : Hyprland.activeWsId) > 1)
                 Hyprland.dispatch(`workspace r${angleDelta.y > 0 ? "-" : "+"}1`);
         } else if (y < screen.height / 2) {
             // Volume scroll on top half
