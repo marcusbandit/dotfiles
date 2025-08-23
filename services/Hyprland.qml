@@ -11,9 +11,16 @@ Singleton {
     readonly property var toplevels: Hyprland.toplevels
     readonly property var workspaces: Hyprland.workspaces
     readonly property var monitors: Hyprland.monitors
-    readonly property HyprlandToplevel activeToplevel: Hyprland.activeToplevel
+
+    readonly property HyprlandToplevel activeToplevel: {
+        const t = Hyprland.activeToplevel;
+        if (t?.workspace?.focused || t?.workspace?.name.startsWith("special:"))
+            return t;
+        return null;
+    }
     readonly property HyprlandWorkspace focusedWorkspace: Hyprland.focusedWorkspace
     readonly property HyprlandMonitor focusedMonitor: Hyprland.focusedMonitor
+
     readonly property int activeWsId: focusedWorkspace?.id ?? 1
     readonly property string kbLayout: kbLayoutFull.slice(0, 2).toLowerCase()
     property string kbLayoutFull: "?"
