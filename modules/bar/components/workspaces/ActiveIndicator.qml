@@ -11,7 +11,12 @@ StyledRect {
     required property Repeater workspaces
     required property Item mask
 
-    readonly property int currentWsIdx: (activeWsId - 1) % Config.bar.workspaces.shown
+    readonly property int currentWsIdx: {
+        let i = activeWsId - 1;
+        while (i < 0)
+            i += Config.bar.workspaces.shown;
+        return i % Config.bar.workspaces.shown;
+    }
 
     property real leading: workspaces.itemAt(currentWsIdx)?.y ?? 0
     property real trailing: workspaces.itemAt(currentWsIdx)?.y ?? 0
