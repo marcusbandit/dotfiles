@@ -140,17 +140,17 @@ MouseArea {
                 to: 0
                 duration: Appearance.anim.durations.large
             }
-            Anim {
+            ExAnim {
                 target: root
                 properties: "rsx,rsy"
                 to: 0
             }
-            Anim {
+            ExAnim {
                 target: root
                 property: "sw"
                 to: root.screen.width
             }
-            Anim {
+            ExAnim {
                 target: root
                 property: "sh"
                 to: root.screen.height
@@ -256,30 +256,29 @@ MouseArea {
     Behavior on rsx {
         enabled: !root.pressed
 
-        Anim {}
+        ExAnim {}
     }
 
     Behavior on rsy {
         enabled: !root.pressed
 
-        Anim {}
+        ExAnim {}
     }
 
     Behavior on sw {
         enabled: !root.pressed
 
-        Anim {}
+        ExAnim {}
     }
 
     Behavior on sh {
         enabled: !root.pressed
 
-        Anim {}
+        ExAnim {}
     }
 
-    component Anim: NumberAnimation {
+    component ExAnim: Anim {
         duration: Appearance.anim.durations.expressiveDefaultSpatial
-        easing.type: Easing.BezierSpline
         easing.bezierCurve: Appearance.anim.curves.expressiveDefaultSpatial
     }
 }

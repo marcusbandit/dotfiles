@@ -63,13 +63,13 @@ StyledRect {
     Behavior on leading {
         enabled: Config.bar.workspaces.activeTrail
 
-        Anim {}
+        EAnim {}
     }
 
     Behavior on trailing {
         enabled: Config.bar.workspaces.activeTrail
 
-        Anim {
+        EAnim {
             duration: Appearance.anim.durations.normal * 2
         }
     }
@@ -77,24 +77,22 @@ StyledRect {
     Behavior on currentSize {
         enabled: Config.bar.workspaces.activeTrail
 
-        Anim {}
+        EAnim {}
     }
 
     Behavior on offset {
         enabled: !Config.bar.workspaces.activeTrail
 
-        Anim {}
+        EAnim {}
     }
 
     Behavior on size {
         enabled: !Config.bar.workspaces.activeTrail
 
-        Anim {}
+        EAnim {}
     }
 
-    component Anim: NumberAnimation {
-        duration: Appearance.anim.durations.normal
-        easing.type: Easing.BezierSpline
+    component EAnim: Anim {
         easing.bezierCurve: Appearance.anim.curves.emphasized
     }
 }
