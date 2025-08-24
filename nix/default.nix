@@ -33,6 +33,7 @@
   wayland,
   wayland-protocols,
   wayland-scanner,
+  xkeyboard-config,
   caelestia-cli,
   withCli ? false,
   extraRuntimeDeps ? [],
@@ -120,7 +121,7 @@ in
     src = ./..;
 
     nativeBuildInputs = [gcc makeWrapper qt6.wrapQtAppsHook];
-    buildInputs = [quickshell beatDetector idleInhibitor qt6.qtbase];
+    buildInputs = [quickshell beatDetector idleInhibitor xkeyboard-config qt6.qtbase];
     propagatedBuildInputs = runtimeDeps;
 
     patchPhase = ''
@@ -137,6 +138,7 @@ in
       	--set FONTCONFIG_FILE "${fontconfig}" \
       	--set CAELESTIA_BD_PATH ${beatDetector}/bin/beat_detector \
       	--set CAELESTIA_II_PATH ${idleInhibitor}/bin/inhibit_idle \
+        --set CAELESTIA_XKB_RULES_PATH ${xkeyboard-config}/share/xkeyboard-config-2/rules/base.lst \
       	--add-flags "-p $out/share/caelestia-shell"
 
       	ln -sf ${beatDetector}/bin/beat_detector $out/bin

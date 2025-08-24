@@ -22,8 +22,9 @@ Singleton {
     readonly property HyprlandMonitor focusedMonitor: Hyprland.focusedMonitor
 
     readonly property int activeWsId: focusedWorkspace?.id ?? 1
-    readonly property string kbLayout: kbLayoutFull.slice(0, 2).toLowerCase()
+    readonly property string kbLayout: kbMap.get(kbLayoutFull) ?? "??"
     property string kbLayoutFull: "?"
+    property var kbMap: new Map()
 
     function dispatch(request: string): void {
         Hyprland.dispatch(request);
@@ -55,6 +56,23 @@ Singleton {
                 Hyprland.refreshWorkspaces();
             } else if (n.includes("window") || n.includes("group") || ["pin", "fullscreen", "changefloatingmode", "minimize"].includes(n)) {
                 Hyprland.refreshToplevels();
+            }
+        }
+    }
+
+    FileView {
+        id: kbLayoutFile
+
+        path: Quickshell.env("CAELESTIA_XKB_RULES_PATH") || "/usr/share/X11/xkb/rules/base.lst"
+        onLoaded: {
+            const lines = text().match(/! layout\n([\s\S]*?)\n\n/)[1].split("\n");
+            for (const line of lines) {
+                if (!line.trim() || line.trim().startsWith("!"))
+                    continue;
+
+                const match = line.match(/^\s*([a-z]{2,})\s+([a-zA-Z() ]+)$/);
+                if (match)
+                    root.kbMap.set(match[2], match[1]);
             }
         }
     }
