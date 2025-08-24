@@ -48,7 +48,7 @@ StyledRect {
 
             sourceComponent: StyledText {
                 animate: true
-                text: Hyprland.kbLayout
+                text: Hypr.kbLayout
                 color: root.colour
                 font.family: Appearance.font.family.mono
             }

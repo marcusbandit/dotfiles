@@ -80,7 +80,7 @@ ColumnLayout {
 
             Repeater {
                 model: ScriptModel {
-                    values: Hyprland.toplevels.values.filter(c => c.workspace?.id === root.ws)
+                    values: Hypr.toplevels.values.filter(c => c.workspace?.id === root.ws)
                 }
 
                 MaterialIcon {

@@ -13,10 +13,10 @@ StyledClippingRect {
 
     required property ShellScreen screen
 
-    readonly property bool onSpecial: (Config.bar.workspaces.perMonitorWorkspaces ? Hyprland.monitorFor(screen) : Hyprland.focusedMonitor)?.lastIpcObject.specialWorkspace.name !== ""
-    readonly property int activeWsId: Config.bar.workspaces.perMonitorWorkspaces ? (Hyprland.monitorFor(screen).activeWorkspace?.id ?? 1) : Hyprland.activeWsId
+    readonly property bool onSpecial: (Config.bar.workspaces.perMonitorWorkspaces ? Hypr.monitorFor(screen) : Hypr.focusedMonitor)?.lastIpcObject.specialWorkspace.name !== ""
+    readonly property int activeWsId: Config.bar.workspaces.perMonitorWorkspaces ? (Hypr.monitorFor(screen).activeWorkspace?.id ?? 1) : Hypr.activeWsId
 
-    readonly property var occupied: Hyprland.workspaces.values.reduce((acc, curr) => {
+    readonly property var occupied: Hypr.workspaces.values.reduce((acc, curr) => {
         acc[curr.id] = curr.lastIpcObject.windows > 0;
         return acc;
     }, {})
@@ -91,10 +91,10 @@ StyledClippingRect {
             anchors.fill: layout
             onClicked: event => {
                 const ws = layout.childAt(event.x, event.y).index + root.groupOffset + 1;
-                if (Hyprland.activeWsId !== ws)
-                    Hyprland.dispatch(`workspace ${ws}`);
+                if (Hypr.activeWsId !== ws)
+                    Hypr.dispatch(`workspace ${ws}`);
                 else
-                    Hyprland.dispatch("togglespecialworkspace special");
+                    Hypr.dispatch("togglespecialworkspace special");
             }
         }
 
