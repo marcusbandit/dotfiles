@@ -198,7 +198,13 @@ default, you must create it manually.
         "desktopClock": {
             "enabled": false
         },
-        "enabled": true
+        "enabled": true,
+        "visualiser": {
+            "enabled": true,
+            "autoHide": true,
+            "rounding": 1,
+            "spacing": 1
+        }
     },
     "bar": {
         "dragThreshold": 20,
@@ -277,8 +283,7 @@ default, you must create it manually.
         "enabled": true,
         "dragThreshold": 50,
         "mediaUpdateInterval": 500,
-        "showOnHover": true,
-        "visualiserBars": 45
+        "showOnHover": true
     },
     "launcher": {
         "actionPrefix": ">",
@@ -324,7 +329,8 @@ default, you must create it manually.
         "weatherLocation": "",
         "useFahrenheit": false,
         "useTwelveHourClock": false,
-        "smartScheme": true
+        "smartScheme": true,
+        "visualiserBars": 45
     },
     "session": {
         "dragThreshold": 30,
