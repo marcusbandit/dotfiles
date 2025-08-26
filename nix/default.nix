@@ -34,6 +34,8 @@
   wayland-protocols,
   wayland-scanner,
   xkeyboard-config,
+  cmake,
+  ninja,
   caelestia-cli,
   withCli ? false,
   extraRuntimeDeps ? [],
@@ -114,6 +116,23 @@
       install -Dm755 inhibit_idle $out/bin/inhibit_idle
     '';
   };
+
+  plugin = stdenv.mkDerivation {
+    pname = "caelestia-qt-plugin";
+    version = "0.0.1";
+
+    src = ./../plugin;
+
+    dontWrapQtApps = true;
+    nativeBuildInputs = [cmake ninja];
+    buildInputs = [qt6.qtbase qt6.qtdeclarative];
+
+    cmakeBuildType = "Release";
+    cmakeFlags = [
+      (lib.cmakeFeature "INSTALL_QMLDIR" qt6.qtbase.qtQmlPrefix)
+      (lib.cmakeFeature "GIT_REVISION" rev)
+    ];
+  };
 in
   stdenv.mkDerivation {
     pname = "caelestia-shell";
@@ -121,7 +140,7 @@ in
     src = ./..;
 
     nativeBuildInputs = [gcc makeWrapper qt6.wrapQtAppsHook];
-    buildInputs = [quickshell beatDetector idleInhibitor xkeyboard-config qt6.qtbase];
+    buildInputs = [quickshell plugin beatDetector idleInhibitor xkeyboard-config qt6.qtbase];
     propagatedBuildInputs = runtimeDeps;
 
     patchPhase = ''
