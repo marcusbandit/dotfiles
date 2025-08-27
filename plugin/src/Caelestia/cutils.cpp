@@ -90,3 +90,74 @@ bool CUtils::copyFile(const QUrl& source, const QUrl& target, bool overwrite) co
 
     return QFile::copy(source.toLocalFile(), target.toLocalFile());
 }
+
+void CUtils::getDominantColour(QQuickItem* item) const {
+    this->getDominantColour(item, 128, 128);
+}
+
+void CUtils::getDominantColour(QQuickItem* item, int width, int height) const {
+    if (!item) {
+        qWarning() << "CUtils::getDominantColour: an item is required";
+        return;
+    }
+
+    if (!item->window()) {
+        // Fail silently to avoid warning
+        return;
+    }
+
+    QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage(QSize(width, height));
+
+    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
+        [grabResult, item, this]() {
+            QImage image = grabResult->image();
+
+            if (image.format() != QImage::Format_ARGB32) {
+                image = image.convertToFormat(QImage::Format_ARGB32);
+            }
+
+            std::unordered_map<uint32_t, int> colours;
+            const uchar* data = image.bits();
+            int width = image.width();
+            int height = image.height();
+            int bytesPerLine = image.bytesPerLine();
+
+            for (int y = 0; y < height; ++y) {
+                const uchar* line = data + y * bytesPerLine;
+                for (int x = 0; x < width; ++x) {
+                    const uchar* pixel = line + x * 4;
+                    uchar r = pixel[0];
+                    uchar g = pixel[1];
+                    uchar b = pixel[2];
+                    uchar a = pixel[3];
+
+                    if (a == 0) {
+                        continue;
+                    }
+
+                    r &= 0xF8;
+                    g &= 0xF8;
+                    b &= 0xF8;
+
+                    uint32_t colour = (r << 16) | (g << 8) | b;
+                    ++colours[colour];
+                }
+            }
+
+            uint32_t dominantColour = 0;
+            int maxCount = 0;
+            for (const auto& [colour, count] : colours) {
+                if (count > maxCount) {
+                    dominantColour = colour;
+                    maxCount = count;
+                }
+            }
+
+            const QColor colour = QColor((0xFF << 24) | dominantColour);
+
+            QMetaObject::invokeMethod(item, [item, colour]() {
+                item->setProperty("dominantColour", colour);
+            }, Qt::QueuedConnection);
+        }
+    );
+}
