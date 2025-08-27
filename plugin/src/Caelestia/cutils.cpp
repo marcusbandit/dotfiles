@@ -95,7 +95,7 @@ void CUtils::getDominantColour(QQuickItem* item, QJSValue callback) const {
     this->getDominantColour(item, 128, 128, callback);
 }
 
-void CUtils::getDominantColour(QQuickItem* item, int width, int height, QJSValue callback) const {
+void CUtils::getDominantColour(QQuickItem* item, int targetWidth, int targetHeight, QJSValue callback) const {
     if (!item) {
         qWarning() << "CUtils::getDominantColour: an item is required";
         return;
@@ -106,11 +106,19 @@ void CUtils::getDominantColour(QQuickItem* item, int width, int height, QJSValue
         return;
     }
 
-    QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage(QSize(width, height));
+    QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage();
 
     QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
-        [grabResult, item, callback, this]() {
+        [grabResult, item, targetWidth, targetHeight, callback, this]() {
             QImage image = grabResult->image();
+
+            if (image.width() > targetWidth && image.height() > targetHeight) {
+                image = image.scaled(targetWidth, targetHeight);
+            } else if (image.width() > targetWidth) {
+                image = image.scaledToWidth(targetWidth);
+            } else if (image.height() > targetHeight) {
+                image = image.scaledToHeight(targetHeight);
+            }
 
             if (image.format() != QImage::Format_ARGB32) {
                 image = image.convertToFormat(QImage::Format_ARGB32);
