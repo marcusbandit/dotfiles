@@ -50,6 +50,9 @@ void CachingImageManager::setCacheDir(const QUrl& cacheDir) {
     }
 
     m_cacheDir = cacheDir;
+    if (!m_cacheDir.path().endsWith("/")) {
+        m_cacheDir.setPath(m_cacheDir.path() + "/");
+    }
     emit cacheDirChanged();
 }
 
