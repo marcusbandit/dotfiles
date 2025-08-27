@@ -38,9 +38,6 @@ signals:
     void cachePathChanged();
     void usingCacheChanged();
 
-private slots:
-    void handleStatusChanged();
-
 private:
     QQuickItem* m_item;
     QUrl m_cacheDir;
