@@ -37,8 +37,4 @@ Singleton {
     function strip(path: url): string {
         return stringify(path).replace("file://", "");
     }
-
-    function copy(from: url, to: url): void {
-        Quickshell.execDetached(["cp", strip(from), strip(to)]);
-    }
 }
