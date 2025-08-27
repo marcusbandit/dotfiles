@@ -324,6 +324,8 @@ default, you must create it manually.
         "expire": false
     },
     "osd": {
+        "enabled": true,
+        "enableBrightness": true,
         "hideDelay": 2000
     },
     "paths": {
