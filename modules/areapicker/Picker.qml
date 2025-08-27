@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import qs.components
 import qs.services
 import qs.config
+import Caelestia
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
@@ -65,6 +66,12 @@ MouseArea {
         }
     }
 
+    function save(): void {
+        const tmpfile = `file:///tmp/caelestia-picker-${Quickshell.processId}-${Date.now()}.png`;
+        CUtils.saveItem(screencopy, tmpfile, Qt.rect(Math.ceil(rsx), Math.ceil(rsy), Math.floor(sw), Math.floor(sh)), path => Quickshell.execDetached(["swappy", "-f", path]));
+        closeAnim.start();
+    }
+
     anchors.fill: parent
     opacity: 0
     hoverEnabled: true
@@ -103,8 +110,13 @@ MouseArea {
         if (closeAnim.running)
             return;
 
-        Quickshell.execDetached(["sh", "-c", `grim -l 0 -g '${screen.x + Math.ceil(rsx)},${screen.y + Math.ceil(rsy)} ${Math.floor(sw)}x${Math.floor(sh)}' - | swappy -f -`]);
-        closeAnim.start();
+        if (root.loader.freeze) {
+            save();
+        } else {
+            overlay.visible = border.visible = false;
+            screencopy.visible = false;
+            screencopy.active = true;
+        }
     }
 
     onPositionChanged: event => {
@@ -188,6 +200,8 @@ MouseArea {
     }
 
     Loader {
+        id: screencopy
+
         anchors.fill: parent
 
         active: root.loader.freeze
@@ -195,10 +209,19 @@ MouseArea {
 
         sourceComponent: ScreencopyView {
             captureSource: root.screen
+
+            onHasContentChanged: {
+                if (hasContent && !root.loader.freeze) {
+                    overlay.visible = border.visible = true;
+                    root.save();
+                }
+            }
         }
     }
 
     StyledRect {
+        id: overlay
+
         anchors.fill: parent
         color: Colours.palette.m3secondaryContainer
         opacity: 0.3
@@ -232,6 +255,8 @@ MouseArea {
     }
 
     Rectangle {
+        id: border
+
         color: "transparent"
         radius: root.realRounding > 0 ? root.realRounding + root.realBorderWidth : 0
         border.width: root.realBorderWidth
