@@ -38,8 +38,14 @@ MouseArea {
     property real sh: Math.abs(sy - ey)
 
     property list<var> clients: {
-        const ws = Hypr.activeToplevel?.workspace?.id ?? Hypr.activeWsId;
-        return Hypr.toplevels.values.filter(c => c.workspace?.id === ws).sort((a, b) => {
+        const mon = Hypr.monitorFor(screen);
+        if (!mon)
+            return [];
+
+        const special = mon.lastIpcObject.specialWorkspace;
+        const wsId = special.name ? special.id : mon.activeWorkspace.id;
+
+        return Hypr.toplevels.values.filter(c => c.workspace?.id === wsId).sort((a, b) => {
             // Pinned first, then fullscreen, then floating, then any other
             const ac = a.lastIpcObject;
             const bc = b.lastIpcObject;
@@ -49,6 +55,9 @@ MouseArea {
 
     function checkClientRects(x: real, y: real): void {
         for (const client of clients) {
+            if (!client)
+                continue;
+
             let {
                 at: [cx, cy],
                 size: [cw, ch]
@@ -71,6 +80,8 @@ MouseArea {
         CUtils.saveItem(screencopy, tmpfile, Qt.rect(Math.ceil(rsx), Math.ceil(rsy), Math.floor(sw), Math.floor(sh)), path => Quickshell.execDetached(["swappy", "-f", path]));
         closeAnim.start();
     }
+
+    onClientsChanged: checkClientRects(mouseX, mouseY)
 
     anchors.fill: parent
     opacity: 0
@@ -172,14 +183,6 @@ MouseArea {
             target: root.loader
             property: "activeAsync"
             value: false
-        }
-    }
-
-    Connections {
-        target: Hypr
-
-        function onActiveWsIdChanged(): void {
-            root.checkClientRects(root.mouseX, root.mouseY);
         }
     }
 
