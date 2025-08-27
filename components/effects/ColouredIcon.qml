@@ -19,12 +19,12 @@ IconImage {
     }
 
     layer.onEnabledChanged: {
-        if (layer.enabled)
-            CUtils.getDominantColour(this);
+        if (layer.enabled && status === Image.Ready)
+            CUtils.getDominantColour(this, c => dominantColour = c);
     }
 
     onStatusChanged: {
         if (layer.enabled && status === Image.Ready)
-            CUtils.getDominantColour(this);
+            CUtils.getDominantColour(this, c => dominantColour = c);
     }
 }

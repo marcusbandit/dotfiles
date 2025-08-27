@@ -91,11 +91,11 @@ bool CUtils::copyFile(const QUrl& source, const QUrl& target, bool overwrite) co
     return QFile::copy(source.toLocalFile(), target.toLocalFile());
 }
 
-void CUtils::getDominantColour(QQuickItem* item) const {
-    this->getDominantColour(item, 128, 128);
+void CUtils::getDominantColour(QQuickItem* item, QJSValue callback) const {
+    this->getDominantColour(item, 128, 128, callback);
 }
 
-void CUtils::getDominantColour(QQuickItem* item, int width, int height) const {
+void CUtils::getDominantColour(QQuickItem* item, int width, int height, QJSValue callback) const {
     if (!item) {
         qWarning() << "CUtils::getDominantColour: an item is required";
         return;
@@ -109,7 +109,7 @@ void CUtils::getDominantColour(QQuickItem* item, int width, int height) const {
     QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage(QSize(width, height));
 
     QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
-        [grabResult, item, this]() {
+        [grabResult, item, callback, this]() {
             QImage image = grabResult->image();
 
             if (image.format() != QImage::Format_ARGB32) {
@@ -154,10 +154,11 @@ void CUtils::getDominantColour(QQuickItem* item, int width, int height) const {
             }
 
             const QColor colour = QColor((0xFF << 24) | dominantColour);
-
-            QMetaObject::invokeMethod(item, [item, colour]() {
-                item->setProperty("dominantColour", colour);
-            }, Qt::QueuedConnection);
+            if (callback.isCallable()) {
+                QMetaObject::invokeMethod(item, [item, callback, colour, this]() {
+                    callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(colour)) });
+                }, Qt::QueuedConnection);
+            }
         }
     );
 }

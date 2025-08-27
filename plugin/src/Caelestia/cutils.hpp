@@ -20,6 +20,6 @@ public:
     Q_INVOKABLE bool copyFile(const QUrl& source, const QUrl& target) const;
     Q_INVOKABLE bool copyFile(const QUrl& source, const QUrl& target, bool overwrite) const;
 
-    Q_INVOKABLE void getDominantColour(QQuickItem* item) const;
-    Q_INVOKABLE void getDominantColour(QQuickItem* item, int width, int height) const;
+    Q_INVOKABLE void getDominantColour(QQuickItem* item, QJSValue callback) const;
+    Q_INVOKABLE void getDominantColour(QQuickItem* item, int width, int height, QJSValue callback) const;
 };
