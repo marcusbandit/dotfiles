@@ -1,11 +1,12 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <QtQuick/QQuickItem>
 
 class CUtils : public QObject {
     Q_OBJECT;
-    QML_NAMED_ELEMENT(CUtils);
+    QML_ELEMENT;
     QML_SINGLETON;
 
 public:
