@@ -70,34 +70,33 @@ void CachingImageManager::setPath(const QString& path) {
 
     if (!path.isEmpty()) {
         QThreadPool::globalInstance()->start([path, this] {
-            const QString filename = QString("%1@%2x%3.png")
-                .arg(sha256sum(path))
-                .arg(effectiveWidth())
-                .arg(effectiveHeight());
+            const QString sha = sha256sum(path);
 
-            m_cachePath = m_cacheDir.resolved(QUrl(filename));
-            emit cachePathChanged();
+            QMetaObject::invokeMethod(this, [path, sha, this]() {
+                const QString filename = QString("%1@%2x%3.png")
+                    .arg(sha)
+                    .arg(effectiveWidth())
+                    .arg(effectiveHeight());
 
-            if (!m_cachePath.isLocalFile()) {
-                qWarning() << "CachingImageManager::setPath: cachePath" << m_cachePath << "is not a local file";
-                return;
-            }
+                m_cachePath = m_cacheDir.resolved(QUrl(filename));
+                emit cachePathChanged();
 
-            if (QFile::exists(m_cachePath.toLocalFile())) {
-                QMetaObject::invokeMethod(m_item, [this]() {
+                if (!m_cachePath.isLocalFile()) {
+                    qWarning() << "CachingImageManager::setPath: cachePath" << m_cachePath << "is not a local file";
+                    return;
+                }
+
+                bool cacheExists = QFile::exists(m_cachePath.toLocalFile());
+
+                if (cacheExists) {
                     m_item->setProperty("source", m_cachePath);
-                }, Qt::QueuedConnection);
-
-                m_usingCache = true;
-                emit usingCacheChanged();
-            } else {
-                QMetaObject::invokeMethod(m_item, [path, this]() {
+                } else {
                     m_item->setProperty("source", QUrl::fromLocalFile(path));
-                }, Qt::QueuedConnection);
+                }
 
-                m_usingCache = false;
+                m_usingCache = cacheExists;
                 emit usingCacheChanged();
-            }
+            });
         });
     }
 }

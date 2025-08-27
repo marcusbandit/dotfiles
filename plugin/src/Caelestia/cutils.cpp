@@ -7,27 +7,27 @@
 #include <QQmlEngine>
 #include <QDir>
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path) {
     this->saveItem(target, path, QRect(), QJSValue(), QJSValue());
 }
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect) {
     this->saveItem(target, path, rect, QJSValue(), QJSValue());
 }
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path, QJSValue onSaved) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path, QJSValue onSaved) {
     this->saveItem(target, path, QRect(), onSaved, QJSValue());
 }
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path, QJSValue onSaved, QJSValue onFailed) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path, QJSValue onSaved, QJSValue onFailed) {
     this->saveItem(target, path, QRect(), onSaved, onFailed);
 }
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, QJSValue onSaved) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, QJSValue onSaved) {
     this->saveItem(target, path, rect, onSaved, QJSValue());
 }
 
-void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, QJSValue onSaved, QJSValue onFailed) const {
+void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, QJSValue onSaved, QJSValue onFailed) {
     if (!target) {
         qWarning() << "CUtils::saveItem: a target is required";
         return;
@@ -40,10 +40,7 @@ void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, Q
 
     QSharedPointer<QQuickItemGrabResult> grabResult = target->grabToImage();
 
-    QObject::connect(
-        grabResult.data(),
-        &QQuickItemGrabResult::ready,
-        this,
+    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
         [grabResult, rect, path, onSaved, onFailed, this]() {
             QThreadPool::globalInstance()->start([grabResult, rect, path, onSaved, onFailed, this] {
                 QImage image = grabResult->image();
@@ -54,16 +51,20 @@ void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, Q
 
                 const QString file = path.toLocalFile();
                 const QString parent = QFileInfo(file).absolutePath();
-                if (QDir().mkpath(parent) && image.save(file)) {
-                    if (onSaved.isCallable()) {
-                        onSaved.call({ QJSValue(file), qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                bool success = QDir().mkpath(parent) && image.save(file);
+
+                QMetaObject::invokeMethod(this, [file, success, path, onSaved, onFailed, this]() {
+                    if (success) {
+                        if (onSaved.isCallable()) {
+                            onSaved.call({ QJSValue(file), qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                        }
+                    } else {
+                        qWarning() << "CUtils::saveItem: failed to save" << path;
+                        if (onFailed.isCallable()) {
+                            onFailed.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                        }
                     }
-                } else {
-                    qWarning() << "CUtils::saveItem: failed to save" << path;
-                    if (onFailed.isCallable()) {
-                        onFailed.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
-                    }
-                }
+                }, Qt::QueuedConnection);
             });
         }
     );
