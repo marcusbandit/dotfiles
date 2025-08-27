@@ -326,6 +326,7 @@ default, you must create it manually.
     "osd": {
         "enabled": true,
         "enableBrightness": true,
+        "enableMicrophone": false,
         "hideDelay": 2000
     },
     "paths": {
