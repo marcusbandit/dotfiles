@@ -219,6 +219,9 @@ default, you must create it manually.
         }
     },
     "bar": {
+        "clock": {
+            "showIcon": true
+        },
         "dragThreshold": 20,
         "entries": [
             {
