@@ -71,7 +71,7 @@ Simply download the self-contained installer from the [latest release](https://g
 and run it.
 
 ```sh
-curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.sh && sudo caelestia-shell-latest.sh --exclude-subdir --prefix=/
+curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.sh -o install.sh && chmod u+x install.sh && sudo ./install.sh --exclude-subdir --prefix=/
 ```
 
 #### Tarball
