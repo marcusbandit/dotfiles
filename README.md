@@ -214,6 +214,24 @@ git pull
 All configuration options should be put in `~/.config/caelestia/shell.json`. This file is _not_ created by
 default, you must create it manually.
 
+For NixOS users, a home manager module is also available.
+
+<details><summary><code>home.nix</code></summary>
+
+```nix
+programs.caelestia = {
+  enable = true;
+  settings = {
+    bar.status = {
+      showBattery = false;
+    };
+    paths.wallpaperDir = "~/Images";
+  };
+};
+```
+
+</details>
+
 > [!NOTE]
 > The example configuration only includes recommended configuration options. For more advanced customisation
 > such as modifying the size of individual items or changing constants in the code, there are some other
