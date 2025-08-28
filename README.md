@@ -63,30 +63,6 @@ or a devshell. The shell can then be run via `caelestia-shell`.
 > The default package does not have the CLI enabled by default, which is required for full funcionality.
 > To enable the CLI, use the `with-cli` package.
 
-### Release
-
-#### Self-contained installer
-
-Simply download the self-contained installer from the [latest release](https://github.com/caelestia-dots/shell/releases/latest)
-and run it.
-
-```sh
-curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.sh -o install.sh && chmod u+x install.sh && sudo ./install.sh --exclude-subdir --prefix=/
-```
-
-#### Tarball
-
-Download the tarball from the [latest release](https://github.com/caelestia-dots/shell/releases/latest),
-then extract it to your root directory.
-
-```sh
-curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.tar.gz | sudo tar -xz --strip-components=1 -C /
-```
-
-> [!TIP]
-> For both the installer and tarball, you can move/copy the `/etc/xdg/quickshell/caelestia` directory
-> after installation to `$XDG_CONFIG_HOME/quickshell/caelestia` to be able to make your own local changes.
-
 ### Manual installation
 
 Dependencies:
@@ -136,6 +112,16 @@ sudo cmake --install build
 > `INSTALL_QSCONFDIR` for the libraries (the beat detector), QML plugin and Quickshell config directories
 > respectively. If changing the library directory, remember to set the `CAELESTIA_LIB_DIR` environment
 > variable to the custom directory when launching the shell.
+>
+> e.g. installing to `~/.config/quickshell/caelestia` for easy local changes:
+>
+> ```sh
+> mkdir -p ~/.config/quickshell/caelestia
+> cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/ -DINSTALL_QSCONFDIR=~/.config/quickshell/caelestia
+> cmake --build build
+> sudo cmake --install build
+> sudo chown -R $USER ~/.config/quickshell/caelestia
+> ```
 
 ## Usage
 
