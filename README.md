@@ -32,6 +32,61 @@ https://github.com/user-attachments/assets/0840f496-575c-4ca6-83a8-87bb01a85c5f
 The shell is available from the AUR as `caelestia-shell-git`. You can install it with an AUR helper
 like [`yay`](https://github.com/Jguer/yay) or manually downloading the PKGBUILD and running `makepkg -si`.
 
+### Nix
+
+You can run the shell directly via `nix run`:
+
+```sh
+nix run github:caelestia-dots/shell
+```
+
+Or add it to your system configuration:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+}
+```
+
+The package is available as `caelestia-shell.packages.<system>.default`, which can be added to your
+`environment.systemPackages`, `users.users.<username>.packages`, `home.packages` if using home-manager,
+or a devshell. The shell can then be run via `caelestia-shell`.
+
+> [!TIP]
+> The default package does not have the CLI enabled by default, which is required for full funcionality.
+> To enable the CLI, use the `with-cli` package.
+
+### Release
+
+#### Self-contained installer
+
+Simply download the self-contained installer from the [latest release](https://github.com/caelestia-dots/shell/releases/latest)
+and run it.
+
+```sh
+curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.sh && sudo caelestia-shell-latest.sh --exclude-subdir --prefix=/
+```
+
+#### Tarball
+
+Download the tarball from the [latest release](https://github.com/caelestia-dots/shell/releases/latest),
+then extract it to your root directory.
+
+```sh
+curl -sL https://github.com/caelestia-dots/shell/releases/latest/download/caelestia-shell-latest.tar.gz | sudo tar -xz --strip-components=1 -C /
+```
+
+> [!TIP]
+> For both the installer and tarball, you can move/copy the `/etc/xdg/quickshell/caelestia` directory
+> after installation to `$XDG_CONFIG_HOME/quickshell/caelestia` to be able to make your own local changes.
+
 ### Manual installation
 
 Dependencies:
