@@ -21,7 +21,8 @@ Singleton {
     property var keyboard
     readonly property bool capsLock: keyboard?.capsLock ?? false
     readonly property bool numLock: keyboard?.numLock ?? false
-    readonly property string kbLayoutFull: keyboard?.active_keymap ?? "?"
+    readonly property string defaultKbLayout: keyboard?.layout.split(",")[0] ?? "??"
+    readonly property string kbLayoutFull: keyboard?.active_keymap ?? "Unknown"
     readonly property string kbLayout: kbMap.get(kbLayoutFull) ?? "??"
     readonly property var kbMap: new Map()
 
