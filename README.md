@@ -23,7 +23,7 @@ https://github.com/user-attachments/assets/0840f496-575c-4ca6-83a8-87bb01a85c5f
 > This repo is for the desktop shell of the caelestia dots. If you want installation instructions
 > for the entire dots, head to [the main repo](https://github.com/caelestia-dots/caelestia) instead.
 
-### Package manager
+### Arch linux
 
 > [!NOTE]
 > If you want to make your own changes/tweaks to the shell do NOT edit the files installed by the AUR
