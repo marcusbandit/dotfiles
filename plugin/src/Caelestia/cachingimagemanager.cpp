@@ -108,34 +108,35 @@ void CachingImageManager::updateSource(const QString& path) {
 
     m_shaPath = path;
 
-    QThreadPool::globalInstance()->start([path, this] {
-        const QString sha = sha256sum(path);
+    QPointer<CachingImageManager> self(this);
+    QThreadPool::globalInstance()->start([path, self] {
+        const QString sha = self->sha256sum(path);
 
-        QMetaObject::invokeMethod(this, [path, sha, this]() {
-            if (m_path != path) {
-                // Path has changed, ignore
+        QMetaObject::invokeMethod(self, [path, sha, self]() {
+            if (!self || self->m_path != path) {
+                // Object is destroyed or path has changed, ignore
                 return;
             }
 
-            int width = effectiveWidth();
-            int height = effectiveHeight();
+            int width = self->effectiveWidth();
+            int height = self->effectiveHeight();
 
-            if (!m_item || !width || !height) {
+            if (!self->m_item || !width || !height) {
                 return;
             }
 
-            const QString fillMode = m_item->property("fillMode").toString();
+            const QString fillMode = self->m_item->property("fillMode").toString();
             const QString filename = QString("%1@%2x%3-%4.png")
                 .arg(sha).arg(width).arg(height)
                 .arg(fillMode == "PreserveAspectCrop" ? "crop" : fillMode == "PreserveAspectFit" ? "fit" : "stretch");
 
-            const QUrl cache = m_cacheDir.resolved(QUrl(filename));
-            if (m_cachePath == cache) {
+            const QUrl cache = self->m_cacheDir.resolved(QUrl(filename));
+            if (self->m_cachePath == cache) {
                 return;
             }
 
-            m_cachePath = cache;
-            emit cachePathChanged();
+            self->m_cachePath = cache;
+            emit self->cachePathChanged();
 
             if (!cache.isLocalFile()) {
                 qWarning() << "CachingImageManager::updateSource: cachePath" << cache << "is not a local file";
@@ -145,15 +146,15 @@ void CachingImageManager::updateSource(const QString& path) {
             bool cacheExists = QFile::exists(cache.toLocalFile());
 
             if (cacheExists) {
-                m_item->setProperty("source", cache);
+                self->m_item->setProperty("source", cache);
             } else {
-                m_item->setProperty("source", QUrl::fromLocalFile(path));
-                createCache(path, cache.toLocalFile(), fillMode, QSize(width, height));
+                self->m_item->setProperty("source", QUrl::fromLocalFile(path));
+                self->createCache(path, cache.toLocalFile(), fillMode, QSize(width, height));
             }
 
             // Clear current running sha if same
-            if (m_shaPath == path) {
-                m_shaPath = QString();
+            if (self->m_shaPath == path) {
+                self->m_shaPath = QString();
             }
         }, Qt::QueuedConnection);
     });
