@@ -6,6 +6,8 @@
 #include <QCryptographicHash>
 #include <QThreadPool>
 #include <QFile>
+#include <QDir>
+#include <QImageReader>
 
 qreal CachingImageManager::effectiveScale() const {
     if (m_item->window()) {
@@ -99,10 +101,9 @@ void CachingImageManager::updateSource(const QString& path) {
         const QString sha = sha256sum(path);
 
         QMetaObject::invokeMethod(this, [path, sha, this]() {
-            const QString filename = QString("%1@%2x%3.png")
-                .arg(sha)
-                .arg(effectiveWidth())
-                .arg(effectiveHeight());
+            int width = effectiveWidth();
+            int height = effectiveHeight();
+            const QString filename = QString("%1@%2x%3.png").arg(sha).arg(width).arg(height);
 
             const QUrl cache = m_cacheDir.resolved(QUrl(filename));
             if (m_cachePath == cache) {
@@ -123,10 +124,8 @@ void CachingImageManager::updateSource(const QString& path) {
                 m_item->setProperty("source", cache);
             } else {
                 m_item->setProperty("source", QUrl::fromLocalFile(path));
+                createCache(path, cache.toLocalFile(), QSize(width, height));
             }
-
-            m_usingCache = cacheExists;
-            emit usingCacheChanged();
         }, Qt::QueuedConnection);
     });
 }
@@ -135,8 +134,39 @@ QUrl CachingImageManager::cachePath() const {
     return m_cachePath;
 }
 
-bool CachingImageManager::usingCache() const {
-    return m_usingCache;
+void CachingImageManager::createCache(const QString& path, const QString& cache, const QSize& size) const {
+    QThreadPool::globalInstance()->start([path, cache, size] {
+        QImageReader reader(path);
+
+        QSize imgSize = reader.size();
+        if (!imgSize.isValid()) {
+            qWarning() << "CachingImageManager::createCache: unable to get size of" << path;
+            return;
+        }
+
+        qreal scale = std::max(
+            qreal(size.width()) / imgSize.width(),
+            qreal(size.height()) / imgSize.height()
+        );
+        QSizeF scaledSize(imgSize.width() * scale, imgSize.height() * scale);
+        qreal xOff = (scaledSize.width() - size.width()) / 2.0;
+        qreal yOff = (scaledSize.height() - size.height()) / 2.0;
+
+        reader.setScaledSize(scaledSize.toSize());
+        reader.setScaledClipRect(QRectF(xOff, yOff, size.width(), size.height()).toRect());
+
+        QImage image = reader.read();
+
+        if (image.isNull()) {
+            qWarning() << "CachingImageManager::createCache: failed to read" << path;
+            return;
+        }
+
+        const QString parent = QFileInfo(cache).absolutePath();
+        if (!QDir().mkpath(parent) || !image.save(cache)) {
+            qWarning() << "CachingImageManager::createCache: failed to save to" << cache;
+        }
+    });
 }
 
 QString CachingImageManager::sha256sum(const QString& path) const {
