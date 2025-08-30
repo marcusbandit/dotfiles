@@ -29,8 +29,12 @@ https://github.com/user-attachments/assets/0840f496-575c-4ca6-83a8-87bb01a85c5f
 > If you want to make your own changes/tweaks to the shell do NOT edit the files installed by the AUR
 > package. Instead, follow the instructions in the [manual installation section](#manual-installation).
 
-The shell is available from the AUR as `caelestia-shell-git`. You can install it with an AUR helper
+The shell is available from the AUR as `caelestia-shell`. You can install it with an AUR helper
 like [`yay`](https://github.com/Jguer/yay) or manually downloading the PKGBUILD and running `makepkg -si`.
+
+A package following the latest commit also exists as `caelestia-shell-git`. This is bleeding edge
+and likely to be unstable/have bugs. Regular users are recommended to use the stable package
+(`caelestia-shell`).
 
 ### Nix
 
