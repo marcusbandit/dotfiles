@@ -55,6 +55,6 @@ private:
     [[nodiscard]] int effectiveWidth() const;
     [[nodiscard]] int effectiveHeight() const;
 
-    void createCache(const QString& path, const QString& cache, const QSize& size) const;
+    void createCache(const QString& path, const QString& cache, const QString& fillMode, const QSize& size) const;
     [[nodiscard]] QString sha256sum(const QString& path) const;
 };

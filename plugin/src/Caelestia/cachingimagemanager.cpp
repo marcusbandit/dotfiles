@@ -111,7 +111,10 @@ void CachingImageManager::updateSource(const QString& path) {
 
             int width = effectiveWidth();
             int height = effectiveHeight();
-            const QString filename = QString("%1@%2x%3.png").arg(sha).arg(width).arg(height);
+            const QString fillMode = m_item->property("fillMode").toString();
+            const QString filename = QString("%1@%2x%3-%4.png")
+                .arg(sha).arg(width).arg(height)
+                .arg(fillMode == "PreserveAspectCrop" ? "crop" : fillMode == "PreserveAspectFit" ? "fit" : "stretch");
 
             const QUrl cache = m_cacheDir.resolved(QUrl(filename));
             if (m_cachePath == cache) {
@@ -132,7 +135,7 @@ void CachingImageManager::updateSource(const QString& path) {
                 m_item->setProperty("source", cache);
             } else {
                 m_item->setProperty("source", QUrl::fromLocalFile(path));
-                createCache(path, cache.toLocalFile(), QSize(width, height));
+                createCache(path, cache.toLocalFile(), fillMode, QSize(width, height));
             }
 
             // Clear current running sha if same
@@ -147,10 +150,8 @@ QUrl CachingImageManager::cachePath() const {
     return m_cachePath;
 }
 
-void CachingImageManager::createCache(const QString& path, const QString& cache, const QSize& size) const {
-    QString fillMode = m_item->property("fillMode").toString();
-
-    QThreadPool::globalInstance()->start([fillMode, path, cache, size] {
+void CachingImageManager::createCache(const QString& path, const QString& cache, const QString& fillMode, const QSize& size) const {
+    QThreadPool::globalInstance()->start([path, cache, fillMode, size] {
         QImage image(path);
 
         if (image.isNull()) {
