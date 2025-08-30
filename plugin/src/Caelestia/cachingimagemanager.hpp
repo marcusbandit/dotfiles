@@ -40,6 +40,8 @@ signals:
     void usingCacheChanged();
 
 private:
+    QString m_shaPath;
+
     QQuickItem* m_item;
     QUrl m_cacheDir;
 

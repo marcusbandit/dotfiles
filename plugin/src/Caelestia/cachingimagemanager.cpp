@@ -7,7 +7,7 @@
 #include <QThreadPool>
 #include <QFile>
 #include <QDir>
-#include <QImageReader>
+#include <QPainter>
 
 qreal CachingImageManager::effectiveScale() const {
     if (m_item->window()) {
@@ -93,14 +93,22 @@ void CachingImageManager::updateSource() {
 }
 
 void CachingImageManager::updateSource(const QString& path) {
-    if (path.isEmpty()) {
+    if (path.isEmpty() || path == m_shaPath) {
+        // Path is empty or already calculating sha for path
         return;
     }
+
+    m_shaPath = path;
 
     QThreadPool::globalInstance()->start([path, this] {
         const QString sha = sha256sum(path);
 
         QMetaObject::invokeMethod(this, [path, sha, this]() {
+            if (m_path != path) {
+                // Path has changed, ignore
+                return;
+            }
+
             int width = effectiveWidth();
             int height = effectiveHeight();
             const QString filename = QString("%1@%2x%3.png").arg(sha).arg(width).arg(height);
@@ -126,6 +134,11 @@ void CachingImageManager::updateSource(const QString& path) {
                 m_item->setProperty("source", QUrl::fromLocalFile(path));
                 createCache(path, cache.toLocalFile(), QSize(width, height));
             }
+
+            // Clear current running sha if same
+            if (m_shaPath == path) {
+                m_shaPath = QString();
+            }
         }, Qt::QueuedConnection);
     });
 }
@@ -135,31 +148,35 @@ QUrl CachingImageManager::cachePath() const {
 }
 
 void CachingImageManager::createCache(const QString& path, const QString& cache, const QSize& size) const {
-    QThreadPool::globalInstance()->start([path, cache, size] {
-        QImageReader reader(path);
+    QString fillMode = m_item->property("fillMode").toString();
 
-        QSize imgSize = reader.size();
-        if (!imgSize.isValid()) {
-            qWarning() << "CachingImageManager::createCache: unable to get size of" << path;
-            return;
-        }
-
-        qreal scale = std::max(
-            qreal(size.width()) / imgSize.width(),
-            qreal(size.height()) / imgSize.height()
-        );
-        QSizeF scaledSize(imgSize.width() * scale, imgSize.height() * scale);
-        qreal xOff = (scaledSize.width() - size.width()) / 2.0;
-        qreal yOff = (scaledSize.height() - size.height()) / 2.0;
-
-        reader.setScaledSize(scaledSize.toSize());
-        reader.setScaledClipRect(QRectF(xOff, yOff, size.width(), size.height()).toRect());
-
-        QImage image = reader.read();
+    QThreadPool::globalInstance()->start([fillMode, path, cache, size] {
+        QImage image(path);
 
         if (image.isNull()) {
             qWarning() << "CachingImageManager::createCache: failed to read" << path;
             return;
+        }
+
+        image.convertTo(QImage::Format_ARGB32);
+
+        if (fillMode == "PreserveAspectCrop") {
+            image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+        } else if (fillMode == "PreserveAspectFit") {
+            image = image.scaled(size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        } else {
+            image = image.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        }
+
+        if (fillMode == "PreserveAspectCrop" || fillMode == "PreserveAspectFit") {
+            QImage canvas(size, QImage::Format_ARGB32);
+            canvas.fill(Qt::transparent);
+
+            QPainter painter(&canvas);
+            painter.drawImage((size.width() - image.width()) / 2, (size.height() - image.height()) / 2, image);
+            painter.end();
+
+            image = canvas;
         }
 
         const QString parent = QFileInfo(cache).absolutePath();
