@@ -10,7 +10,7 @@
 #include <QPainter>
 
 qreal CachingImageManager::effectiveScale() const {
-    if (m_item->window()) {
+    if (m_item && m_item->window()) {
         return m_item->window()->devicePixelRatio();
     }
 
@@ -18,12 +18,20 @@ qreal CachingImageManager::effectiveScale() const {
 }
 
 int CachingImageManager::effectiveWidth() const {
+    if (!m_item) {
+        return 0;
+    }
+
     int width = std::ceil(m_item->width() * effectiveScale());
     m_item->setProperty("sourceWidth", width);
     return width;
 }
 
 int CachingImageManager::effectiveHeight() const {
+    if (!m_item) {
+        return 0;
+    }
+
     int height = std::ceil(m_item->height() * effectiveScale());
     m_item->setProperty("sourceHeight", height);
     return height;
@@ -111,6 +119,11 @@ void CachingImageManager::updateSource(const QString& path) {
 
             int width = effectiveWidth();
             int height = effectiveHeight();
+
+            if (!m_item || !width || !height) {
+                return;
+            }
+
             const QString fillMode = m_item->property("fillMode").toString();
             const QString filename = QString("%1@%2x%3-%4.png")
                 .arg(sha).arg(width).arg(height)
