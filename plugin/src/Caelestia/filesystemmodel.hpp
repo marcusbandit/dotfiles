@@ -68,7 +68,9 @@ public:
         RelativeFilePathRole,
         FileNameRole,
         ParentDirRole,
-        FileSizeRole
+        FileSizeRole,
+        FileIsDirRole,
+        FileIsImageRole
     };
 
     enum Filter {

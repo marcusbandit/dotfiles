@@ -18,7 +18,7 @@ QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
         return QVariant();
     }
 
-    const FileSystemEntry* file = m_entries.at(index.row());
+    FileSystemEntry* file = m_entries.at(index.row());
     switch (role) {
     case FilePathRole:
         return file->path();
@@ -30,6 +30,10 @@ QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
         return file->parentDir();
     case FileSizeRole:
         return file->size();
+    case FileIsDirRole:
+        return file->isDir();
+    case FileIsImageRole:
+        return file->isImage();
     default:
         return QVariant();
     }
@@ -42,6 +46,8 @@ QHash<int, QByteArray> FileSystemModel::roleNames() const {
     roles[FileNameRole] = "fileName";
     roles[ParentDirRole] = "parentDir";
     roles[FileSizeRole] = "fileSize";
+    roles[FileIsDirRole] = "fileIsDir";
+    roles[FileIsImageRole] = "fileIsImage";
     return roles;
 }
 
