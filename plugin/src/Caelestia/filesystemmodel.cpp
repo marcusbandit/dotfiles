@@ -130,18 +130,16 @@ void FileSystemModel::updateWatcher() {
 
 void FileSystemModel::updateEntries() {
     if (m_path.isEmpty()) {
-        beginResetModel();
-        qDeleteAll(m_entries);
-        m_entries.clear();
-        emit entriesChanged();
-        endResetModel();
+        if (!m_entries.isEmpty()) {
+            beginResetModel();
+            qDeleteAll(m_entries);
+            m_entries.clear();
+            emit entriesChanged();
+            endResetModel();
+        }
 
         return;
     }
-
-    beginResetModel();
-    qDeleteAll(m_entries);
-    m_entries.clear();
 
     const auto flags = m_recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
 
@@ -160,17 +158,36 @@ void FileSystemModel::updateEntries() {
         iter.emplace(m_path, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
     }
 
+    QStringList newPaths;
+
     while (iter.value().hasNext()) {
-        QString entry = iter.value().next();
+        QString path = iter.value().next();
 
         if (m_filter == Images) {
-            QImageReader reader(entry);
-            if (reader.canRead()) {
-                m_entries << new FileSystemEntry(entry, m_dir.relativeFilePath(entry), this);
+            QImageReader reader(path);
+            if (!reader.canRead()) {
+                continue;
             }
-        } else {
-            m_entries << new FileSystemEntry(entry, m_dir.relativeFilePath(entry), this);
         }
+
+        newPaths << path;
+    }
+
+    QStringList oldPaths;
+    for (const auto& entry : m_entries) {
+        oldPaths << entry->path();
+    }
+
+    if (newPaths == oldPaths) {
+        return;
+    }
+
+    beginResetModel();
+    qDeleteAll(m_entries);
+    m_entries.clear();
+
+    for (const auto& path : newPaths) {
+        m_entries << new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
     }
 
     emit entriesChanged();
