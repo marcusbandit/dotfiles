@@ -19,7 +19,6 @@
   bash,
   hyprland,
   coreutils,
-  findutils,
   file,
   material-symbols,
   rubik,
@@ -56,7 +55,6 @@
       bash
       hyprland
       coreutils
-      findutils
       file
     ]
     ++ extraRuntimeDeps
