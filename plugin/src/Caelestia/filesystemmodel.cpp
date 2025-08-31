@@ -10,15 +10,15 @@
 
 int FileSystemModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
-    return m_files.size();
+    return m_entries.size();
 }
 
 QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
-    if (!index.isValid() || index.row() >= m_files.size()) {
+    if (!index.isValid() || index.row() >= m_entries.size()) {
         return QVariant();
     }
 
-    const FileSystemEntry* file = m_files.at(index.row());
+    const FileSystemEntry* file = m_entries.at(index.row());
     switch (role) {
     case FilePathRole:
         return file->path();
@@ -91,8 +91,8 @@ void FileSystemModel::setFilter(Filter filter) {
     update();
 }
 
-QList<FileSystemEntry*> FileSystemModel::files() const {
-    return m_files;
+QList<FileSystemEntry*> FileSystemModel::entries() const {
+    return m_entries;
 }
 
 void FileSystemModel::watchDirIfRecursive(const QString& path) {
@@ -106,7 +106,7 @@ void FileSystemModel::watchDirIfRecursive(const QString& path) {
 
 void FileSystemModel::update() {
     updateWatcher();
-    updateFiles();
+    updateEntries();
 }
 
 void FileSystemModel::updateWatcher() {
@@ -122,50 +122,52 @@ void FileSystemModel::updateWatcher() {
     watchDirIfRecursive(m_path);
 }
 
-void FileSystemModel::updateFiles() {
+void FileSystemModel::updateEntries() {
     if (m_path.isEmpty()) {
         beginResetModel();
-        qDeleteAll(m_files);
-        m_files.clear();
-        emit filesChanged();
+        qDeleteAll(m_entries);
+        m_entries.clear();
+        emit entriesChanged();
         endResetModel();
 
         return;
     }
 
     beginResetModel();
-    qDeleteAll(m_files);
-    m_files.clear();
+    qDeleteAll(m_entries);
+    m_entries.clear();
 
     const auto flags = m_recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
 
     std::optional<QDirIterator> iter;
 
-    if (m_filter == ImagesOnly) {
+    if (m_filter == Images) {
         QStringList filters;
         for (const auto& format : QImageReader::supportedImageFormats()) {
             filters << "*." + format;
         }
 
         iter.emplace(m_path, filters, QDir::Files, flags);
-    } else {
+    } else if (m_filter == Files) {
         iter.emplace(m_path, QDir::Files, flags);
+    } else {
+        iter.emplace(m_path, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
     }
 
     while (iter.value().hasNext()) {
-        QString file = iter.value().next();
+        QString entry = iter.value().next();
 
-        if (m_filter == ImagesOnly) {
-            QImageReader reader(file);
+        if (m_filter == Images) {
+            QImageReader reader(entry);
             if (reader.canRead()) {
-                m_files << new FileSystemEntry(file, m_dir.relativeFilePath(file), this);
+                m_entries << new FileSystemEntry(entry, m_dir.relativeFilePath(entry), this);
             }
         } else {
-            m_files << new FileSystemEntry(file, m_dir.relativeFilePath(file), this);
+            m_entries << new FileSystemEntry(entry, m_dir.relativeFilePath(entry), this);
         }
     }
 
-    emit filesChanged();
+    emit entriesChanged();
 
     endResetModel();
 }
