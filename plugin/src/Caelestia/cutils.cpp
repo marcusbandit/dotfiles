@@ -39,6 +39,11 @@ void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, Q
         return;
     }
 
+    if (!target->window()) {
+        qWarning() << "CUtils::saveItem: unable to save target" << target << "without a window";
+        return;
+    }
+
     auto scaledRect = rect;
     if (rect.isValid()) {
         qreal scale = target->window()->devicePixelRatio();
@@ -98,11 +103,11 @@ bool CUtils::copyFile(const QUrl& source, const QUrl& target, bool overwrite) co
     return QFile::copy(source.toLocalFile(), target.toLocalFile());
 }
 
-void CUtils::getDominantColour(QQuickItem* item, QJSValue callback) const {
-    this->getDominantColour(item, 128, 128, callback);
+void CUtils::getDominantColour(QQuickItem* item, QJSValue callback) {
+    this->getDominantColour(item, 128, callback);
 }
 
-void CUtils::getDominantColour(QQuickItem* item, int targetWidth, int targetHeight, QJSValue callback) const {
+void CUtils::getDominantColour(QQuickItem* item, int rescaleSize, QJSValue callback) {
     if (!item) {
         qWarning() << "CUtils::getDominantColour: an item is required";
         return;
@@ -116,64 +121,205 @@ void CUtils::getDominantColour(QQuickItem* item, int targetWidth, int targetHeig
     QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage();
 
     QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
-        [grabResult, item, targetWidth, targetHeight, callback, this]() {
+        [grabResult, rescaleSize, callback, this]() {
             QImage image = grabResult->image();
 
-            if (image.width() > targetWidth && image.height() > targetHeight) {
-                image = image.scaled(targetWidth, targetHeight);
-            } else if (image.width() > targetWidth) {
-                image = image.scaledToWidth(targetWidth);
-            } else if (image.height() > targetHeight) {
-                image = image.scaledToHeight(targetHeight);
-            }
+            QThreadPool::globalInstance()->start([grabResult, image, rescaleSize, callback, this]() {
+                QColor color = this->findDominantColour(image, rescaleSize);
 
-            if (image.format() != QImage::Format_ARGB32) {
-                image = image.convertToFormat(QImage::Format_ARGB32);
-            }
-
-            std::unordered_map<uint32_t, int> colours;
-            const uchar* data = image.bits();
-            int width = image.width();
-            int height = image.height();
-            int bytesPerLine = image.bytesPerLine();
-
-            for (int y = 0; y < height; ++y) {
-                const uchar* line = data + y * bytesPerLine;
-                for (int x = 0; x < width; ++x) {
-                    const uchar* pixel = line + x * 4;
-                    uchar r = pixel[0];
-                    uchar g = pixel[1];
-                    uchar b = pixel[2];
-                    uchar a = pixel[3];
-
-                    if (a == 0) {
-                        continue;
-                    }
-
-                    r &= 0xF8;
-                    g &= 0xF8;
-                    b &= 0xF8;
-
-                    uint32_t colour = (r << 16) | (g << 8) | b;
-                    ++colours[colour];
+                if (callback.isCallable()) {
+                    QMetaObject::invokeMethod(this, [color, callback, this]() {
+                        callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
+                    }, Qt::QueuedConnection);
                 }
-            }
-
-            uint32_t dominantColour = 0;
-            int maxCount = 0;
-            for (const auto& [colour, count] : colours) {
-                if (count > maxCount) {
-                    dominantColour = colour;
-                    maxCount = count;
-                }
-            }
-
-            const QColor colour = QColor((0xFF << 24) | dominantColour);
-            if (callback.isCallable()) {
-                QMetaObject::invokeMethod(item, [item, callback, colour, this]() {
-                    callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(colour)) });
-                }, Qt::QueuedConnection);
-            }
+            });
         }
     );
+}
+
+void CUtils::getDominantColour(const QString& path, QJSValue callback) {
+    this->getDominantColour(path, 128, callback);
+}
+
+void CUtils::getDominantColour(const QString& path, int rescaleSize, QJSValue callback) {
+    if (path.isEmpty()) {
+        qWarning() << "CUtils::getDominantColour: given path is empty";
+        return;
+    }
+
+    QThreadPool::globalInstance()->start([path, rescaleSize, callback, this]() {
+        QImage image(path);
+
+        if (image.isNull()) {
+            qWarning() << "CUtils::getDominantColour: failed to load image" << path;
+            return;
+        }
+
+        QColor color = this->findDominantColour(image, rescaleSize);
+
+        if (callback.isCallable()) {
+            QMetaObject::invokeMethod(this, [color, callback, this]() {
+                callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
+            }, Qt::QueuedConnection);
+        }
+    });
+}
+
+QColor CUtils::findDominantColour(const QImage& image, int rescaleSize) const {
+    if (image.isNull()) {
+        qWarning() << "CUtils::findDominantColour: image is null";
+        return QColor();
+    }
+
+    QImage img = image;
+
+    if (rescaleSize > 0 && (img.width() > rescaleSize || img.height() > rescaleSize)) {
+        img = img.scaled(rescaleSize, rescaleSize, Qt::KeepAspectRatio, Qt::FastTransformation);
+    }
+
+    if (img.format() != QImage::Format_ARGB32) {
+        img = img.convertToFormat(QImage::Format_ARGB32);
+    }
+
+    std::unordered_map<uint32_t, int> colours;
+    const uchar* data = img.bits();
+    int width = img.width();
+    int height = img.height();
+    int bytesPerLine = img.bytesPerLine();
+
+    for (int y = 0; y < height; ++y) {
+        const uchar* line = data + y * bytesPerLine;
+        for (int x = 0; x < width; ++x) {
+            const uchar* pixel = line + x * 4;
+
+            if (pixel[3] == 0) {
+                continue;
+            }
+
+            uchar r = pixel[0] & 0xF8;
+            uchar g = pixel[1] & 0xF8;
+            uchar b = pixel[2] & 0xF8;
+
+            uint32_t colour = (r << 16) | (g << 8) | b;
+            ++colours[colour];
+        }
+    }
+
+    uint32_t dominantColour = 0;
+    int maxCount = 0;
+    for (const auto& [colour, count] : colours) {
+        if (count > maxCount) {
+            dominantColour = colour;
+            maxCount = count;
+        }
+    }
+
+    return QColor((0xFF << 24) | dominantColour);
+}
+
+void CUtils::getAverageLuminance(QQuickItem* item, QJSValue callback) {
+    this->getAverageLuminance(item, 128, callback);
+}
+
+void CUtils::getAverageLuminance(QQuickItem* item, int rescaleSize, QJSValue callback) {
+    if (!item) {
+        qWarning() << "CUtils::getAverageLuminance: an item is required";
+        return;
+    }
+
+    if (!item->window()) {
+        // Fail silently to avoid warning
+        return;
+    }
+
+    QSharedPointer<QQuickItemGrabResult> grabResult = item->grabToImage();
+
+    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
+        [grabResult, rescaleSize, callback, this]() {
+            QImage image = grabResult->image();
+
+            QThreadPool::globalInstance()->start([grabResult, image, rescaleSize, callback, this]() {
+                qreal luminance = this->findAverageLuminance(image, rescaleSize);
+
+                if (callback.isCallable()) {
+                    QMetaObject::invokeMethod(this, [luminance, callback, this]() {
+                        callback.call({ QJSValue(luminance) });
+                    }, Qt::QueuedConnection);
+                }
+            });
+        }
+    );
+}
+
+void CUtils::getAverageLuminance(const QString& path, QJSValue callback) {
+    this->getAverageLuminance(path, 128, callback);
+}
+
+void CUtils::getAverageLuminance(const QString& path, int rescaleSize, QJSValue callback) {
+    if (path.isEmpty()) {
+        qWarning() << "CUtils::getAverageLuminance: given path is empty";
+        return;
+    }
+
+    QThreadPool::globalInstance()->start([path, rescaleSize, callback, this]() {
+        QImage image(path);
+
+        if (image.isNull()) {
+            qWarning() << "CUtils::getAverageLuminance: failed to load image" << path;
+            return;
+        }
+
+        qreal luminance = this->findAverageLuminance(image, rescaleSize);
+
+        if (callback.isCallable()) {
+            QMetaObject::invokeMethod(this, [luminance, callback, this]() {
+                callback.call({ QJSValue(luminance) });
+            }, Qt::QueuedConnection);
+        }
+    });
+}
+
+qreal CUtils::findAverageLuminance(const QImage& image, int rescaleSize) const {
+    if (image.isNull()) {
+        qWarning() << "CUtils::findAverageLuminance: image is null";
+        return 0.0;
+    }
+
+    QImage img = image;
+
+    if (rescaleSize > 0 && (img.width() > rescaleSize || img.height() > rescaleSize)) {
+        img = img.scaled(rescaleSize, rescaleSize, Qt::KeepAspectRatio, Qt::FastTransformation);
+    }
+
+    if (img.format() != QImage::Format_ARGB32) {
+        img = img.convertToFormat(QImage::Format_ARGB32);
+    }
+
+    const uchar* data = img.bits();
+    int width = img.width();
+    int height = img.height();
+    int bytesPerLine = img.bytesPerLine();
+
+    qreal totalLuminance = 0.0;
+    int count = 0;
+
+    for (int y = 0; y < height; ++y) {
+        const uchar* line = data + y * bytesPerLine;
+        for (int x = 0; x < width; ++x) {
+            const uchar* pixel = line + x * 4;
+
+            if (pixel[3] == 0) {
+                continue;
+            }
+
+            qreal r = pixel[0] / 255.0;
+            qreal g = pixel[1] / 255.0;
+            qreal b = pixel[2] / 255.0;
+
+            totalLuminance += std::sqrt(0.299 * r * r + 0.587 * g * g + 0.114 * b * b);
+            ++count;
+        }
+    }
+
+    return count == 0 ? 0.0 : totalLuminance / count;
 }
