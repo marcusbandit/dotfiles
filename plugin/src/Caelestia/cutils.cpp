@@ -1,6 +1,6 @@
 #include "cutils.hpp"
 
-#include <qobject.h>
+#include <QObject>
 #include <QtQuick/QQuickWindow>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QQuickItemGrabResult>

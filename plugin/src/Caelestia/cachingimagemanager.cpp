@@ -1,6 +1,6 @@
 #include "cachingimagemanager.hpp"
 
-#include <qobject.h>
+#include <QObject>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QQuickWindow>
 #include <QCryptographicHash>
@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QDir>
 #include <QPainter>
+#include <QImageReader>
 
 qreal CachingImageManager::effectiveScale() const {
     if (m_item && m_item->window()) {
@@ -143,9 +144,8 @@ void CachingImageManager::updateSource(const QString& path) {
                 return;
             }
 
-            bool cacheExists = QFile::exists(cache.toLocalFile());
-
-            if (cacheExists) {
+            QImageReader reader(cache.toLocalFile());
+            if (reader.canRead()) {
                 self->m_item->setProperty("source", cache);
             } else {
                 self->m_item->setProperty("source", QUrl::fromLocalFile(path));
