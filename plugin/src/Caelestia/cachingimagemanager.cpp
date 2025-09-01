@@ -18,24 +18,15 @@ qreal CachingImageManager::effectiveScale() const {
     return 1.0;
 }
 
-int CachingImageManager::effectiveWidth() const {
+QSize CachingImageManager::effectiveSize() const {
     if (!m_item) {
-        return 0;
+        return QSize();
     }
 
-    int width = static_cast<int>(std::ceil(m_item->width() * effectiveScale()));
-    m_item->setProperty("sourceWidth", width);
-    return width;
-}
-
-int CachingImageManager::effectiveHeight() const {
-    if (!m_item) {
-        return 0;
-    }
-
-    int height = static_cast<int>(std::ceil(m_item->height() * effectiveScale()));
-    m_item->setProperty("sourceHeight", height);
-    return height;
+    const qreal scale = effectiveScale();
+    const QSize size = QSizeF(m_item->width() * scale, m_item->height() * scale).toSize();
+    m_item->setProperty("sourceSize", size);
+    return size;
 }
 
 QQuickItem* CachingImageManager::item() const {
@@ -119,16 +110,15 @@ void CachingImageManager::updateSource(const QString& path) {
                 return;
             }
 
-            const int width = self->effectiveWidth();
-            const int height = self->effectiveHeight();
+            const QSize size = self->effectiveSize();
 
-            if (!self->m_item || !width || !height) {
+            if (!self->m_item || !size.width() || !size.height()) {
                 return;
             }
 
             const QString fillMode = self->m_item->property("fillMode").toString();
             const QString filename = QString("%1@%2x%3-%4.png")
-                .arg(sha).arg(width).arg(height)
+                .arg(sha).arg(size.width()).arg(size.height())
                 .arg(fillMode == "PreserveAspectCrop" ? "crop" : fillMode == "PreserveAspectFit" ? "fit" : "stretch");
 
             const QUrl cache = self->m_cacheDir.resolved(QUrl(filename));
@@ -149,7 +139,7 @@ void CachingImageManager::updateSource(const QString& path) {
                 self->m_item->setProperty("source", cache);
             } else {
                 self->m_item->setProperty("source", QUrl::fromLocalFile(path));
-                self->createCache(path, cache.toLocalFile(), fillMode, QSize(width, height));
+                self->createCache(path, cache.toLocalFile(), fillMode, size);
             }
 
             // Clear current running sha if same
