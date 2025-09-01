@@ -10,16 +10,16 @@
 
 class FileSystemEntry : public QObject {
     Q_OBJECT
-    QML_ELEMENT;
-    QML_UNCREATABLE("FileSystemEntry instances can only be retrieved from a FileSystemModel");
+    QML_ELEMENT
+    QML_UNCREATABLE("FileSystemEntry instances can only be retrieved from a FileSystemModel")
 
-    Q_PROPERTY(QString path READ path CONSTANT);
-    Q_PROPERTY(QString relativePath READ relativePath CONSTANT);
-    Q_PROPERTY(QString name READ name CONSTANT);
-    Q_PROPERTY(QString parentDir READ parentDir CONSTANT);
-    Q_PROPERTY(qint64 size READ size CONSTANT);
-    Q_PROPERTY(bool isDir READ isDir CONSTANT);
-    Q_PROPERTY(bool isImage READ isImage CONSTANT);
+    Q_PROPERTY(QString path READ path CONSTANT)
+    Q_PROPERTY(QString relativePath READ relativePath CONSTANT)
+    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(QString parentDir READ parentDir CONSTANT)
+    Q_PROPERTY(qint64 size READ size CONSTANT)
+    Q_PROPERTY(bool isDir READ isDir CONSTANT)
+    Q_PROPERTY(bool isImage READ isImage CONSTANT)
 
 public:
     explicit FileSystemEntry(const QString& path, const QString& relativePath, QObject* parent = nullptr)
@@ -53,14 +53,14 @@ private:
 };
 
 class FileSystemModel : public QAbstractListModel {
-    Q_OBJECT;
-    QML_ELEMENT;
+    Q_OBJECT
+    QML_ELEMENT
 
-    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged);
-    Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged);
-    Q_PROPERTY(Filter filter READ filter WRITE setFilter NOTIFY filterChanged);
+    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
+    Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
+    Q_PROPERTY(Filter filter READ filter WRITE setFilter NOTIFY filterChanged)
 
-    Q_PROPERTY(QList<FileSystemEntry*> entries READ entries NOTIFY entriesChanged);
+    Q_PROPERTY(QList<FileSystemEntry*> entries READ entries NOTIFY entriesChanged)
 
 public:
     enum Roles {

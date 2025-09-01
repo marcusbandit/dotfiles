@@ -5,17 +5,17 @@
 #include <QtQuick/QQuickItem>
 
 class CachingImageManager : public QObject {
-    Q_OBJECT;
-    QML_ELEMENT;
+    Q_OBJECT
+    QML_ELEMENT
 
-    Q_PROPERTY(QQuickItem* item READ item WRITE setItem NOTIFY itemChanged REQUIRED);
-    Q_PROPERTY(QUrl cacheDir READ cacheDir WRITE setCacheDir NOTIFY cacheDirChanged REQUIRED);
+    Q_PROPERTY(QQuickItem* item READ item WRITE setItem NOTIFY itemChanged REQUIRED)
+    Q_PROPERTY(QUrl cacheDir READ cacheDir WRITE setCacheDir NOTIFY cacheDirChanged REQUIRED)
 
-    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged);
-    Q_PROPERTY(QUrl cachePath READ cachePath NOTIFY cachePathChanged);
+    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
+    Q_PROPERTY(QUrl cachePath READ cachePath NOTIFY cachePathChanged)
 
 public:
-    explicit CachingImageManager(QObject* parent = nullptr): QObject(parent) {};
+    explicit CachingImageManager(QObject* parent = nullptr): QObject(parent) {}
 
     [[nodiscard]] QQuickItem* item() const;
     void setItem(QQuickItem* item);

@@ -5,9 +5,9 @@
 #include <QtQuick/QQuickItem>
 
 class CUtils : public QObject {
-    Q_OBJECT;
-    QML_ELEMENT;
-    QML_SINGLETON;
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     Q_INVOKABLE void saveItem(QQuickItem* target, const QUrl& path);

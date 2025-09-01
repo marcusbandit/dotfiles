@@ -23,7 +23,7 @@ int CachingImageManager::effectiveWidth() const {
         return 0;
     }
 
-    int width = std::ceil(m_item->width() * effectiveScale());
+    int width = static_cast<int>(std::ceil(m_item->width() * effectiveScale()));
     m_item->setProperty("sourceWidth", width);
     return width;
 }
@@ -33,7 +33,7 @@ int CachingImageManager::effectiveHeight() const {
         return 0;
     }
 
-    int height = std::ceil(m_item->height() * effectiveScale());
+    int height = static_cast<int>(std::ceil(m_item->height() * effectiveScale()));
     m_item->setProperty("sourceHeight", height);
     return height;
 }
@@ -109,7 +109,7 @@ void CachingImageManager::updateSource(const QString& path) {
 
     m_shaPath = path;
 
-    QPointer<CachingImageManager> self(this);
+    const QPointer<CachingImageManager> self(this);
     QThreadPool::globalInstance()->start([path, self] {
         const QString sha = self->sha256sum(path);
 
@@ -119,8 +119,8 @@ void CachingImageManager::updateSource(const QString& path) {
                 return;
             }
 
-            int width = self->effectiveWidth();
-            int height = self->effectiveHeight();
+            const int width = self->effectiveWidth();
+            const int height = self->effectiveHeight();
 
             if (!self->m_item || !width || !height) {
                 return;
@@ -144,7 +144,7 @@ void CachingImageManager::updateSource(const QString& path) {
                 return;
             }
 
-            QImageReader reader(cache.toLocalFile());
+            const QImageReader reader(cache.toLocalFile());
             if (reader.canRead()) {
                 self->m_item->setProperty("source", cache);
             } else {

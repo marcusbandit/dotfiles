@@ -10,7 +10,7 @@
 
 int FileSystemModel::rowCount(const QModelIndex& parent) const {
     Q_UNUSED(parent);
-    return m_entries.size();
+    return static_cast<int>(m_entries.size());
 }
 
 QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
