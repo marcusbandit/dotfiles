@@ -1,12 +1,12 @@
 #pragma once
 
+#include <QAbstractListModel>
+#include <QDir>
+#include <QFileInfo>
+#include <QFileSystemWatcher>
+#include <QImageReader>
 #include <QObject>
 #include <qqmlintegration.h>
-#include <QAbstractListModel>
-#include <QFileSystemWatcher>
-#include <QFileInfo>
-#include <QDir>
-#include <QImageReader>
 
 class FileSystemEntry : public QObject {
     Q_OBJECT
@@ -23,7 +23,10 @@ class FileSystemEntry : public QObject {
 
 public:
     explicit FileSystemEntry(const QString& path, const QString& relativePath, QObject* parent = nullptr)
-        : QObject(parent), m_fileInfo(QFileInfo(path)), m_path(path), m_relativePath(relativePath) {}
+        : QObject(parent)
+        , m_fileInfo(QFileInfo(path))
+        , m_path(path)
+        , m_relativePath(relativePath) {}
 
     QString path() const { return m_path; };
     QString relativePath() const { return m_relativePath; };
@@ -71,10 +74,12 @@ public:
     Q_ENUM(Filter)
 
     explicit FileSystemModel(QObject* parent = nullptr)
-        : QAbstractListModel(parent), m_recursive(true), m_filter(NoFilter) {
-            connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::watchDirIfRecursive);
-            connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::updateEntries);
-        }
+        : QAbstractListModel(parent)
+        , m_recursive(true)
+        , m_filter(NoFilter) {
+        connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::watchDirIfRecursive);
+        connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::updateEntries);
+    }
 
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;

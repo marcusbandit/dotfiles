@@ -1,12 +1,12 @@
 #include "filesystemmodel.hpp"
 
-#include <QObject>
-#include <qqmlintegration.h>
 #include <QAbstractListModel>
-#include <QFileInfo>
 #include <QDir>
 #include <QDirIterator>
+#include <QFileInfo>
 #include <QImageReader>
+#include <QObject>
+#include <qqmlintegration.h>
 
 int FileSystemModel::rowCount(const QModelIndex& parent) const {
     if (parent != QModelIndex()) {
@@ -23,7 +23,7 @@ QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
 }
 
 QHash<int, QByteArray> FileSystemModel::roleNames() const {
-    return {{ Qt::UserRole, "modelData"}};
+    return { { Qt::UserRole, "modelData" } };
 }
 
 QString FileSystemModel::path() const {

@@ -1,12 +1,12 @@
 #include "cutils.hpp"
 
+#include <QDir>
 #include <QObject>
-#include <QtQuick/QQuickWindow>
+#include <QQmlEngine>
+#include <QThreadPool>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QQuickItemGrabResult>
-#include <QThreadPool>
-#include <QQmlEngine>
-#include <QDir>
+#include <QtQuick/QQuickWindow>
 
 void CUtils::saveItem(QQuickItem* target, const QUrl& path) {
     this->saveItem(target, path, QRect(), QJSValue(), QJSValue());
@@ -47,7 +47,8 @@ void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, Q
     auto scaledRect = rect;
     const qreal scale = target->window()->devicePixelRatio();
     if (rect.isValid() && scale != 1.0) {
-        scaledRect = QRectF(rect.left() * scale, rect.top() * scale, rect.width() * scale, rect.height() * scale).toRect();
+        scaledRect =
+            QRectF(rect.left() * scale, rect.top() * scale, rect.width() * scale, rect.height() * scale).toRect();
     }
 
     const QSharedPointer<const QQuickItemGrabResult> grabResult = target->grabToImage();
@@ -65,21 +66,24 @@ void CUtils::saveItem(QQuickItem* target, const QUrl& path, const QRect& rect, Q
                 const QString parent = QFileInfo(file).absolutePath();
                 const bool success = QDir().mkpath(parent) && image.save(file);
 
-                QMetaObject::invokeMethod(this, [file, success, path, onSaved, onFailed, this]() {
-                    if (success) {
-                        if (onSaved.isCallable()) {
-                            onSaved.call({ QJSValue(file), qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                QMetaObject::invokeMethod(
+                    this,
+                    [file, success, path, onSaved, onFailed, this]() {
+                        if (success) {
+                            if (onSaved.isCallable()) {
+                                onSaved.call(
+                                    { QJSValue(file), qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                            }
+                        } else {
+                            qWarning() << "CUtils::saveItem: failed to save" << path;
+                            if (onFailed.isCallable()) {
+                                onFailed.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
+                            }
                         }
-                    } else {
-                        qWarning() << "CUtils::saveItem: failed to save" << path;
-                        if (onFailed.isCallable()) {
-                            onFailed.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(path)) });
-                        }
-                    }
-                }, Qt::QueuedConnection);
+                    },
+                    Qt::QueuedConnection);
             });
-        }
-    );
+        });
 }
 
 bool CUtils::copyFile(const QUrl& source, const QUrl& target) const {
@@ -120,21 +124,23 @@ void CUtils::getDominantColour(QQuickItem* item, int rescaleSize, QJSValue callb
 
     const QSharedPointer<const QQuickItemGrabResult> grabResult = item->grabToImage();
 
-    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
-        [grabResult, rescaleSize, callback, this]() {
+    QObject::connect(
+        grabResult.data(), &QQuickItemGrabResult::ready, this, [grabResult, rescaleSize, callback, this]() {
             const QImage image = grabResult->image();
 
             QThreadPool::globalInstance()->start([grabResult, image, rescaleSize, callback, this]() {
                 const QColor color = this->findDominantColour(image, rescaleSize);
 
                 if (callback.isCallable()) {
-                    QMetaObject::invokeMethod(this, [color, callback, this]() {
-                        callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
-                    }, Qt::QueuedConnection);
+                    QMetaObject::invokeMethod(
+                        this,
+                        [color, callback, this]() {
+                            callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
+                        },
+                        Qt::QueuedConnection);
                 }
             });
-        }
-    );
+        });
 }
 
 void CUtils::getDominantColour(const QString& path, QJSValue callback) {
@@ -158,9 +164,12 @@ void CUtils::getDominantColour(const QString& path, int rescaleSize, QJSValue ca
         const QColor color = this->findDominantColour(image, rescaleSize);
 
         if (callback.isCallable()) {
-            QMetaObject::invokeMethod(this, [color, callback, this]() {
-                callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
-            }, Qt::QueuedConnection);
+            QMetaObject::invokeMethod(
+                this,
+                [color, callback, this]() {
+                    callback.call({ qmlEngine(this)->toScriptValue(QVariant::fromValue(color)) });
+                },
+                Qt::QueuedConnection);
         }
     });
 }
@@ -234,21 +243,23 @@ void CUtils::getAverageLuminance(QQuickItem* item, int rescaleSize, QJSValue cal
 
     const QSharedPointer<const QQuickItemGrabResult> grabResult = item->grabToImage();
 
-    QObject::connect(grabResult.data(), &QQuickItemGrabResult::ready, this,
-        [grabResult, rescaleSize, callback, this]() {
+    QObject::connect(
+        grabResult.data(), &QQuickItemGrabResult::ready, this, [grabResult, rescaleSize, callback, this]() {
             const QImage image = grabResult->image();
 
             QThreadPool::globalInstance()->start([grabResult, image, rescaleSize, callback, this]() {
                 const qreal luminance = this->findAverageLuminance(image, rescaleSize);
 
                 if (callback.isCallable()) {
-                    QMetaObject::invokeMethod(this, [luminance, callback]() {
-                        callback.call({ QJSValue(luminance) });
-                    }, Qt::QueuedConnection);
+                    QMetaObject::invokeMethod(
+                        this,
+                        [luminance, callback]() {
+                            callback.call({ QJSValue(luminance) });
+                        },
+                        Qt::QueuedConnection);
                 }
             });
-        }
-    );
+        });
 }
 
 void CUtils::getAverageLuminance(const QString& path, QJSValue callback) {
@@ -272,9 +283,12 @@ void CUtils::getAverageLuminance(const QString& path, int rescaleSize, QJSValue 
         const qreal luminance = this->findAverageLuminance(image, rescaleSize);
 
         if (callback.isCallable()) {
-            QMetaObject::invokeMethod(this, [luminance, callback]() {
-                callback.call({ QJSValue(luminance) });
-            }, Qt::QueuedConnection);
+            QMetaObject::invokeMethod(
+                this,
+                [luminance, callback]() {
+                    callback.call({ QJSValue(luminance) });
+                },
+                Qt::QueuedConnection);
         }
     });
 }

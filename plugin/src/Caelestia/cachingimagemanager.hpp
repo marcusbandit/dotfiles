@@ -1,8 +1,8 @@
 #pragma once
 
+#include <QtQuick/QQuickItem>
 #include <qobject.h>
 #include <qqmlintegration.h>
-#include <QtQuick/QQuickItem>
 
 class CachingImageManager : public QObject {
     Q_OBJECT
@@ -15,7 +15,8 @@ class CachingImageManager : public QObject {
     Q_PROPERTY(QUrl cachePath READ cachePath NOTIFY cachePathChanged)
 
 public:
-    explicit CachingImageManager(QObject* parent = nullptr): QObject(parent) {}
+    explicit CachingImageManager(QObject* parent = nullptr)
+        : QObject(parent) {}
 
     [[nodiscard]] QQuickItem* item() const;
     void setItem(QQuickItem* item);
