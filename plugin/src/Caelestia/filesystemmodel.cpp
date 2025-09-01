@@ -9,46 +9,21 @@
 #include <QImageReader>
 
 int FileSystemModel::rowCount(const QModelIndex& parent) const {
-    Q_UNUSED(parent);
+    if (parent != QModelIndex()) {
+        return 0;
+    }
     return static_cast<int>(m_entries.size());
 }
 
 QVariant FileSystemModel::data(const QModelIndex& index, int role) const {
-    if (!index.isValid() || index.row() >= m_entries.size()) {
+    if (role != Qt::UserRole || !index.isValid() || index.row() >= m_entries.size()) {
         return QVariant();
     }
-
-    FileSystemEntry* file = m_entries.at(index.row());
-    switch (role) {
-    case FilePathRole:
-        return file->path();
-    case RelativeFilePathRole:
-        return file->relativePath();
-    case FileNameRole:
-        return file->name();
-    case ParentDirRole:
-        return file->parentDir();
-    case FileSizeRole:
-        return file->size();
-    case FileIsDirRole:
-        return file->isDir();
-    case FileIsImageRole:
-        return file->isImage();
-    default:
-        return QVariant();
-    }
+    return QVariant::fromValue(m_entries.at(index.row()));
 }
 
 QHash<int, QByteArray> FileSystemModel::roleNames() const {
-    QHash<int, QByteArray> roles;
-    roles[FilePathRole] = "filePath";
-    roles[RelativeFilePathRole] = "relativeFilePath";
-    roles[FileNameRole] = "fileName";
-    roles[ParentDirRole] = "parentDir";
-    roles[FileSizeRole] = "fileSize";
-    roles[FileIsDirRole] = "fileIsDir";
-    roles[FileIsImageRole] = "fileIsImage";
-    return roles;
+    return {{ Qt::UserRole, "modelData"}};
 }
 
 QString FileSystemModel::path() const {

@@ -63,16 +63,6 @@ class FileSystemModel : public QAbstractListModel {
     Q_PROPERTY(QList<FileSystemEntry*> entries READ entries NOTIFY entriesChanged)
 
 public:
-    enum Roles {
-        FilePathRole = Qt::UserRole + 1,
-        RelativeFilePathRole,
-        FileNameRole,
-        ParentDirRole,
-        FileSizeRole,
-        FileIsDirRole,
-        FileIsImageRole
-    };
-
     enum Filter {
         NoFilter,
         Images,
