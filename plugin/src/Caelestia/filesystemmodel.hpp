@@ -63,6 +63,7 @@ class FileSystemModel : public QAbstractListModel {
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(bool recursive READ recursive WRITE setRecursive NOTIFY recursiveChanged)
     Q_PROPERTY(bool watchChanges READ watchChanges WRITE setWatchChanges NOTIFY watchChangesChanged)
+    Q_PROPERTY(bool showHidden READ showHidden WRITE setShowHidden NOTIFY showHiddenChanged)
     Q_PROPERTY(Filter filter READ filter WRITE setFilter NOTIFY filterChanged)
 
     Q_PROPERTY(QList<FileSystemEntry*> entries READ entries NOTIFY entriesChanged)
@@ -71,7 +72,8 @@ public:
     enum Filter {
         NoFilter,
         Images,
-        Files
+        Files,
+        Dirs
     };
     Q_ENUM(Filter)
 
@@ -79,6 +81,7 @@ public:
         : QAbstractListModel(parent)
         , m_recursive(true)
         , m_watchChanges(true)
+        , m_showHidden(false)
         , m_filter(NoFilter) {
         connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::watchDirIfRecursive);
         connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::updateEntriesForDir);
@@ -97,6 +100,9 @@ public:
     bool watchChanges() const;
     void setWatchChanges(bool watchChanges);
 
+    bool showHidden() const;
+    void setShowHidden(bool showHidden);
+
     Filter filter() const;
     void setFilter(Filter filter);
 
@@ -106,6 +112,7 @@ signals:
     void pathChanged();
     void recursiveChanged();
     void watchChangesChanged();
+    void showHiddenChanged();
     void filterChanged();
     void entriesChanged();
 
@@ -121,6 +128,7 @@ private:
     QString m_path;
     bool m_recursive;
     bool m_watchChanges;
+    bool m_showHidden;
     Filter m_filter;
 
     void watchDirIfRecursive(const QString& path);
