@@ -59,6 +59,21 @@ void FileSystemModel::setRecursive(bool recursive) {
     update();
 }
 
+bool FileSystemModel::watchChanges() const {
+    return m_watchChanges;
+}
+
+void FileSystemModel::setWatchChanges(bool watchChanges) {
+    if (m_watchChanges == watchChanges) {
+        return;
+    }
+
+    m_watchChanges = watchChanges;
+    emit watchChangesChanged();
+
+    update();
+}
+
 FileSystemModel::Filter FileSystemModel::filter() const {
     return m_filter;
 }
@@ -79,7 +94,7 @@ QList<FileSystemEntry*> FileSystemModel::entries() const {
 }
 
 void FileSystemModel::watchDirIfRecursive(const QString& path) {
-    if (m_recursive) {
+    if (m_recursive && m_watchChanges) {
         const auto currentDir = m_dir;
         const auto future = QtConcurrent::run([path]() {
             QDirIterator iter(path, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
@@ -112,7 +127,7 @@ void FileSystemModel::updateWatcher() {
         m_watcher.removePaths(m_watcher.directories());
     }
 
-    if (m_path.isEmpty()) {
+    if (!m_watchChanges || m_path.isEmpty()) {
         return;
     }
 
