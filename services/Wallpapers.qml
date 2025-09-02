@@ -73,6 +73,7 @@ Searcher {
     FileSystemModel {
         id: wallpapers
 
+        recursive: true
         path: Paths.expandTilde(Paths.wallsdir)
         filter: FileSystemModel.Images
     }
