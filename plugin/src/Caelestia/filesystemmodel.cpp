@@ -133,10 +133,9 @@ void FileSystemModel::updateEntries() {
         iter.emplace(m_path, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
     }
 
-    QStringList newPaths;
-
-    while (iter.value().hasNext()) {
-        QString path = iter.value().next();
+    QSet<QString> newPaths;
+    while (iter->hasNext()) {
+        QString path = iter->next();
 
         if (m_filter == Images) {
             QImageReader reader(path);
@@ -145,25 +144,37 @@ void FileSystemModel::updateEntries() {
             }
         }
 
-        newPaths << path;
+        newPaths.insert(path);
     }
 
-    QStringList oldPaths;
+    QSet<QString> oldPaths;
     for (const auto& entry : m_entries) {
-        oldPaths << entry->path();
+        oldPaths.insert(entry->path());
     }
 
     if (newPaths == oldPaths) {
         return;
     }
 
-    beginResetModel();
-    qDeleteAll(m_entries);
-    m_entries.clear();
+    const QSet<QString> removedPaths = oldPaths - newPaths;
+    const QSet<QString> addedPaths = newPaths - oldPaths;
 
-    for (const auto& path : newPaths) {
+    beginResetModel();
+
+    const int numEntries = static_cast<int>(m_entries.size());
+    for (int i = numEntries - 1; i >= 0; --i) {
+        if (removedPaths.contains(m_entries[i]->path())) {
+            delete m_entries.takeAt(i);
+        }
+    }
+
+    for (const auto& path : addedPaths) {
         m_entries << new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
     }
+
+    std::sort(m_entries.begin(), m_entries.end(), [](const FileSystemEntry* a, const FileSystemEntry* b) {
+        return a->relativePath().localeAwareCompare(b->relativePath()) < 0;
+    });
 
     emit entriesChanged();
 
