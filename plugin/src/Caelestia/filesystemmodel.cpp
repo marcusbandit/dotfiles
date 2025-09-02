@@ -80,10 +80,25 @@ QList<FileSystemEntry*> FileSystemModel::entries() const {
 
 void FileSystemModel::watchDirIfRecursive(const QString& path) {
     if (m_recursive) {
-        QDirIterator iter(path, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-        while (iter.hasNext()) {
-            m_watcher.addPath(iter.next());
-        }
+        const auto currentDir = m_dir;
+        const auto future = QtConcurrent::run([path]() {
+            QDirIterator iter(path, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+            QStringList dirs;
+            while (iter.hasNext()) {
+                dirs << iter.next();
+            }
+            return dirs;
+        });
+        const auto watcher = new QFutureWatcher<QStringList>(this);
+        connect(watcher, &QFutureWatcher<QStringList>::finished, this, [currentDir, watcher, this]() {
+            const auto paths = watcher->result();
+            if (currentDir == m_dir && !paths.isEmpty()) {
+                // Ignore if dir has changed
+                m_watcher.addPaths(paths);
+            }
+            watcher->deleteLater();
+        });
+        watcher->setFuture(future);
     }
 }
 
@@ -188,14 +203,13 @@ void FileSystemModel::updateEntriesForDir(const QString& dir) {
 
     const auto watcher = new QFutureWatcher<QPair<QSet<QString>, QSet<QString>>>(this);
 
-    connect(watcher, &QFutureWatcher<QPair<QSet<QString>, QSet<QString>>>::finished, this, [watcher, this]() {
+    connect(watcher, &QFutureWatcher<QPair<QSet<QString>, QSet<QString>>>::finished, this, [dir, watcher, this]() {
+        m_futures.remove(dir);
+
         if (!watcher->future().isResultReadyAt(0)) {
             watcher->deleteLater();
             return;
         }
-
-        QElapsedTimer timer;
-        timer.start();
 
         const auto result = watcher->result();
         const auto removedPaths = result.first;
@@ -229,8 +243,6 @@ void FileSystemModel::updateEntriesForDir(const QString& dir) {
         endResetModel();
 
         watcher->deleteLater();
-
-        qDebug() << "Update took" << timer.elapsed() << "ms";
     });
 
     watcher->setFuture(future);
