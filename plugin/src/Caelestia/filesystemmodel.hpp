@@ -4,6 +4,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
+#include <QFuture>
 #include <QImageReader>
 #include <QObject>
 #include <qqmlintegration.h>
@@ -109,6 +110,7 @@ private:
     QDir m_dir;
     QFileSystemWatcher m_watcher;
     QList<FileSystemEntry*> m_entries;
+    QHash<QString, QFuture<QPair<QSet<QString>, QSet<QString>>>> m_futures;
 
     QString m_path;
     bool m_recursive;

@@ -4,8 +4,10 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfo>
+#include <QFutureWatcher>
 #include <QImageReader>
 #include <QObject>
+#include <QtConcurrent>
 #include <qqmlintegration.h>
 
 int FileSystemModel::rowCount(const QModelIndex& parent) const {
@@ -116,77 +118,120 @@ void FileSystemModel::updateEntries() {
         return;
     }
 
+    for (auto& future : m_futures) {
+        future.cancel();
+    }
+    m_futures.clear();
+
     updateEntriesForDir(m_path);
 }
 
 void FileSystemModel::updateEntriesForDir(const QString& dir) {
-    const auto flags = m_recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
+    const bool recursive = m_recursive;
+    const auto filter = m_filter;
+    const auto oldEntries = m_entries;
+    const auto baseDir = m_dir;
 
-    std::optional<QDirIterator> iter;
+    const auto future = QtConcurrent::run(
+        [dir, recursive, filter, oldEntries, baseDir](QPromise<QPair<QSet<QString>, QSet<QString>>>& promise) {
+            const auto flags = recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
 
-    if (m_filter == Images) {
-        QStringList filters;
-        for (const auto& format : QImageReader::supportedImageFormats()) {
-            filters << "*." + format;
+            std::optional<QDirIterator> iter;
+
+            if (filter == Images) {
+                QStringList filters;
+                for (const auto& format : QImageReader::supportedImageFormats()) {
+                    filters << "*." + format;
+                }
+
+                iter.emplace(dir, filters, QDir::Files, flags);
+            } else if (filter == Files) {
+                iter.emplace(dir, QDir::Files, flags);
+            } else {
+                iter.emplace(dir, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
+            }
+
+            QSet<QString> newPaths;
+            while (iter->hasNext()) {
+                if (promise.isCanceled()) {
+                    return;
+                }
+
+                QString path = iter->next();
+
+                if (filter == Images) {
+                    QImageReader reader(path);
+                    if (!reader.canRead()) {
+                        continue;
+                    }
+                }
+
+                newPaths.insert(path);
+            }
+
+            QSet<QString> oldPaths;
+            for (const auto& entry : oldEntries) {
+                oldPaths.insert(entry->path());
+            }
+
+            if (promise.isCanceled() || newPaths == oldPaths) {
+                return;
+            }
+
+            promise.addResult(qMakePair(oldPaths - newPaths, newPaths - oldPaths));
+        });
+
+    if (m_futures.contains(dir)) {
+        m_futures[dir].cancel();
+    }
+    m_futures.insert(dir, future);
+
+    const auto watcher = new QFutureWatcher<QPair<QSet<QString>, QSet<QString>>>(this);
+
+    connect(watcher, &QFutureWatcher<QPair<QSet<QString>, QSet<QString>>>::finished, this, [watcher, this]() {
+        if (!watcher->future().isResultReadyAt(0)) {
+            watcher->deleteLater();
+            return;
         }
 
-        iter.emplace(dir, filters, QDir::Files, flags);
-    } else if (m_filter == Files) {
-        iter.emplace(dir, QDir::Files, flags);
-    } else {
-        iter.emplace(dir, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
-    }
+        QElapsedTimer timer;
+        timer.start();
 
-    QSet<QString> newPaths;
-    while (iter->hasNext()) {
-        QString path = iter->next();
+        const auto result = watcher->result();
+        const auto removedPaths = result.first;
+        const auto addedPaths = result.second;
 
-        if (m_filter == Images) {
-            QImageReader reader(path);
-            if (!reader.canRead()) {
-                continue;
+        beginResetModel();
+
+        const int numEntries = static_cast<int>(m_entries.size());
+        for (int i = numEntries - 1; i >= 0; --i) {
+            if (removedPaths.contains(m_entries[i]->path())) {
+                emit removed(m_entries[i]->path());
+                delete m_entries.takeAt(i);
             }
         }
 
-        newPaths.insert(path);
-    }
-
-    QSet<QString> oldPaths;
-    for (const auto& entry : m_entries) {
-        oldPaths.insert(entry->path());
-    }
-
-    if (newPaths == oldPaths) {
-        return;
-    }
-
-    const QSet<QString> removedPaths = oldPaths - newPaths;
-    const QSet<QString> addedPaths = newPaths - oldPaths;
-
-    beginResetModel();
-
-    const int numEntries = static_cast<int>(m_entries.size());
-    for (int i = numEntries - 1; i >= 0; --i) {
-        if (removedPaths.contains(m_entries[i]->path())) {
-            emit removed(m_entries[i]->path());
-            delete m_entries.takeAt(i);
+        for (const auto& path : addedPaths) {
+            const auto entry = new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
+            emit added(entry);
+            m_entries << entry;
         }
-    }
 
-    for (const auto& path : addedPaths) {
-        const auto entry = new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
-        emit added(entry);
-        m_entries << entry;
-    }
+        std::sort(m_entries.begin(), m_entries.end(), [](const FileSystemEntry* a, const FileSystemEntry* b) {
+            if (a->isDir() != b->isDir()) {
+                return a->isDir();
+            }
+            return a->relativePath().localeAwareCompare(b->relativePath()) < 0;
+        });
 
-    std::sort(m_entries.begin(), m_entries.end(), [](const FileSystemEntry* a, const FileSystemEntry* b) {
-        if (a->isDir() != b->isDir()) {
-            return a->isDir();
-        }
-        return a->relativePath().localeAwareCompare(b->relativePath()) < 0;
+        emit entriesChanged();
+
+        endResetModel();
+
+        watcher->deleteLater();
+
+        qDebug() << "Update took" << timer.elapsed() << "ms";
     });
 
-    emit entriesChanged();
-
-    endResetModel();
+    watcher->setFuture(future);
 }
