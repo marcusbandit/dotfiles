@@ -173,6 +173,9 @@ void FileSystemModel::updateEntries() {
     }
 
     std::sort(m_entries.begin(), m_entries.end(), [](const FileSystemEntry* a, const FileSystemEntry* b) {
+        if (a->isDir() != b->isDir()) {
+            return a->isDir();
+        }
         return a->relativePath().localeAwareCompare(b->relativePath()) < 0;
     });
 
