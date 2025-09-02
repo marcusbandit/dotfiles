@@ -179,12 +179,37 @@ Item {
             }
         }
 
-        populate: Transition {
+        add: Transition {
+            Anim {
+                properties: "opacity,scale"
+                from: 0
+                to: 1
+                duration: Appearance.anim.durations.expressiveDefaultSpatial
+                easing.bezierCurve: Appearance.anim.curves.expressiveDefaultSpatial
+            }
+        }
+
+        remove: Transition {
+            Anim {
+                property: "opacity"
+                to: 0
+            }
             Anim {
                 property: "scale"
-                from: 0.7
+                to: 0.5
+            }
+        }
+
+        displaced: Transition {
+            Anim {
+                properties: "opacity,scale"
                 to: 1
                 easing.bezierCurve: Appearance.anim.curves.standardDecel
+            }
+            Anim {
+                properties: "x,y"
+                duration: Appearance.anim.durations.expressiveDefaultSpatial
+                easing.bezierCurve: Appearance.anim.curves.expressiveDefaultSpatial
             }
         }
     }
