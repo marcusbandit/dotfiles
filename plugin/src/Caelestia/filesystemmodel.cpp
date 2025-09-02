@@ -116,6 +116,10 @@ void FileSystemModel::updateEntries() {
         return;
     }
 
+    updateEntriesForDir(m_path);
+}
+
+void FileSystemModel::updateEntriesForDir(const QString& dir) {
     const auto flags = m_recursive ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
 
     std::optional<QDirIterator> iter;
@@ -126,11 +130,11 @@ void FileSystemModel::updateEntries() {
             filters << "*." + format;
         }
 
-        iter.emplace(m_path, filters, QDir::Files, flags);
+        iter.emplace(dir, filters, QDir::Files, flags);
     } else if (m_filter == Files) {
-        iter.emplace(m_path, QDir::Files, flags);
+        iter.emplace(dir, QDir::Files, flags);
     } else {
-        iter.emplace(m_path, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
+        iter.emplace(dir, QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, flags);
     }
 
     QSet<QString> newPaths;
@@ -164,12 +168,15 @@ void FileSystemModel::updateEntries() {
     const int numEntries = static_cast<int>(m_entries.size());
     for (int i = numEntries - 1; i >= 0; --i) {
         if (removedPaths.contains(m_entries[i]->path())) {
+            emit removed(m_entries[i]->path());
             delete m_entries.takeAt(i);
         }
     }
 
     for (const auto& path : addedPaths) {
-        m_entries << new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
+        const auto entry = new FileSystemEntry(path, m_dir.relativeFilePath(path), this);
+        emit added(entry);
+        m_entries << entry;
     }
 
     std::sort(m_entries.begin(), m_entries.end(), [](const FileSystemEntry* a, const FileSystemEntry* b) {

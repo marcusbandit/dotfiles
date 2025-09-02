@@ -78,7 +78,7 @@ public:
         , m_recursive(true)
         , m_filter(NoFilter) {
         connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::watchDirIfRecursive);
-        connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::updateEntries);
+        connect(&m_watcher, &QFileSystemWatcher::directoryChanged, this, &FileSystemModel::updateEntriesForDir);
     }
 
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
@@ -102,6 +102,9 @@ signals:
     void filterChanged();
     void entriesChanged();
 
+    void added(const FileSystemEntry* entry);
+    void removed(const QString& path);
+
 private:
     QDir m_dir;
     QFileSystemWatcher m_watcher;
@@ -115,4 +118,5 @@ private:
     void update();
     void updateWatcher();
     void updateEntries();
+    void updateEntriesForDir(const QString& dir);
 };
