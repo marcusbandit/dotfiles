@@ -1,0 +1,99 @@
+[
+  {
+    "output": "DP-3",
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 2,
+    "reload_style_on_change": true,
+    "include": [
+      "~/.config/waybar/config_modules.jsonc"
+    ],
+    "modules-left": [
+      "custom/power",
+            "custom/window_title_center",
+            "mpris"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            "temperature",
+            "battery",
+            "clock"
+        ]
+    },
+    {
+        "output": "HDMI-A-1",
+        "margin-top": 10,
+        "margin-left": 10,
+        "margin-right": 10,
+        "spacing": 2,
+        "reload_style_on_change": true,
+        "include": [
+            "~/.config/waybar/config_modules.jsonc"
+        ],
+        "modules-left": [
+            "custom/power",
+            "custom/window_title_left"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "battery",
+            "clock"
+        ]
+    },
+    {
+        "output": "DP-1",
+        "margin-top": 10,
+        "margin-left": 10,
+        "margin-right": 10,
+        "spacing": 2,
+        "reload_style_on_change": true,
+        "include": [
+            "~/.config/waybar/config_modules.jsonc"
+        ],
+        "modules-left": [
+            "custom/power",
+            "custom/window_title_right"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "battery",
+            "clock"
+        ]
+    },
+    {
+        "output": "eDP-1",
+        "margin-top": 10,
+        "margin-left": 10,
+        "margin-right": 10,
+        "spacing": 2,
+        "reload_style_on_change": true,
+        "include": [
+            "~/.config/waybar/config_modules.jsonc"
+        ],
+        "modules-left": [
+            "custom/power",
+            "custom/window_title_laptop"
+        ],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            "battery",
+            "clock"
+        ]
+    }
+]
+

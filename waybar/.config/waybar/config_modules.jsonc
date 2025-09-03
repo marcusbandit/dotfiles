@@ -1,0 +1,136 @@
+{
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 35,
+        "rewrite": {
+            "~": "  Home",
+            "~/": "  Home",
+            "~/Projects": "  Projects",
+            "~/projects": "  Projects",
+            "~/Downloads": "  Downloads",
+            "~/Documents": "  Documents",
+            "~/Music": "  Music",
+            "~/Pictures": "  Pictures",
+            "~/Videos": "  Videos",
+            "~/Desktop": "  Desktop",
+            "~/config": "  Config",
+            "~/.config": "  Config",
+            "/": "  Root",
+            "/etc": "  /etc",
+            "/usr": "  /usr",
+            "/var": "  /var",
+            "/tmp": "  /tmp",
+            "nvim": "  Neovim",
+            "vim": "  Vim",
+            "htop": "Htop",
+            "btop": "Btop",
+            "hyprconfig ": " Hyprland Config",
+            "": "Desktop"
+        },
+        "separate-outputs": true
+    },
+    "custom/window_title_left": {
+        "exec": "~/.config/waybar/custom_modules/window_title.py HDMI-A-1",
+        "interval": 1,
+        "format": "{}"
+    },
+    "custom/window_title_center": {
+        "exec": "~/.config/waybar/custom_modules/window_title.py DP-3",
+        "interval": 1,
+        "format": "{}"
+    },
+    "custom/window_title_right": {
+        "exec": "~/.config/waybar/custom_modules/window_title.py DP-1",
+        "interval": 1,
+        "format": "{}"
+    },
+    "custom/window_title_laptop": {
+        "exec": "~/.config/waybar/custom_modules/window_title.py eDP-1",
+        "interval": 1,
+        "format": "{}"
+    },
+    "mpris": {
+        "format": "{player_icon} {status_icon} {artist} - {title}",
+        "player-icons": {
+            "default": ""
+        },
+        "status-icons": {
+            "Playing": "",
+            "Paused": "",
+            "Stopped": ""
+        },
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "",
+            "visible": "",
+            "urgent": "",
+            "default": ""
+        },
+        "sort-by-number": true
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "warning-threshold": 70,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "battery": {
+        "interval": 2,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-alt": "{time} {icon} ",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "Health: {health}%\nCycles: {cycles}\n{time} left"
+    },
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "{gwaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": " ⚠ ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "scroll-step": 5,
+        "slider": true
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu"
+    }
+}
+
