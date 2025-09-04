@@ -1,4 +1,4 @@
-@import "macchiato.css";
+@import "bandit.css";
 
 * {
   font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
@@ -7,7 +7,7 @@
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
-  border-radius: 50px;
+  border-radius: 10px;
   transition-property: background-color;
   transition-duration: .3s;
 }
@@ -15,16 +15,17 @@ window#waybar {
 .module {
     background-color: @base;
     padding: 0 10px;
-    border-radius: 50px;
+    border-radius: 10px;
     margin: 0 10px;
     transition: all 0.3s ease;
+    border: 2px solid @border;
 }
 
 button {
   /* Use box-shadow instead of border so the text isn't offset */
   /* Avoid rounded borders under each button name */
   border: none;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 button:hover {
@@ -41,44 +42,48 @@ button:hover {
     padding: 0; 
 }
 
-#workspaces button:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-
 #workspaces button > * {
-    background-color: @surface0;
+    background-color: @button;
     min-width: 30px;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 0;
     margin: 5px;
     transition: all 0.3s ease;
 }
 
 #workspaces button.visible > * {
-    background-color: @rosewater;
+    background-color: @visible;
     min-width: 45px;
 }
 
 #workspaces button:hover > * {
-    background-color: @flamingo;
+    background-color: @hover;
     min-width: 35px;
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
 #workspaces button.active > * {
-    background-color: @peach;
+    background-color: @active;
     min-width: 60px;
 }
 
 #workspaces button.urgent > * {
-    background-color: #eb4d4b;
+    background-color: @urgent;
+}
+
+#workspaces button:hover.active > * {
+    background-color: @hover;
+    min-width: 65px;
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
 
 
-
 #pulseaudio:hover {
-    background-color: @surface0;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 5px;
 }
 
 #mode {
@@ -87,12 +92,17 @@ button:hover {
 }
 
 #pulseaudio {
-    color: @maroon;
+    color: @audio;
 }
 
 #network {
-    color: @yellow;
-    transition: all 0.3s ease;
+    color: @wifi;
+    min-width: 10px;
+    transition: all 300ms;
+}
+
+#network:hover {
+    min-width: 220px;
 }
 
 #temperature {
@@ -100,21 +110,21 @@ button:hover {
 }
 
 #battery {
-    color: @green;
+    color: @battery;
 }
 
 #clock {
-    color: @flamingo;
+    color: @clock;
 }
 
 #window {
-    color: @rosewater;
+    color: @active_window;
 }
 
 #custom-power {
     color: @base;
     min-width: 12px;
-    border-radius: 50px;
+    border-radius: 10px;
     transition: all 0.3s ease;
 }
 
@@ -129,12 +139,12 @@ button:hover {
 .modules-left,
 .modules-center {
     background-color: rgba(0, 0, 0, 0);
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @sapphire;
+    color: @battery;
 }
 
 @keyframes blink {

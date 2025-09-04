@@ -1,0 +1,18 @@
+
+/* General */
+@define-color border #DFAFED;
+@define-color base #24273A;
+
+/* Workspaces */
+@define-color button #363A4F; 
+@define-color visible #DFAFEE; 
+@define-color hover #F1BAE7; 
+@define-color active #C7A0F6; 
+@define-color urgent #9A2A2A;
+
+/* Modules */
+@define-color clock #FCA7EA;
+@define-color battery #A6E3A1;
+@define-color wifi #F9E2AF;
+@define-color audio #EE99A0;
+@define-color active_window #8AADF4;
