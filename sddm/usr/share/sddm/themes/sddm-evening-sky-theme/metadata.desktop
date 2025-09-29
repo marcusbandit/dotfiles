@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Evening Sky
+Description=Evening Sky
+Author=keyitdev
+Website=https://github.com/Keyitdev/sddm-astronaut-theme
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1.3
+ConfigFile=Themes/evening_sky_left.conf
+Screenshot=Previews/astronaut.png
+MainScript=Main.qml
+TranslationsDirectory=translations
+Theme-Id=sddm-evening-sky-theme
+Theme-API=2.0
+QtVersion=6
