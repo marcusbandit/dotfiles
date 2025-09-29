@@ -3,6 +3,59 @@
 # Arch deps: sudo pacman -S python-gobject python-cairo gtk3 gtk-layer-shell
 
 import os
+import sys
+import atexit
+import signal
+
+sys.argv[0] = (
+    "roundmask"  # Trick process listings (e.g., htop/btop) to show "roundmask" instead of "python"
+)
+
+# Singleton enforcement: close any existing instance before starting
+LOCKFILE = "/tmp/roundmask.pid"
+
+
+def cleanup_lockfile():
+    if os.path.exists(LOCKFILE):
+        try:
+            os.unlink(LOCKFILE)
+        except OSError:
+            pass
+
+
+def kill_existing_instance():
+    if os.path.exists(LOCKFILE):
+        with open(LOCKFILE, "r") as f:
+            try:
+                old_pid = int(f.read().strip())
+                if old_pid > 0:
+                    try:
+                        os.kill(old_pid, signal.SIGTERM)
+                        # Give a moment for graceful shutdown
+                        import time
+
+                        time.sleep(0.5)
+                    except OSError:
+                        pass  # Process might already be dead
+            except ValueError:
+                pass  # Invalid PID, ignore
+        # Remove the old lockfile
+        try:
+            os.unlink(LOCKFILE)
+        except OSError:
+            pass
+
+
+# Kill any existing instance
+kill_existing_instance()
+
+# Create new lockfile with current PID
+with open(LOCKFILE, "w") as f:
+    f.write(str(os.getpid()))
+
+# Register cleanup on exit
+atexit.register(cleanup_lockfile)
+
 import gi
 
 gi.require_version("Gtk", "3.0")
@@ -10,10 +63,10 @@ gi.require_version("Gdk", "3.0")
 gi.require_version("GtkLayerShell", "0.1")
 from gi.repository import Gtk, Gdk, GtkLayerShell
 
-RADIUS = 20                   # arc radius
-BOX = RADIUS                  # window size per corner (exactly radius)
+RADIUS = 20  # arc radius
+BOX = RADIUS  # window size per corner (exactly radius)
 COLOR = (0.0, 0.0, 0.0, 1.0)  # RGBA
-APP_ID = "roundquarter-min"
+APP_ID = "roundmask"
 
 PI = 3.141592653589793
 TWO_PI = 2.0 * PI
@@ -38,16 +91,16 @@ class QuarterArea(Gtk.DrawingArea):
 
         if self.corner == "tl":
             cx, cy = r, r
-            a0, a1 = PI, 1.5 * PI            # 180° -> 270°
+            a0, a1 = PI, 1.5 * PI  # 180° -> 270°
         elif self.corner == "tr":
             cx, cy = BOX - r, r
-            a0, a1 = 1.5 * PI, TWO_PI        # 270° -> 360°
+            a0, a1 = 1.5 * PI, TWO_PI  # 270° -> 360°
         elif self.corner == "br":
             cx, cy = BOX - r, BOX - r
-            a0, a1 = 0.0, 0.5 * PI           # 0° -> 90°
+            a0, a1 = 0.0, 0.5 * PI  # 0° -> 90°
         else:  # "bl"
             cx, cy = r, BOX - r
-            a0, a1 = 0.5 * PI, PI            # 90° -> 180°
+            a0, a1 = 0.5 * PI, PI  # 90° -> 180°
 
         cr.move_to(cx, cy)
         cr.arc(cx, cy, r, a0, a1)
@@ -118,6 +171,7 @@ class App:
             print("Needs Wayland.")
             raise SystemExit(1)
 
+        os.environ["GDK_APP_ID"] = "roundmask"
         display = Gdk.Display.get_default()
         n = display.get_n_monitors()
         if n <= 0:
