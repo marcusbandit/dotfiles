@@ -18,8 +18,8 @@ export PATH="/usr/lib/zen-browser/zen:$PATH"
 
 # === CONDA / MINIFORGE ===
 # Always put this LAST to avoid overriding system binaries like `clear`
-export PATH="$PATH:$HOME/miniforge/bin"
-export PATH="$PATH:$HOME/miniforge/condabin"
+#export PATH="$PATH:$HOME/miniforge/bin"
+#export PATH="$PATH:$HOME/miniforge/condabin"
 
 # === AUTO DEDUPLICATE PATH ===
 # This removes any duplicate entries from $PATH

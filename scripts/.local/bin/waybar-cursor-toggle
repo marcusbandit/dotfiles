@@ -1,0 +1,130 @@
+#!/bin/bash
+
+# Exact Top Screen Notification Script
+# Sends a notification when cursor reaches Y=0 (absolute top of screen)
+
+# Configuration
+NOTIFICATION_TITLE="Waybar Control"
+NOTIFICATION_MESSAGE="Waybar toggled!"
+COOLDOWN=1  # Cooldown between notifications in seconds
+WAYBAR_KILL_DISTANCE=80  # Distance from top to kill waybar
+
+# Function to send notification
+send_notification() {
+    notify-send "$NOTIFICATION_TITLE" "$NOTIFICATION_MESSAGE" -t 1000
+}
+
+# Function to check if waybar is running
+is_waybar_running() {
+    pgrep -x waybar > /dev/null
+}
+
+# Function to start waybar with gaps
+start_waybar() {
+    if ! is_waybar_running; then
+        hyprctl keyword general:gaps_out 56, 10, 10, 10
+        nohup waybar >/dev/null 2>&1 &
+    fi
+}
+
+# Function to stop waybar with gaps
+stop_waybar() {
+    if is_waybar_running; then
+        hyprctl keyword general:gaps_out 10, 10, 10, 10
+        pkill -x waybar
+    fi
+}
+
+# Function to monitor cursor position
+monitor_cursor() {
+    local last_notification=0
+    local was_at_top=false
+    
+    echo "Starting waybar control monitor..."
+    echo "Will start waybar when cursor is at top (Y<=5)"
+    echo "Will kill waybar when cursor is ${WAYBAR_KILL_DISTANCE}px from top"
+    echo "Press Ctrl+C to stop"
+    echo ""
+    
+    while true; do
+        # Get mouse position using hyprctl
+        local mouse_pos=$(hyprctl cursorpos 2>/dev/null)
+        if [[ $? -eq 0 ]]; then
+            local mouse_x=$(echo "$mouse_pos" | cut -d, -f1)
+            local mouse_y=$(echo "$mouse_pos" | cut -d, -f2 | tr -d ' ')
+            
+            # Get monitor-relative position
+            local monitor_info=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | "\(.x),\(.y),\(.width),\(.height)"' 2>/dev/null)
+            if [[ -n "$monitor_info" ]]; then
+                local monitor_x=$(echo "$monitor_info" | cut -d, -f1)
+                local monitor_y=$(echo "$monitor_info" | cut -d, -f2)
+                local monitor_w=$(echo "$monitor_info" | cut -d, -f3)
+                local monitor_h=$(echo "$monitor_info" | cut -d, -f4)
+                
+                local rel_x=$((mouse_x - monitor_x))
+                local rel_y=$((mouse_y - monitor_y))
+                
+                # Show live position
+                printf "\rGlobal: X=%s Y=%s | Monitor: X=%s Y=%s" "$mouse_x" "$mouse_y" "$rel_x" "$rel_y"
+                
+                # Check if mouse is at the top of the current monitor (relative Y <= 5)
+                if [[ $rel_y -le 5 ]]; then
+                    if [[ "$was_at_top" == false ]]; then
+                        # Just reached the top - start waybar
+                        local current_time=$(date +%s)
+                        local time_since_last=$((current_time - last_notification))
+                        
+                        if [[ $time_since_last -ge $COOLDOWN ]]; then
+                            start_waybar
+                            last_notification=$current_time
+                            echo ""
+                            echo "*** WAYBAR STARTED - cursor at monitor top (Y<=5) ***"
+                        fi
+                    fi
+                    was_at_top=true
+                elif [[ $rel_y -ge $WAYBAR_KILL_DISTANCE ]]; then
+                # Mouse is far enough from top - stop waybar (only if it's running)
+                if is_waybar_running; then
+                    local current_time=$(date +%s)
+                    local time_since_last=$((current_time - last_notification))
+                    
+                    if [[ $time_since_last -ge $COOLDOWN ]]; then
+                        stop_waybar
+                        last_notification=$current_time
+                        echo ""
+                        echo "*** WAYBAR STOPPED - cursor ${rel_y}px from top ***"
+                    fi
+                fi
+                was_at_top=false
+                else
+                was_at_top=false
+                fi
+            fi
+        fi
+        
+        # Small delay
+        sleep 0.05  # More frequent checking for precise detection
+    done
+}
+
+# Handle script termination
+cleanup() {
+    echo -e "\nStopping waybar control monitor..."
+    exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Check dependencies
+if ! command -v hyprctl &> /dev/null; then
+    echo "Error: hyprctl is not installed. Please install it first."
+    exit 1
+fi
+
+if ! command -v notify-send &> /dev/null; then
+    echo "Error: notify-send is not installed. Please install it first."
+    exit 1
+fi
+
+# Start monitoring
+monitor_cursor

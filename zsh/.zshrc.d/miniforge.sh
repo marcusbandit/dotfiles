@@ -1,4 +1,4 @@
-eval "$($HOME/miniforge/bin/conda shell.bash hook)"
+#eval "$($HOME/miniforge/bin/conda shell.bash hook)"
 
 # mamba
-eval "$(mamba shell hook --shell bash)"
+#eval "$(mamba shell hook --shell bash)"

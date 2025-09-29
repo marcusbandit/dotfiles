@@ -1,0 +1,328 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import os
+import sys
+from typing import List, Dict, Any, Optional
+
+import requests
+from rich.console import Console
+from rich.markdown import Markdown
+from rich.live import Live
+from rich.panel import Panel
+from rich.prompt import Prompt
+from rich.rule import Rule
+
+DEFAULT_OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+
+console = Console()
+
+def post_stream(url: str, payload: Dict[str, Any]):
+    try:
+        with requests.post(url, json=payload, stream=True, timeout=60) as resp:
+            resp.raise_for_status()
+            for raw_line in resp.iter_lines(decode_unicode=True):
+                if not raw_line:
+                    continue
+                try:
+                    data = json.loads(raw_line)
+                except json.JSONDecodeError:
+                    # Some versions may prefix with 'data: ' in SSE style
+                    if raw_line.startswith("data: "):
+                        try:
+                            data = json.loads(raw_line[6:])
+                        except Exception:
+                            continue
+                    else:
+                        continue
+                yield data
+    except requests.RequestException as e:
+        raise SystemExit(f"[HTTP] {e}")
+
+
+def stream_chat(model: str, messages: List[Dict[str, str]], host: str, options: Optional[Dict[str, Any]] = None) -> str:
+    url = f"{host.rstrip('/')}/api/chat"
+    payload: Dict[str, Any] = {
+        "model": model,
+        "messages": messages,
+        "stream": True,
+    }
+    if options:
+        payload["options"] = options
+
+    assistant_text = ""
+
+    with Live(Panel(Markdown(assistant_text or ""), title=f"{model}", border_style="cyan"), refresh_per_second=24, console=console) as live:
+        for chunk in post_stream(url, payload):
+            if chunk.get("done"):
+                break
+            message = chunk.get("message") or {}
+            content_piece = message.get("content", "")
+            if content_piece:
+                assistant_text += content_piece
+                live.update(Panel(Markdown(assistant_text), title=f"{model}", border_style="cyan"))
+
+    return assistant_text
+
+
+def interactive_chat(model: str, host: str, system_prompt: Optional[str], options: Optional[Dict[str, Any]] = None) -> None:
+    console.print(Rule(f"ollama-tui :: {model}", style="cyan"))
+    console.print("Type your message and press Enter. Use Ctrl+C or type 'exit' to quit.\n")
+
+    messages: List[Dict[str, str]] = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+
+    while True:
+        try:
+            user_input = Prompt.ask("[bold green]You[/bold green]")
+        except (EOFError, KeyboardInterrupt):
+            console.print("\nBye!")
+            return
+
+        if not user_input.strip():
+            continue
+        if user_input.strip().lower() in {"exit", ":q", "quit"}:
+            console.print("Bye!")
+            return
+
+        messages.append({"role": "user", "content": user_input})
+        console.print("\n[bold blue]Assistant[/bold blue]\n")
+        assistant_text = stream_chat(model, messages, host, options)
+        messages.append({"role": "assistant", "content": assistant_text})
+        console.print()  # spacing
+
+
+def one_shot(model: str, host: str, prompt_text: str, system_prompt: Optional[str], options: Optional[Dict[str, Any]] = None) -> int:
+    messages: List[Dict[str, str]] = []
+    if system_prompt:
+        messages.append({"role": "system", "content": system_prompt})
+    messages.append({"role": "user", "content": prompt_text})
+
+    assistant_text = stream_chat(model, messages, host, options)
+    # After streaming, print a newline to ensure prompt returns cleanly
+    console.print()
+    # Return 0 if non-empty, else non-zero
+    return 0 if assistant_text.strip() else 1
+
+
+def parse_kv_list(items: List[str]) -> Dict[str, Any]:
+    options: Dict[str, Any] = {}
+    for item in items:
+        if "=" not in item:
+            continue
+        key, value = item.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        # Try to interpret booleans and numbers
+        if value.lower() in {"true", "false"}:
+            options[key] = value.lower() == "true"
+        else:
+            try:
+                if "." in value:
+                    options[key] = float(value)
+                else:
+                    options[key] = int(value)
+            except ValueError:
+                options[key] = value
+    return options
+
+
+def launch_tui(model: str, host: str, system: Optional[str], options: Optional[Dict[str, Any]]):
+    """Launch the full-screen Textual TUI. Imports are local to keep optional deps."""
+    import asyncio
+    import json as _json
+    from dataclasses import dataclass
+    from typing import Any as _Any, Dict as _Dict, List as _List, Optional as _Optional
+
+    import httpx
+    from rich.markdown import Markdown as _Markdown
+    from rich.panel import Panel as _Panel
+    from textual.app import App as _App, ComposeResult as _ComposeResult
+    from textual.binding import Binding as _Binding
+    from textual.containers import Vertical as _Vertical, VerticalScroll as _VerticalScroll
+    from textual.widgets import Footer as _Footer, Header as _Header, Input as _Input, Static as _Static
+    from textual.widgets._header import HeaderTitle as _HeaderTitle
+
+    @dataclass
+    class _ChatMessage:
+        role: str
+        content: str
+
+    class _MarkdownView(_Static):
+        from textual.reactive import reactive as _reactive
+        content_text = _reactive("")
+
+        def render(self):
+            return _Panel(_Markdown(self.content_text or ""), title="Assistant", border_style="cyan")
+
+    class _ChatHistory(_VerticalScroll):
+        def append_message(self, role: str, content: str) -> None:
+            title = "You" if role == "user" else ("Assistant" if role == "assistant" else role.title())
+            self.mount(_Static(_Panel(_Markdown(content), title=title, border_style=("green" if role == "user" else "cyan"))))
+            self.call_after_refresh(self.scroll_end)
+
+    class _OllamaClient:
+        def __init__(self, _host: str) -> None:
+            self.host = _host.rstrip("/")
+            self.client = httpx.AsyncClient(timeout=httpx.Timeout(60.0, read=60.0))
+
+        async def stream_chat(self, _model: str, _messages: _List[_Dict[str, str]], _options: _Optional[_Dict[str, _Any]] = None):
+            url = f"{self.host}/api/chat"
+            payload: _Dict[str, _Any] = {"model": _model, "messages": _messages, "stream": True}
+            if _options:
+                payload["options"] = _options
+            async with self.client.stream("POST", url, json=payload) as resp:
+                resp.raise_for_status()
+                async for line in resp.aiter_lines():
+                    if not line:
+                        continue
+                    try:
+                        data = _json.loads(line)
+                    except _json.JSONDecodeError:
+                        if line.startswith("data: "):
+                            try:
+                                data = _json.loads(line[6:])
+                            except Exception:
+                                continue
+                        else:
+                            continue
+                    yield data
+
+        async def aclose(self):
+            await self.client.aclose()
+
+    class _OllamaTUI(_App):
+        CSS_PATH = None
+        BINDINGS = [
+            _Binding("ctrl+c", "cancel_or_quit", "Cancel/Quit", show=True),
+            _Binding("ctrl+u", "clear_input", "Clear Input", show=True),
+        ]
+
+        def __init__(self, _model: str, _host: str, _system_prompt: _Optional[str], _options: _Optional[_Dict[str, _Any]]):
+            super().__init__()
+            self.model = _model
+            self.host = _host
+            self.system_prompt = _system_prompt
+            self.options = _options or {}
+            self.client = _OllamaClient(_host)
+            self.messages: _List[_Dict[str, str]] = []
+            if self.system_prompt:
+                self.messages.append({"role": "system", "content": self.system_prompt})
+            self.streaming_task: _Optional[asyncio.Task] = None
+            self.partial_assistant = ""
+
+        def compose(self) -> _ComposeResult:
+            yield _Header(show_clock=False)
+            with _Vertical():
+                self.history = _ChatHistory(id="history")
+                self.live_view = _MarkdownView(id="live")
+                yield self.history
+                yield self.live_view
+            yield _Input(placeholder="Type a message and press Enter...", id="input")
+            yield _Footer()
+
+        async def on_mount(self) -> None:
+            self.query_one(_HeaderTitle).title = f"ollama-tui :: {self.model}"
+            await self.query_one("#input", _Input).focus()
+
+        async def action_clear_input(self) -> None:
+            inp = self.query_one("#input", _Input)
+            inp.value = ""
+
+        async def action_cancel_or_quit(self) -> None:
+            if self.streaming_task and not self.streaming_task.done():
+                self.streaming_task.cancel()
+                if self.partial_assistant:
+                    self.messages.append({"role": "assistant", "content": self.partial_assistant})
+                    self.history.append_message("assistant", self.partial_assistant)
+                    self.partial_assistant = ""
+                self.live_view.content_text = ""
+                return
+            await self.client.aclose()
+            await self.shutdown()
+
+        async def on_input_submitted(self, event: _Input.Submitted) -> None:
+            text = event.value.strip()
+            if not text:
+                return
+            event.input.value = ""
+            self.messages.append({"role": "user", "content": text})
+            self.history.append_message("user", text)
+            await self.start_stream()
+
+        async def start_stream(self) -> None:
+            if self.streaming_task and not self.streaming_task.done():
+                return
+            self.partial_assistant = ""
+            self.live_view.content_text = ""
+            self.streaming_task = asyncio.create_task(self._run_stream())
+
+        async def _run_stream(self) -> None:
+            try:
+                async for chunk in self.client.stream_chat(self.model, self.messages, self.options):
+                    if chunk.get("done"):
+                        break
+                    message = chunk.get("message") or {}
+                    delta = message.get("content", "")
+                    if not delta:
+                        continue
+                    self.partial_assistant += delta
+                    self.live_view.content_text = self.partial_assistant
+                if self.partial_assistant:
+                    self.messages.append({"role": "assistant", "content": self.partial_assistant})
+                    self.history.append_message("assistant", self.partial_assistant)
+                    self.partial_assistant = ""
+                    self.live_view.content_text = ""
+            except asyncio.CancelledError:
+                pass
+            except httpx.HTTPError as e:
+                self.live_view.content_text = f"**HTTP error:** {e}"
+            except Exception as e:
+                self.live_view.content_text = f"**Error:** {e}"
+
+    async def _run_tui_async(_model: str, _host: str, _system: _Optional[str], _options: _Optional[_Dict[str, _Any]]):
+        app = _OllamaTUI(_model, _host, _system, _options)
+        await app.run_async()
+
+    asyncio.run(_run_tui_async(model, host, system, options))
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    parser = argparse.ArgumentParser(prog="ollama-tui", description="A Markdown-capable TUI for Ollama")
+    parser.add_argument("command", choices=["run"], help="Command to execute")
+    parser.add_argument("model", help="Model name, e.g. 'gemma3' or 'llama3.1'")
+    parser.add_argument("prompt", nargs="?", help="Optional one-shot prompt. If omitted, runs interactive chat.")
+    parser.add_argument("--host", default=DEFAULT_OLLAMA_HOST, help="Ollama host, default: %(default)s")
+    parser.add_argument("--system", default=None, help="System prompt to guide the assistant")
+    parser.add_argument("--option", action="append", default=[], help="Pass model options as key=value (repeatable)")
+
+    args = parser.parse_args(argv)
+
+    options = parse_kv_list(args.option)
+
+    # Detect non-interactive stdin to support piping prompts
+    stdin_data = None
+    if not sys.stdin.isatty():
+        stdin_data = sys.stdin.read().strip()
+
+    if args.command == "run":
+        if args.prompt:
+            return one_shot(args.model, args.host, args.prompt, args.system, options)
+        if stdin_data:
+            return one_shot(args.model, args.host, stdin_data, args.system, options)
+        # Launch full-screen TUI when no prompt is provided
+        try:
+            launch_tui(args.model, args.host, args.system, options)
+            return 0
+        except ImportError:
+            # Fallback to simple interactive mode if Textual isn't installed
+            interactive_chat(args.model, args.host, args.system, options)
+            return 0
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

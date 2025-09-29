@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export KDE_COLOR_SCHEME_PATH=/usr/share/color-schemes/BreezeDark.colors
+export GTK_THEME=Adwaita:dark
+exec /usr/bin/rofi "$@"
+

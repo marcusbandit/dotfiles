@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Types the current Wayland clipboard selection by simulating keystrokes
+# Usage: type-clipboard [--primary|-p]
+
+# wl-paste uses clipboard by default; -p selects primary
+wl_paste_flags=()
+if [[ "${1:-}" == "--primary" || "${1:-}" == "-p" ]]; then
+  wl_paste_flags+=("-p")
+fi
+
+if ! command -v wl-paste >/dev/null 2>&1; then
+  echo "Missing dependency: wl-paste (package: wl-clipboard)." >&2
+  echo "On Arch: sudo pacman -S wl-clipboard" >&2
+  exit 1
+fi
+
+if ! command -v wtype >/dev/null 2>&1; then
+  echo "Missing dependency: wtype." >&2
+  echo "On Arch: sudo pacman -S wtype" >&2
+  exit 1
+fi
+
+# Read clipboard without appending an extra trailing newline and type it
+content="$(wl-paste "${wl_paste_flags[@]}" -n 2>/dev/null || true)"
+if [[ -z "$content" && ${#wl_paste_flags[@]} -eq 0 ]]; then
+  # Fallback to primary selection if clipboard is empty
+  content="$(wl-paste -p -n 2>/dev/null || true)"
+  wl_paste_flags=("-p")
+fi
+
+# Optional debug: set TYPE_CLIPBOARD_DEBUG=1 to log to journal
+if [[ "${TYPE_CLIPBOARD_DEBUG:-0}" == "1" ]]; then
+  ts="$(date '+%F %T')"
+  echo "[type-clipboard $ts] flags=${wl_paste_flags[*]:-clipboard} bytes=${#content}" | systemd-cat -t type-clipboard || true
+fi
+
+# If clipboard is empty, do nothing
+if [[ -z "$content" ]]; then
+  exit 0
+fi
+
+# Delay before typing (default 0.5s; override with TYPE_CLIPBOARD_DELAY_S)
+sleep "${TYPE_CLIPBOARD_DELAY_S:-0.5}"
+
+# Decide whether to prefer ydotool (Xwayland/games often need it)
+prefer_ydotool=0
+if command -v hyprctl >/dev/null 2>&1; then
+  if hyprctl -j activewindow 2>/dev/null | grep -q '"xwayland": true'; then
+    prefer_ydotool=1
+  fi
+fi
+
+use_ydotool=0
+if [[ $prefer_ydotool -eq 1 && -x "$(command -v ydotool || true)" ]]; then
+  use_ydotool=1
+fi
+
+if [[ $use_ydotool -eq 1 ]]; then
+  # Use ydotool for broader compatibility (needs ydotoold running)
+  if ! printf '%s' "$content" | ydotool type --file - 2>"$XDG_RUNTIME_DIR/type-clipboard.err"; then
+    # Fallback to wtype if ydotool failed
+    use_ydotool=0
+  fi
+fi
+
+if [[ $use_ydotool -eq 0 ]]; then
+  # Use wtype (works well on native Wayland clients)
+  if ! wtype -- "$content" 2>"$XDG_RUNTIME_DIR/type-clipboard.err"; then
+    # Try ydotool as a last resort if available
+    if command -v ydotool >/dev/null 2>&1; then
+      if printf '%s' "$content" | ydotool type --file - 2>"$XDG_RUNTIME_DIR/type-clipboard.err"; then
+        :
+      else
+        if [[ "${TYPE_CLIPBOARD_DEBUG:-0}" == "1" ]]; then
+          ts="$(date '+%F %T')"
+          echo "[type-clipboard $ts] both wtype and ydotool failed: $(cat \"$XDG_RUNTIME_DIR/type-clipboard.err\" 2>/dev/null)" | systemd-cat -t type-clipboard || true
+        fi
+        exit 1
+      fi
+    else
+      if [[ "${TYPE_CLIPBOARD_DEBUG:-0}" == "1" ]]; then
+        ts="$(date '+%F %T')"
+        echo "[type-clipboard $ts] wtype failed and ydotool not installed: $(cat \"$XDG_RUNTIME_DIR/type-clipboard.err\" 2>/dev/null)" | systemd-cat -t type-clipboard || true
+      fi
+      exit 1
+    fi
+  fi
+fi

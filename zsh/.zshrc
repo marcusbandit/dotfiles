@@ -79,12 +79,7 @@ eval "$(starship init zsh)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    docker
     history
-    node
-    npm
-    python
-    conda
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
@@ -148,23 +143,28 @@ if [[ -d ~/.zshrc.d ]]; then
   unset f
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if [ -n "$CONDA_MANUAL" ]; then
-__conda_setup="$('/home/bandit/miniforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/bandit/miniforge/etc/profile.d/conda.sh" ]; then
-        . "/home/bandit/miniforge/etc/profile.d/conda.sh"
+
+# >>> conda initialize (manual only, final corrected) >>>
+if [[ -n "$CONDA_MANUAL" ]]; then
+    # Only try to get the hook if CONDA_MANUAL is set
+    __conda_setup="$('/home/bandit/miniforge/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+
+    if [[ $? -eq 0 ]]; then
+        eval "$__conda_setup"
     else
+        # If the hook command fails, at least ensure Conda's binaries are in PATH.
+        # This will *not* activate a base environment, only make 'conda' command available.
         export PATH="/home/bandit/miniforge/bin:$PATH"
     fi
-fi
-unset __conda_setup
+    unset __conda_setup
 fi
 # <<< conda initialize <<<
 
 eval "$(zoxide init --cmd cd zsh)"
 export XCURSOR_THEME=Bibata-Modern-DodgerBlue
 export XCURSOR_SIZE=24
+if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]]; then
+
+kotofetch
+
+fi

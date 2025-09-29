@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Optional: if you use multiple configs, set CONFIG here or per-output.
+CONFIG="${WAYBAR_CONFIG:-$HOME/.config/waybar/config.jsonc}"
+STYLE="${WAYBAR_STYLE:-$HOME/.config/waybar/style.css}"
+
+is_running() {
+    pgrep -x waybar >/dev/null 2>&1
+}
+
+if is_running; then
+    hyprctl keyword general:gaps_out 10, 10, 10, 10
+    pkill -x waybar
+else
+    hyprctl keyword general:gaps_out 56, 10, 10, 10
+    # Start Waybar detached so this script returns immediately
+    nohup waybar -c "$CONFIG" -s "$STYLE" >/dev/null 2>&1 &
+fi
