@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Random wallpaper picker for swww
+# Sequential wallpaper cycler for swww (single monitor at cursor)
 # Scans ~/.config/wallpapers for image files organized by aspect ratio folders
-# and sets appropriate wallpapers for each screen based on their resolution.
+# and cycles through wallpapers for the screen where the mouse cursor is located.
 
 set -euo pipefail
 
 WPDIR="${1:-$HOME/.config/wallpapers}"
-HISTORY_FILE="$HOME/.config/wallpapers/.swww-history"
+CYCLE_STATE_FILE="$HOME/.config/wallpapers/.swww-cycle-state"
 
 # Verify directory exists
 if [[ ! -d "$WPDIR" ]]; then
@@ -30,11 +30,11 @@ gcd() {
 calculate_aspect_ratio() {
     local width=$1
     local height=$2
-    
+
     local g=$(gcd $width $height)
     local w=$((width / g))
     local h=$((height / g))
-    
+
     echo "${w}x${h}"
 }
 
@@ -42,7 +42,7 @@ calculate_aspect_ratio() {
 create_aspect_folder() {
     local aspect_ratio=$1
     local folder_path="$WPDIR/$aspect_ratio"
-    
+
     if [[ ! -d "$folder_path" ]]; then
         echo "Creating aspect ratio folder: $aspect_ratio"
         mkdir -p "$folder_path"
@@ -54,13 +54,13 @@ find_aspect_folder() {
     local target_aspect=$1
     local best_match=""
     local best_score=999999
-    
+
     # Check for exact match first
     if [[ -d "$WPDIR/$target_aspect" ]]; then
         echo "$target_aspect"
         return
     fi
-    
+
     # Look for folders with aspect ratio names (e.g., "16x9", "32x9", "21x9")
     for folder in "$WPDIR"/*; do
         if [[ -d "$folder" ]]; then
@@ -75,7 +75,7 @@ find_aspect_folder() {
                 local target_h=${target_aspect#*x}
                 local target_ratio=$((target_w * 10000 / target_h))
                 local diff=$((folder_ratio > target_ratio ? folder_ratio - target_ratio : target_ratio - folder_ratio))
-                
+
                 if [[ $diff -lt $best_score ]]; then
                     best_score=$diff
                     best_match="$folder_name"
@@ -83,8 +83,69 @@ find_aspect_folder() {
             fi
         fi
     done
-    
+
     echo "$best_match"
+}
+
+# Function to get current cycle index for a monitor
+get_cycle_index() {
+    local monitor=$1
+    if [[ -f "$CYCLE_STATE_FILE" ]]; then
+        grep "^$monitor:" "$CYCLE_STATE_FILE" | cut -d: -f2 || echo "0"
+    else
+        echo "0"
+    fi
+}
+
+# Function to save cycle index for a monitor
+save_cycle_index() {
+    local monitor=$1
+    local index=$2
+    local temp_file=$(mktemp)
+
+    # Remove existing entry for this monitor
+    if [[ -f "$CYCLE_STATE_FILE" ]]; then
+        grep -v "^$monitor:" "$CYCLE_STATE_FILE" > "$temp_file" 2>/dev/null || true
+    fi
+
+    # Add new index
+    echo "$monitor:$index" >> "$temp_file"
+    mv "$temp_file" "$CYCLE_STATE_FILE"
+}
+
+# Get cursor position and determine which monitor it's on
+get_active_monitor() {
+    # Get cursor position
+    local cursor_pos=$(hyprctl cursorpos -j)
+    local cursor_x=$(echo "$cursor_pos" | jq -r '.x // 0' | cut -d. -f1)
+    local cursor_y=$(echo "$cursor_pos" | jq -r '.y // 0' | cut -d. -f1)
+
+    echo "Cursor at: $cursor_x, $cursor_y" >&2
+
+    # Get all monitors with their positions
+    local monitors=$(hyprctl monitors -j)
+    local monitor_count=$(echo "$monitors" | jq 'length')
+
+    # Find which monitor contains the cursor
+    for ((i=0; i<monitor_count; i++)); do
+        local mon_name=$(echo "$monitors" | jq -r ".[$i].name")
+        local mon_x=$(echo "$monitors" | jq -r ".[$i].x")
+        local mon_y=$(echo "$monitors" | jq -r ".[$i].y")
+        local mon_width=$(echo "$monitors" | jq -r ".[$i].width")
+        local mon_height=$(echo "$monitors" | jq -r ".[$i].height")
+
+        local mon_x_end=$((mon_x + mon_width))
+        local mon_y_end=$((mon_y + mon_height))
+
+        if [[ $cursor_x -ge $mon_x && $cursor_x -lt $mon_x_end && \
+              $cursor_y -ge $mon_y && $cursor_y -lt $mon_y_end ]]; then
+            echo "$mon_name"
+            return 0
+        fi
+    done
+
+    # Fallback: return first monitor if no match found
+    echo "$monitors" | jq -r '.[0].name'
 }
 
 # Parse swww query output to get screen information
@@ -100,7 +161,7 @@ parse_screens() {
             screens+=("$output:$width:$height:$aspect")
         fi
     done < <(swww query)
-    
+
     printf '%s\n' "${screens[@]}"
 }
 
@@ -109,216 +170,148 @@ randf() {
     awk -v s="$RANDOM" 'BEGIN { srand(s); printf("%.3f\n", rand()) }'
 }
 
-# Function to get history for a specific monitor
-get_history() {
-    local monitor=$1
-    if [[ -f "$HISTORY_FILE" ]]; then
-        grep "^$monitor:" "$HISTORY_FILE" | cut -d: -f2- | tr ':' '\n' | grep -v '^$'
-    fi
-}
-
-# Function to add image to history for a specific monitor
-add_to_history() {
-    local monitor=$1
-    local image=$2
-    local temp_file=$(mktemp)
-    
-    # Remove existing entry for this monitor
-    if [[ -f "$HISTORY_FILE" ]]; then
-        grep -v "^$monitor:" "$HISTORY_FILE" > "$temp_file"
-    else
-        touch "$temp_file"
-    fi
-    
-    # Get current history for this monitor
-    local current_history=$(get_history "$monitor")
-    
-    # Add new image to the beginning and keep only last 5, avoiding duplicates
-    local new_history="$image"
-    local count=1
-    local seen_images=("$image")
-    
-    while IFS= read -r line; do
-        if [[ $count -lt 5 ]]; then
-            local is_duplicate=false
-            for seen in "${seen_images[@]}"; do
-                if [[ "$line" == "$seen" ]]; then
-                    is_duplicate=true
-                    break
-                fi
-            done
-            
-            if [[ "$is_duplicate" == "false" ]]; then
-                new_history="$new_history:$line"
-                seen_images+=("$line")
-                ((count++))
-            fi
-        fi
-    done <<< "$current_history"
-    
-    # Write back to file
-    echo "$monitor:$new_history" >> "$temp_file"
-    mv "$temp_file" "$HISTORY_FILE"
-}
-
-# Function to select image with history weighting
-select_image_with_history() {
-    local files=("$@")
-    local monitor=$1
-    shift
-    local available_files=("$@")
-    
-    if [[ ${#available_files[@]} -eq 0 ]]; then
-        return 1
-    fi
-    
-    # Get history for this monitor
-    local history=($(get_history "$monitor"))
-    
-    # Separate files into recent and available
-    local recent_files=()
-    local available_files_filtered=()
-    
-    for file in "${available_files[@]}"; do
-        local is_recent=false
-        for hist_file in "${history[@]}"; do
-            if [[ "$file" == "$hist_file" ]]; then
-                recent_files+=("$file")
-                is_recent=true
-                break
-            fi
-        done
-        if [[ "$is_recent" == "false" ]]; then
-            available_files_filtered+=("$file")
-        fi
-    done
-    
-    # Prefer non-recent files, but fall back to recent if no others available
-    if [[ ${#available_files_filtered[@]} -gt 0 ]]; then
-        echo "${available_files_filtered[RANDOM % ${#available_files_filtered[@]}]}"
-    else
-        echo "${available_files[RANDOM % ${#available_files[@]}]}"
-    fi
-}
+# Get the active monitor (where mouse cursor is)
+active_monitor=$(get_active_monitor)
+echo "Active monitor: $active_monitor"
 
 # Check if currently focused window is fullscreen
 is_fullscreen=$(hyprctl activewindow -j | jq -r '.fullscreen // 0')
 if [[ "$is_fullscreen" != "0" && "$is_fullscreen" != "null" ]]; then
-    echo "Fullscreen window detected, setting all wallpapers to black"
-    
-    # Get all screens and set them to black
-    screens=($(parse_screens))
-    if [[ ${#screens[@]} -eq 0 ]]; then
-        echo "No screens found" >&2
-        exit 1
-    fi
-    
-    for screen_info in "${screens[@]}"; do
-        IFS=':' read -r output width height aspect <<< "$screen_info"
-        echo "Setting black wallpaper for screen $output"
-        
-        # Add black wallpaper to history
-        add_to_history "$output" "/home/bandit/.config/wallpapers/black.png"
-        
-        # Generate transition position
-        tx="$(randf),$(randf)"
-        
-        # Apply black wallpaper to this specific output
-        swww img /home/bandit/.config/wallpapers/black.png \
-            --outputs "$output" \
-            --transition-type any \
-            --transition-duration 0.9 \
-            --transition-fps 120 \
-            --transition-pos "$tx" \
-            --resize fit
-    done
+    echo "Fullscreen window detected, setting wallpaper to black"
+
+    # Generate transition position
+    tx="$(randf),$(randf)"
+
+    # Apply black wallpaper to active monitor only
+    swww img /home/bandit/.config/wallpapers/black.png \
+        --outputs "$active_monitor" \
+        --transition-type any \
+        --transition-duration 0.9 \
+        --transition-fps 120 \
+        --transition-pos "$tx" \
+        --resize fit
     exit 0
 fi
 
-# Process each screen normally
+# Process only the active monitor
 screens=($(parse_screens))
 if [[ ${#screens[@]} -eq 0 ]]; then
     echo "No screens found" >&2
     exit 1
 fi
 
+# Find the active monitor's info
+target_screen=""
 for screen_info in "${screens[@]}"; do
     IFS=':' read -r output width height aspect <<< "$screen_info"
-    
-    echo "Processing screen $output ($width x $height, aspect: $aspect)"
-    
-    # Create aspect ratio folder if it doesn't exist
-    create_aspect_folder "$aspect"
-    
-    # Find the best matching aspect ratio folder
-    aspect_folder=$(find_aspect_folder "$aspect")
-    
-    if [[ -z "$aspect_folder" ]]; then
-        echo "No suitable aspect ratio folder found for $aspect, using fallback" >&2
-        # Fallback to scanning all folders
-        search_dir="$WPDIR"
-    else
-        echo "Using aspect ratio folder: $aspect_folder"
-        search_dir="$WPDIR/$aspect_folder"
-    fi
-    
-    # Collect image files from the appropriate directory
-    mapfile -t files < <(
-        find -L "$search_dir" -type f \
-            \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.bmp' -o -iname '*.gif' \) \
-            -print0 | xargs -0 -I{} printf '%s\n' "{}" | sort
-    )
-    
-    # If no images found in the aspect ratio folder, fallback to errors folder
-    use_fallback=false
-    if [[ ${#files[@]} -eq 0 ]]; then
-        echo "No image files found in $search_dir, falling back to errors folder" >&2
-        search_dir="$WPDIR/errors"
-        use_fallback=true
-        
-        # Collect image files from errors directory
-        mapfile -t files < <(
-            find -L "$search_dir" -type f \
-                \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.bmp' -o -iname '*.gif' \) \
-                -print0 | xargs -0 -I{} printf '%s\n' "{}" | sort
-        )
-        
-        if [[ ${#files[@]} -eq 0 ]]; then
-            echo "No image files found in errors folder either, skipping screen $output" >&2
-            continue
-        fi
-        
-        echo "Using fallback image from errors folder"
-    fi
-    
-    # Pick a random file using history weighting
-    pick=$(select_image_with_history "$output" "${files[@]}")
-    echo "Selected: $(basename "$pick")"
-    
-    # Add selected image to history
-    add_to_history "$output" "$pick"
-    
-    # Generate transition position
-    tx="$(randf),$(randf)"
-    
-    # Apply wallpaper to this specific output
-    if [[ "$use_fallback" == "true" ]]; then
-        # Use uncropped resize for error images
-        swww img "$pick" \
-            --outputs "$output" \
-            --transition-type any \
-            --transition-duration 0.9 \
-            --transition-fps 120 \
-            --transition-pos "$tx" \
-            --resize fit
-    else
-        # Use cropped resize for normal wallpapers
-        swww img "$pick" \
-            --outputs "$output" \
-            --transition-type any \
-            --transition-duration 0.9 \
-            --transition-fps 120 \
-            --transition-pos "$tx" \
-            --resize crop
+    if [[ "$output" == "$active_monitor" ]]; then
+        target_screen="$screen_info"
+        break
     fi
 done
+
+if [[ -z "$target_screen" ]]; then
+    echo "Could not find active monitor in screen list" >&2
+    exit 1
+fi
+
+# Process the target screen
+IFS=':' read -r output width height aspect <<< "$target_screen"
+
+echo "Processing screen $output ($width x $height, aspect: $aspect)"
+
+# Create aspect ratio folder if it doesn't exist
+create_aspect_folder "$aspect"
+
+# Find the best matching aspect ratio folder
+aspect_folder=$(find_aspect_folder "$aspect")
+
+if [[ -z "$aspect_folder" ]]; then
+    echo "No suitable aspect ratio folder found for $aspect, using fallback" >&2
+    # Fallback to scanning all folders
+    search_dir="$WPDIR"
+else
+    echo "Using aspect ratio folder: $aspect_folder"
+    search_dir="$WPDIR/$aspect_folder"
+fi
+
+# Collect image and video files from the appropriate directory (sorted for consistent order)
+# Supports all formats that swww can handle: images (jpg, png, gif, webp, bmp, tiff, etc.) and videos (mp4, mkv, webm, etc.)
+mapfile -t files < <(
+    find -L "$search_dir" -type f \
+        \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.bmp' -o -iname '*.gif' \
+        -o -iname '*.tiff' -o -iname '*.tif' -o -iname '*.tga' -o -iname '*.pnm' -o -iname '*.exr' -o -iname '*.ff' -o -iname '*.hdr' \
+        -o -iname '*.mp4' -o -iname '*.mkv' -o -iname '*.avi' -o -iname '*.webm' -o -iname '*.mov' -o -iname '*.flv' \
+        -o -iname '*.wmv' -o -iname '*.m4v' -o -iname '*.mpg' -o -iname '*.mpeg' \) \
+        -print0 | xargs -0 -I{} printf '%s\n' "{}" | sort
+)
+
+# If no images found in the aspect ratio folder, fallback to errors folder
+use_fallback=false
+if [[ ${#files[@]} -eq 0 ]]; then
+    echo "No media files found in $search_dir, falling back to errors folder" >&2
+    search_dir="$WPDIR/errors"
+    use_fallback=true
+
+    # Collect image and video files from errors directory
+    mapfile -t files < <(
+        find -L "$search_dir" -type f \
+            \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.bmp' -o -iname '*.gif' \
+            -o -iname '*.tiff' -o -iname '*.tif' -o -iname '*.tga' -o -iname '*.pnm' -o -iname '*.exr' -o -iname '*.ff' -o -iname '*.hdr' \
+            -o -iname '*.mp4' -o -iname '*.mkv' -o -iname '*.avi' -o -iname '*.webm' -o -iname '*.mov' -o -iname '*.flv' \
+            -o -iname '*.wmv' -o -iname '*.m4v' -o -iname '*.mpg' -o -iname '*.mpeg' \) \
+            -print0 | xargs -0 -I{} printf '%s\n' "{}" | sort
+    )
+
+    if [[ ${#files[@]} -eq 0 ]]; then
+        echo "No media files found in errors folder either, cannot set wallpaper" >&2
+        exit 1
+    fi
+
+    echo "Using fallback media from errors folder"
+fi
+
+# Get current cycle index for this monitor
+current_index=$(get_cycle_index "$output")
+total_files=${#files[@]}
+
+echo "Current index: $current_index, Total files: $total_files"
+
+# Ensure index is within bounds
+if [[ $current_index -ge $total_files ]]; then
+    current_index=0
+fi
+
+# Select the file at current index
+pick="${files[$current_index]}"
+echo "Selected: $(basename "$pick") [$((current_index + 1))/$total_files]"
+
+# Increment index for next time (with wraparound)
+next_index=$(((current_index + 1) % total_files))
+save_cycle_index "$output" "$next_index"
+
+# Generate transition position
+tx="$(randf),$(randf)"
+
+# Apply wallpaper to this specific output
+if [[ "$use_fallback" == "true" ]]; then
+    # Use uncropped resize for error images
+    swww img "$pick" \
+        --outputs "$output" \
+        --transition-type any \
+        --transition-duration 0.9 \
+        --transition-fps 120 \
+        --transition-pos "$tx" \
+        --resize fit
+else
+    # Use cropped resize for normal wallpapers
+    swww img "$pick" \
+        --outputs "$output" \
+        --transition-type any \
+        --transition-duration 0.9 \
+        --transition-fps 120 \
+        --transition-pos "$tx" \
+        --resize crop
+fi
+
+echo "✓ Wallpaper cycled successfully on $output"

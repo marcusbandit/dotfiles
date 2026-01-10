@@ -1,0 +1,6 @@
+module WindowControls
+WindowControls 1.0 WindowControls.qml
+MainControlsPill 1.0 MainControlsPill.qml
+ExitButton 1.0 ExitButton.qml
+TargetHighlight 1.0 TargetHighlight.qml
+AdjacentButtons 1.0 AdjacentButtons.qml

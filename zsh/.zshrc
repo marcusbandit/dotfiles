@@ -7,6 +7,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # This removes the "(Base)" from the end of every command
 export CONDA_PROMPT_MODIFIER=""
 
+# Limit directory depth shown in prompt
+export PROMPT_DIRTRIM=3
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -15,7 +18,9 @@ ZSH_THEME=""
 
 
 # Enable and activate starship for the zsh
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
+
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/bandit_theme.json)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -163,8 +168,17 @@ fi
 eval "$(zoxide init --cmd cd zsh)"
 export XCURSOR_THEME=Bibata-Modern-DodgerBlue
 export XCURSOR_SIZE=24
+
+# Auto-start tmux if not already in tmux and in an interactive shell
+if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]] && [[ -z "$TMUX" ]]; then
+    # Create a new tmux session each time
+    /home/bandit/.local/bin/tmux-wrapper.sh
+fi
+
 if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]]; then
 
-kotofetch
+#kotofetch
 
 fi
+
+export PATH=$PATH:/home/bandit/.spicetify

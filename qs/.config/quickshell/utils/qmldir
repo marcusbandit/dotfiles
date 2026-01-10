@@ -1,0 +1,5 @@
+module utils
+ThemeLoader 1.0 ThemeLoader.qml
+MonitorInfo 1.0 MonitorInfo.qml
+HyprlandCommands 1.0 HyprlandCommands.qml
+AnimationUtils 1.0 AnimationUtils.qml

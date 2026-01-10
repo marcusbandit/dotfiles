@@ -1,0 +1,685 @@
+import QtQuick
+import Quickshell
+import Quickshell.Io
+
+// WiFi Manager popup with full network management
+PopupWindow {
+    id: root
+
+    // Theme properties
+    property color colBg: "#1a1b26"
+    property color colFg: "#a9b1d6"
+    property color colMuted: "#565f89"
+    property color colActive: "#7aa2f7"
+    property color colHover: "#414868"
+    property color colError: "#f7768e"
+    property color colSuccess: "#9ece6a"
+    property string fontFamily: "JetBrainsMono Nerd Font"
+    property int fontSize: 16
+
+    // Network data
+    property var networks: []
+    property var savedNetworks: []
+    property string connectedSsid: ""
+    property string localIp: "Not connected"
+    property bool wifiEnabled: true
+    property bool scanning: false
+
+    // View state: "main", "password", "saved", "qrcode", "hidden", "details"
+    property string currentView: "main"
+    property string previousView: "main"
+
+    // Data for sub-views
+    property var selectedNetwork: null
+    property string passwordInput: ""
+    property bool showPassword: false
+
+    // Hover state for parent to track
+    property bool isHovered: hoverHandler.hovered
+
+    // Signal to request closing the popup
+    signal requestClose()
+
+    color: "transparent"
+    implicitWidth: 360
+    implicitHeight: mainContainer.height + 8  // Size to content
+
+    // Animation speed
+    property real animSpeed: 12.0
+
+    // Hover detection
+    HoverHandler {
+        id: hoverHandler
+    }
+
+    // Escape key to close
+    Shortcut {
+        sequence: "Escape"
+        enabled: root.visible
+        onActivated: root.requestClose()
+    }
+
+    // Animation properties
+    property real expandProgress: 0
+    property real contentOpacity: 0
+
+    // Animate expand when visible changes (also triggers data loading - see bottom)
+
+    SequentialAnimation {
+        id: expandAnim
+        NumberAnimation {
+            target: root
+            property: "expandProgress"
+            from: 0
+            to: 1
+            duration: 120
+            easing.type: Easing.OutCubic
+        }
+        NumberAnimation {
+            target: root
+            property: "contentOpacity"
+            from: 0
+            to: 1
+            duration: 80
+            easing.type: Easing.OutCubic
+        }
+    }
+
+    // Main container with expand animation
+    Rectangle {
+        id: mainContainer
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 4
+        width: parent.width - 8
+        height: {
+            // Get height from the currently visible view
+            if (root.currentView === "main") return mainView.implicitHeight + 24;
+            if (root.currentView === "password") return passwordView.implicitHeight + 24;
+            if (root.currentView === "saved") return savedView.implicitHeight + 24;
+            if (root.currentView === "qrcode") return qrView.implicitHeight + 24;
+            if (root.currentView === "hidden") return hiddenView.implicitHeight + 24;
+            if (root.currentView === "details") return detailsView.implicitHeight + 24;
+            return 400;
+        }
+        color: root.colBg
+        radius: 12
+        clip: true
+
+        scale: 0.8 + (0.2 * root.expandProgress)
+        transformOrigin: Item.Top
+        opacity: root.expandProgress
+
+        Behavior on height {
+            NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
+        }
+
+        // Shadow
+        Rectangle {
+            anchors.fill: parent
+            anchors.margins: -2
+            color: Qt.rgba(0, 0, 0, 0.3)
+            radius: 14
+            z: -1
+        }
+
+        // Content area with view switching
+        Item {
+            id: contentLoader
+            anchors.fill: parent
+            anchors.margins: 12
+            opacity: root.contentOpacity
+
+            // === MAIN VIEW ===
+            MainWifiView {
+                id: mainView
+                visible: root.currentView === "main"
+                opacity: visible ? 1 : 0
+
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                // Properties passed down
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                colHover: root.colHover
+                colError: root.colError
+                colSuccess: root.colSuccess
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                wifiEnabled: root.wifiEnabled
+                localIp: root.localIp
+                connectedSsid: root.connectedSsid
+                networks: root.networks
+                scanning: root.scanning
+
+                onToggleWifi: root.toggleWifi()
+                onRefresh: root.rescan()
+                onNetworkClicked: function(network) {
+                    root.selectedNetwork = network;
+                    if (network.connected) {
+                        root.currentView = "details";
+                    } else if (network.security !== "Open" && network.security !== "--") {
+                        // Check if we have saved credentials
+                        root.checkSavedAndConnect(network);
+                    } else {
+                        root.connectToNetwork(network.ssid, "");
+                    }
+                }
+                onShowSaved: root.currentView = "saved"
+                onShowHidden: root.currentView = "hidden"
+            }
+
+            // === PASSWORD INPUT VIEW ===
+            PasswordInputView {
+                id: passwordView
+                visible: root.currentView === "password"
+                opacity: visible ? 1 : 0
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                colHover: root.colHover
+                colError: root.colError
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                networkName: root.selectedNetwork ? root.selectedNetwork.ssid : ""
+
+                onConnect: function(password) {
+                    root.connectToNetwork(root.selectedNetwork.ssid, password);
+                    root.currentView = "main";
+                }
+                onCancel: root.currentView = "main"
+            }
+
+            // === SAVED NETWORKS VIEW ===
+            SavedNetworksView {
+                id: savedView
+                visible: root.currentView === "saved"
+                opacity: visible ? 1 : 0
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                colHover: root.colHover
+                colError: root.colError
+                colSuccess: root.colSuccess
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                savedNetworks: root.savedNetworks
+
+                onBack: root.currentView = "main"
+                onShowQrCode: function(network) {
+                    root.selectedNetwork = network;
+                    root.currentView = "qrcode";
+                }
+                onToggleAutoconnect: function(network) {
+                    root.toggleAutoconnect(network);
+                }
+                onForgetNetwork: function(network) {
+                    root.forgetNetwork(network);
+                }
+                onShowPassword: function(network) {
+                    root.revealPassword(network);
+                }
+            }
+
+            // === QR CODE VIEW ===
+            QrCodeView {
+                id: qrView
+                visible: root.currentView === "qrcode"
+                opacity: visible ? 1 : 0
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                networkName: root.selectedNetwork ? root.selectedNetwork.ssid || root.selectedNetwork.name : ""
+
+                onBack: root.currentView = "saved"
+            }
+
+            // === HIDDEN NETWORK VIEW ===
+            HiddenNetworkView {
+                id: hiddenView
+                visible: root.currentView === "hidden"
+                opacity: visible ? 1 : 0
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                colHover: root.colHover
+                colError: root.colError
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                onConnect: function(ssid, password) {
+                    root.connectToHiddenNetwork(ssid, password);
+                    root.currentView = "main";
+                }
+                onCancel: root.currentView = "main"
+            }
+
+            // === CONNECTION DETAILS VIEW ===
+            ConnectionDetailsView {
+                id: detailsView
+                visible: root.currentView === "details"
+                opacity: visible ? 1 : 0
+                width: parent.width
+                height: parent.height
+
+                Behavior on opacity {
+                    NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+                }
+
+                colBg: root.colBg
+                colFg: root.colFg
+                colMuted: root.colMuted
+                colActive: root.colActive
+                colHover: root.colHover
+                colError: root.colError
+                fontFamily: root.fontFamily
+                fontSize: root.fontSize
+
+                network: root.selectedNetwork
+                localIp: root.localIp
+
+                onBack: root.currentView = "main"
+                onDisconnect: {
+                    root.disconnectNetwork();
+                    root.currentView = "main";
+                }
+            }
+        }
+    }
+
+    // === NETWORK MANAGER FUNCTIONS ===
+
+    function toggleWifi() {
+        wifiToggleProc.running = true;
+    }
+
+    function rescan() {
+        if (!scanning) {
+            scanning = true;
+            rescanProc.running = true;
+        }
+    }
+
+    function connectToNetwork(ssid, password) {
+        if (password) {
+            connectProc.command = ["nmcli", "device", "wifi", "connect", ssid, "password", password];
+        } else {
+            connectProc.command = ["nmcli", "device", "wifi", "connect", ssid];
+        }
+        connectProc.running = true;
+    }
+
+    function connectToHiddenNetwork(ssid, password) {
+        if (password) {
+            connectProc.command = ["nmcli", "device", "wifi", "connect", ssid, "password", password, "hidden", "yes"];
+        } else {
+            connectProc.command = ["nmcli", "device", "wifi", "connect", ssid, "hidden", "yes"];
+        }
+        connectProc.running = true;
+    }
+
+    function checkSavedAndConnect(network) {
+        // Check if network is in saved networks
+        checkSavedProc.command = ["nmcli", "-t", "-f", "NAME", "connection", "show"];
+        checkSavedProc.network = network;
+        checkSavedProc.running = true;
+    }
+
+    function disconnectNetwork() {
+        disconnectProc.running = true;
+    }
+
+    function toggleAutoconnect(network) {
+        var newState = network.autoconnect ? "no" : "yes";
+        autoconnectProc.command = ["nmcli", "connection", "modify", network.name, "connection.autoconnect", newState];
+        autoconnectProc.running = true;
+    }
+
+    function forgetNetwork(network) {
+        forgetProc.command = ["nmcli", "connection", "delete", network.name];
+        forgetProc.running = true;
+    }
+
+    function revealPassword(network) {
+        revealPassProc.command = ["nmcli", "-s", "-g", "802-11-wireless-security.psk", "connection", "show", network.name];
+        revealPassProc.network = network;
+        revealPassProc.running = true;
+    }
+
+    // === PROCESSES ===
+
+    // Toggle WiFi
+    Process {
+        id: wifiToggleProc
+        command: root.wifiEnabled ? ["nmcli", "radio", "wifi", "off"] : ["nmcli", "radio", "wifi", "on"]
+        onRunningChanged: {
+            if (!running) {
+                wifiStatusProc.running = true;
+            }
+        }
+    }
+
+    // Check WiFi status
+    Process {
+        id: wifiStatusProc
+        property string outputBuffer: ""
+        command: ["nmcli", "radio", "wifi"]
+        stdout: SplitParser {
+            splitMarker: ""
+            onRead: data => { wifiStatusProc.outputBuffer += data; }
+        }
+        onRunningChanged: {
+            if (running) { outputBuffer = ""; }
+            else { root.wifiEnabled = outputBuffer.trim() === "enabled"; }
+        }
+    }
+
+    // Scan networks
+    Process {
+        id: scanProc
+        property string outputBuffer: ""
+        command: ["nmcli", "-t", "-f", "SSID,SIGNAL,SECURITY,IN-USE,BSSID,FREQ,RATE", "device", "wifi", "list"]
+        stdout: SplitParser {
+            splitMarker: ""  // Receive all data as one chunk
+            onRead: data => {
+                scanProc.outputBuffer += data;
+            }
+        }
+        onRunningChanged: {
+            if (running) {
+                outputBuffer = "";
+            } else {
+                // Process all the data when process finishes
+                var lines = outputBuffer.trim().split("\n");
+                var networkMap = {};
+                var foundConnected = false;
+
+                for (var i = 0; i < lines.length; i++) {
+                    // Replace escaped colons in BSSID with placeholder
+                    var line = lines[i].replace(/\\:/g, "##COLON##");
+                    var parts = line.split(":");
+
+                    if (parts.length >= 4 && parts[0]) {
+                        var ssid = parts[0];
+                        var signal = parseInt(parts[1]) || 0;
+                        var security = parts[2] || "Open";
+                        var inUse = parts[3].trim() === "*";
+                        // Restore colons in BSSID
+                        var bssid = (parts[4] || "").replace(/##COLON##/g, ":");
+                        var freq = (parts[5] || "").replace(/##COLON##/g, "");
+                        var rate = (parts[6] || "").replace(/##COLON##/g, "");
+
+                        if (!networkMap[ssid] || networkMap[ssid].signal < signal) {
+                            networkMap[ssid] = {
+                                ssid: ssid,
+                                signal: signal,
+                                security: security === "--" ? "Open" : security,
+                                connected: inUse,
+                                bssid: bssid,
+                                frequency: freq,
+                                rate: rate
+                            };
+                        }
+
+                        // Track connected network
+                        if (inUse) {
+                            foundConnected = true;
+                            root.connectedSsid = ssid;
+                            // Make sure connected network has connected flag even if not strongest signal
+                            if (networkMap[ssid]) {
+                                networkMap[ssid].connected = true;
+                            }
+                        }
+                    }
+                }
+
+                if (!foundConnected) {
+                    root.connectedSsid = "";
+                }
+
+                var networkArray = [];
+                for (var key in networkMap) {
+                    networkArray.push(networkMap[key]);
+                }
+                networkArray.sort(function(a, b) {
+                    if (a.connected && !b.connected) return -1;
+                    if (b.connected && !a.connected) return 1;
+                    return b.signal - a.signal;
+                });
+                root.networks = networkArray;
+                root.scanning = false;
+            }
+        }
+    }
+
+    // Rescan
+    Process {
+        id: rescanProc
+        command: ["nmcli", "device", "wifi", "rescan"]
+        onRunningChanged: {
+            if (!running) {
+                rescanDelayTimer.start();
+            }
+        }
+    }
+
+    Timer {
+        id: rescanDelayTimer
+        interval: 1500
+        onTriggered: scanProc.running = true
+    }
+
+    // Connect
+    Process {
+        id: connectProc
+        onRunningChanged: {
+            if (!running) {
+                scanProc.running = true;
+                ipProc.running = true;
+            }
+        }
+    }
+
+    // Disconnect
+    Process {
+        id: disconnectProc
+        command: ["nmcli", "device", "disconnect", "wlan0"]
+        onRunningChanged: {
+            if (!running) {
+                root.connectedSsid = "";
+                scanProc.running = true;
+                ipProc.running = true;
+            }
+        }
+    }
+
+    // Check saved
+    Process {
+        id: checkSavedProc
+        property var network: null
+        property string outputBuffer: ""
+        stdout: SplitParser {
+            splitMarker: ""
+            onRead: data => { checkSavedProc.outputBuffer += data; }
+        }
+        onRunningChanged: {
+            if (running) { outputBuffer = ""; }
+            else {
+                var saved = outputBuffer.trim().split("\n");
+                if (checkSavedProc.network && saved.indexOf(checkSavedProc.network.ssid) !== -1) {
+                    root.connectToNetwork(checkSavedProc.network.ssid, "");
+                } else {
+                    root.currentView = "password";
+                }
+            }
+        }
+    }
+
+    // Autoconnect toggle
+    Process {
+        id: autoconnectProc
+        onRunningChanged: {
+            if (!running) savedNetworksProc.running = true;
+        }
+    }
+
+    // Forget network
+    Process {
+        id: forgetProc
+        onRunningChanged: {
+            if (!running) savedNetworksProc.running = true;
+        }
+    }
+
+    // Reveal password
+    Process {
+        id: revealPassProc
+        property var network: null
+        property string outputBuffer: ""
+        stdout: SplitParser {
+            splitMarker: ""
+            onRead: data => { revealPassProc.outputBuffer += data; }
+        }
+        onRunningChanged: {
+            if (running) { outputBuffer = ""; }
+            else {
+                var password = outputBuffer.trim();
+                var updated = root.savedNetworks.slice();
+                for (var i = 0; i < updated.length; i++) {
+                    if (updated[i].name === revealPassProc.network.name) {
+                        updated[i] = Object.assign({}, updated[i], { revealedPassword: password });
+                        break;
+                    }
+                }
+                root.savedNetworks = updated;
+            }
+        }
+    }
+
+    // Get saved networks
+    Process {
+        id: savedNetworksProc
+        property string outputBuffer: ""
+        command: ["nmcli", "-t", "-f", "NAME,TYPE,AUTOCONNECT", "connection", "show"]
+        stdout: SplitParser {
+            splitMarker: ""
+            onRead: data => { savedNetworksProc.outputBuffer += data; }
+        }
+        onRunningChanged: {
+            if (running) { outputBuffer = ""; }
+            else {
+                var lines = outputBuffer.trim().split("\n");
+                var saved = [];
+                for (var i = 0; i < lines.length; i++) {
+                    var parts = lines[i].split(":");
+                    if (parts.length >= 3 && parts[1] === "802-11-wireless") {
+                        saved.push({
+                            name: parts[0],
+                            type: parts[1],
+                            autoconnect: parts[2] === "yes",
+                            revealedPassword: null
+                        });
+                    }
+                }
+                root.savedNetworks = saved;
+            }
+        }
+    }
+
+    // Get local IP
+    Process {
+        id: ipProc
+        property string outputBuffer: ""
+        command: ["sh", "-c", "ip -4 route get 1.1.1.1 2>/dev/null | grep -oP 'src \\K[^ ]+' | head -1"]
+        stdout: SplitParser {
+            splitMarker: ""
+            onRead: data => { ipProc.outputBuffer += data; }
+        }
+        onRunningChanged: {
+            if (running) { outputBuffer = ""; }
+            else {
+                var ip = outputBuffer.trim();
+                root.localIp = ip || "Not connected";
+            }
+        }
+    }
+
+    // Periodic refresh
+    Timer {
+        interval: 5000
+        running: root.visible && root.currentView === "main"
+        repeat: true
+        triggeredOnStart: true
+        onTriggered: {
+            if (!root.scanning) {
+                scanProc.running = true;
+                ipProc.running = true;
+                wifiStatusProc.running = true;
+            }
+        }
+    }
+
+    // Initial load and animation
+    onVisibleChanged: {
+        if (visible) {
+            // Start expand animation
+            expandProgress = 0;
+            contentOpacity = 0;
+            expandAnim.start();
+
+            // Load data
+            scanning = true;
+            scanProc.running = true;
+            ipProc.running = true;
+            wifiStatusProc.running = true;
+            savedNetworksProc.running = true;
+        } else {
+            currentView = "main";
+        }
+    }
+}

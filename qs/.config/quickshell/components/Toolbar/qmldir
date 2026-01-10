@@ -1,0 +1,18 @@
+module Toolbar
+Toolbar 1.0 Toolbar.qml
+WorkspaceSelector 1.0 WorkspaceSelector.qml
+WorkspaceDot 1.0 WorkspaceDot.qml
+StatsDisplay 1.0 StatsDisplay.qml
+Clock 1.0 Clock.qml
+NetworkButton 1.0 NetworkButton.qml
+VolumeButton 1.0 VolumeButton.qml
+ActiveWindow 1.0 ActiveWindow.qml
+WiFiManager 1.0 WiFiManager.qml
+MainWifiView 1.0 MainWifiView.qml
+NetworkListItem 1.0 NetworkListItem.qml
+PasswordInputView 1.0 PasswordInputView.qml
+SavedNetworksView 1.0 SavedNetworksView.qml
+QrCodeView 1.0 QrCodeView.qml
+HiddenNetworkView 1.0 HiddenNetworkView.qml
+ConnectionDetailsView 1.0 ConnectionDetailsView.qml
+BluetoothButton 1.0 BluetoothButton.qml

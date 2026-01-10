@@ -1,0 +1,10 @@
+module Panel
+Panel 1.0 Panel.qml
+PanelTheme 1.0 PanelTheme.qml
+PanelAnimation 1.0 PanelAnimation.qml
+PanelBackground 1.0 PanelBackground.qml
+AutoHide 1.0 AutoHide.qml
+WindowControlsLoader 1.0 WindowControlsLoader.qml
+PanelMonitorInfo 1.0 PanelMonitorInfo.qml
+PanelConnections 1.0 PanelConnections.qml
+HoverPopup 1.0 HoverPopup.qml
