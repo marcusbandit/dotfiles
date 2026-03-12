@@ -13,6 +13,27 @@ alias cat='bat'
 alias u='yay -Suy --noconfirm'
 alias speedtest='speedtest --secure --bytes'
 
+# OpenCode
+function opencode-resume() {
+    local session_id session_list
+    session_list=$(opencode session list 2>/dev/null \
+        | sed 's/\x1b\[[0-9;?]*[a-zA-Z]//g; s/\r//g' \
+        | grep '^ses_' \
+        | awk '{
+            id=$1
+            rest=substr($0, length($1)+1)
+            gsub(/^[[:space:]]+/, "", rest)
+            gsub(/[[:space:]]+[0-9]+:[0-9]+ [AP]M.*$/, "", rest)
+            print id "\t" rest
+          }')
+    session_id=$(echo "$session_list" | fzf --delimiter='\t' --with-nth=2 --no-preview | cut -f1)
+    [ -n "$session_id" ] && opencode -s "$session_id"
+}
+
 # OpenFOAM
 alias ofoam='source /opt/OpenFOAM/OpenFOAM-13/etc/bashrc'
 alias of='source /opt/OpenFOAM/OpenFOAM-13/etc/bashrc'
+
+# YouTube in mpv - tiled, no decorations, pure video
+alias yt='mpv --no-border'
+alias subway_surfer='mpv --no-border --start=971 "https://youtu.be/vTfD20dbxho"'

@@ -10,6 +10,8 @@ Item {
     property color colFg: "#a9b1d6"
     property color colMuted: "#565f89"
     property color colActive: "#7aa2f7"
+    property color colHover: "#414868"
+    property color colCard: "#24283b"
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16
 

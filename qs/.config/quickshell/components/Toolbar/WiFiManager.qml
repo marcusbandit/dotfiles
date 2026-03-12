@@ -1,12 +1,24 @@
 import QtQuick
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Io
 
 // WiFi Manager popup with full network management
-PopupWindow {
+// Uses LayerShell window on Top layer (behind panel) with slide-in animation
+Scope {
     id: root
 
+    // Required: screen reference from parent panel
+    required property var panelScreen
+    // Required: X position for the popup
+    required property real xPosition
+    // Required: panel height to position below
+    required property real panelHeight
+    // Corner radius (gaps + decoration rounding from Hyprland)
+    property int cornerRadius: 20
+
     // Theme properties
+    property color colPopupBg: "#000000"  // Pure black popup background
     property color colBg: "#1a1b26"
     property color colFg: "#a9b1d6"
     property color colMuted: "#565f89"
@@ -14,6 +26,7 @@ PopupWindow {
     property color colHover: "#414868"
     property color colError: "#f7768e"
     property color colSuccess: "#9ece6a"
+    property color colCard: "#24283b"     // Card background color
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16
 
@@ -35,100 +48,208 @@ PopupWindow {
     property bool showPassword: false
 
     // Hover state for parent to track
-    property bool isHovered: hoverHandler.hovered
+    property bool isHovered: popupWindow.hovered
+
+    // Visibility control
+    property bool visible: false
+    property bool isClosing: false  // True during slide-out animation
+    property bool windowVisible: visible || isClosing  // Keep window visible during close animation
 
     // Signal to request closing the popup
     signal requestClose()
 
-    color: "transparent"
-    implicitWidth: 360
-    implicitHeight: mainContainer.height + 8  // Size to content
+    // Animation speed for exponential smoothing
+    property real animSpeed: 10.0
 
-    // Animation speed
-    property real animSpeed: 12.0
+    // Slide animation properties - starts above panel, floats down
+    property real slideOffset: -80  // Start just above visible area
+    property real targetSlideOffset: 0
+    property real smoothSlideOffset: -80
 
-    // Hover detection
-    HoverHandler {
-        id: hoverHandler
-    }
+    // Content animation properties - start at full opacity
+    property real expandProgress: 1
+    property real contentOpacity: 1
 
-    // Escape key to close
-    Shortcut {
-        sequence: "Escape"
-        enabled: root.visible
-        onActivated: root.requestClose()
-    }
+    // Layer property - Top layer (value 2) is below Overlay (value 3)
+    // This puts the popup behind the panel
+    property int popupLayer: 2  // Default to Top layer
 
-    // Animation properties
-    property real expandProgress: 0
-    property real contentOpacity: 0
-
-    // Animate expand when visible changes (also triggers data loading - see bottom)
-
-    SequentialAnimation {
-        id: expandAnim
-        NumberAnimation {
-            target: root
-            property: "expandProgress"
-            from: 0
-            to: 1
-            duration: 120
-            easing.type: Easing.OutCubic
-        }
-        NumberAnimation {
-            target: root
-            property: "contentOpacity"
-            from: 0
-            to: 1
-            duration: 80
-            easing.type: Easing.OutCubic
+    Component.onCompleted: {
+        try {
+            if (typeof WlrLayershell !== 'undefined' && WlrLayershell.Layer) {
+                root.popupLayer = WlrLayershell.Layer.Top;
+            }
+        } catch(e) {
+            // Keep default value
         }
     }
 
-    // Main container with expand animation
-    Rectangle {
-        id: mainContainer
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 4
-        width: parent.width - 8
-        height: {
-            // Get height from the currently visible view
-            if (root.currentView === "main") return mainView.implicitHeight + 24;
-            if (root.currentView === "password") return passwordView.implicitHeight + 24;
-            if (root.currentView === "saved") return savedView.implicitHeight + 24;
-            if (root.currentView === "qrcode") return qrView.implicitHeight + 24;
-            if (root.currentView === "hidden") return hiddenView.implicitHeight + 24;
-            if (root.currentView === "details") return detailsView.implicitHeight + 24;
-            return 400;
+    // Animation timer using exponential smoothing - only for slide position
+    Timer {
+        id: slideAnimTimer
+        interval: 16  // ~60fps
+        running: root.windowVisible
+        repeat: true
+        onTriggered: {
+            let dt = interval / 1000.0;
+            let factor = 1 - Math.exp(-root.animSpeed * dt);
+            root.smoothSlideOffset += (root.targetSlideOffset - root.smoothSlideOffset) * factor;
+
+            // Check if close animation is done (reached target within threshold)
+            if (root.isClosing && Math.abs(root.smoothSlideOffset - root.targetSlideOffset) < 1) {
+                root.isClosing = false;
+            }
         }
-        color: root.colBg
-        radius: 12
-        clip: true
+    }
 
-        scale: 0.8 + (0.2 * root.expandProgress)
-        transformOrigin: Item.Top
-        opacity: root.expandProgress
+    onVisibleChanged: {
+        if (visible) {
+            // Cancel any closing animation
+            isClosing = false;
+            // Reset slide position - start above
+            smoothSlideOffset = -80;
+            targetSlideOffset = 0;
 
-        Behavior on height {
-            NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
+            // Load data
+            scanning = true;
+            scanProc.running = true;
+            ipProc.running = true;
+            wifiStatusProc.running = true;
+            savedNetworksProc.running = true;
+        } else {
+            // Start close animation - slide back up by full height + panel height
+            isClosing = true;
+            targetSlideOffset = -(mainContainer.height + panelHeight + 20);
+            currentView = "main";
+        }
+    }
+
+    // The actual popup window - on Top layer (behind panel which is on Overlay)
+    PanelWindow {
+        id: popupWindow
+        screen: root.panelScreen
+
+        // Layer below the panel (Top is below Overlay)
+        WlrLayershell.layer: root.popupLayer
+
+        // Enable keyboard focus so password input can receive key events
+        focusable: true
+        WlrLayershell.keyboardFocus: WlrLayershell.KeyboardFocus.OnDemand
+
+        // Use layer shell margins to position the window
+        WlrLayershell.namespace: "wifi-popup"
+        anchors.top: true
+        anchors.left: true
+
+        // Layer shell margins position the window - slide animation controls position
+        // When not visible (and not closing), push far off-screen; otherwise use slide offset
+        WlrLayershell.margins.top: Math.round(root.windowVisible ? root.smoothSlideOffset : -2000)
+        WlrLayershell.margins.left: Math.round(root.xPosition - 180 - root.cornerRadius)
+
+        // Size - include corner elements
+        implicitWidth: 360 + root.cornerRadius * 2
+        implicitHeight: mainContainer.height
+
+        color: "transparent"
+
+        // Always visible to avoid Wayland/compositor fade animations
+        visible: true
+
+        // Track hover state
+        property bool hovered: hoverHandler.hovered
+
+        HoverHandler {
+            id: hoverHandler
         }
 
-        // Shadow
-        Rectangle {
-            anchors.fill: parent
-            anchors.margins: -2
-            color: Qt.rgba(0, 0, 0, 0.3)
-            radius: 14
-            z: -1
+        // Escape key to close
+        Shortcut {
+            sequence: "Escape"
+            enabled: popupWindow.visible
+            onActivated: root.requestClose()
         }
 
-        // Content area with view switching
+        // Use mask to only receive input on the actual content area
+        mask: Region {
+            item: maskItem
+        }
+
+        // Mask item that includes main container and corner elements
         Item {
-            id: contentLoader
-            anchors.fill: parent
-            anchors.margins: 12
-            opacity: root.contentOpacity
+            id: maskItem
+            x: 0
+            y: 0
+            width: mainContainer.width + root.cornerRadius * 2
+            height: mainContainer.height + root.cornerRadius
+        }
+
+        // Left inner corner - creates inverted corner effect
+        InnerRoundCorner {
+            id: leftCorner
+            x: 0
+            y: 0
+            cornerType: 2  // topRight (inverted, so shows as inner corner on left)
+            radius: root.cornerRadius
+            color: root.colPopupBg
+        }
+
+        // Right inner corner
+        InnerRoundCorner {
+            id: rightCorner
+            x: root.cornerRadius + mainContainer.width
+            y: 0
+            cornerType: 1  // topLeft (inverted, so shows as inner corner on right)
+            radius: root.cornerRadius
+            color: root.colPopupBg
+        }
+
+        // Main container - slides in from above, black bg, flat top corners
+        Item {
+            id: mainContainer
+
+            // Position within the window - offset by corner radius
+            x: root.cornerRadius
+            y: 0
+
+            width: 360
+            height: {
+                // Get height from the currently visible view
+                if (root.currentView === "main") return mainView.implicitHeight + 24;
+                if (root.currentView === "password") return passwordView.implicitHeight + 24;
+                if (root.currentView === "saved") return savedView.implicitHeight + 24;
+                if (root.currentView === "qrcode") return qrView.implicitHeight + 24;
+                if (root.currentView === "hidden") return hiddenView.implicitHeight + 24;
+                if (root.currentView === "details") return detailsView.implicitHeight + 24;
+                return 400;
+            }
+            clip: true
+
+            Behavior on height {
+                NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
+            }
+
+            // Background - pure black with bottom corners rounded
+            Rectangle {
+                id: bgRect
+                anchors.fill: parent
+                color: root.colPopupBg
+                radius: root.cornerRadius
+
+                // Cover the top rounded corners with a flat rectangle
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: root.cornerRadius
+                    color: root.colPopupBg
+                }
+            }
+
+            // Content area with view switching
+            Item {
+                id: contentLoader
+                anchors.fill: parent
+                anchors.margins: 12
 
             // === MAIN VIEW ===
             MainWifiView {
@@ -151,6 +272,7 @@ PopupWindow {
                 colHover: root.colHover
                 colError: root.colError
                 colSuccess: root.colSuccess
+                colCard: root.colCard
                 fontFamily: root.fontFamily
                 fontSize: root.fontSize
 
@@ -174,7 +296,6 @@ PopupWindow {
                     }
                 }
                 onShowSaved: root.currentView = "saved"
-                onShowHidden: root.currentView = "hidden"
             }
 
             // === PASSWORD INPUT VIEW ===
@@ -226,6 +347,7 @@ PopupWindow {
                 colHover: root.colHover
                 colError: root.colError
                 colSuccess: root.colSuccess
+                colCard: root.colCard
                 fontFamily: root.fontFamily
                 fontSize: root.fontSize
 
@@ -245,6 +367,7 @@ PopupWindow {
                 onShowPassword: function(network) {
                     root.revealPassword(network);
                 }
+                onShowHidden: root.currentView = "hidden"
             }
 
             // === QR CODE VIEW ===
@@ -263,6 +386,8 @@ PopupWindow {
                 colFg: root.colFg
                 colMuted: root.colMuted
                 colActive: root.colActive
+                colHover: root.colHover
+                colCard: root.colCard
                 fontFamily: root.fontFamily
                 fontSize: root.fontSize
 
@@ -330,7 +455,8 @@ PopupWindow {
                 }
             }
         }
-    }
+        }  // Close mainContainer Rectangle
+    }  // Close PanelWindow
 
     // === NETWORK MANAGER FUNCTIONS ===
 
@@ -661,25 +787,6 @@ PopupWindow {
                 ipProc.running = true;
                 wifiStatusProc.running = true;
             }
-        }
-    }
-
-    // Initial load and animation
-    onVisibleChanged: {
-        if (visible) {
-            // Start expand animation
-            expandProgress = 0;
-            contentOpacity = 0;
-            expandAnim.start();
-
-            // Load data
-            scanning = true;
-            scanProc.running = true;
-            ipProc.running = true;
-            wifiStatusProc.running = true;
-            savedNetworksProc.running = true;
-        } else {
-            currentView = "main";
         }
     }
 }

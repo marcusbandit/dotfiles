@@ -4,7 +4,7 @@ import "../../utils" as Utils
 // Theme loading and color management for the panel
 Item {
     id: root
-    
+
     property color colPanelBg: "#00000000"
     property color colBg: "#1a1b26"
     property color colFg: "#a9b1d6"
@@ -12,6 +12,7 @@ Item {
     property color colCyan: "#0db9d7"
     property color colBlue: "#7aa2f7"
     property color colYellow: "#e0af68"
+    property color colPopupBg: "#000000"  // Pure black for popup backgrounds
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16
     

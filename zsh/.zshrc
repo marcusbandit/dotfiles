@@ -20,6 +20,9 @@ ZSH_THEME=""
 # Enable and activate starship for the zsh
 #eval "$(starship init zsh)"
 
+# Suppress Node.js deprecation warnings (oh-my-posh uses punycode)
+export NODE_OPTIONS='--no-deprecation'
+
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/bandit_theme.json)"
 
 # Set list of themes to pick from when loading at random
@@ -130,9 +133,9 @@ else
 fi
 
 # Customize fzf to use fd and ripgrep
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git' # Use fd for file finding
-export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git' # Use fd for Ctrl+T
-export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git' # Use fd for Alt+C (directories)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git' # Use fd for file finding
+export FZF_CTRL_T_COMMAND='fd --type f --hidden --exclude .git' # Use fd for Ctrl+T
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git' # Use fd for Alt+C (directories)
 
 # fzf appearance customization (single line to avoid parse errors)
 export FZF_DEFAULT_OPTS="--height=80% --layout=reverse --border=rounded --preview 'echo Previewing: {}'"

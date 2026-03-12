@@ -18,6 +18,9 @@ Item {
     // Hover state - set from Panel level
     property bool isHovered: false
 
+    // Fullscreen state - when true, don't expand on hover
+    property bool hasFullscreen: false
+
     function stopCollapseTimer() {
         collapseTimer.stop();
     }
@@ -34,7 +37,7 @@ Item {
 
     // Watch hover state
     onIsHoveredChanged: {
-        if (isHovered) {
+        if (isHovered && !hasFullscreen) {
             root.requestExpand();
             collapseTimer.stop();
         } else if (!interactionLock) {
@@ -42,9 +45,16 @@ Item {
         }
     }
 
+    // Watch fullscreen state - collapse when entering fullscreen
+    onHasFullscreenChanged: {
+        if (hasFullscreen && !interactionLock) {
+            collapseTimer.restart();
+        }
+    }
+
     // Watch interaction lock
     onInteractionLockChanged: {
-        if (interactionLock) {
+        if (interactionLock && !hasFullscreen) {
             root.requestExpand();
             collapseTimer.stop();
         } else if (!isHovered) {

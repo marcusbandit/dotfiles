@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import QtQuick
 import "."
 import "../Toolbar"
@@ -9,12 +10,25 @@ import "../../utils" as Utils
 // Main panel component
 PanelWindow {
     id: root
-    
+
     required property var modelData
-    
+
     // Assign modelData (the screen from Variants) to PanelWindow's screen property
     screen: modelData
-    
+
+    // Layer property - Overlay (3) is the highest, renders in front of popups
+    property int panelLayer: 3  // Default to Overlay
+
+    Component.onCompleted: {
+        try {
+            if (typeof WlrLayershell !== 'undefined' && WlrLayershell.Layer) {
+                root.panelLayer = WlrLayershell.Layer.Overlay;
+            }
+        } catch(e) {}
+    }
+
+    WlrLayershell.layer: root.panelLayer
+
     anchors.top: true
     anchors.left: true
     anchors.right: true
@@ -24,7 +38,12 @@ PanelWindow {
     PanelTheme {
         id: theme
     }
-    
+
+    // Hyprland settings (gaps, rounding)
+    Utils.HyprlandSettings {
+        id: hyprSettings
+    }
+
     // Monitor information
     PanelMonitorInfo {
         id: monitorInfo
@@ -35,7 +54,18 @@ PanelWindow {
     property int monitorY: monitorInfo.monitorY
     property int monitorWidth: monitorInfo.monitorWidth
     property int monitorHeight: monitorInfo.monitorHeight
-    
+
+    // Check if the focused workspace on this monitor has a fullscreen window
+    property bool hasFullscreenOnMonitor: {
+        for (let i = 0; i < Hyprland.workspaces.count; i++) {
+            let ws = Hyprland.workspaces.get(i);
+            if (ws && ws.monitor && ws.monitor.name === modelData.name && ws.focused && ws.hasFullscreen) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     property int panelTargetHeight: 57 // Start expanded (1.5x scale)
     property real panelSmoothHeight: 57 // Start expanded (1.5x scale)
     implicitHeight: Math.round(panelSmoothHeight)
@@ -64,6 +94,7 @@ PanelWindow {
         panelTargetHeight: root.panelTargetHeight
         panelSmoothHeight: root.panelSmoothHeight
         isHovered: panelHoverDetector.hovered
+        hasFullscreen: root.hasFullscreenOnMonitor
 
         onRequestExpand: {
             root.panelTargetHeight = 57;
@@ -118,14 +149,17 @@ PanelWindow {
         shouldLoad: root.windowControlsActive
     }
     
-    // WiFi Manager popup
+    // WiFi Manager popup - now uses LayerShell on Top layer (behind panel)
     WiFiManager {
         id: wifiManager
-        anchor.window: root
-        anchor.rect.x: toolbar.networkButtonX - 160  // Center popup on button (320/2 = 160)
-        anchor.rect.y: root.implicitHeight
-        anchor.edges: Edges.Top | Edges.Left
 
+        // Required properties for the new Scope-based WiFiManager
+        panelScreen: root.screen
+        xPosition: toolbar.networkButtonX
+        panelHeight: root.implicitHeight
+        cornerRadius: hyprSettings.combinedRounding
+
+        colPopupBg: theme.colPopupBg
         colBg: theme.colBg
         colFg: theme.colFg
         colMuted: theme.colMuted

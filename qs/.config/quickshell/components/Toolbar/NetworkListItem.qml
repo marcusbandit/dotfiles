@@ -25,7 +25,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: 8
-        color: itemMa.containsMouse ? root.colHover : (root.network && root.network.connected ? Qt.rgba(root.colActive.r, root.colActive.g, root.colActive.b, 0.1) : "transparent")
+        color: itemMa.containsMouse ? root.colHover : (root.network && root.network.connected ? Qt.lighter(root.colBg, 1.15) : "transparent")
 
         Behavior on color {
             ColorAnimation { duration: 150 }
@@ -104,17 +104,19 @@ Item {
                 // Security badge
                 Rectangle {
                     visible: root.network && root.network.security !== "Open"
-                    width: securityText.width + 8
-                    height: 18
+                    width: securityText.width + 10
+                    height: 20
                     radius: 4
-                    color: Qt.rgba(root.colMuted.r, root.colMuted.g, root.colMuted.b, 0.3)
+                    color: Qt.rgba(root.colActive.r, root.colActive.g, root.colActive.b, 0.2)
+                    border.width: 1
+                    border.color: Qt.rgba(root.colActive.r, root.colActive.g, root.colActive.b, 0.4)
                     anchors.verticalCenter: parent.verticalCenter
 
                     Text {
                         id: securityText
                         anchors.centerIn: parent
                         text: root.network ? (root.network.security.indexOf("WPA3") !== -1 ? "WPA3" : (root.network.security.indexOf("WPA2") !== -1 ? "WPA2" : "WPA")) : ""
-                        color: root.colMuted
+                        color: root.colFg
                         font.family: root.fontFamily
                         font.pixelSize: 10
                     }
@@ -273,7 +275,7 @@ Item {
                     width: parent.width - 48
                     height: 32
                     radius: 6
-                    color: connectBtnMa.containsMouse ? root.colHover : Qt.rgba(root.colActive.r, root.colActive.g, root.colActive.b, 0.2)
+                    color: connectBtnMa.containsMouse ? Qt.lighter(root.colHover, 1.2) : root.colHover
                     visible: root.network && root.network.connected
 
                     Text {

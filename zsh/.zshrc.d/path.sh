@@ -2,6 +2,10 @@
 # Always keep these first so core utilities (like clear, ls, grep) work properly
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+# === NPM GLOBAL BINARIES ===
+# Global npm packages
+export PATH="$HOME/.npm-global/bin:$PATH"
+
 # === USER BINARIES ===
 # Your custom scripts and binaries
 export PATH="$HOME/bin:$PATH"

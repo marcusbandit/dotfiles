@@ -12,6 +12,7 @@ Item {
     property color colHover: "#414868"
     property color colError: "#f7768e"
     property color colSuccess: "#9ece6a"
+    property color colCard: "#24283b"
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 16
 
@@ -22,92 +23,146 @@ Item {
     signal toggleAutoconnect(var network)
     signal forgetNetwork(var network)
     signal showPassword(var network)
+    signal showHidden()
 
     implicitHeight: savedColumn.implicitHeight
 
     Column {
         id: savedColumn
         width: parent.width
-        spacing: 12
+        spacing: 10
 
-        // Header with back button
+        // Header with back button and title
         Item {
             width: parent.width
-            height: 32
+            height: 40
 
-            Rectangle {
-                id: backBtn
-                width: 32
-                height: 32
-                radius: 16
-                color: backMa.containsMouse ? root.colHover : "transparent"
+            Row {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
+                spacing: 8
+
+                Rectangle {
+                    id: backBtn
+                    width: 32
+                    height: 32
+                    radius: 8
+                    color: backMa.containsMouse ? root.colHover : "transparent"
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Text {
+                        anchors.centerIn: parent
+                        text: "󰁍"
+                        color: root.colFg
+                        font.family: root.fontFamily
+                        font.pixelSize: 16
+                    }
+
+                    MouseArea {
+                        id: backMa
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: root.back()
+                    }
+                }
 
                 Text {
-                    anchors.centerIn: parent
-                    text: "󰁍"
+                    text: "Saved Networks"
                     color: root.colFg
                     font.family: root.fontFamily
-                    font.pixelSize: 16
+                    font.pixelSize: root.fontSize + 2
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+
+            // Hidden network button on right
+            Rectangle {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                width: hiddenRow.width + 16
+                height: 32
+                radius: 8
+                color: hiddenBtnMa.containsMouse ? root.colHover : "transparent"
+                border.width: 1
+                border.color: root.colMuted
+
+                Row {
+                    id: hiddenRow
+                    anchors.centerIn: parent
+                    spacing: 6
+
+                    Text {
+                        text: "󰛵"
+                        color: root.colMuted
+                        font.family: root.fontFamily
+                        font.pixelSize: 12
+                    }
+
+                    Text {
+                        text: "Hidden"
+                        color: root.colMuted
+                        font.family: root.fontFamily
+                        font.pixelSize: root.fontSize - 3
+                    }
                 }
 
                 MouseArea {
-                    id: backMa
+                    id: hiddenBtnMa
                     anchors.fill: parent
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: root.back()
+                    onClicked: root.showHidden()
                 }
-            }
-
-            Text {
-                text: "Saved Networks"
-                color: root.colFg
-                font.family: root.fontFamily
-                font.pixelSize: root.fontSize + 2
-                font.bold: true
-                anchors.centerIn: parent
             }
         }
 
-        // Saved networks list
-        Flickable {
+        // Saved networks list with fade effect
+        Item {
             width: parent.width
-            height: Math.min(savedList.implicitHeight, 350)
-            contentHeight: savedList.implicitHeight
-            clip: true
-            boundsBehavior: Flickable.StopAtBounds
+            height: Math.min(savedFlickable.contentHeight, 350)
 
-            Column {
-                id: savedList
-                width: parent.width
-                spacing: 8
+            Flickable {
+                id: savedFlickable
+                anchors.fill: parent
+                contentHeight: savedList.implicitHeight
+                clip: true
+                boundsBehavior: Flickable.StopAtBounds
 
-                Repeater {
-                    model: root.savedNetworks
+                Column {
+                    id: savedList
+                    width: parent.width
+                    spacing: 6
 
-                    Rectangle {
-                        id: savedItem
-                        required property var modelData
-                        required property int index
+                    Repeater {
+                        model: root.savedNetworks
 
-                        width: savedList.width
-                        height: savedItemColumn.height
-                        radius: 10
-                        color: Qt.rgba(root.colHover.r, root.colHover.g, root.colHover.b, 0.5)
+                        Rectangle {
+                            id: savedItem
+                            required property var modelData
+                            required property int index
 
-                        Column {
-                            id: savedItemColumn
-                            width: parent.width
-                            padding: 12
-                            spacing: 10
+                            width: savedList.width
+                            height: savedItemRow.height + 16
+                            radius: 8
+                            color: itemMa.containsMouse ? root.colHover : root.colCard
 
-                            // Network name and autoconnect status
+                            MouseArea {
+                                id: itemMa
+                                anchors.fill: parent
+                                hoverEnabled: true
+                            }
+
                             Row {
-                                width: parent.width - 24
+                                id: savedItemRow
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.margins: 10
                                 spacing: 10
 
+                                // WiFi icon
                                 Text {
                                     text: "󰤨"
                                     color: root.colActive
@@ -116,10 +171,11 @@ Item {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
 
+                                // Network name and status
                                 Column {
                                     anchors.verticalCenter: parent.verticalCenter
                                     spacing: 2
-                                    width: parent.width - 100
+                                    width: parent.width - 120
 
                                     Text {
                                         text: savedItem.modelData.name
@@ -132,95 +188,29 @@ Item {
                                     }
 
                                     Text {
-                                        text: savedItem.modelData.autoconnect ? "Auto-connect enabled" : "Auto-connect disabled"
+                                        text: savedItem.modelData.autoconnect ? "Auto-connect" : "Manual"
                                         color: savedItem.modelData.autoconnect ? root.colSuccess : root.colMuted
                                         font.family: root.fontFamily
                                         font.pixelSize: root.fontSize - 4
                                     }
                                 }
-                            }
 
-                            // Password display (if revealed)
-                            Rectangle {
-                                visible: savedItem.modelData.revealedPassword !== null
-                                width: parent.width - 24
-                                height: visible ? 36 : 0
-                                radius: 6
-                                color: root.colBg
-
-                                Row {
-                                    anchors.fill: parent
-                                    anchors.margins: 8
-                                    spacing: 8
-
-                                    Text {
-                                        text: "󰌆"
-                                        color: root.colMuted
-                                        font.family: root.fontFamily
-                                        font.pixelSize: 14
-                                        anchors.verticalCenter: parent.verticalCenter
-                                    }
-
-                                    Text {
-                                        text: savedItem.modelData.revealedPassword || ""
-                                        color: root.colFg
-                                        font.family: "monospace"
-                                        font.pixelSize: root.fontSize - 2
-                                        anchors.verticalCenter: parent.verticalCenter
-                                    }
-                                }
-
-                                Behavior on height {
-                                    NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
-                                }
-                            }
-
-                            // Action buttons
-                            Row {
-                                width: parent.width - 24
-                                spacing: 6
-
-                                // Show Password
+                                // Share/QR button
                                 Rectangle {
-                                    width: (parent.width - 18) / 4
-                                    height: 32
+                                    width: 36
+                                    height: 36
                                     radius: 6
-                                    color: showPassMa.containsMouse ? root.colHover : "transparent"
+                                    color: qrMa.containsMouse ? root.colHover : Qt.darker(root.colCard, 1.2)
                                     border.width: 1
                                     border.color: root.colMuted
-
-                                    Text {
-                                        anchors.centerIn: parent
-                                        text: "󰈉"
-                                        color: root.colFg
-                                        font.family: root.fontFamily
-                                        font.pixelSize: 14
-                                    }
-
-                                    MouseArea {
-                                        id: showPassMa
-                                        anchors.fill: parent
-                                        hoverEnabled: true
-                                        cursorShape: Qt.PointingHandCursor
-                                        onClicked: root.showPassword(savedItem.modelData)
-                                    }
-                                }
-
-                                // QR Code
-                                Rectangle {
-                                    width: (parent.width - 18) / 4
-                                    height: 32
-                                    radius: 6
-                                    color: qrMa.containsMouse ? root.colHover : "transparent"
-                                    border.width: 1
-                                    border.color: root.colMuted
+                                    anchors.verticalCenter: parent.verticalCenter
 
                                     Text {
                                         anchors.centerIn: parent
                                         text: "󰐲"
                                         color: root.colFg
                                         font.family: root.fontFamily
-                                        font.pixelSize: 14
+                                        font.pixelSize: 16
                                     }
 
                                     MouseArea {
@@ -232,55 +222,176 @@ Item {
                                     }
                                 }
 
-                                // Toggle autoconnect
+                                // More options button
                                 Rectangle {
-                                    width: (parent.width - 18) / 4
-                                    height: 32
+                                    width: 36
+                                    height: 36
                                     radius: 6
-                                    color: autoMa.containsMouse ? root.colHover : "transparent"
-                                    border.width: 1
-                                    border.color: savedItem.modelData.autoconnect ? root.colSuccess : root.colMuted
+                                    color: moreMa.containsMouse ? root.colHover : "transparent"
+                                    anchors.verticalCenter: parent.verticalCenter
 
                                     Text {
                                         anchors.centerIn: parent
-                                        text: savedItem.modelData.autoconnect ? "󰒃" : "󰒄"
-                                        color: savedItem.modelData.autoconnect ? root.colSuccess : root.colMuted
+                                        text: "󰇙"
+                                        color: root.colMuted
                                         font.family: root.fontFamily
                                         font.pixelSize: 14
                                     }
 
                                     MouseArea {
-                                        id: autoMa
+                                        id: moreMa
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         cursorShape: Qt.PointingHandCursor
-                                        onClicked: root.toggleAutoconnect(savedItem.modelData)
+                                        onClicked: {
+                                            optionsPopup.network = savedItem.modelData;
+                                            optionsPopup.visible = !optionsPopup.visible;
+                                        }
                                     }
                                 }
+                            }
 
-                                // Forget
-                                Rectangle {
-                                    width: (parent.width - 18) / 4
-                                    height: 32
-                                    radius: 6
-                                    color: forgetMa.containsMouse ? Qt.rgba(root.colError.r, root.colError.g, root.colError.b, 0.2) : "transparent"
-                                    border.width: 1
-                                    border.color: root.colError
+                            // Inline options popup
+                            Rectangle {
+                                id: optionsPopup
+                                property var network: null
+                                visible: false
+                                anchors.top: parent.bottom
+                                anchors.topMargin: 4
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                width: 140
+                                height: optionsColumn.height + 12
+                                radius: 8
+                                color: root.colBg
+                                border.width: 1
+                                border.color: root.colHover
+                                z: 100
 
-                                    Text {
-                                        anchors.centerIn: parent
-                                        text: "󰆴"
-                                        color: root.colError
-                                        font.family: root.fontFamily
-                                        font.pixelSize: 14
+                                Column {
+                                    id: optionsColumn
+                                    anchors.centerIn: parent
+                                    width: parent.width - 12
+                                    spacing: 4
+
+                                    // Toggle autoconnect
+                                    Rectangle {
+                                        width: parent.width
+                                        height: 32
+                                        radius: 4
+                                        color: autoMa.containsMouse ? root.colHover : "transparent"
+
+                                        Row {
+                                            anchors.left: parent.left
+                                            anchors.leftMargin: 8
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            spacing: 8
+
+                                            Text {
+                                                text: optionsPopup.network && optionsPopup.network.autoconnect ? "󰒃" : "󰒄"
+                                                color: root.colFg
+                                                font.family: root.fontFamily
+                                                font.pixelSize: 12
+                                            }
+
+                                            Text {
+                                                text: optionsPopup.network && optionsPopup.network.autoconnect ? "Disable auto" : "Enable auto"
+                                                color: root.colFg
+                                                font.family: root.fontFamily
+                                                font.pixelSize: root.fontSize - 3
+                                            }
+                                        }
+
+                                        MouseArea {
+                                            id: autoMa
+                                            anchors.fill: parent
+                                            hoverEnabled: true
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                root.toggleAutoconnect(optionsPopup.network);
+                                                optionsPopup.visible = false;
+                                            }
+                                        }
                                     }
 
-                                    MouseArea {
-                                        id: forgetMa
-                                        anchors.fill: parent
-                                        hoverEnabled: true
-                                        cursorShape: Qt.PointingHandCursor
-                                        onClicked: root.forgetNetwork(savedItem.modelData)
+                                    // Show password
+                                    Rectangle {
+                                        width: parent.width
+                                        height: 32
+                                        radius: 4
+                                        color: passMa.containsMouse ? root.colHover : "transparent"
+
+                                        Row {
+                                            anchors.left: parent.left
+                                            anchors.leftMargin: 8
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            spacing: 8
+
+                                            Text {
+                                                text: "󰈉"
+                                                color: root.colFg
+                                                font.family: root.fontFamily
+                                                font.pixelSize: 12
+                                            }
+
+                                            Text {
+                                                text: "Show password"
+                                                color: root.colFg
+                                                font.family: root.fontFamily
+                                                font.pixelSize: root.fontSize - 3
+                                            }
+                                        }
+
+                                        MouseArea {
+                                            id: passMa
+                                            anchors.fill: parent
+                                            hoverEnabled: true
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                root.showPassword(optionsPopup.network);
+                                                optionsPopup.visible = false;
+                                            }
+                                        }
+                                    }
+
+                                    // Forget network
+                                    Rectangle {
+                                        width: parent.width
+                                        height: 32
+                                        radius: 4
+                                        color: forgetMa.containsMouse ? Qt.rgba(root.colError.r, root.colError.g, root.colError.b, 0.2) : "transparent"
+
+                                        Row {
+                                            anchors.left: parent.left
+                                            anchors.leftMargin: 8
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            spacing: 8
+
+                                            Text {
+                                                text: "󰆴"
+                                                color: root.colError
+                                                font.family: root.fontFamily
+                                                font.pixelSize: 12
+                                            }
+
+                                            Text {
+                                                text: "Forget"
+                                                color: root.colError
+                                                font.family: root.fontFamily
+                                                font.pixelSize: root.fontSize - 3
+                                            }
+                                        }
+
+                                        MouseArea {
+                                            id: forgetMa
+                                            anchors.fill: parent
+                                            hoverEnabled: true
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                root.forgetNetwork(optionsPopup.network);
+                                                optionsPopup.visible = false;
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -288,16 +399,68 @@ Item {
                     }
                 }
             }
+
+            // Bottom fade effect
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 40
+                visible: savedFlickable.contentHeight > savedFlickable.height &&
+                         savedFlickable.contentY < savedFlickable.contentHeight - savedFlickable.height - 10
+
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 1.0; color: root.colBg }
+                }
+
+                // Scroll indicator arrow
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 4
+                    text: "󰅀"
+                    color: root.colMuted
+                    font.family: root.fontFamily
+                    font.pixelSize: 16
+
+                    SequentialAnimation on y {
+                        running: savedFlickable.contentHeight > savedFlickable.height
+                        loops: Animation.Infinite
+                        NumberAnimation { from: 0; to: 4; duration: 500; easing.type: Easing.InOutQuad }
+                        NumberAnimation { from: 4; to: 0; duration: 500; easing.type: Easing.InOutQuad }
+                    }
+                }
+            }
         }
 
         // Empty state
-        Text {
-            text: "No saved networks"
-            color: root.colMuted
-            font.family: root.fontFamily
-            font.pixelSize: root.fontSize - 1
+        Rectangle {
+            width: parent.width
+            height: 80
+            radius: 10
+            color: root.colCard
             visible: root.savedNetworks.length === 0
-            anchors.horizontalCenter: parent.horizontalCenter
+
+            Column {
+                anchors.centerIn: parent
+                spacing: 8
+
+                Text {
+                    text: "󰤭"
+                    color: root.colMuted
+                    font.family: root.fontFamily
+                    font.pixelSize: 28
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                Text {
+                    text: "No saved networks"
+                    color: root.colMuted
+                    font.family: root.fontFamily
+                    font.pixelSize: root.fontSize - 1
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
         }
     }
 }

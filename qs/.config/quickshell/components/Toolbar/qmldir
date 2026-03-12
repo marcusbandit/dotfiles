@@ -16,3 +16,4 @@ QrCodeView 1.0 QrCodeView.qml
 HiddenNetworkView 1.0 HiddenNetworkView.qml
 ConnectionDetailsView 1.0 ConnectionDetailsView.qml
 BluetoothButton 1.0 BluetoothButton.qml
+InnerRoundCorner 1.0 InnerRoundCorner.qml
