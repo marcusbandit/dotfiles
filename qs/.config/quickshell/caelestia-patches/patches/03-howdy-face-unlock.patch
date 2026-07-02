@@ -1,0 +1,128 @@
+--- a/modules/lock/Pam.qml
++++ b/modules/lock/Pam.qml
+@@ -12,9 +12,11 @@
+ 
+     readonly property alias passwd: passwd
+     readonly property alias fprint: fprint
++    readonly property alias howdy: howdy
+     property string lockMessage
+     property string state
+     property string fprintState
++    property string howdyState
+     property string buffer
+ 
+     signal flashMsg
+@@ -128,6 +130,53 @@
+         }
+     }
+ 
++    // Howdy Next (pam_howdy.so) IR face unlock. Mirrors the fprint context:
++    // a passive background auth method that keeps scanning while the session is
++    // secure and calls lock.unlock() on a match.
++    PamContext {
++        id: howdy
++
++        property bool available
++        property int errorTries
++
++        function checkAvail(): void {
++            if (!available || !root.lock.secure) {
++                abort();
++                return;
++            }
++
++            errorTries = 0;
++            start();
++        }
++
++        config: "howdy"
++        configDirectory: Quickshell.shellDir + "/assets/pam.d"
++
++        onCompleted: res => {
++            if (!available)
++                return;
++
++            if (res === PamResult.Success)
++                return root.lock.unlock();
++
++            if (res === PamResult.Error) {
++                // Hard failure (camera busy/missing). Bail out after a few tries
++                // so a broken camera can't hot-loop the IR emitter.
++                root.howdyState = "error";
++                errorTries++;
++                if (errorTries < 5 && root.lock.secure)
++                    howdyRetry.restart();
++            } else {
++                // No face matched this pass: keep watching while still locked.
++                root.howdyState = "fail";
++                if (root.lock.secure)
++                    howdyRetry.restart();
++            }
++
++            howdyStateReset.restart();
++        }
++    }
++
+     Process {
+         id: availProc
+ 
+@@ -138,6 +187,33 @@
+         }
+     }
+ 
++    Process {
++        id: howdyAvailProc
++
++        command: ["sh", "-c", "test -e /usr/lib/security/pam_howdy.so"]
++        onExited: code => { // qmllint disable signal-handler-parameters
++            howdy.available = code === 0;
++            howdy.checkAvail();
++        }
++    }
++
++    Timer {
++        id: howdyRetry
++
++        interval: 1200
++        onTriggered: {
++            if (howdy.available && root.lock.secure)
++                howdy.start();
++        }
++    }
++
++    Timer {
++        id: howdyStateReset
++
++        interval: 4000
++        onTriggered: root.howdyState = ""
++    }
++
+     Timer {
+         id: errorRetry
+ 
+@@ -169,15 +245,18 @@
+         function onSecureChanged(): void {
+             if (root.lock.secure) {
+                 availProc.running = true;
++                howdyAvailProc.running = true;
+                 root.buffer = "";
+                 root.state = "";
+                 root.fprintState = "";
++                root.howdyState = "";
+                 root.lockMessage = "";
+             }
+         }
+ 
+         function onUnlock(): void {
+             fprint.abort();
++            howdy.abort();
+         }
+ 
+         target: root.lock
+--- /dev/null
++++ b/assets/pam.d/howdy
+@@ -0,0 +1,4 @@
++#%PAM-1.0
++
++auth    sufficient  pam_howdy.so
++auth    required    pam_deny.so

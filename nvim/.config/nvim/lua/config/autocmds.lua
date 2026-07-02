@@ -7,6 +7,17 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Use 2-space indentation for HTML files (override the global 4-space default)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "html",
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
 -- Auto-format hyprland keybinds.conf on save
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*/hyprland/keybinds.conf",

@@ -17,13 +17,11 @@ export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # === APP-SPECIFIC BINARIES ===
-# ZenBrowser
-export PATH="/usr/lib/zen-browser/zen:$PATH"
+export PATH="/usr/lib/zen-browser/zen:$PATH"   # Zen Browser
+export PATH="$HOME/.spicetify:$PATH"           # spicetify
 
 # === CONDA / MINIFORGE ===
-# Always put this LAST to avoid overriding system binaries like `clear`
-#export PATH="$PATH:$HOME/miniforge/bin"
-#export PATH="$PATH:$HOME/miniforge/condabin"
+# Deliberately NOT on PATH here: conda is opt-in and set up in ~/.zshrc (CONDA_MANUAL).
 
 # === AUTO DEDUPLICATE PATH ===
 # This removes any duplicate entries from $PATH
