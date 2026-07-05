@@ -39,20 +39,39 @@ diff. (Or just hand-write the diff.)
 
 ## Patches
 
-- **01-screenshot-open-action.patch** — `modules/areapicker/Picker.qml`
+- **01-screenshot-open-action.patch**: `modules/areapicker/Picker.qml`
   - strip the `file://` prefix before piping into `wl-copy`
   - add an **Open** action to the "Screenshot copied" notification that opens the
     shot in `imv`
-- **02-bluetooth-mac-sort.patch** — bar popout + nexus bluetooth pages
+- **02-bluetooth-mac-sort.patch**: bar popout + nexus bluetooth pages
   - sort bluetooth lists so devices whose name is just a raw MAC address
     (unnamed) sink to the bottom, below properly named ones
   - covers `modules/bar/popouts/Bluetooth.qml`,
     `modules/nexus/pages/BluetoothPage.qml`,
     `modules/nexus/pages/bluetooth/BluetoothPairing.qml`
+- **03-howdy-face-unlock.patch**: howdy face unlock on the lock screen
+- **04-faceunlock-indicator.patch**: face-scan indicator pill, driven by the
+  `faceunlock start/stop` IPC from the howdy watcher service
+- **05-dashboard-declutter.patch**: `modules/dashboard/Dash.qml`
+  - remove the small weather widget, the user/avatar card, and the resources
+    (performance) column from the main dashboard tab
+  - remaining layout is a single row: date/time, calendar, media, plus a
+    battery tank (reused from the performance tab) on the right when a laptop
+    battery is present
+  - related but NOT part of the patch: the Weather tab is hidden natively via
+    `dashboard.showWeather: false` in `~/.config/caelestia/shell.json`
+  - `dash/Media.qml`: declare an implicitHeight (the card used to be stretched
+    by the old two-row grid), drop the bongocat gif and its beat-tracker
+    ServiceRef, and use `rounding.large` on the main dash cards (see 06)
+- **06-dashboard-rounding.patch**: performance tab cards
+  - unify card corner radius to `Tokens.rounding.large` (what BatteryTank uses)
+    across HeroCard, NetworkCard, StorageCard, MemoryCard
+  - the matching main-dash radius changes live in 05 because `Dash.qml` already
+    belongs to that patch (one file must not be covered by two patches)
 
 ## Dropped on the 1.x → 2.x migration
 
-- **favourite apps** — now native in caelestia-shell 2.x. Configure via
+- **favourite apps**: now native in caelestia-shell 2.x. Configure via
   `~/.config/caelestia/shell.json` under `launcher.favouriteApps` instead of
   patching QML/C++.
 

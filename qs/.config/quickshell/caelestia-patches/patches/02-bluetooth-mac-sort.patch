@@ -59,7 +59,7 @@
      title: qsTr("Connected devices")
  
      ColumnLayout {
-@@ -46,7 +63,7 @@
+@@ -45,7 +62,7 @@
              placeholderText: root.btEnabled ? qsTr("No saved devices") : qsTr("Bluetooth disabled")
  
              model: ScriptModel {

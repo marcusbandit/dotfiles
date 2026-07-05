@@ -91,12 +91,15 @@ cmd_regen() {
     shopt -s nullglob
     local p
     for p in "$PATCHES"/*.patch; do
-        local name; name=$(basename "$p") tmp; tmp=$(mktemp)
+        local name tmp; name=$(basename "$p"); tmp=$(mktemp)
         local rel
         while IFS= read -r rel; do
             [[ -f "$CONFIG/$rel" ]] || { warn "  $rel missing in working copy, skipping"; continue; }
-            diff -u "$UPSTREAM/$rel" "$CONFIG/$rel" \
-                | sed -e "1s|^--- .*|--- a/$rel|" -e "2s|^+++ .*|+++ b/$rel|" >>"$tmp" || true
+            # Files that only exist in the working copy (patch-added) diff against /dev/null
+            local src="$UPSTREAM/$rel" lbl="a/$rel"
+            [[ -f "$src" ]] || { src=/dev/null; lbl=/dev/null; }
+            diff -u "$src" "$CONFIG/$rel" \
+                | sed -e "1s|^--- .*|--- $lbl|" -e "2s|^+++ .*|+++ b/$rel|" >>"$tmp" || true
         done < <(_patch_files "$p")
         if [[ -s "$tmp" ]]; then
             mv "$tmp" "$p"; info "${c_grn}regen${c_rst} $name"
