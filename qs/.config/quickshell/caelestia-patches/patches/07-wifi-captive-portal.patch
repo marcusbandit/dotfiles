@@ -8,7 +8,7 @@
  
  Singleton {
      id: root
-@@ -36,8 +37,22 @@
+@@ -36,8 +37,24 @@
      // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
      // anything other than that as a usable connection.
      readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
@@ -16,6 +16,8 @@
 +    // "portal" means a captive portal is intercepting traffic (login page needed).
 +    property string connectivity: "unknown"
 +    readonly property bool captivePortal: connectivity === "portal"
++    // Login page URL captured from the portal's redirect, when it provides one
++    property string portalUrl: ""
      property list<var> activeProcesses: []
  
 +    onCaptivePortalChanged: {
@@ -31,7 +33,7 @@
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -1504,7 +1519,12 @@
+@@ -1504,7 +1521,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -45,22 +47,53 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,6 +1535,53 @@
+@@ -1515,6 +1537,70 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
-+            connectivityProc.running = true; // Re-seed, changes may have been missed while the monitor was down
++            probeProc.running = true; // Re-seed, changes may have been missed while the monitor was down
 +        }
 +    }
 +
++    // Own captive-portal probe (same technique as Firefox), because NM's
++    // connectivity checker cannot be relied on (found disabled at runtime on
++    // this box while a portal was provably intercepting traffic).
 +    Process {
-+        id: connectivityProc
++        id: probeProc
 +
 +        running: true
-+        command: ["nmcli", "-t", "-f", "CONNECTIVITY", "general"]
++        command: ["curl", "-sm", "5", "-w", "\n%{http_code} %{redirect_url}", "http://detectportal.firefox.com/success.txt"]
 +        stdout: StdioCollector {
-+            onStreamFinished: root.connectivity = text.trim()
++            onStreamFinished: {
++                const lines = text.trim().split("\n");
++                const status = (lines.pop() ?? "").trim();
++                const body = lines.join("\n").trim();
++                const code = parseInt(status.split(" ")[0], 10) || 0;
++                const redirect = status.split(" ").slice(1).join(" ");
++
++                if (code === 200 && body === "success") {
++                    root.connectivity = "full";
++                    root.portalUrl = "";
++                } else if (code >= 200) {
++                    // Redirected or content tampered with: captive portal
++                    root.connectivity = "portal";
++                    root.portalUrl = redirect;
++                } else {
++                    root.connectivity = root.isConnected ? "limited" : "none";
++                }
++            }
 +        }
++    }
++
++    Timer {
++        id: probeTimer
++
++        running: root.isConnected
++        repeat: true
++        triggeredOnStart: true
++        // Probe aggressively until the network is confirmed good
++        interval: root.connectivity === "full" ? 60000 : 15000
++        onTriggered: probeProc.running = true
 +    }
 +
 +    Timer {
@@ -76,25 +109,11 @@
 +        }
 +
 +        onTriggered: {
-+            recheckProc.running = true;
++            probeProc.running = true;
 +            if (attempt < delays.length - 1) {
 +                attempt++;
 +                interval = delays[attempt];
 +                restart();
-+            }
-+        }
-+    }
-+
-+    Process {
-+        id: recheckProc
-+
-+        // Forces NM to re-probe right now and prints the resulting state
-+        command: ["nmcli", "-t", "networking", "connectivity", "check"]
-+        stdout: StdioCollector {
-+            onStreamFinished: {
-+                const state = text.trim();
-+                if (state)
-+                    root.connectivity = state;
 +            }
          }
      }
@@ -118,52 +137,52 @@
 +        Layout.fillWidth: true
 +        Layout.rightMargin: Tokens.padding.extraSmall
 +
-+        implicitHeight: portalRow.implicitHeight + Tokens.padding.medium * 2
++        implicitHeight: noticeLayout.implicitHeight + Tokens.padding.medium * 2
 +        radius: Tokens.rounding.large
 +        color: Colours.palette.m3secondaryContainer
 +
-+        StateLayer {
-+            radius: parent.radius
-+            color: Colours.palette.m3onSecondaryContainer
++        ColumnLayout {
++            id: noticeLayout
 +
-+            onClicked: Quickshell.execDetached(["xdg-open", "http://ping.archlinux.org/nm-check.txt"])
-+        }
-+
-+        RowLayout {
-+            id: portalRow
-+
-+            anchors.fill: parent
++            anchors.left: parent.left
++            anchors.right: parent.right
++            anchors.verticalCenter: parent.verticalCenter
 +            anchors.margins: Tokens.padding.medium
 +            spacing: Tokens.spacing.small
 +
-+            MaterialIcon {
-+                text: connectivityNotice.portal ? "captive_portal" : "public_off"
-+                color: Colours.palette.m3onSecondaryContainer
-+            }
-+
-+            ColumnLayout {
++            RowLayout {
 +                Layout.fillWidth: true
-+                spacing: 0
++                spacing: Tokens.spacing.small
++
++                MaterialIcon {
++                    text: connectivityNotice.portal ? "captive_portal" : "public_off"
++                    color: Colours.palette.m3onSecondaryContainer
++                }
 +
 +                StyledText {
 +                    Layout.fillWidth: true
 +                    text: connectivityNotice.portal ? qsTr("Sign-in required") : qsTr("No internet access")
 +                    font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
 +                    color: Colours.palette.m3onSecondaryContainer
-+                }
-+
-+                StyledText {
-+                    Layout.fillWidth: true
-+                    text: connectivityNotice.portal ? qsTr("This network needs a browser login") : qsTr("Connected, but the internet is unreachable")
-+                    color: Colours.palette.m3onSecondaryContainer
-+                    font: Tokens.font.body.small
++                    elide: Text.ElideRight
 +                }
 +            }
 +
-+            MaterialIcon {
-+                text: "open_in_new"
-+                fontStyle: Tokens.font.icon.small
++            StyledText {
++                Layout.fillWidth: true
++                text: connectivityNotice.portal ? qsTr("This network wants a login before it lets you online") : qsTr("Connected, but the internet is unreachable")
 +                color: Colours.palette.m3onSecondaryContainer
++                font: Tokens.font.body.small
++                wrapMode: Text.Wrap
++            }
++
++            TextButton {
++                visible: connectivityNotice.portal
++                Layout.alignment: Qt.AlignRight
++                Layout.topMargin: Tokens.spacing.extraSmall
++
++                text: qsTr("Open login page")
++                onClicked: Quickshell.execDetached(["xdg-open", Nmcli.portalUrl || "http://detectportal.firefox.com/success.txt"])
 +            }
 +        }
 +    }
