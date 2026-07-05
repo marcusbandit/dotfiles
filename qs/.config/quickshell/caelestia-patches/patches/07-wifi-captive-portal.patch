@@ -8,7 +8,7 @@
  
  Singleton {
      id: root
-@@ -36,8 +37,17 @@
+@@ -36,8 +37,22 @@
      // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
      // anything other than that as a usable connection.
      readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
@@ -23,10 +23,15 @@
 +            Toaster.toast(qsTr("Sign-in required"), qsTr("This network needs a browser login"), "captive_portal");
 +    }
 +
++    // A single connectivity check at activation can race the portal (seen at
++    // espressohouse: NM said full, the portal engaged moments later). Force a
++    // burst of rechecks after every connection change to catch late portals.
++    onActiveConnectionChanged: connectivityRecheck.begin()
++
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -1504,7 +1514,12 @@
+@@ -1504,7 +1519,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -40,7 +45,7 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,6 +1530,17 @@
+@@ -1515,6 +1535,53 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
@@ -55,6 +60,42 @@
 +        command: ["nmcli", "-t", "-f", "CONNECTIVITY", "general"]
 +        stdout: StdioCollector {
 +            onStreamFinished: root.connectivity = text.trim()
++        }
++    }
++
++    Timer {
++        id: connectivityRecheck
++
++        property int attempt: 0
++        readonly property list<int> delays: [3000, 8000, 15000, 30000, 60000]
++
++        function begin(): void {
++            attempt = 0;
++            interval = delays[0];
++            restart();
++        }
++
++        onTriggered: {
++            recheckProc.running = true;
++            if (attempt < delays.length - 1) {
++                attempt++;
++                interval = delays[attempt];
++                restart();
++            }
++        }
++    }
++
++    Process {
++        id: recheckProc
++
++        // Forces NM to re-probe right now and prints the resulting state
++        command: ["nmcli", "-t", "networking", "connectivity", "check"]
++        stdout: StdioCollector {
++            onStreamFinished: {
++                const state = text.trim();
++                if (state)
++                    root.connectivity = state;
++            }
          }
      }
  
