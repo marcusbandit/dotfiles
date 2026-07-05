@@ -452,7 +452,23 @@
      BarPopouts.ClipWrapper {
 --- a/modules/drawers/ContentWindow.qml
 +++ b/modules/drawers/ContentWindow.qml
-@@ -170,6 +170,13 @@
+@@ -110,13 +110,14 @@
+     HyprlandFocusGrab {
+         id: focusGrab
+ 
+-        active: (visibilities.launcher && root.contentItem.Config.launcher.enabled) || (visibilities.session && root.contentItem.Config.session.enabled) || (visibilities.sidebar && root.contentItem.Config.sidebar.enabled) || (!root.contentItem.Config.dashboard.showOnHover && visibilities.dashboard && root.contentItem.Config.dashboard.enabled) || (panels.popouts.currentName.startsWith("traymenu") && (panels.popouts.current as StackView)?.depth > 1)
++        active: (visibilities.launcher && root.contentItem.Config.launcher.enabled) || (visibilities.session && root.contentItem.Config.session.enabled) || (visibilities.sidebar && root.contentItem.Config.sidebar.enabled) || (!root.contentItem.Config.dashboard.showOnHover && visibilities.dashboard && root.contentItem.Config.dashboard.enabled) || panels.popouts.pinned || (panels.popouts.currentName.startsWith("traymenu") && (panels.popouts.current as StackView)?.depth > 1)
+         windows: [root]
+         onCleared: {
+             visibilities.launcher = false;
+             visibilities.session = false;
+             visibilities.sidebar = false;
+             visibilities.dashboard = false;
++            panels.popouts.pinned = false;
+             panels.popouts.hasCurrent = false;
+             bar.closeTray();
+         }
+@@ -170,6 +171,13 @@
          }
  
          PanelBg {
@@ -466,7 +482,7 @@
              id: launcherBg
  
              panel: panels.launcher
-@@ -267,6 +274,9 @@
+@@ -267,6 +275,9 @@
              dashboard.transform: Matrix4x4 {
                  matrix: dashBg.deformMatrix
              }

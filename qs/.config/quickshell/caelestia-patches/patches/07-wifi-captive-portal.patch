@@ -251,7 +251,7 @@
      component EthernetDevice: QtObject {
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -15,21 +15,102 @@
+@@ -15,21 +15,115 @@
      required property PopoutState popouts
  
      property string connectingToSsid: ""
@@ -265,6 +265,16 @@
      width: Tokens.sizes.bar.networkWidth
  
 +    Component.onCompleted: Nmcli.getWirelessDeviceDetails("", null)
++
++    // Reset to the network list whenever the popout closes
++    Connections {
++        function onHasCurrentChanged(): void {
++            if (!root.popouts.hasCurrent && root.view === "details")
++                root.view = "wireless";
++        }
++
++        target: root.popouts
++    }
 +
 +    // Connectivity notice (captive portal or no internet), shown for any view
 +    // since connectivity is global
@@ -352,13 +362,16 @@
 +
 +            onClicked: {
 +                root.view = "details";
++                // Pin the popout: the view switch changes its size, which would
++                // otherwise strand the cursor outside and hover-close it
++                root.popouts.pinned = true;
 +                Nmcli.getAllDeviceDetails(null);
 +            }
 +        }
      }
  
      Toggle {
-@@ -40,14 +121,26 @@
+@@ -40,14 +134,26 @@
          toggle.onToggled: Nmcli.enableWifi(checked)
      }
  
@@ -389,7 +402,7 @@
      }
  
      Repeater {
-@@ -60,18 +153,49 @@
+@@ -60,18 +166,49 @@
              }).slice(0, 8)
          }
  
@@ -441,7 +454,7 @@
  
              opacity: 0
              scale: 0.7
-@@ -91,74 +215,70 @@
+@@ -91,74 +228,70 @@
                  Anim {}
              }
  
@@ -455,23 +468,6 @@
 -                text: "lock"
 -                fontStyle: Tokens.font.icon.small
 -            }
--
--            StyledText {
--                Layout.leftMargin: Tokens.spacing.extraSmall
--                Layout.rightMargin: Tokens.spacing.extraSmall
--                Layout.fillWidth: true
--                text: networkItem.modelData.ssid
--                elide: Text.ElideRight
--                font: Tokens.font.body.builders.medium.weight(networkItem.modelData.active ? Font.Medium : Font.Normal).build()
--                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurface
--            }
--
--            StyledRect {
--                implicitWidth: implicitHeight
--                implicitHeight: wirelessConnectIcon.implicitHeight + Tokens.padding.extraSmall
--
--                radius: Tokens.rounding.full
--                color: Qt.alpha(Colours.palette.m3primary, networkItem.modelData.active ? 1 : 0)
 +            // The whole row connects/disconnects
 +            StateLayer {
 +                radius: parent.radius
@@ -489,6 +485,23 @@
 +                anchors.leftMargin: Tokens.padding.small
 +                spacing: Tokens.spacing.small
  
+-            StyledText {
+-                Layout.leftMargin: Tokens.spacing.extraSmall
+-                Layout.rightMargin: Tokens.spacing.extraSmall
+-                Layout.fillWidth: true
+-                text: networkItem.modelData.ssid
+-                elide: Text.ElideRight
+-                font: Tokens.font.body.builders.medium.weight(networkItem.modelData.active ? Font.Medium : Font.Normal).build()
+-                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurface
+-            }
+-
+-            StyledRect {
+-                implicitWidth: implicitHeight
+-                implicitHeight: wirelessConnectIcon.implicitHeight + Tokens.padding.extraSmall
+-
+-                radius: Tokens.rounding.full
+-                color: Qt.alpha(Colours.palette.m3primary, networkItem.modelData.active ? 1 : 0)
+-
 -                CircularIndicator {
 -                    anchors.fill: parent
 -                    running: networkItem.loading
@@ -572,7 +585,7 @@
                          }
                      }
                  }
-@@ -220,6 +340,48 @@
+@@ -220,6 +353,48 @@
          }
      }
  
@@ -621,7 +634,7 @@
      // Ethernet section
      StyledText {
          visible: root.view === "ethernet"
-@@ -340,6 +502,146 @@
+@@ -340,6 +515,149 @@
          }
      }
  
@@ -637,7 +650,10 @@
 +        HeaderButton {
 +            icon: "arrow_back"
 +
-+            onClicked: root.view = "wireless"
++            onClicked: {
++                root.view = "wireless";
++                root.popouts.pinned = false;
++            }
 +        }
 +
 +        StyledText {
@@ -1144,3 +1160,54 @@
  
                          // Start monitoring connection
                          connectionMonitor.start();
+--- a/modules/bar/popouts/Wrapper.qml
++++ b/modules/bar/popouts/Wrapper.qml
+@@ -27,6 +27,7 @@
+ 
+     property alias currentName: popoutState.currentName
+     property alias hasCurrent: popoutState.hasCurrent
++    property alias pinned: popoutState.pinned
+     property real currentCenter
+ 
+     property string detachedMode
+--- a/modules/bar/popouts/PopoutState.qml
++++ b/modules/bar/popouts/PopoutState.qml
+@@ -3,6 +3,18 @@
+ QtObject {
+     property string currentName
+     property bool hasCurrent
++    // While pinned the popout ignores hover-out (closes via esc/back/click-outside)
++    property bool pinned
+ 
+     signal detachRequested(mode: string)
++
++    // Never leave pinned dangling when the popout closes or switches content
++    onHasCurrentChanged: {
++        if (!hasCurrent)
++            pinned = false;
++    }
++    onCurrentNameChanged: {
++        if (currentName !== "network")
++            pinned = false;
++    }
+ }
+--- a/modules/drawers/Interactions.qml
++++ b/modules/drawers/Interactions.qml
+@@ -78,7 +78,7 @@
+             if (!utilitiesShortcutActive)
+                 visibilities.utilities = false;
+ 
+-            if (!popouts.currentName.startsWith("traymenu") || ((popouts.current as StackView)?.depth ?? 0) <= 1) {
++            if (!popouts.pinned && (!popouts.currentName.startsWith("traymenu") || ((popouts.current as StackView)?.depth ?? 0) <= 1)) {
+                 popouts.hasCurrent = false;
+                 bar.closeTray();
+             }
+@@ -240,7 +240,7 @@
+         // Show popouts on hover
+         if (x < bar.implicitWidth) {
+             bar.checkPopout(y);
+-        } else if ((!popouts.currentName.startsWith("traymenu") || ((popouts.current as StackView)?.depth ?? 0) <= 1) && !inLeftPanel(panels.popoutsWrapper, x, y)) {
++        } else if (!popouts.pinned && (!popouts.currentName.startsWith("traymenu") || ((popouts.current as StackView)?.depth ?? 0) <= 1) && !inLeftPanel(panels.popoutsWrapper, x, y)) {
+             popouts.hasCurrent = false;
+             bar.closeTray();
+         }
