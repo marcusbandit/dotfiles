@@ -68,9 +68,16 @@ diff. (Or just hand-write the diff.)
     the network popout, click opens the login page via
     `xdg-open http://ping.archlinux.org/nm-check.txt` (portal redirect)
   - `modules/bar/components/StatusIcons.qml`: bar wifi icon becomes a red
-    `captive_portal` glyph while a portal is detected
+    `captive_portal` glyph while a portal is detected, and turns red when
+    connected without internet (connectivity limited/none)
+  - toast "Sign-in required" fires the moment NM flags a portal; the popout
+    banner also covers the connected-but-no-internet case
   - requires NM connectivity checking (enabled by default on Arch via
     `/usr/lib/NetworkManager/conf.d/20-connectivity.conf`)
+  - related system fix (2026-07-05, not part of the patch): removed
+    `/etc/NetworkManager/conf.d/10-dns-servers.conf` which forced global DNS
+    `1.1.1.1,8.8.8.8` on every network; that both breaks captive portals that
+    block outside DNS and prevents NM from ever reporting `portal`
   - `dash/Media.qml`: declare an implicitHeight (the card used to be stretched
     by the old two-row grid), drop the bongocat gif and its beat-tracker
     ServiceRef, and use `rounding.large` on the main dash cards (see 06)

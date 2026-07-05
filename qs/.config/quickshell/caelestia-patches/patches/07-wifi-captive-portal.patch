@@ -1,6 +1,14 @@
 --- a/services/Nmcli.qml
 +++ b/services/Nmcli.qml
-@@ -36,6 +36,10 @@
+@@ -4,6 +4,7 @@
+ import QtQuick
+ import Quickshell
+ import Quickshell.Io
++import Caelestia
+ 
+ Singleton {
+     id: root
+@@ -36,8 +37,17 @@
      // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
      // anything other than that as a usable connection.
      readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
@@ -10,8 +18,15 @@
 +    readonly property bool captivePortal: connectivity === "portal"
      property list<var> activeProcesses: []
  
++    onCaptivePortalChanged: {
++        if (captivePortal)
++            Toaster.toast(qsTr("Sign-in required"), qsTr("This network needs a browser login"), "captive_portal");
++    }
++
      readonly property alias connectionCheckTimer: connectionCheckTimer
-@@ -1504,7 +1508,12 @@
+     readonly property alias immediateCheckTimer: immediateCheckTimer
+ 
+@@ -1504,7 +1514,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -25,7 +40,7 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,6 +1524,17 @@
+@@ -1515,6 +1530,17 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
@@ -45,13 +60,18 @@
  
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -22,6 +22,64 @@
+@@ -22,6 +22,69 @@
      spacing: Tokens.spacing.small
      width: Tokens.sizes.bar.networkWidth
  
-+    // Captive portal notice, shown for any view since connectivity is global
++    // Connectivity notice (captive portal or no internet), shown for any view
++    // since connectivity is global
 +    StyledRect {
-+        visible: Nmcli.captivePortal
++        id: connectivityNotice
++
++        readonly property bool portal: Nmcli.captivePortal
++
++        visible: portal || (Nmcli.isConnected && ["limited", "none"].includes(Nmcli.connectivity))
 +        Layout.preferredHeight: visible ? implicitHeight : 0
 +        Layout.topMargin: visible ? Tokens.padding.medium : 0
 +        Layout.fillWidth: true
@@ -76,7 +96,7 @@
 +            spacing: Tokens.spacing.small
 +
 +            MaterialIcon {
-+                text: "captive_portal"
++                text: connectivityNotice.portal ? "captive_portal" : "public_off"
 +                color: Colours.palette.m3onSecondaryContainer
 +            }
 +
@@ -86,14 +106,14 @@
 +
 +                StyledText {
 +                    Layout.fillWidth: true
-+                    text: qsTr("Sign-in required")
++                    text: connectivityNotice.portal ? qsTr("Sign-in required") : qsTr("No internet access")
 +                    font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
 +                    color: Colours.palette.m3onSecondaryContainer
 +                }
 +
 +                StyledText {
 +                    Layout.fillWidth: true
-+                    text: qsTr("This network needs a browser login")
++                    text: connectivityNotice.portal ? qsTr("This network needs a browser login") : qsTr("Connected, but the internet is unreachable")
 +                    color: Colours.palette.m3onSecondaryContainer
 +                    font: Tokens.font.body.small
 +                }
@@ -112,14 +132,17 @@
          visible: root.view === "wireless"
 --- a/modules/bar/components/StatusIcons.qml
 +++ b/modules/bar/components/StatusIcons.qml
-@@ -151,8 +151,8 @@
+@@ -150,9 +150,11 @@
+             active: Config.bar.status.showNetwork && (!Nmcli.activeEthernet || Config.bar.status.showWifi)
  
              sourceComponent: MaterialIcon {
++                readonly property bool noInternet: Nmcli.isConnected && ["limited", "none"].includes(Nmcli.connectivity)
++
                  animate: true
 -                text: Nmcli.active ? Icons.getNetworkIcon(Nmcli.active.strength ?? 0) : "wifi_off"
 -                color: root.colour
 +                text: Nmcli.captivePortal ? "captive_portal" : Nmcli.active ? Icons.getNetworkIcon(Nmcli.active.strength ?? 0) : "wifi_off"
-+                color: Nmcli.captivePortal ? Colours.palette.m3error : root.colour
++                color: Nmcli.captivePortal || noInternet ? Colours.palette.m3error : root.colour
              }
          }
  
