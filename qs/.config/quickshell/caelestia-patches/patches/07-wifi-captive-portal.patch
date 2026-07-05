@@ -33,7 +33,38 @@
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -1504,7 +1521,12 @@
+@@ -397,6 +414,30 @@
+         connectWireless(ssid, password, bssid, callback);
+     }
+ 
++    // WPA-Enterprise (802.1X) with the common PEAP/MSCHAPv2 defaults, which is
++    // what eduroam and most workplace networks use. Other EAP methods (TTLS,
++    // TLS client certs) are out of scope here; use the wifi CLI for those.
++    function connectEnterprise(ssid: string, identity: string, password: string, callback: var): void {
++        checkAndDeleteConnection(ssid, () => {
++            const add = [root.nmcliCommandConnection, "add", root.connectionParamType, root.deviceTypeWifi, root.connectionParamConName, ssid, root.connectionParamIfname, "*", root.connectionParamSsid, ssid, root.securityKeyMgmt, "wpa-eap", "802-1x.eap", "peap", "802-1x.phase2-auth", "mschapv2", "802-1x.identity", identity, "802-1x.password", password];
++            executeCommand(add, result => {
++                if (!result.success) {
++                    if (callback)
++                        callback(result);
++                    return;
++                }
++                executeCommand([root.nmcliCommandConnection, "up", ssid], callback);
++            });
++        });
++    }
++
++    function connectHidden(ssid: string, password: string, callback: var): void {
++        let cmd = [root.nmcliCommandDevice, root.nmcliCommandWifi, "connect", ssid, "hidden", "yes"];
++        if (password && password.length > 0)
++            cmd.push(root.connectionParamPassword, password);
++        executeCommand(cmd, callback);
++    }
++
+     function connectWireless(ssid: string, password: string, bssid: string, callback: var, retryCount: int): void {
+         const hasBssid = bssid !== undefined && bssid !== null && bssid.length > 0;
+         const retries = retryCount !== undefined ? retryCount : 0;
+@@ -1504,7 +1545,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -47,7 +78,7 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,6 +1537,70 @@
+@@ -1515,6 +1561,70 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
@@ -118,9 +149,23 @@
          }
      }
  
+@@ -1608,6 +1718,8 @@
+         readonly property bool active: lastIpcObject.active
+         readonly property string security: lastIpcObject.security
+         readonly property bool isSecure: security.length > 0
++        // WPA-Enterprise (802.1X): needs username + password, not a PSK
++        readonly property bool isEnterprise: security.includes("802.1X")
+     }
+ 
+     component EthernetDevice: QtObject {
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -22,6 +22,69 @@
+@@ -18,10 +18,74 @@
+     property string view: "wireless" // "wireless" or "ethernet"
+     property var passwordNetwork: null
+     property bool showPasswordDialog: false
++    property bool hiddenJoin: false
+ 
      spacing: Tokens.spacing.small
      width: Tokens.sizes.bar.networkWidth
  
@@ -190,6 +235,81 @@
      // Wireless section
      StyledText {
          visible: root.view === "wireless"
+@@ -133,12 +197,21 @@
+                             Nmcli.disconnectFromNetwork();
+                         } else {
+                             root.connectingToSsid = networkItem.modelData.ssid;
+-                            NetworkConnection.handleConnect(networkItem.modelData, null, network => {
+-                                // Password is required - show password dialog
+-                                root.passwordNetwork = network;
++                            if (networkItem.modelData.isEnterprise && !Nmcli.hasSavedProfile(networkItem.modelData.ssid)) {
++                                // 802.1X needs username + password; go straight to the dialog
++                                root.hiddenJoin = false;
++                                root.passwordNetwork = networkItem.modelData;
+                                 root.showPasswordDialog = true;
+                                 root.popouts.currentName = "wirelesspassword";
+-                            });
++                            } else {
++                                NetworkConnection.handleConnect(networkItem.modelData, null, network => {
++                                    // Password is required - show password dialog
++                                    root.hiddenJoin = false;
++                                    root.passwordNetwork = network;
++                                    root.showPasswordDialog = true;
++                                    root.popouts.currentName = "wirelesspassword";
++                                });
++                            }
+ 
+                             // Clear connecting state if connection succeeds immediately (saved profile)
+                             // This is handled by the onActiveChanged connection below
+@@ -220,6 +293,48 @@
+         }
+     }
+ 
++    StyledRect {
++        visible: root.view === "wireless"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.spacing.small : 0
++        Layout.fillWidth: true
++        implicitHeight: hiddenBtn.implicitHeight + Tokens.padding.small
++
++        radius: Tokens.rounding.full
++        color: Colours.palette.m3secondaryContainer
++
++        StateLayer {
++            color: Colours.palette.m3onSecondaryContainer
++            disabled: !Nmcli.wifiEnabled
++            onClicked: {
++                root.hiddenJoin = true;
++                root.passwordNetwork = null;
++                root.popouts.currentName = "wirelesspassword";
++            }
++        }
++
++        RowLayout {
++            id: hiddenBtn
++
++            anchors.centerIn: parent
++            spacing: Tokens.spacing.small
++
++            MaterialIcon {
++                id: hiddenIcon
++
++                Layout.topMargin: Math.round(fontInfo.pointSize * 0.0575)
++                text: "visibility_off"
++                color: Colours.palette.m3onSecondaryContainer
++            }
++
++            StyledText {
++                Layout.topMargin: -Math.round(hiddenIcon.fontInfo.pointSize * 0.0575)
++                text: qsTr("Join hidden network")
++                color: Colours.palette.m3onSecondaryContainer
++            }
++        }
++    }
++
+     // Ethernet section
+     StyledText {
+         visible: root.view === "ethernet"
 --- a/modules/bar/components/StatusIcons.qml
 +++ b/modules/bar/components/StatusIcons.qml
 @@ -150,9 +150,11 @@
@@ -310,3 +430,259 @@
 +        }
 +    }
 +}
+--- a/modules/bar/popouts/WirelessPassword.qml
++++ b/modules/bar/popouts/WirelessPassword.qml
+@@ -15,6 +15,8 @@
+     required property PopoutState popouts
+     property var network: null
+     property bool isClosing: false
++    property bool hiddenMode: false
++    readonly property bool enterprise: !hiddenMode && !!(network && network.isEnterprise)
+ 
+     readonly property bool shouldBeVisible: root.popouts.currentName === "wirelesspassword"
+ 
+@@ -58,6 +60,7 @@
+ 
+         isClosing = true;
+         passwordContainer.passwordBuffer = "";
++        identityField.text = "";
+         connectButton.connecting = false;
+         connectButton.hasError = false;
+         connectButton.text = qsTr("Connect");
+@@ -103,6 +106,7 @@
+                         const networkPopout = content.children.find(c => c.name === "network");
+                         if (networkPopout && networkPopout.item) {
+                             root.network = networkPopout.item.passwordNetwork;
++                            root.hiddenMode = networkPopout.item.hiddenJoin ?? false;
+                         }
+                     }
+                     // Force focus to password container when popout becomes active
+@@ -121,7 +125,10 @@
+         interval: 150
+         onTriggered: {
+             root.forceActiveFocus();
+-            passwordContainer.forceActiveFocus();
++            if (root.hiddenMode || root.enterprise)
++                identityField.forceActiveFocus();
++            else
++                passwordContainer.forceActiveFocus();
+         }
+     }
+ 
+@@ -179,13 +186,13 @@
+ 
+             MaterialIcon {
+                 Layout.alignment: Qt.AlignHCenter
+-                text: "lock"
++                text: root.hiddenMode ? "visibility_off" : root.enterprise ? "badge" : "lock"
+                 fontStyle: Tokens.font.icon.builders.extraLarge.scale(2).build()
+             }
+ 
+             StyledText {
+                 Layout.alignment: Qt.AlignHCenter
+-                text: qsTr("Enter password")
++                text: root.hiddenMode ? qsTr("Join hidden network") : root.enterprise ? qsTr("Enter credentials") : qsTr("Enter password")
+                 font: Tokens.font.body.builders.large.weight(Font.Medium).build()
+             }
+ 
+@@ -194,6 +201,8 @@
+ 
+                 Layout.alignment: Qt.AlignHCenter
+                 text: {
++                    if (root.hiddenMode)
++                        return qsTr("Leave the password empty for open networks");
+                     if (root.network) {
+                         const ssid = root.network.ssid;
+                         if (ssid && ssid.length > 0) {
+@@ -210,7 +219,7 @@
+                 property int attempts: 0
+ 
+                 interval: 50
+-                running: root.shouldBeVisible && (!root.network || !root.network.ssid)
++                running: root.shouldBeVisible && !root.hiddenMode && (!root.network || !root.network.ssid)
+                 repeat: true
+                 onTriggered: {
+                     attempts++;
+@@ -218,8 +227,10 @@
+                     const content = root.parent?.parent?.parent;
+                     if (content) {
+                         const networkPopout = content.children.find(c => c.name === "network");
+-                        if (networkPopout && networkPopout.item && networkPopout.item.passwordNetwork) {
+-                            root.network = networkPopout.item.passwordNetwork;
++                        if (networkPopout && networkPopout.item) {
++                            root.hiddenMode = networkPopout.item.hiddenJoin ?? false;
++                            if (networkPopout.item.passwordNetwork)
++                                root.network = networkPopout.item.passwordNetwork;
+                         }
+                     }
+                     // Stop if we got it or after 20 attempts (1 second)
+@@ -256,13 +267,47 @@
+                 Layout.maximumWidth: parent.width - Tokens.padding.extraLargeIncreased
+             }
+ 
++            StyledRect {
++                visible: root.hiddenMode || root.enterprise
++                Layout.topMargin: Tokens.spacing.largeIncreased
++                Layout.fillWidth: true
++                Layout.preferredHeight: visible ? implicitHeight : 0
++                implicitHeight: 48
++
++                radius: Tokens.rounding.large
++                color: identityField.activeFocus ? Qt.lighter(Colours.tPalette.m3surfaceContainer, 1.05) : Colours.tPalette.m3surfaceContainer
++                border.width: identityField.activeFocus ? 4 : (root.shouldBeVisible ? 1 : 0)
++                border.color: identityField.activeFocus ? Colours.palette.m3primary : root.shouldBeVisible ? Colours.palette.m3outline : "transparent"
++
++                Behavior on border.color {
++                    CAnim {}
++                }
++
++                Behavior on border.width {
++                    CAnim {}
++                }
++
++                StyledTextField {
++                    id: identityField
++
++                    anchors.fill: parent
++                    anchors.leftMargin: Tokens.padding.medium
++                    anchors.rightMargin: Tokens.padding.medium
++                    verticalAlignment: TextInput.AlignVCenter
++                    horizontalAlignment: TextInput.AlignHCenter
++                    placeholderText: root.hiddenMode ? qsTr("Network name (SSID)") : qsTr("Username")
++                    activeFocusOnTab: true
++                    onAccepted: passwordContainer.forceActiveFocus()
++                }
++            }
++
+             FocusScope {
+                 id: passwordContainer
+ 
+                 property string passwordBuffer: ""
+ 
+                 objectName: "passwordContainer"
+-                Layout.topMargin: Tokens.spacing.largeIncreased
++                Layout.topMargin: root.hiddenMode || root.enterprise ? Tokens.spacing.medium : Tokens.spacing.largeIncreased
+                 Layout.fillWidth: true
+                 implicitHeight: Math.max(48, charList.implicitHeight + Tokens.padding.medium * 2)
+                 focus: true
+@@ -319,6 +364,7 @@
+                             // Use Timer for actual delay to ensure focus works correctly
+                             passwordFocusTimer.start();
+                             passwordContainer.passwordBuffer = "";
++                            identityField.text = "";
+                             connectButton.hasError = false;
+                         }
+                     }
+@@ -331,7 +377,10 @@
+ 
+                     interval: 50
+                     onTriggered: {
+-                        passwordContainer.forceActiveFocus();
++                        if (root.hiddenMode || root.enterprise)
++                            identityField.forceActiveFocus();
++                        else
++                            passwordContainer.forceActiveFocus();
+                     }
+                 }
+ 
+@@ -495,15 +544,53 @@
+                     inactiveColour: Colours.palette.m3primary
+                     inactiveOnColour: Colours.palette.m3onPrimary
+                     text: qsTr("Connect")
+-                    enabled: passwordContainer.passwordBuffer.length > 0 && !connecting
++                    enabled: !connecting && (root.hiddenMode ? identityField.text.length > 0 : root.enterprise ? identityField.text.length > 0 && passwordContainer.passwordBuffer.length > 0 : passwordContainer.passwordBuffer.length > 0)
++
++                    function handleResult(result: var): void {
++                        if (result && result.success) {
++                            // Connection successful, monitor will handle the rest
++                            return;
++                        }
++
++                        // Connection failed - show error
++                        connectionMonitor.stop();
++                        connecting = false;
++                        hasError = true;
++                        enabled = true;
++                        text = qsTr("Connect");
++                        passwordContainer.passwordBuffer = "";
++                        // Delete the failed connection
++                        if (root.network && root.network.ssid) {
++                            Nmcli.forgetNetwork(root.network.ssid);
++                        }
++                    }
+ 
+                     onClicked: {
+-                        if (!root.network || connecting) {
++                        if (connecting) {
+                             return;
+                         }
+ 
+                         const password = passwordContainer.passwordBuffer;
+-                        if (!password || password.length === 0) {
++
++                        if (root.hiddenMode) {
++                            const ssid = identityField.text;
++                            if (!ssid) {
++                                return;
++                            }
++                            // Synthetic network object so the connection monitor can track it
++                            root.network = {
++                                ssid: ssid,
++                                bssid: "",
++                                isSecure: password.length > 0,
++                                isEnterprise: false
++                            };
++                        }
++
++                        if (!root.network) {
++                            return;
++                        }
++
++                        if (!root.hiddenMode && !root.enterprise && password.length === 0) {
+                             return;
+                         }
+ 
+@@ -515,36 +602,13 @@
+                         enabled = false;
+                         text = qsTr("Connecting...");
+ 
+-                        // Connect to network
+-                        NetworkConnection.connectWithPassword(root.network, password, result => {
+-                            if (result && result.success)
+-                            // Connection successful, monitor will handle the rest
+-                            {} else if (result && result.needsPassword) {
+-                                // Shouldn't happen since we provided password
+-                                connectionMonitor.stop();
+-                                connecting = false;
+-                                hasError = true;
+-                                enabled = true;
+-                                text = qsTr("Connect");
+-                                passwordContainer.passwordBuffer = "";
+-                                // Delete the failed connection
+-                                if (root.network && root.network.ssid) {
+-                                    Nmcli.forgetNetwork(root.network.ssid);
+-                                }
+-                            } else {
+-                                // Connection failed immediately - show error
+-                                connectionMonitor.stop();
+-                                connecting = false;
+-                                hasError = true;
+-                                enabled = true;
+-                                text = qsTr("Connect");
+-                                passwordContainer.passwordBuffer = "";
+-                                // Delete the failed connection
+-                                if (root.network && root.network.ssid) {
+-                                    Nmcli.forgetNetwork(root.network.ssid);
+-                                }
+-                            }
+-                        });
++                        if (root.hiddenMode) {
++                            Nmcli.connectHidden(root.network.ssid, password, handleResult);
++                        } else if (root.enterprise) {
++                            Nmcli.connectEnterprise(root.network.ssid, identityField.text, password, handleResult);
++                        } else {
++                            NetworkConnection.connectWithPassword(root.network, password, handleResult);
++                        }
+ 
+                         // Start monitoring connection
+                         connectionMonitor.start();

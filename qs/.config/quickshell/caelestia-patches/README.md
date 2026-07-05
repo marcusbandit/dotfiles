@@ -73,6 +73,11 @@ diff. (Or just hand-write the diff.)
   - `modules/bar/popouts/Network.qml`: "Sign-in required" notice at the top of
     the network popout with an "Open login page" button that opens the
     captured `portalUrl` (falls back to the plain-http probe URL)
+  - wifi popup auth coverage: enterprise (802.1X) networks get a username +
+    password dialog (PEAP/MSCHAPv2 defaults via `Nmcli.connectEnterprise`,
+    other EAP methods stay CLI territory), and a "Join hidden network" button
+    (SSID + optional password via `Nmcli.connectHidden`). Covers
+    `WirelessPassword.qml` (three dialog modes) + the popout list + service
   - `utils/Browser.qml` (new): `Browser.use(url)` singleton. Reuses a browser
     that already has a window (new tab + focuswindow, xdg default browser
     first, then zen/firefox/chrome/chromium/brave/vivaldi/librewolf),
