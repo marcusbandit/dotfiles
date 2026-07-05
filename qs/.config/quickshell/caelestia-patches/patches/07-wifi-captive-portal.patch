@@ -44,7 +44,7 @@
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -397,6 +425,90 @@
+@@ -397,6 +425,99 @@
          connectWireless(ssid, password, bssid, callback);
      }
  
@@ -67,7 +67,7 @@
 +
 +    // Per-device details (all interfaces incl. VPNs) for the expanded popout view
 +    function getAllDeviceDetails(callback: var): void {
-+        executeCommand(["-t", root.nmcliCommandDevice, "show"], result => {
++        executeCommand(["-t", "-f", "GENERAL,IP4,IP6", root.nmcliCommandDevice, "show"], result => {
 +            if (!result.success) {
 +                if (callback)
 +                    callback([]);
@@ -85,7 +85,7 @@
 +                if (idx < 0)
 +                    continue;
 +                const key = line.slice(0, idx);
-+                const value = line.slice(idx + 1).trim();
++                const value = line.slice(idx + 1).trim().replace(/\\:/g, ":");
 +
 +                if (key === "GENERAL.DEVICE") {
 +                    cur = {
@@ -93,6 +93,9 @@
 +                        type: "",
 +                        state: "",
 +                        connection: "",
++                        mac: "",
++                        driver: "",
++                        mtu: "",
 +                        ip4: [],
 +                        ip6: [],
 +                        gateway: "",
@@ -107,6 +110,12 @@
 +                    cur.state = value;
 +                } else if (key === "GENERAL.CONNECTION") {
 +                    cur.connection = value;
++                } else if (key === "GENERAL.HWADDR") {
++                    cur.mac = value;
++                } else if (key === "GENERAL.DRIVER") {
++                    cur.driver = value;
++                } else if (key === "GENERAL.MTU") {
++                    cur.mtu = value;
 +                } else if (key.startsWith("IP4.ADDRESS")) {
 +                    cur.ip4.push(value);
 +                } else if (key === "IP4.GATEWAY" && value && value !== "--") {
@@ -135,7 +144,7 @@
      function connectWireless(ssid: string, password: string, bssid: string, callback: var, retryCount: int): void {
          const hasBssid = bssid !== undefined && bssid !== null && bssid.length > 0;
          const retries = retryCount !== undefined ? retryCount : 0;
-@@ -1504,7 +1616,12 @@
+@@ -1504,7 +1625,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -149,7 +158,7 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,9 +1632,81 @@
+@@ -1515,9 +1641,81 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
@@ -231,7 +240,7 @@
      LoggingCategory {
          id: lc
  
-@@ -1608,6 +1797,8 @@
+@@ -1608,6 +1806,8 @@
          readonly property bool active: lastIpcObject.active
          readonly property string security: lastIpcObject.security
          readonly property bool isSecure: security.length > 0
@@ -242,7 +251,7 @@
      component EthernetDevice: QtObject {
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -15,21 +15,121 @@
+@@ -15,21 +15,102 @@
      required property PopoutState popouts
  
      property string connectingToSsid: ""
@@ -251,11 +260,12 @@
      property var passwordNetwork: null
      property bool showPasswordDialog: false
 +    property bool hiddenJoin: false
-+    property bool showIp: false
  
      spacing: Tokens.spacing.small
      width: Tokens.sizes.bar.networkWidth
  
++    Component.onCompleted: Nmcli.getWirelessDeviceDetails("", null)
++
 +    // Connectivity notice (captive portal or no internet), shown for any view
 +    // since connectivity is global
 +    StyledRect {
@@ -338,17 +348,6 @@
 +        }
 +
 +        HeaderButton {
-+            icon: root.showIp ? "visibility_off" : "visibility"
-+            active: root.showIp
-+
-+            onClicked: {
-+                root.showIp = !root.showIp;
-+                if (root.showIp)
-+                    Nmcli.getWirelessDeviceDetails("", null);
-+            }
-+        }
-+
-+        HeaderButton {
 +            icon: "page_info"
 +
 +            onClicked: {
@@ -356,19 +355,41 @@
 +                Nmcli.getAllDeviceDetails(null);
 +            }
 +        }
-+    }
-+
-+    StyledText {
-+        visible: root.view === "wireless" && root.showIp
-+        Layout.preferredHeight: visible ? implicitHeight : 0
-+        Layout.rightMargin: Tokens.padding.extraSmall
-+        text: qsTr("IP: %1").arg(Nmcli.wirelessDeviceDetails?.ipAddress || qsTr("no address"))
-+        color: Colours.palette.m3primary
-+        font: Tokens.font.mono.small
      }
  
      Toggle {
-@@ -60,18 +160,49 @@
+@@ -40,14 +121,26 @@
+         toggle.onToggled: Nmcli.enableWifi(checked)
+     }
+ 
+-    StyledText {
++    RowLayout {
+         visible: root.view === "wireless"
+         Layout.preferredHeight: visible ? implicitHeight : 0
+         Layout.topMargin: visible ? Tokens.spacing.small : 0
+         Layout.rightMargin: Tokens.padding.extraSmall
+-        text: qsTr("%1 networks available").arg(Nmcli.networks.length) // qmllint disable missing-property
+-        color: Colours.palette.m3onSurfaceVariant
+-        font: Tokens.font.body.small
++        Layout.fillWidth: true
++        spacing: Tokens.spacing.small
++
++        StyledText {
++            Layout.fillWidth: true
++            text: qsTr("%1 networks available").arg(Nmcli.networks.length) // qmllint disable missing-property
++            color: Colours.palette.m3onSurfaceVariant
++            font: Tokens.font.body.small
++        }
++
++        StyledText {
++            text: Nmcli.wirelessDeviceDetails?.ipAddress || ""
++            color: Colours.palette.m3primary
++            font: Tokens.font.mono.small
++        }
+     }
+ 
+     Repeater {
+@@ -60,18 +153,49 @@
              }).slice(0, 8)
          }
  
@@ -420,7 +441,7 @@
  
              opacity: 0
              scale: 0.7
-@@ -91,74 +222,70 @@
+@@ -91,74 +215,70 @@
                  Anim {}
              }
  
@@ -551,7 +572,7 @@
                          }
                      }
                  }
-@@ -220,6 +347,48 @@
+@@ -220,6 +340,48 @@
          }
      }
  
@@ -600,7 +621,7 @@
      // Ethernet section
      StyledText {
          visible: root.view === "ethernet"
-@@ -340,6 +509,138 @@
+@@ -340,6 +502,146 @@
          }
      }
  
@@ -682,14 +703,22 @@
 +                        const d = deviceItem.modelData;
 +                        const rows = [];
 +                        for (const a of d.ip4)
-+                            rows.push(qsTr("IPv4  %1").arg(a));
++                            rows.push(["IPv4", a]);
 +                        for (const a of d.ip6)
-+                            rows.push(qsTr("IPv6  %1").arg(a));
++                            rows.push(["IPv6", a]);
 +                        if (d.gateway)
-+                            rows.push(qsTr("GW    %1").arg(d.gateway));
++                            rows.push(["GW", d.gateway]);
 +                        if (d.dns.length > 0)
-+                            rows.push(qsTr("DNS   %1").arg(d.dns.join(", ")));
-+                        return rows;
++                            rows.push(["DNS", d.dns.join(", ")]);
++                        if (d.type === "wifi" && Nmcli.active && d.connection === Nmcli.active.ssid && Nmcli.active.security)
++                            rows.push(["Sec", Nmcli.active.security]);
++                        if (d.mac)
++                            rows.push(["MAC", d.mac]);
++                        if (d.driver)
++                            rows.push(["Drv", d.driver]);
++                        if (d.mtu)
++                            rows.push(["MTU", d.mtu]);
++                        return rows.map(r => r[0].padEnd(5) + r[1]);
 +                    }
 +                }
 +

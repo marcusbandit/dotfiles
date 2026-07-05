@@ -78,6 +78,12 @@ diff. (Or just hand-write the diff.)
     other EAP methods stay CLI territory), and a "Join hidden network" button
     (SSID + optional password via `Nmcli.connectHidden`). Covers
     `WirelessPassword.qml` (three dialog modes) + the popout list + service
+  - wifi popup UX: per-auth-type icons (globe = seen captive portal,
+    remembered in `~/.local/state/caelestia/portal-ssids.json`; badge = 802.1X;
+    lock = PSK), whole row is the click target, current IPv4 always shown next
+    to the network count, and a `page_info` details view (same popout) listing
+    every addressed interface incl. WireGuard/Tailscale with IPv4/IPv6/GW/DNS/
+    Sec/MAC/Drv/MTU rows via `Nmcli.getAllDeviceDetails`
   - `utils/Browser.qml` (new): `Browser.use(url)` singleton. Reuses a browser
     that already has a window (new tab + focuswindow, xdg default browser
     first, then zen/firefox/chrome/chromium/brave/vivaldi/librewolf),
