@@ -182,7 +182,7 @@
 +                Layout.topMargin: Tokens.spacing.extraSmall
 +
 +                text: qsTr("Open login page")
-+                onClicked: Quickshell.execDetached(["xdg-open", Nmcli.portalUrl || "http://detectportal.firefox.com/success.txt"])
++                onClicked: Browser.use(Nmcli.portalUrl || "http://detectportal.firefox.com/success.txt")
 +            }
 +        }
 +    }
@@ -206,3 +206,107 @@
              }
          }
  
+--- /dev/null
++++ b/utils/Browser.qml
+@@ -0,0 +1,101 @@
++pragma Singleton
++
++import QtQuick
++import Quickshell
++import Quickshell.Io
++import qs.services
++
++// Opens URLs in a browser the way a human would want: reuse a browser that
++// already has a window (new tab + focus the window), otherwise launch one.
++// Preference order: the xdg default browser first, then the candidates below.
++Singleton {
++    id: root
++
++    // Default browser's desktop id without the .desktop suffix
++    property string defaultId: ""
++
++    readonly property list<var> candidates: [
++        {
++            ids: ["zen"],
++            classes: ["zen"],
++            exec: "zen-browser"
++        },
++        {
++            ids: ["firefox"],
++            classes: ["firefox"],
++            exec: "firefox"
++        },
++        {
++            ids: ["google-chrome", "com.google.Chrome"],
++            classes: ["google-chrome", "Google-chrome", "com.google.Chrome"],
++            exec: "google-chrome-stable"
++        },
++        {
++            ids: ["chromium", "org.chromium.Chromium"],
++            classes: ["chromium", "Chromium"],
++            exec: "chromium"
++        },
++        {
++            ids: ["brave-browser", "com.brave.Browser"],
++            classes: ["brave-browser", "Brave-browser"],
++            exec: "brave"
++        },
++        {
++            ids: ["vivaldi-stable"],
++            classes: ["vivaldi-stable", "Vivaldi-stable"],
++            exec: "vivaldi-stable"
++        },
++        {
++            ids: ["librewolf"],
++            classes: ["librewolf"],
++            exec: "librewolf"
++        }
++    ]
++
++    function ordered(): list<var> {
++        const def = candidates.find(c => c.ids.includes(root.defaultId));
++        return def ? [def, ...candidates.filter(c => c !== def)] : [...candidates];
++    }
++
++    function use(url: string): void {
++        const openClasses = Hypr.toplevels.values.map(t => t.lastIpcObject.class);
++
++        for (const c of ordered()) {
++            const cls = c.classes.find(cl => openClasses.includes(cl));
++            if (cls) {
++                Quickshell.execDetached([c.exec, url]);
++                // Delayed: focusing instantly gets undone when the popout that
++                // hosted the click closes and refocuses the window under the cursor
++                focusDelay.cls = cls;
++                focusDelay.restart();
++                return;
++            }
++        }
++
++        // No browser window anywhere: launch the first installed candidate.
++        // The url is passed as $0 and the exec names as $@.
++        const execs = ordered().map(c => c.exec);
++        Quickshell.execDetached(["sh", "-c", 'for b in "$@"; do command -v "$b" >/dev/null 2>&1 && exec "$b" "$0"; done', url, ...execs]);
++    }
++
++    Timer {
++        id: focusDelay
++
++        property string cls
++
++        interval: 400
++        onTriggered: {
++            if (cls)
++                Hypr.dispatch(`focuswindow class:^(${cls})$`);
++            cls = "";
++        }
++    }
++
++    Process {
++        running: true
++        command: ["xdg-settings", "get", "default-web-browser"]
++        stdout: StdioCollector {
++            onStreamFinished: root.defaultId = text.trim().replace(/\.desktop$/, "")
++        }
++    }
++}

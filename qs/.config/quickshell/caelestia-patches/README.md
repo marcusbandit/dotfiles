@@ -61,12 +61,24 @@ diff. (Or just hand-write the diff.)
   - related but NOT part of the patch: the Weather tab is hidden natively via
     `dashboard.showWeather: false` in `~/.config/caelestia/shell.json`
 - **07-wifi-captive-portal.patch**: surface captive portal state
-  - `services/Nmcli.qml`: track NetworkManager connectivity (seed via
-    `nmcli -t -f CONNECTIVITY general`, live updates parsed from the existing
-    `nmcli monitor` stream), expose `Nmcli.connectivity` + `Nmcli.captivePortal`
-  - `modules/bar/popouts/Network.qml`: "Sign-in required" banner at the top of
-    the network popout, click opens the login page via
-    `xdg-open http://ping.archlinux.org/nm-check.txt` (portal redirect)
+  - `services/Nmcli.qml`: OWN portal probe a la Firefox (curl
+    `detectportal.firefox.com/success.txt`, expect body "success"; a redirect
+    or tampered body means portal, timeout means no internet). Probes on
+    connect + burst (3s/8s/15s/30s/60s) + every 15s until the network is
+    confirmed good, then every 60s. Exposes `Nmcli.connectivity`,
+    `Nmcli.captivePortal` and `Nmcli.portalUrl` (captured from the portal's
+    302 redirect). NM `Connectivity is now` monitor lines are also parsed,
+    but NOT relied on: NM's checker was found disabled at runtime
+    (`ConnectivityCheckEnabled=false`) while a UniFi portal was live
+  - `modules/bar/popouts/Network.qml`: "Sign-in required" notice at the top of
+    the network popout with an "Open login page" button that opens the
+    captured `portalUrl` (falls back to the plain-http probe URL)
+  - `utils/Browser.qml` (new): `Browser.use(url)` singleton. Reuses a browser
+    that already has a window (new tab + focuswindow, xdg default browser
+    first, then zen/firefox/chrome/chromium/brave/vivaldi/librewolf),
+    otherwise launches the first installed one in that order. The focus
+    dispatch is delayed 400ms because the closing popout refocuses the window
+    under the cursor and would undo it
   - `modules/bar/components/StatusIcons.qml`: bar wifi icon becomes a red
     `captive_portal` glyph while a portal is detected, and turns red when
     connected without internet (connectivity limited/none)
