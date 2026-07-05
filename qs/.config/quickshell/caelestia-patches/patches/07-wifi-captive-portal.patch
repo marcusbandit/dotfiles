@@ -1,0 +1,125 @@
+--- a/services/Nmcli.qml
++++ b/services/Nmcli.qml
+@@ -36,6 +36,10 @@
+     // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
+     // anything other than that as a usable connection.
+     readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
++    // NetworkManager connectivity state: full, portal, limited, none or unknown.
++    // "portal" means a captive portal is intercepting traffic (login page needed).
++    property string connectivity: "unknown"
++    readonly property bool captivePortal: connectivity === "portal"
+     property list<var> activeProcesses: []
+ 
+     readonly property alias connectionCheckTimer: connectionCheckTimer
+@@ -1504,7 +1508,12 @@
+                 LC_ALL: "C.UTF-8"
+             })
+         stdout: SplitParser {
+-            onRead: root.refreshOnConnectionChange()
++            onRead: data => {
++                const conn = data.match(/Connectivity is now '(\w+)'/);
++                if (conn)
++                    root.connectivity = conn[1];
++                root.refreshOnConnectionChange();
++            }
+         }
+         onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
+     }
+@@ -1515,6 +1524,17 @@
+         interval: 2000
+         onTriggered: {
+             monitorProc.running = true;
++            connectivityProc.running = true; // Re-seed, changes may have been missed while the monitor was down
++        }
++    }
++
++    Process {
++        id: connectivityProc
++
++        running: true
++        command: ["nmcli", "-t", "-f", "CONNECTIVITY", "general"]
++        stdout: StdioCollector {
++            onStreamFinished: root.connectivity = text.trim()
+         }
+     }
+ 
+--- a/modules/bar/popouts/Network.qml
++++ b/modules/bar/popouts/Network.qml
+@@ -22,6 +22,64 @@
+     spacing: Tokens.spacing.small
+     width: Tokens.sizes.bar.networkWidth
+ 
++    // Captive portal notice, shown for any view since connectivity is global
++    StyledRect {
++        visible: Nmcli.captivePortal
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.padding.medium : 0
++        Layout.fillWidth: true
++        Layout.rightMargin: Tokens.padding.extraSmall
++
++        implicitHeight: portalRow.implicitHeight + Tokens.padding.medium * 2
++        radius: Tokens.rounding.large
++        color: Colours.palette.m3secondaryContainer
++
++        StateLayer {
++            radius: parent.radius
++            color: Colours.palette.m3onSecondaryContainer
++
++            onClicked: Quickshell.execDetached(["xdg-open", "http://ping.archlinux.org/nm-check.txt"])
++        }
++
++        RowLayout {
++            id: portalRow
++
++            anchors.fill: parent
++            anchors.margins: Tokens.padding.medium
++            spacing: Tokens.spacing.small
++
++            MaterialIcon {
++                text: "captive_portal"
++                color: Colours.palette.m3onSecondaryContainer
++            }
++
++            ColumnLayout {
++                Layout.fillWidth: true
++                spacing: 0
++
++                StyledText {
++                    Layout.fillWidth: true
++                    text: qsTr("Sign-in required")
++                    font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++                    color: Colours.palette.m3onSecondaryContainer
++                }
++
++                StyledText {
++                    Layout.fillWidth: true
++                    text: qsTr("This network needs a browser login")
++                    color: Colours.palette.m3onSecondaryContainer
++                    font: Tokens.font.body.small
++                }
++            }
++
++            MaterialIcon {
++                text: "open_in_new"
++                fontStyle: Tokens.font.icon.small
++                color: Colours.palette.m3onSecondaryContainer
++            }
++        }
++    }
++
+     // Wireless section
+     StyledText {
+         visible: root.view === "wireless"
+--- a/modules/bar/components/StatusIcons.qml
++++ b/modules/bar/components/StatusIcons.qml
+@@ -151,8 +151,8 @@
+ 
+             sourceComponent: MaterialIcon {
+                 animate: true
+-                text: Nmcli.active ? Icons.getNetworkIcon(Nmcli.active.strength ?? 0) : "wifi_off"
+-                color: root.colour
++                text: Nmcli.captivePortal ? "captive_portal" : Nmcli.active ? Icons.getNetworkIcon(Nmcli.active.strength ?? 0) : "wifi_off"
++                color: Nmcli.captivePortal ? Colours.palette.m3error : root.colour
+             }
+         }
+ 

@@ -60,6 +60,17 @@ diff. (Or just hand-write the diff.)
     battery is present
   - related but NOT part of the patch: the Weather tab is hidden natively via
     `dashboard.showWeather: false` in `~/.config/caelestia/shell.json`
+- **07-wifi-captive-portal.patch**: surface captive portal state
+  - `services/Nmcli.qml`: track NetworkManager connectivity (seed via
+    `nmcli -t -f CONNECTIVITY general`, live updates parsed from the existing
+    `nmcli monitor` stream), expose `Nmcli.connectivity` + `Nmcli.captivePortal`
+  - `modules/bar/popouts/Network.qml`: "Sign-in required" banner at the top of
+    the network popout, click opens the login page via
+    `xdg-open http://ping.archlinux.org/nm-check.txt` (portal redirect)
+  - `modules/bar/components/StatusIcons.qml`: bar wifi icon becomes a red
+    `captive_portal` glyph while a portal is detected
+  - requires NM connectivity checking (enabled by default on Arch via
+    `/usr/lib/NetworkManager/conf.d/20-connectivity.conf`)
   - `dash/Media.qml`: declare an implicitHeight (the card used to be stretched
     by the old two-row grid), drop the bongocat gif and its beat-tracker
     ServiceRef, and use `rounding.large` on the main dash cards (see 06)
