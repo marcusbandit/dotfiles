@@ -9,7 +9,7 @@
  
  Singleton {
      id: root
-@@ -36,8 +38,32 @@
+@@ -36,8 +38,34 @@
      // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
      // anything other than that as a usable connection.
      readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
@@ -21,6 +21,8 @@
 +    property string portalUrl: ""
 +    // SSIDs where a captive portal has been seen, persisted across restarts
 +    property list<string> portalSsids: []
++    // Filled by getAllDeviceDetails() for the expanded popout view
++    property var allDeviceDetails: []
      property list<var> activeProcesses: []
  
 +    onCaptivePortalChanged: {
@@ -42,7 +44,7 @@
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -397,6 +423,30 @@
+@@ -397,6 +425,90 @@
          connectWireless(ssid, password, bssid, callback);
      }
  
@@ -63,6 +65,66 @@
 +        });
 +    }
 +
++    // Per-device details (all interfaces incl. VPNs) for the expanded popout view
++    function getAllDeviceDetails(callback: var): void {
++        executeCommand(["-t", root.nmcliCommandDevice, "show"], result => {
++            if (!result.success) {
++                if (callback)
++                    callback([]);
++                return;
++            }
++
++            const devices = [];
++            let cur = null;
++            for (const line of result.output.split("\n")) {
++                if (!line.trim()) {
++                    cur = null;
++                    continue;
++                }
++                const idx = line.indexOf(":");
++                if (idx < 0)
++                    continue;
++                const key = line.slice(0, idx);
++                const value = line.slice(idx + 1).trim();
++
++                if (key === "GENERAL.DEVICE") {
++                    cur = {
++                        device: value,
++                        type: "",
++                        state: "",
++                        connection: "",
++                        ip4: [],
++                        ip6: [],
++                        gateway: "",
++                        dns: []
++                    };
++                    devices.push(cur);
++                } else if (!cur) {
++                    continue;
++                } else if (key === "GENERAL.TYPE") {
++                    cur.type = value;
++                } else if (key === "GENERAL.STATE") {
++                    cur.state = value;
++                } else if (key === "GENERAL.CONNECTION") {
++                    cur.connection = value;
++                } else if (key.startsWith("IP4.ADDRESS")) {
++                    cur.ip4.push(value);
++                } else if (key === "IP4.GATEWAY" && value && value !== "--") {
++                    cur.gateway = value;
++                } else if (key.startsWith("IP4.DNS")) {
++                    cur.dns.push(value);
++                } else if (key.startsWith("IP6.ADDRESS") && !value.startsWith("fe80")) {
++                    cur.ip6.push(value);
++                }
++            }
++
++            const interesting = devices.filter(d => d.device !== "lo" && (d.ip4.length > 0 || d.ip6.length > 0) && ["wifi", "ethernet", "wireguard", "tun"].includes(d.type));
++            root.allDeviceDetails = interesting;
++            if (callback)
++                callback(interesting);
++        });
++    }
++
 +    function connectHidden(ssid: string, password: string, callback: var): void {
 +        let cmd = [root.nmcliCommandDevice, root.nmcliCommandWifi, "connect", ssid, "hidden", "yes"];
 +        if (password && password.length > 0)
@@ -73,7 +135,7 @@
      function connectWireless(ssid: string, password: string, bssid: string, callback: var, retryCount: int): void {
          const hasBssid = bssid !== undefined && bssid !== null && bssid.length > 0;
          const retries = retryCount !== undefined ? retryCount : 0;
-@@ -1504,7 +1554,12 @@
+@@ -1504,7 +1616,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -87,14 +149,14 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,9 +1570,81 @@
+@@ -1515,9 +1632,81 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
 +            probeProc.running = true; // Re-seed, changes may have been missed while the monitor was down
-         }
-     }
- 
++        }
++    }
++
 +    // Own captive-portal probe (same technique as Firefox), because NM's
 +    // connectivity checker cannot be relied on (found disabled at runtime on
 +    // this box while a portal was provably intercepting traffic).
@@ -122,9 +184,9 @@
 +                    root.connectivity = root.isConnected ? "limited" : "none";
 +                }
 +            }
-+        }
-+    }
-+
+         }
+     }
+ 
 +    Timer {
 +        id: probeTimer
 +
@@ -169,7 +231,7 @@
      LoggingCategory {
          id: lc
  
-@@ -1608,6 +1735,8 @@
+@@ -1608,6 +1797,8 @@
          readonly property bool active: lastIpcObject.active
          readonly property string security: lastIpcObject.security
          readonly property bool isSecure: security.length > 0
@@ -180,11 +242,16 @@
      component EthernetDevice: QtObject {
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -18,10 +18,74 @@
-     property string view: "wireless" // "wireless" or "ethernet"
+@@ -15,21 +15,121 @@
+     required property PopoutState popouts
+ 
+     property string connectingToSsid: ""
+-    property string view: "wireless" // "wireless" or "ethernet"
++    property string view: "wireless" // "wireless", "ethernet" or "details"
      property var passwordNetwork: null
      property bool showPasswordDialog: false
 +    property bool hiddenJoin: false
++    property bool showIp: false
  
      spacing: Tokens.spacing.small
      width: Tokens.sizes.bar.networkWidth
@@ -253,55 +320,238 @@
 +    }
 +
      // Wireless section
-     StyledText {
+-    StyledText {
++    RowLayout {
          visible: root.view === "wireless"
-@@ -66,6 +130,8 @@
+         Layout.preferredHeight: visible ? implicitHeight : 0
+         Layout.topMargin: visible ? Tokens.padding.medium : 0
+         Layout.rightMargin: Tokens.padding.extraSmall
+-        text: qsTr("Wireless")
+-        font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++        Layout.fillWidth: true
++        spacing: Tokens.spacing.small
++
++        StyledText {
++            Layout.fillWidth: true
++            text: qsTr("Wireless")
++            font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++        }
++
++        HeaderButton {
++            icon: root.showIp ? "visibility_off" : "visibility"
++            active: root.showIp
++
++            onClicked: {
++                root.showIp = !root.showIp;
++                if (root.showIp)
++                    Nmcli.getWirelessDeviceDetails("", null);
++            }
++        }
++
++        HeaderButton {
++            icon: "page_info"
++
++            onClicked: {
++                root.view = "details";
++                Nmcli.getAllDeviceDetails(null);
++            }
++        }
++    }
++
++    StyledText {
++        visible: root.view === "wireless" && root.showIp
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        text: qsTr("IP: %1").arg(Nmcli.wirelessDeviceDetails?.ipAddress || qsTr("no address"))
++        color: Colours.palette.m3primary
++        font: Tokens.font.mono.small
+     }
+ 
+     Toggle {
+@@ -60,18 +160,49 @@
+             }).slice(0, 8)
+         }
+ 
+-        RowLayout {
++        StyledRect {
+             id: networkItem
+ 
              required property Nmcli.AccessPoint modelData
              readonly property bool isConnecting: root.connectingToSsid === modelData.ssid
              readonly property bool loading: networkItem.isConnecting
 +            // Portal networks are only known once seen: live detection or remembered SSIDs
 +            readonly property bool knownPortal: (modelData.active && Nmcli.captivePortal) || Nmcli.portalSsids.includes(modelData.ssid)
++
++            function toggleConnect(): void {
++                if (networkItem.modelData.active) {
++                    Nmcli.disconnectFromNetwork();
++                } else {
++                    root.connectingToSsid = networkItem.modelData.ssid;
++                    if (networkItem.modelData.isEnterprise && !Nmcli.hasSavedProfile(networkItem.modelData.ssid)) {
++                        // 802.1X needs username + password; go straight to the dialog
++                        root.hiddenJoin = false;
++                        root.passwordNetwork = networkItem.modelData;
++                        root.showPasswordDialog = true;
++                        root.popouts.currentName = "wirelesspassword";
++                    } else {
++                        NetworkConnection.handleConnect(networkItem.modelData, null, network => {
++                            // Password is required - show password dialog
++                            root.hiddenJoin = false;
++                            root.passwordNetwork = network;
++                            root.showPasswordDialog = true;
++                            root.popouts.currentName = "wirelesspassword";
++                        });
++                    }
++
++                    // Clear connecting state if connection succeeds immediately (saved profile)
++                    // This is handled by the onActiveChanged connection below
++                }
++            }
  
              visible: root.view === "wireless"
              Layout.preferredHeight: visible ? implicitHeight : 0
-@@ -97,8 +163,8 @@
+             Layout.fillWidth: true
+             Layout.rightMargin: Tokens.padding.extraSmall
+-            spacing: Tokens.spacing.small
++
++            implicitHeight: rowContent.implicitHeight + Tokens.padding.extraSmall
++            radius: Tokens.rounding.full
++            color: "transparent"
+ 
+             opacity: 0
+             scale: 0.7
+@@ -91,74 +222,70 @@
+                 Anim {}
              }
  
-             MaterialIcon {
+-            MaterialIcon {
+-                text: Icons.getNetworkIcon(networkItem.modelData.strength)
+-                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurfaceVariant
+-            }
+-
+-            MaterialIcon {
 -                visible: networkItem.modelData.isSecure
 -                text: "lock"
-+                visible: networkItem.modelData.isSecure || networkItem.knownPortal
-+                text: networkItem.knownPortal ? "captive_portal" : networkItem.modelData.isEnterprise ? "badge" : "lock"
-                 fontStyle: Tokens.font.icon.small
-             }
+-                fontStyle: Tokens.font.icon.small
+-            }
+-
+-            StyledText {
+-                Layout.leftMargin: Tokens.spacing.extraSmall
+-                Layout.rightMargin: Tokens.spacing.extraSmall
+-                Layout.fillWidth: true
+-                text: networkItem.modelData.ssid
+-                elide: Text.ElideRight
+-                font: Tokens.font.body.builders.medium.weight(networkItem.modelData.active ? Font.Medium : Font.Normal).build()
+-                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurface
+-            }
+-
+-            StyledRect {
+-                implicitWidth: implicitHeight
+-                implicitHeight: wirelessConnectIcon.implicitHeight + Tokens.padding.extraSmall
+-
+-                radius: Tokens.rounding.full
+-                color: Qt.alpha(Colours.palette.m3primary, networkItem.modelData.active ? 1 : 0)
++            // The whole row connects/disconnects
++            StateLayer {
++                radius: parent.radius
++                disabled: networkItem.loading || !Nmcli.wifiEnabled
++
++                onClicked: networkItem.toggleConnect()
++            }
++
++            RowLayout {
++                id: rowContent
++
++                anchors.left: parent.left
++                anchors.right: parent.right
++                anchors.verticalCenter: parent.verticalCenter
++                anchors.leftMargin: Tokens.padding.small
++                spacing: Tokens.spacing.small
  
-@@ -133,12 +199,21 @@
-                             Nmcli.disconnectFromNetwork();
-                         } else {
-                             root.connectingToSsid = networkItem.modelData.ssid;
+-                CircularIndicator {
+-                    anchors.fill: parent
+-                    running: networkItem.loading
++                MaterialIcon {
++                    text: Icons.getNetworkIcon(networkItem.modelData.strength)
++                    color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurfaceVariant
+                 }
+ 
+-                StateLayer {
+-                    color: networkItem.modelData.active ? Colours.palette.m3onPrimary : Colours.palette.m3onSurface
+-                    disabled: networkItem.loading || !Nmcli.wifiEnabled
+-
+-                    onClicked: {
+-                        if (networkItem.modelData.active) {
+-                            Nmcli.disconnectFromNetwork();
+-                        } else {
+-                            root.connectingToSsid = networkItem.modelData.ssid;
 -                            NetworkConnection.handleConnect(networkItem.modelData, null, network => {
 -                                // Password is required - show password dialog
 -                                root.passwordNetwork = network;
-+                            if (networkItem.modelData.isEnterprise && !Nmcli.hasSavedProfile(networkItem.modelData.ssid)) {
-+                                // 802.1X needs username + password; go straight to the dialog
-+                                root.hiddenJoin = false;
-+                                root.passwordNetwork = networkItem.modelData;
-                                 root.showPasswordDialog = true;
-                                 root.popouts.currentName = "wirelesspassword";
+-                                root.showPasswordDialog = true;
+-                                root.popouts.currentName = "wirelesspassword";
 -                            });
-+                            } else {
-+                                NetworkConnection.handleConnect(networkItem.modelData, null, network => {
-+                                    // Password is required - show password dialog
-+                                    root.hiddenJoin = false;
-+                                    root.passwordNetwork = network;
-+                                    root.showPasswordDialog = true;
-+                                    root.popouts.currentName = "wirelesspassword";
-+                                });
-+                            }
+-
+-                            // Clear connecting state if connection succeeds immediately (saved profile)
+-                            // This is handled by the onActiveChanged connection below
+-                        }
+-                    }
++                MaterialIcon {
++                    visible: networkItem.modelData.isSecure || networkItem.knownPortal
++                    text: networkItem.knownPortal ? "captive_portal" : networkItem.modelData.isEnterprise ? "badge" : "lock"
++                    fontStyle: Tokens.font.icon.small
+                 }
  
-                             // Clear connecting state if connection succeeds immediately (saved profile)
-                             // This is handled by the onActiveChanged connection below
-@@ -220,6 +295,48 @@
+-                MaterialIcon {
+-                    id: wirelessConnectIcon
++                StyledText {
++                    Layout.leftMargin: Tokens.spacing.extraSmall
++                    Layout.rightMargin: Tokens.spacing.extraSmall
++                    Layout.fillWidth: true
++                    text: networkItem.modelData.ssid
++                    elide: Text.ElideRight
++                    font: Tokens.font.body.builders.medium.weight(networkItem.modelData.active ? Font.Medium : Font.Normal).build()
++                    color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurface
++                }
+ 
+-                    anchors.centerIn: parent
+-                    animate: true
+-                    text: networkItem.modelData.active ? "link_off" : "link"
+-                    color: networkItem.modelData.active ? Colours.palette.m3onPrimary : Colours.palette.m3onSurface
++                StyledRect {
++                    implicitWidth: implicitHeight
++                    implicitHeight: wirelessConnectIcon.implicitHeight + Tokens.padding.extraSmall
++
++                    radius: Tokens.rounding.full
++                    color: Qt.alpha(Colours.palette.m3primary, networkItem.modelData.active ? 1 : 0)
++
++                    CircularIndicator {
++                        anchors.fill: parent
++                        running: networkItem.loading
++                    }
+ 
+-                    opacity: networkItem.loading ? 0 : 1
++                    MaterialIcon {
++                        id: wirelessConnectIcon
+ 
+-                    Behavior on opacity {
+-                        Anim {
+-                            type: Anim.DefaultEffects
++                        anchors.centerIn: parent
++                        animate: true
++                        text: networkItem.modelData.active ? "link_off" : "link"
++                        color: networkItem.modelData.active ? Colours.palette.m3onPrimary : Colours.palette.m3onSurface
++
++                        opacity: networkItem.loading ? 0 : 1
++
++                        Behavior on opacity {
++                            Anim {
++                                type: Anim.DefaultEffects
++                            }
+                         }
+                     }
+                 }
+@@ -220,6 +347,48 @@
          }
      }
  
@@ -350,6 +600,145 @@
      // Ethernet section
      StyledText {
          visible: root.view === "ethernet"
+@@ -340,6 +509,138 @@
+         }
+     }
+ 
++    // Expanded details view: interfaces, VPNs, IPv4/IPv6
++    RowLayout {
++        visible: root.view === "details"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.padding.medium : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        Layout.fillWidth: true
++        spacing: Tokens.spacing.small
++
++        HeaderButton {
++            icon: "arrow_back"
++
++            onClicked: root.view = "wireless"
++        }
++
++        StyledText {
++            Layout.fillWidth: true
++            text: qsTr("Connection details")
++            font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++        }
++
++        HeaderButton {
++            icon: "refresh"
++
++            onClicked: Nmcli.getAllDeviceDetails(null)
++        }
++    }
++
++    Repeater {
++        model: ScriptModel {
++            values: root.view === "details" ? Nmcli.allDeviceDetails : []
++        }
++
++        ColumnLayout {
++            id: deviceItem
++
++            required property var modelData
++
++            visible: root.view === "details"
++            Layout.preferredHeight: visible ? implicitHeight : 0
++            Layout.topMargin: visible ? Tokens.spacing.small : 0
++            Layout.rightMargin: Tokens.padding.extraSmall
++            Layout.fillWidth: true
++            spacing: Tokens.spacing.extraSmall / 2
++
++            RowLayout {
++                Layout.fillWidth: true
++                spacing: Tokens.spacing.small
++
++                MaterialIcon {
++                    text: {
++                        const t = deviceItem.modelData.type;
++                        if (t === "wifi")
++                            return "wifi";
++                        if (t === "ethernet")
++                            return "lan";
++                        if (t === "wireguard")
++                            return "vpn_key";
++                        return "vpn_lock"; // tun (tailscale etc)
++                    }
++                    color: Colours.palette.m3primary
++                    fontStyle: Tokens.font.icon.small
++                }
++
++                StyledText {
++                    Layout.fillWidth: true
++                    text: deviceItem.modelData.connection && deviceItem.modelData.connection !== "--" ? `${deviceItem.modelData.device} · ${deviceItem.modelData.connection}` : deviceItem.modelData.device
++                    elide: Text.ElideRight
++                    font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++                }
++            }
++
++            Repeater {
++                model: ScriptModel {
++                    values: {
++                        const d = deviceItem.modelData;
++                        const rows = [];
++                        for (const a of d.ip4)
++                            rows.push(qsTr("IPv4  %1").arg(a));
++                        for (const a of d.ip6)
++                            rows.push(qsTr("IPv6  %1").arg(a));
++                        if (d.gateway)
++                            rows.push(qsTr("GW    %1").arg(d.gateway));
++                        if (d.dns.length > 0)
++                            rows.push(qsTr("DNS   %1").arg(d.dns.join(", ")));
++                        return rows;
++                    }
++                }
++
++                StyledText {
++                    required property string modelData
++
++                    Layout.leftMargin: Tokens.padding.large
++                    Layout.rightMargin: Tokens.spacing.extraSmall
++                    Layout.fillWidth: true
++                    text: modelData
++                    elide: Text.ElideMiddle
++                    color: Colours.palette.m3onSurfaceVariant
++                    font: Tokens.font.mono.small
++                }
++            }
++        }
++    }
++
++    component HeaderButton: StyledRect {
++        id: headerButton
++
++        property alias icon: headerButtonIcon.text
++        property bool active
++
++        signal clicked
++
++        implicitWidth: implicitHeight
++        implicitHeight: headerButtonIcon.implicitHeight + Tokens.padding.small
++
++        radius: Tokens.rounding.full
++        color: active ? Colours.palette.m3secondaryContainer : "transparent"
++
++        StateLayer {
++            color: Colours.palette.m3onSurface
++
++            onClicked: headerButton.clicked()
++        }
++
++        MaterialIcon {
++            id: headerButtonIcon
++
++            anchors.centerIn: parent
++            color: headerButton.active ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3onSurfaceVariant
++        }
++    }
++
+     Connections {
+         function onActiveChanged(): void {
+             if (Nmcli.active && root.connectingToSsid === Nmcli.active.ssid) {
 --- a/modules/bar/components/StatusIcons.qml
 +++ b/modules/bar/components/StatusIcons.qml
 @@ -150,9 +150,11 @@
