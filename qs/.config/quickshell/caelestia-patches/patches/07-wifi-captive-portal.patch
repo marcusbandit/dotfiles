@@ -1,14 +1,15 @@
 --- a/services/Nmcli.qml
 +++ b/services/Nmcli.qml
-@@ -4,6 +4,7 @@
+@@ -4,6 +4,8 @@
  import QtQuick
  import Quickshell
  import Quickshell.Io
 +import Caelestia
++import qs.utils
  
  Singleton {
      id: root
-@@ -36,8 +37,24 @@
+@@ -36,8 +38,32 @@
      // nmcli reports "unavailable" for ethernet NICs with no link, so we treat
      // anything other than that as a usable connection.
      readonly property bool hasAvailableEthernet: ethernetDevices.some(d => d.state !== "unavailable")
@@ -18,11 +19,19 @@
 +    readonly property bool captivePortal: connectivity === "portal"
 +    // Login page URL captured from the portal's redirect, when it provides one
 +    property string portalUrl: ""
++    // SSIDs where a captive portal has been seen, persisted across restarts
++    property list<string> portalSsids: []
      property list<var> activeProcesses: []
  
 +    onCaptivePortalChanged: {
-+        if (captivePortal)
++        if (captivePortal) {
 +            Toaster.toast(qsTr("Sign-in required"), qsTr("This network needs a browser login"), "captive_portal");
++            const ssid = active?.ssid ?? "";
++            if (ssid && !portalSsids.includes(ssid)) {
++                portalSsids = [...portalSsids, ssid];
++                portalStore.setText(JSON.stringify(portalSsids));
++            }
++        }
 +    }
 +
 +    // A single connectivity check at activation can race the portal (seen at
@@ -33,7 +42,7 @@
      readonly property alias connectionCheckTimer: connectionCheckTimer
      readonly property alias immediateCheckTimer: immediateCheckTimer
  
-@@ -397,6 +414,30 @@
+@@ -397,6 +423,30 @@
          connectWireless(ssid, password, bssid, callback);
      }
  
@@ -64,7 +73,7 @@
      function connectWireless(ssid: string, password: string, bssid: string, callback: var, retryCount: int): void {
          const hasBssid = bssid !== undefined && bssid !== null && bssid.length > 0;
          const retries = retryCount !== undefined ? retryCount : 0;
-@@ -1504,7 +1545,12 @@
+@@ -1504,7 +1554,12 @@
                  LC_ALL: "C.UTF-8"
              })
          stdout: SplitParser {
@@ -78,14 +87,14 @@
          }
          onExited: monitorRestartTimer.start() // qmllint disable signal-handler-parameters
      }
-@@ -1515,6 +1561,70 @@
+@@ -1515,9 +1570,81 @@
          interval: 2000
          onTriggered: {
              monitorProc.running = true;
 +            probeProc.running = true; // Re-seed, changes may have been missed while the monitor was down
-+        }
-+    }
-+
+         }
+     }
+ 
 +    // Own captive-portal probe (same technique as Firefox), because NM's
 +    // connectivity checker cannot be relied on (found disabled at runtime on
 +    // this box while a portal was provably intercepting traffic).
@@ -146,10 +155,21 @@
 +                interval = delays[attempt];
 +                restart();
 +            }
-         }
-     }
++        }
++    }
++
++    FileView {
++        id: portalStore
++
++        printErrors: false
++        path: `${Paths.state}/portal-ssids.json`
++        onLoaded: root.portalSsids = JSON.parse(text())
++    }
++
+     LoggingCategory {
+         id: lc
  
-@@ -1608,6 +1718,8 @@
+@@ -1608,6 +1735,8 @@
          readonly property bool active: lastIpcObject.active
          readonly property string security: lastIpcObject.security
          readonly property bool isSecure: security.length > 0
@@ -235,7 +255,27 @@
      // Wireless section
      StyledText {
          visible: root.view === "wireless"
-@@ -133,12 +197,21 @@
+@@ -66,6 +130,8 @@
+             required property Nmcli.AccessPoint modelData
+             readonly property bool isConnecting: root.connectingToSsid === modelData.ssid
+             readonly property bool loading: networkItem.isConnecting
++            // Portal networks are only known once seen: live detection or remembered SSIDs
++            readonly property bool knownPortal: (modelData.active && Nmcli.captivePortal) || Nmcli.portalSsids.includes(modelData.ssid)
+ 
+             visible: root.view === "wireless"
+             Layout.preferredHeight: visible ? implicitHeight : 0
+@@ -97,8 +163,8 @@
+             }
+ 
+             MaterialIcon {
+-                visible: networkItem.modelData.isSecure
+-                text: "lock"
++                visible: networkItem.modelData.isSecure || networkItem.knownPortal
++                text: networkItem.knownPortal ? "captive_portal" : networkItem.modelData.isEnterprise ? "badge" : "lock"
+                 fontStyle: Tokens.font.icon.small
+             }
+ 
+@@ -133,12 +199,21 @@
                              Nmcli.disconnectFromNetwork();
                          } else {
                              root.connectingToSsid = networkItem.modelData.ssid;
@@ -261,7 +301,7 @@
  
                              // Clear connecting state if connection succeeds immediately (saved profile)
                              // This is handled by the onActiveChanged connection below
-@@ -220,6 +293,48 @@
+@@ -220,6 +295,48 @@
          }
      }
  
