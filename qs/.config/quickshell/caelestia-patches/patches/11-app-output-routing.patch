@@ -1,0 +1,159 @@
+--- a/services/Audio.qml
++++ b/services/Audio.qml
+@@ -105,6 +105,24 @@
+         return stream.properties["application.name"] || stream.description || stream.name || qsTr("Unknown Application");
+     }
+ 
++    function moveStreamToSink(stream: PwNode, targetSink: PwNode): void {
++        if (!stream?.id) return;
++        if (targetSink?.id) {
++            Quickshell.execDetached(["pw-metadata", "-n", "default", "--", stream.id.toString(), "target.node", targetSink.id.toString()]);
++        } else {
++            Quickshell.execDetached(["pw-metadata", "-n", "default", "--", stream.id.toString(), "target.node", "-1"]);
++        }
++    }
++
++    function moveStreamToSource(stream: PwNode, targetSource: PwNode): void {
++        if (!stream?.id) return;
++        if (targetSource?.id) {
++            Quickshell.execDetached(["pw-metadata", "-n", "default", "--", stream.id.toString(), "target.node", targetSource.id.toString()]);
++        } else {
++            Quickshell.execDetached(["pw-metadata", "-n", "default", "--", stream.id.toString(), "target.node", "-1"]);
++        }
++    }
++
+     onSinkChanged: {
+         if (!sink?.ready)
+             return;
+--- a/modules/nexus/pages/audio/AppVolumes.qml
++++ b/modules/nexus/pages/audio/AppVolumes.qml
+@@ -3,9 +3,11 @@
+ import QtQuick
+ import QtQuick.Layouts
+ import Quickshell
++import Quickshell.Io
+ import Quickshell.Services.Pipewire
+ import Caelestia.Config
+ import qs.components
++import qs.components.controls
+ import qs.services
+ import qs.utils
+ import qs.modules.nexus.common
+@@ -26,7 +28,7 @@
+             Layout.fillWidth: true
+             Layout.leftMargin: Tokens.padding.small
+             Layout.bottomMargin: Tokens.spacing.medium
+-            text: qsTr("Adjust the volume of individual apps currently playing audio.")
++            text: qsTr("Adjust the volume and output device of individual apps currently playing audio.")
+             color: Colours.palette.m3outline
+             font: Tokens.font.body.small
+             wrapMode: Text.WordWrap
+@@ -41,29 +43,98 @@
+             placeholderIcon: "music_off"
+             placeholderText: qsTr("No apps playing audio")
+             color: list.count === 0 ? Colours.tPalette.m3surfaceContainer : "transparent"
+-            list.spacing: Tokens.spacing.extraSmall / 2
++            list.spacing: Tokens.spacing.medium
+ 
+             model: ScriptModel {
+                 values: [...Audio.streams]
+             }
+ 
+-            delegate: SliderRow {
++            delegate: ColumnLayout {
+                 id: stream
+ 
+                 required property PwNode modelData
+                 required property int index
+ 
++                // The sink id this stream is currently routed to (-1 = default)
++                property int targetId: -1
++
+                 anchors.left: streamList.list.contentItem.left
+                 anchors.right: streamList.list.contentItem.right
+-                first: index === 0
+-                last: index === streamList.list.count - 1
++                spacing: Tokens.spacing.extraSmall / 2
+ 
+-                icon: Icons.getVolumeIcon(stream.modelData?.audio?.volume ?? 0, stream.modelData?.audio?.muted ?? false)
+-                label: Audio.getStreamName(stream.modelData)
+-                valueLabel: Math.round(value * 100) + "%"
+-                value: stream.modelData?.audio?.volume ?? 0
+-                enabled: !stream.modelData?.audio?.muted
+-                onMoved: v => Audio.setStreamVolume(stream.modelData, v)
++                // "Default device" entry, kept first so index 0 always maps to null
++                readonly property MenuItem defaultItem: MenuItem {
++                    text: qsTr("Default device")
++                    icon: "speaker"
++                }
++
++                // One MenuItem per available sink, carrying its node id for matching
++                Variants {
++                    id: sinkVariants
++
++                    model: [...Audio.sinks].sort((a, b) => (a.description || a.name || "").localeCompare(b.description || b.name || ""))
++
++                    MenuItem {
++                        required property PwNode modelData
++                        readonly property PwNode node: modelData
++                        readonly property int nodeId: modelData?.id ?? -1
++
++                        text: modelData?.description || modelData?.name || qsTr("Unknown")
++                        icon: "speaker"
++                    }
++                }
++
++                readonly property list<MenuItem> deviceItems: [defaultItem, ...sinkVariants.instances]
++                readonly property MenuItem activeItem: stream.targetId > 0 ? (deviceItems.find(i => i.nodeId === stream.targetId) ?? defaultItem) : defaultItem
++
++                // Read the stream's current target.node so the selector reflects reality
++                function refreshTarget(): void {
++                    if (stream.modelData?.id) {
++                        targetProc.command = ["pw-metadata", "-n", "default", stream.modelData.id.toString(), "target.node"];
++                        targetProc.running = true;
++                    }
++                }
++
++                Component.onCompleted: refreshTarget()
++
++                Process {
++                    id: targetProc
++
++                    stdout: StdioCollector {
++                        onStreamFinished: {
++                            const match = text.match(/value:'(-?\d+)'/);
++                            stream.targetId = match ? parseInt(match[1]) : -1;
++                        }
++                    }
++                }
++
++                SliderRow {
++                    Layout.fillWidth: true
++                    first: true
++
++                    icon: Icons.getVolumeIcon(stream.modelData?.audio?.volume ?? 0, stream.modelData?.audio?.muted ?? false)
++                    label: Audio.getStreamName(stream.modelData)
++                    valueLabel: Math.round(value * 100) + "%"
++                    value: stream.modelData?.audio?.volume ?? 0
++                    enabled: !stream.modelData?.audio?.muted
++                    onMoved: v => Audio.setStreamVolume(stream.modelData, v)
++                }
++
++                SelectRow {
++                    Layout.fillWidth: true
++                    last: true
++
++                    label: qsTr("Output device")
++                    menuItems: stream.deviceItems
++                    active: stream.activeItem
++                    fallbackIcon: "speaker"
++                    fallbackText: qsTr("Default device")
++                    onSelected: item => {
++                        const node = item.node ?? null;
++                        Audio.moveStreamToSink(stream.modelData, node);
++                        stream.targetId = node?.id ?? -1;
++                    }
++                }
+             }
+         }
+     }

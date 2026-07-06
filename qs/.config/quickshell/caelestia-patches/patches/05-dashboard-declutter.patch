@@ -1,0 +1,116 @@
+--- a/modules/dashboard/Dash.qml
++++ b/modules/dashboard/Dash.qml
+@@ -1,5 +1,7 @@
+ import "dash"
++import "performance"
+ import QtQuick.Layouts
++import Quickshell.Services.UPower
+ import Caelestia.Config
+ import qs.components
+ import qs.components.filedialog
+@@ -16,36 +18,6 @@
+     columnSpacing: Tokens.spacing.medium
+ 
+     Rect {
+-        Layout.column: 2
+-        Layout.columnSpan: 3
+-        Layout.preferredWidth: Tokens.sizes.dashboard.userWidth
+-        Layout.fillHeight: true
+-
+-        radius: Tokens.rounding.extraLarge
+-
+-        User {
+-            id: user
+-
+-            visibilities: root.visibilities
+-            facePicker: root.facePicker
+-        }
+-    }
+-
+-    Rect {
+-        Layout.row: 0
+-        Layout.columnSpan: 2
+-        Layout.preferredWidth: Tokens.sizes.dashboard.weatherWidth
+-        Layout.preferredHeight: weather.implicitHeight
+-
+-        radius: Tokens.rounding.extraLarge * 1.5
+-
+-        SmallWeather {
+-            id: weather
+-        }
+-    }
+-
+-    Rect {
+-        Layout.row: 1
+         Layout.preferredWidth: dateTime.implicitWidth
+         Layout.fillHeight: true
+ 
+@@ -57,46 +29,39 @@
+     }
+ 
+     Rect {
+-        Layout.row: 1
+         Layout.column: 1
+-        Layout.columnSpan: 3
+-        Layout.fillWidth: true
++        Layout.preferredWidth: Tokens.sizes.dashboard.userWidth
+         Layout.preferredHeight: calendar.implicitHeight
++        Layout.fillHeight: true
+ 
+-        radius: Tokens.rounding.extraLarge
++        radius: Tokens.rounding.large
+ 
+         Calendar {
+             id: calendar
+ 
++            anchors.verticalCenter: parent.verticalCenter
+             dashState: root.dashState
+         }
+     }
+ 
+     Rect {
+-        Layout.row: 1
+-        Layout.column: 4
+-        Layout.preferredWidth: resources.implicitWidth
++        Layout.column: 2
++        Layout.preferredWidth: media.implicitWidth
++        Layout.preferredHeight: media.implicitHeight
+         Layout.fillHeight: true
+ 
+         radius: Tokens.rounding.large
+ 
+-        Resources {
+-            id: resources
++        Media {
++            id: media
+         }
+     }
+ 
+-    Rect {
+-        Layout.row: 0
+-        Layout.column: 5
+-        Layout.rowSpan: 2
+-        Layout.preferredWidth: media.implicitWidth
++    BatteryTank {
++        Layout.column: 3
+         Layout.fillHeight: true
+ 
+-        radius: Tokens.rounding.extraLarge * 2
+-
+-        Media {
+-            id: media
+-        }
++        visible: UPower.displayDevice.isLaptopBattery
+     }
+ 
+     component Rect: StyledRect {
+--- a/modules/dashboard/dash/Media.qml
++++ b/modules/dashboard/dash/Media.qml
+@@ -23,6 +23,7 @@
+     anchors.top: parent.top
+     anchors.bottom: parent.bottom
+     implicitWidth: Tokens.sizes.dashboard.mediaWidth
++    implicitHeight: controls.y + controls.height + Tokens.padding.large
+ 
+     Behavior on playerProgress {
+         Anim {

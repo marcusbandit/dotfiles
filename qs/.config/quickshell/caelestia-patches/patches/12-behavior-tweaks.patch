@@ -1,0 +1,53 @@
+--- a/assets/wrap_term_launch.sh
++++ b/assets/wrap_term_launch.sh
+@@ -1,5 +1,7 @@
+ #!/usr/bin/env sh
+ 
+-cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
++# Apply Caelestia's color scheme to terminal apps via ANSI escape sequences
++# Disabled: overrides kitty/btop themes - uncomment to let Caelestia control terminal colors
++# cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
+ 
+ exec "$@"
+--- a/services/Brightness.qml
++++ b/services/Brightness.qml
+@@ -169,13 +169,16 @@
+         readonly property bool isDdc: ddcInfo !== null
+         readonly property string busNum: ddcInfo?.busNum ?? ""
+         readonly property bool isAppleDisplay: root.appleDisplayPresent && modelData.model.startsWith("StudioDisplay")
++        readonly property bool isShaderMonitor: modelData.name === "HDMI-A-1"
+         property real brightness
+         property real queuedBrightness: NaN
+ 
+         readonly property Process initProc: Process {
+             stdout: StdioCollector {
+                 onStreamFinished: {
+-                    if (monitor.isAppleDisplay) {
++                    if (monitor.isShaderMonitor) {
++                        monitor.brightness = parseInt(text.trim()) / 100;
++                    } else if (monitor.isAppleDisplay) {
+                         const val = parseInt(text.trim());
+                         monitor.brightness = val / 101;
+                     } else {
+@@ -209,7 +212,9 @@
+ 
+             brightness = value;
+ 
+-            if (isAppleDisplay)
++            if (isShaderMonitor)
++                Quickshell.execDetached(["shader-brightness", "set", `${rounded}`]);
++            else if (isAppleDisplay)
+                 Quickshell.execDetached(["asdbctl", "set", rounded]);
+             else if (isDdc)
+                 Quickshell.execDetached(["ddcutil", "-b", busNum, "setvcp", "10", rounded]);
+@@ -221,7 +226,9 @@
+         }
+ 
+         function initBrightness(): void {
+-            if (isAppleDisplay)
++            if (isShaderMonitor)
++                initProc.command = ["shader-brightness", "get"];
++            else if (isAppleDisplay)
+                 initProc.command = ["asdbctl", "get"];
+             else if (isDdc)
+                 initProc.command = ["ddcutil", "-b", busNum, "getvcp", "10", "--brief"];

@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+# caelestia-patches: keep local QML customizations layered on top of the
+# packaged caelestia-shell so they survive package upgrades.
+#
+# Upstream (read-only, owned by the caelestia-shell package):
+#   /etc/xdg/quickshell/caelestia
+# Working copy that the shell actually runs (qs -p, via launch-caelestia):
+#   ~/.config/quickshell/caelestia
+# Patch archive (this dir): unified diffs of every local change.
+#
+# Typical upgrade flow after `paru -Syu` bumps caelestia-shell:
+#   caelestia-patches sync      # refresh working copy from upstream + reapply
+#   launch-caelestia
+set -euo pipefail
+
+UPSTREAM="${CAELESTIA_UPSTREAM:-/etc/xdg/quickshell/caelestia}"
+CONFIG="${CAELESTIA_CONFIG:-$HOME/.config/quickshell/caelestia}"
+PDIR="${CAELESTIA_PATCHES:-$HOME/.config/quickshell/caelestia-patches}"
+PATCHES="$PDIR/patches"
+
+c_red=$'\033[31m'; c_grn=$'\033[32m'; c_yel=$'\033[33m'; c_dim=$'\033[2m'; c_rst=$'\033[0m'
+info() { printf '%s\n' "$*"; }
+warn() { printf '%s%s%s\n' "$c_yel" "$*" "$c_rst" >&2; }
+die()  { printf '%s%s%s\n' "$c_red" "$*" "$c_rst" >&2; exit 1; }
+
+# Files a given patch touches (the b/ side of the diff).
+_patch_files() { sed -n 's|^+++ b/||p' "$1"; }
+
+cmd_list() {
+    shopt -s nullglob
+    local p had=0
+    for p in "$PATCHES"/*.patch; do
+        had=1
+        printf '%s%s%s\n' "$c_grn" "$(basename "$p")" "$c_rst"
+        local f
+        while IFS= read -r f; do printf '    %s%s%s\n' "$c_dim" "$f" "$c_rst"; done < <(_patch_files "$p")
+    done
+    [[ $had -eq 1 ]] || warn "No patches in $PATCHES"
+}
+
+cmd_status() {
+    [[ -d "$CONFIG" ]] || die "Working copy not found: $CONFIG (run 'caelestia-patches sync')"
+    shopt -s nullglob
+    local p
+    for p in "$PATCHES"/*.patch; do
+        local name; name=$(basename "$p")
+        if patch -p1 -d "$CONFIG" -R --dry-run --force <"$p" >/dev/null 2>&1; then
+            printf '%s✔ applied%s   %s\n' "$c_grn" "$c_rst" "$name"
+        elif patch -p1 -d "$CONFIG" --dry-run --force <"$p" >/dev/null 2>&1; then
+            printf '%s○ pending%s   %s\n' "$c_yel" "$c_rst" "$name"
+        else
+            printf '%s✘ conflict%s  %s\n' "$c_red" "$c_rst" "$name"
+        fi
+    done
+}
+
+cmd_apply() {
+    [[ -d "$CONFIG" ]] || die "Working copy not found: $CONFIG (run 'caelestia-patches sync')"
+    shopt -s nullglob
+    local p rc=0
+    for p in "$PATCHES"/*.patch; do
+        local name; name=$(basename "$p")
+        if patch -p1 -d "$CONFIG" -R --dry-run --force <"$p" >/dev/null 2>&1; then
+            info "${c_dim}skip (already applied) $name${c_rst}"; continue
+        fi
+        if patch -p1 -d "$CONFIG" -N --force <"$p" >/dev/null 2>&1; then
+            info "${c_grn}applied${c_rst} $name"
+        else
+            warn "FAILED  $name - upstream likely changed; run 'caelestia-patches status' / re-port & 'regen'"
+            rc=1
+        fi
+    done
+    return $rc
+}
+
+cmd_sync() {
+    [[ -d "$UPSTREAM" ]] || die "Upstream not found: $UPSTREAM (is caelestia-shell installed?)"
+    if [[ -d "$CONFIG" ]]; then
+        local bak="$CONFIG.bak-$(date +%Y%m%d-%H%M%S)"
+        mv "$CONFIG" "$bak"
+        info "Backed up working copy -> ${c_dim}$bak${c_rst}"
+    fi
+    cp -r "$UPSTREAM" "$CONFIG"
+    info "Synced from upstream ${c_dim}($(pacman -Q caelestia-shell 2>/dev/null || echo upstream))${c_rst}"
+    cmd_apply
+    info "Done. Restart with: ${c_grn}launch-caelestia${c_rst}"
+}
+
+cmd_regen() {
+    [[ -d "$UPSTREAM" && -d "$CONFIG" ]] || die "Need both upstream and working copy present"
+    shopt -s nullglob
+    local p
+    for p in "$PATCHES"/*.patch; do
+        local name tmp; name=$(basename "$p"); tmp=$(mktemp)
+        local rel
+        while IFS= read -r rel; do
+            [[ -f "$CONFIG/$rel" ]] || { warn "  $rel missing in working copy, skipping"; continue; }
+            # Files that only exist in the working copy (patch-added) diff against /dev/null
+            local src="$UPSTREAM/$rel" lbl="a/$rel"
+            [[ -f "$src" ]] || { src=/dev/null; lbl=/dev/null; }
+            diff -u "$src" "$CONFIG/$rel" \
+                | sed -e "1s|^--- .*|--- $lbl|" -e "2s|^+++ .*|+++ b/$rel|" >>"$tmp" || true
+        done < <(_patch_files "$p")
+        if [[ -s "$tmp" ]]; then
+            mv "$tmp" "$p"; info "${c_grn}regen${c_rst} $name"
+        else
+            rm -f "$tmp"; warn "  $name produced no diff (changes gone from working copy?)"
+        fi
+    done
+}
+
+cmd_diff() {
+    [[ -d "$UPSTREAM" && -d "$CONFIG" ]] || die "Need both upstream and working copy present"
+    diff -ruN "$UPSTREAM" "$CONFIG" || true
+}
+
+usage() {
+    cat <<EOF
+caelestia-patches: layer local QML tweaks on the packaged caelestia-shell
+
+USAGE: caelestia-patches <command>
+
+COMMANDS:
+  sync      Back up working copy, recopy from upstream, reapply all patches
+            (run this after a caelestia-shell package upgrade)
+  apply     Apply all patches to the existing working copy (skips applied ones)
+  status    Show per-patch state: applied / pending / conflict
+  regen     Regenerate .patch files from current working copy vs upstream
+            (run this after you edit the QML and want to save the change)
+  list      List patches and the files they touch
+  diff      Full diff of working copy vs upstream
+  help      This message
+
+PATHS (override via env):
+  upstream  $UPSTREAM   (\$CAELESTIA_UPSTREAM)
+  working   $CONFIG   (\$CAELESTIA_CONFIG)
+  patches   $PATCHES   (\$CAELESTIA_PATCHES)
+EOF
+}
+
+case "${1:-help}" in
+    sync)   cmd_sync ;;
+    apply)  cmd_apply ;;
+    status) cmd_status ;;
+    regen)  cmd_regen ;;
+    list)   cmd_list ;;
+    diff)   cmd_diff ;;
+    help|-h|--help) usage ;;
+    *) warn "Unknown command: $1"; usage; exit 2 ;;
+esac

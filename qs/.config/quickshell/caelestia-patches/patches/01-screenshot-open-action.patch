@@ -1,0 +1,16 @@
+--- a/modules/areapicker/Picker.qml
++++ b/modules/areapicker/Picker.qml
+@@ -75,10 +75,10 @@
+         const tmpfile = Qt.resolvedUrl(`/tmp/caelestia-picker-${Quickshell.processId}-${Date.now()}.png`);
+         CUtils.saveItem(screencopy, tmpfile, Qt.rect(Math.ceil(rsx), Math.ceil(rsy), Math.floor(sw), Math.floor(sh)), path => {
+             if (root.loader.clipboardOnly) {
+-                Quickshell.execDetached(["sh", "-c", "wl-copy --type image/png < " + path]);
+-                Quickshell.execDetached(["notify-send", "-a", "caelestia-cli", "-i", path, "Screenshot taken", "Screenshot copied to clipboard"]);
++                Quickshell.execDetached(["sh", "-c", "wl-copy --type image/png < " + path.replace(/^file:\/\//, "")]);
++                Quickshell.execDetached(["sh", "-c", `action=$(notify-send -a 'caelestia-cli' -i '${path}' 'Screenshot taken' 'Screenshot copied to clipboard' -A 'open=Open' -A 'scribble=Scribble'); [ "$action" = open ] && imv '${path}'; [ "$action" = scribble ] && satty -f '${path}'`]);
+             } else {
+-                Quickshell.execDetached(["swappy", "-f", path]);
++                Quickshell.execDetached(["satty", "-f", path]);
+             }
+             closeAnim.start();
+         });

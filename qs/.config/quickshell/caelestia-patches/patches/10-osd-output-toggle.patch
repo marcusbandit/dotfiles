@@ -1,0 +1,60 @@
+--- a/modules/osd/Content.qml
++++ b/modules/osd/Content.qml
+@@ -21,6 +21,23 @@
+     required property bool sourceMuted
+     required property real brightness
+ 
++    readonly property string headphoneSinkMatch: "Scarlett"
++    readonly property string speakerSinkMatch: "Built-in"
++    readonly property var headphoneSink: {
++        const list = Audio.sinks;
++        for (let i = 0; i < list.length; i++)
++            if ((list[i].description ?? "").includes(headphoneSinkMatch))
++                return list[i];
++        return null;
++    }
++    readonly property var speakerSink: {
++        const list = Audio.sinks;
++        for (let i = 0; i < list.length; i++)
++            if ((list[i].description ?? "").includes(speakerSinkMatch))
++                return list[i];
++        return null;
++    }
++
+     implicitWidth: layout.implicitWidth + Tokens.padding.large + layout.anchors.horizontalCenterOffset * 2
+     implicitHeight: layout.implicitHeight + Tokens.padding.large * 2
+ 
+@@ -31,6 +48,33 @@
+         anchors.horizontalCenterOffset: CUtils.clamp(Tokens.padding.large - Config.border.thickness, 0, Tokens.padding.large) / 2
+         spacing: Tokens.spacing.medium
+ 
++        // Output device quick-switch toggle
++        StyledRect {
++            id: outputToggle
++            readonly property bool headphonesActive: root.headphoneSink && Audio.sink && Audio.sink.id === root.headphoneSink.id
++            readonly property bool ready: root.headphoneSink && root.speakerSink
++            Layout.alignment: Qt.AlignHCenter
++            implicitWidth: Tokens.sizes.osd.sliderWidth
++            implicitHeight: Tokens.sizes.osd.sliderWidth
++            radius: Tokens.rounding.full
++            opacity: ready ? 1 : 0.5
++            color: headphonesActive ? Colours.palette.m3primary : Colours.layer(Colours.palette.m3surfaceContainer, 2)
++            StateLayer {
++                disabled: !outputToggle.ready
++                color: outputToggle.headphonesActive ? Colours.palette.m3onPrimary : Colours.palette.m3onSurface
++                onClicked: {
++                    const target = outputToggle.headphonesActive ? root.speakerSink : root.headphoneSink;
++                    if (target) Audio.setAudioSink(target);
++                }
++            }
++            MaterialIcon {
++                anchors.centerIn: parent
++                fill: 1
++                text: outputToggle.headphonesActive ? "headphones" : "speaker"
++                color: outputToggle.headphonesActive ? Colours.palette.m3onPrimary : Colours.palette.m3onSurface
++            }
++        }
++
+         // Speaker volume
+         CustomMouseArea {
+             function onWheel(event: WheelEvent) {

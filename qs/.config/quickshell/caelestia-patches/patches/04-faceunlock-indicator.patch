@@ -1,0 +1,538 @@
+--- /dev/null
++++ b/services/FaceUnlock.qml
+@@ -0,0 +1,80 @@
++pragma Singleton
++
++import QtQuick
++import Quickshell
++
++Singleton {
++    id: root
++
++    // "idle" | "scanning" | "confirming"
++    property string state: "idle"
++    readonly property bool active: state !== "idle"
++
++    // Minimum time the indicator stays on screen, measured from show().
++    readonly property int minVisibleMs: 1500
++    // Minimum time the confirm (open + fast spin) is shown, from recognition.
++    readonly property int minConfirmMs: 900
++
++    property bool _minVisibleDone: true
++    property bool _confirmDone: true
++
++    function show(): void {
++        if (state === "confirming")
++            return; // don't restart mid-confirm
++        state = "scanning";
++        _minVisibleDone = false;
++        minVisible.restart();
++        safety.restart();
++    }
++
++    function hide(): void {
++        // Recognised. Open the eye + speed up the tomoe IMMEDIATELY, no matter
++        // how much of the minimum time is left. The minimum only gates closing.
++        if (state === "scanning")
++            beginConfirm();
++    }
++
++    function beginConfirm(): void {
++        state = "confirming";
++        _confirmDone = false;
++        confirmHold.restart();
++        safety.restart();
++    }
++
++    // Close only once BOTH the minimum on-screen time and the minimum confirm
++    // display time have elapsed.
++    function _maybeClose(): void {
++        if (state === "confirming" && _minVisibleDone && _confirmDone) {
++            state = "idle";
++            safety.stop();
++        }
++    }
++
++    Timer {
++        id: minVisible
++
++        interval: root.minVisibleMs
++        onTriggered: {
++            root._minVisibleDone = true;
++            root._maybeClose();
++        }
++    }
++
++    Timer {
++        id: confirmHold
++
++        interval: root.minConfirmMs
++        onTriggered: {
++            root._confirmDone = true;
++            root._maybeClose();
++        }
++    }
++
++    Timer {
++        id: safety
++
++        // Net so a missed camera-close event can't leave the eye stuck open
++        interval: 30000
++        onTriggered: root.state = "idle"
++    }
++}
+--- /dev/null
++++ b/modules/faceunlock/Sharingan.qml
+@@ -0,0 +1,297 @@
++pragma ComponentBehavior: Bound
++
++import QtQuick
++
++Item {
++    id: root
++
++    // "idle" | "scanning" | "confirming"
++    property string phase: "idle"
++
++    // Eyelid poses (normalised 0..1 of the item box), tuned in the eye editor.
++    // Corners: inner/outer. Cubic lid controls: uc1/uc2 (upper), lc1/lc2 (lower).
++    readonly property var relaxed: ({
++            inner: { x: 0.1135, y: 0.6454 },
++            outer: { x: 0.9038, y: 0.3771 },
++            uc1: { x: 0.2635, y: 0.3137 },
++            uc2: { x: 0.5346, y: 0.2185 },
++            lc1: { x: 0.4308, y: 0.6795 },
++            lc2: { x: 0.6423, y: 0.6746 }
++        })
++    readonly property var intense: ({
++            inner: { x: 0.1135, y: 0.6454 },
++            outer: { x: 0.9038, y: 0.3771 },
++            uc1: { x: 0.2635, y: 0.3137 },
++            uc2: { x: 0.4327, y: 0.0893 },
++            lc1: { x: 0.4288, y: 0.7112 },
++            lc2: { x: 0.6827, y: 0.8332 }
++        })
++
++    // Iris placement (normalised); tomoe/ring/pupil use the official SVG ratios.
++    readonly property real irisR: 0.26     // of item height
++    readonly property real irisCX: 0.505
++    readonly property real irisCY: 0.485
++
++    // Lid state: 0 = closed, 1 = relaxed (scan), 2 = intense (stare).
++    property real lidT: 0
++    property real spin: 0
++    property real pupilScale: 1
++    property real ringGlow: 0
++
++    readonly property real spinSpeed: phase === "confirming" ? 400 : phase === "scanning" ? 100 : 0
++    property real _pupilTarget: phase === "confirming" ? 0.9 : 1
++    on_PupilTargetChanged: pupilScale = _pupilTarget
++
++    implicitWidth: 300
++    implicitHeight: 238
++
++    onLidTChanged: canvas.requestPaint()
++    onSpinChanged: canvas.requestPaint()
++    onPupilScaleChanged: canvas.requestPaint()
++    onRingGlowChanged: canvas.requestPaint()
++
++    onPhaseChanged: {
++        if (phase === "idle") {
++            lidT = 0;
++            ringGlow = 0;
++        } else if (phase === "scanning") {
++            lidT = 1;
++        } else if (phase === "confirming") {
++            lidT = 2;
++            ringGlow = 0.45;
++        }
++    }
++
++    Behavior on lidT {
++        NumberAnimation {
++            duration: 300
++            easing.type: Easing.OutBack
++            easing.overshoot: 1.7
++        }
++    }
++    Behavior on pupilScale {
++        NumberAnimation {
++            duration: 420
++            easing.type: Easing.OutCubic
++        }
++    }
++
++    // --- pose maths ------------------------------------------------------
++    function _lerp(a, b, k) {
++        return {
++            x: a.x + (b.x - a.x) * k,
++            y: a.y + (b.y - a.y) * k
++        };
++    }
++    // Project a control point onto the inner->outer line (a shut lid).
++    function _proj(p, i, o) {
++        const ax = o.x - i.x;
++        const ay = o.y - i.y;
++        const t = ((p.x - i.x) * ax + (p.y - i.y) * ay) / (ax * ax + ay * ay);
++        return {
++            x: i.x + ax * t,
++            y: i.y + ay * t
++        };
++    }
++    function poseAt(t: real): var {
++        const R = root.relaxed;
++        const N = root.intense;
++        // Allow a little open-overshoot (pop) but never undershoot closed.
++        t = Math.min(2.18, Math.max(0, t));
++        if (t <= 1) {
++            const k = t;
++            const cl = {
++                inner: R.inner,
++                outer: R.outer,
++                uc1: root._proj(R.uc1, R.inner, R.outer),
++                uc2: root._proj(R.uc2, R.inner, R.outer),
++                lc1: root._proj(R.lc1, R.inner, R.outer),
++                lc2: root._proj(R.lc2, R.inner, R.outer)
++            };
++            return {
++                inner: root._lerp(cl.inner, R.inner, k),
++                outer: root._lerp(cl.outer, R.outer, k),
++                uc1: root._lerp(cl.uc1, R.uc1, k),
++                uc2: root._lerp(cl.uc2, R.uc2, k),
++                lc1: root._lerp(cl.lc1, R.lc1, k),
++                lc2: root._lerp(cl.lc2, R.lc2, k)
++            };
++        }
++        const k = t - 1;
++        return {
++            inner: root._lerp(R.inner, N.inner, k),
++            outer: root._lerp(R.outer, N.outer, k),
++            uc1: root._lerp(R.uc1, N.uc1, k),
++            uc2: root._lerp(R.uc2, N.uc2, k),
++            lc1: root._lerp(R.lc1, N.lc1, k),
++            lc2: root._lerp(R.lc2, N.lc2, k)
++        };
++    }
++
++    // --- tomoe from the official Sharingan_triple.svg --------------------
++    // Local coords are SVG units relative to the eye centre (150,150),
++    // scaled by s = R / 145 so the head lands exactly on the ring (r=90).
++    function _tomoe(ctx: var, s: real): void {
++        ctx.beginPath();
++        ctx.arc(-90 * s, 0, 20 * s, 0, Math.PI * 2);
++        ctx.fill();
++        ctx.beginPath();
++        ctx.moveTo(-90 * s, 20 * s);
++        ctx.lineTo(-90.6 * s, 2.9 * s);
++        ctx.bezierCurveTo(-106.1 * s, 2.9 * s, -121.3 * s, 4.1 * s, -131.2 * s, -16.7 * s);
++        ctx.bezierCurveTo(-127.6 * s, 6 * s, -117.2 * s, 20 * s, -90 * s, 20 * s);
++        ctx.closePath();
++        ctx.fill();
++    }
++
++    function draw(ctx: var, w: real, h: real): void {
++        ctx.clearRect(0, 0, w, h);
++
++        const p = root.poseAt(root.lidT);
++        const X = v => v.x * w;
++        const Y = v => v.y * h;
++
++        function lidPath() {
++            ctx.beginPath();
++            ctx.moveTo(X(p.inner), Y(p.inner));
++            ctx.bezierCurveTo(X(p.uc1), Y(p.uc1), X(p.uc2), Y(p.uc2), X(p.outer), Y(p.outer));
++            ctx.bezierCurveTo(X(p.lc2), Y(p.lc2), X(p.lc1), Y(p.lc1), X(p.inner), Y(p.inner));
++            ctx.closePath();
++        }
++
++        const icx = root.irisCX * w;
++        const icy = root.irisCY * h;
++        const R = root.irisR * h;
++        const s = R / 145;
++        const spinR = root.spin * Math.PI / 180;
++
++        ctx.save();
++        lidPath();
++        ctx.clip();
++
++        // Sclera
++        const sg = ctx.createLinearGradient(0, icy - R, 0, icy + R);
++        sg.addColorStop(0, "#efe9e6");
++        sg.addColorStop(1, "#d5cdca");
++        ctx.fillStyle = sg;
++        ctx.fillRect(0, 0, w, h);
++
++        // Iris (SVG gradient stops)
++        const g = ctx.createRadialGradient(icx, icy, R * 0.12, icx, icy, R);
++        g.addColorStop(0.0, "#660000");
++        g.addColorStop(0.6, "#c30000");
++        g.addColorStop(1.0, "#a00000");
++        ctx.fillStyle = g;
++        ctx.beginPath();
++        ctx.arc(icx, icy, R, 0, Math.PI * 2);
++        ctx.fill();
++
++        // Iris rim (SVG stroke-width 10 on r145)
++        ctx.strokeStyle = "#000";
++        ctx.lineWidth = 10 * s;
++        ctx.beginPath();
++        ctx.arc(icx, icy, R - 5 * s, 0, Math.PI * 2);
++        ctx.stroke();
++
++        // Tomoe ring (SVG r90, stroke 4 @ 0.3)
++        ctx.strokeStyle = "rgba(0,0,0,0.3)";
++        ctx.lineWidth = 4 * s;
++        ctx.beginPath();
++        ctx.arc(icx, icy, 90 * s, 0, Math.PI * 2);
++        ctx.stroke();
++
++        // Three tomoe
++        ctx.fillStyle = "#000";
++        for (let i = 0; i < 3; i++) {
++            ctx.save();
++            ctx.translate(icx, icy);
++            ctx.rotate(spinR + i * (Math.PI * 2 / 3));
++            root._tomoe(ctx, s);
++            ctx.restore();
++        }
++
++        // Pupil (SVG r25)
++        ctx.fillStyle = "#000";
++        ctx.beginPath();
++        ctx.arc(icx, icy, 25 * s * root.pupilScale, 0, Math.PI * 2);
++        ctx.fill();
++
++        // Catchlight
++        ctx.fillStyle = "rgba(255,255,255,0.45)";
++        ctx.beginPath();
++        ctx.arc(icx - R * 0.32, icy - R * 0.34, R * 0.08, 0, Math.PI * 2);
++        ctx.fill();
++
++        // Confirm glow rim
++        if (root.ringGlow > 0) {
++            ctx.strokeStyle = "rgba(255,120,120," + (root.ringGlow * 0.8) + ")";
++            ctx.lineWidth = R * 0.05;
++            ctx.beginPath();
++            ctx.arc(icx, icy, R * 0.9, 0, Math.PI * 2);
++            ctx.stroke();
++        }
++
++        // Upper-lid shadow
++        const topY = Math.min(Y(p.uc1), Y(p.uc2));
++        const ls = ctx.createLinearGradient(0, topY, 0, topY + R * 0.9);
++        ls.addColorStop(0, "rgba(0,0,0,0.3)");
++        ls.addColorStop(1, "rgba(0,0,0,0)");
++        ctx.fillStyle = ls;
++        ctx.fillRect(0, topY, w, R);
++
++        ctx.restore(); // clip off
++
++        // Lid outline
++        ctx.strokeStyle = "#241016";
++        ctx.lineWidth = Math.max(2, h * 0.02);
++        lidPath();
++        ctx.stroke();
++
++        // Upper lash line
++        ctx.strokeStyle = "#160a0e";
++        ctx.lineWidth = Math.max(2.5, h * 0.03);
++        ctx.lineCap = "round";
++        ctx.beginPath();
++        ctx.moveTo(X(p.inner), Y(p.inner));
++        ctx.bezierCurveTo(X(p.uc1), Y(p.uc1), X(p.uc2), Y(p.uc2), X(p.outer), Y(p.outer));
++        ctx.stroke();
++    }
++
++    Canvas {
++        id: canvas
++
++        anchors.fill: parent
++        onPaint: root.draw(getContext("2d"), width, height)
++    }
++
++    // Smooth continuous spin, variable speed, no snap between phases.
++    Timer {
++        interval: 16
++        repeat: true
++        running: root.phase !== "idle"
++        onTriggered: root.spin = (root.spin + root.spinSpeed * 0.016) % 360
++    }
++
++    // Scanning "alive" pulse
++    SequentialAnimation {
++        running: root.phase === "scanning"
++        loops: Animation.Infinite
++
++        NumberAnimation {
++            target: root
++            property: "ringGlow"
++            from: 0.1
++            to: 0.42
++            duration: 780
++            easing.type: Easing.InOutSine
++        }
++        NumberAnimation {
++            target: root
++            property: "ringGlow"
++            to: 0.1
++            duration: 780
++            easing.type: Easing.InOutSine
++        }
++    }
++
++}
+--- /dev/null
++++ b/modules/faceunlock/Wrapper.qml
+@@ -0,0 +1,34 @@
++import QtQuick
++import Caelestia.Config
++import qs.components
++import qs.services
++
++Item {
++    id: root
++
++    readonly property bool shouldBeActive: FaceUnlock.active
++    property real offsetScale: shouldBeActive ? 0 : 1
++
++    // The panel background is drawn by the shared shell surface (faceUnlockBg
++    // BlobRect in ContentWindow), so this wrapper only holds the eye and lets
++    // the border blob merge seamlessly behind it, matching the dashboard.
++    visible: offsetScale < 1
++    anchors.topMargin: (-implicitHeight - 5) * offsetScale
++    implicitWidth: eye.implicitWidth + Tokens.padding.large * 2
++    implicitHeight: eye.implicitHeight + Tokens.padding.large * 2
++    opacity: 1 - offsetScale
++
++    Behavior on offsetScale {
++        Anim {}
++    }
++
++    Sharingan {
++        id: eye
++
++        anchors.centerIn: parent
++        implicitWidth: 300
++        implicitHeight: 238
++
++        phase: FaceUnlock.state
++    }
++}
+--- a/modules/drawers/Panels.qml
++++ b/modules/drawers/Panels.qml
+@@ -12,6 +12,7 @@
+ import qs.modules.utilities as Utilities
+ import qs.modules.bar.popouts as BarPopouts
+ import qs.modules.utilities.toasts as Toasts
++import qs.modules.faceunlock as FaceUnlock
+ 
+ Item {
+     id: root
+@@ -28,6 +29,7 @@
+     readonly property alias sessionWrapper: sessionWrapper
+     readonly property alias launcher: launcher
+     readonly property alias dashboard: dashboard
++    readonly property alias faceUnlock: faceUnlock
+     readonly property alias popouts: popoutsWrapper.content
+     readonly property alias popoutsWrapper: popoutsWrapper
+     readonly property alias utilities: utilities
+@@ -114,6 +116,13 @@
+ 
+         anchors.horizontalCenter: parent.horizontalCenter
+         anchors.top: parent.top
++    }
++
++    FaceUnlock.Wrapper {
++        id: faceUnlock
++
++        anchors.horizontalCenter: parent.horizontalCenter
++        anchors.top: parent.top
+     }
+ 
+     BarPopouts.ClipWrapper {
+--- a/modules/drawers/ContentWindow.qml
++++ b/modules/drawers/ContentWindow.qml
+@@ -110,13 +110,14 @@
+     HyprlandFocusGrab {
+         id: focusGrab
+ 
+-        active: (visibilities.launcher && root.contentItem.Config.launcher.enabled) || (visibilities.session && root.contentItem.Config.session.enabled) || (visibilities.sidebar && root.contentItem.Config.sidebar.enabled) || (!root.contentItem.Config.dashboard.showOnHover && visibilities.dashboard && root.contentItem.Config.dashboard.enabled) || (panels.popouts.currentName.startsWith("traymenu") && (panels.popouts.current as StackView)?.depth > 1)
++        active: (visibilities.launcher && root.contentItem.Config.launcher.enabled) || (visibilities.session && root.contentItem.Config.session.enabled) || (visibilities.sidebar && root.contentItem.Config.sidebar.enabled) || (!root.contentItem.Config.dashboard.showOnHover && visibilities.dashboard && root.contentItem.Config.dashboard.enabled) || panels.popouts.pinned || (panels.popouts.currentName.startsWith("traymenu") && (panels.popouts.current as StackView)?.depth > 1)
+         windows: [root]
+         onCleared: {
+             visibilities.launcher = false;
+             visibilities.session = false;
+             visibilities.sidebar = false;
+             visibilities.dashboard = false;
++            panels.popouts.pinned = false;
+             panels.popouts.hasCurrent = false;
+             bar.closeTray();
+         }
+@@ -170,6 +171,13 @@
+         }
+ 
+         PanelBg {
++            id: faceUnlockBg
++
++            panel: panels.faceUnlock
++            deformAmount: 0.1
++        }
++
++        PanelBg {
+             id: launcherBg
+ 
+             panel: panels.launcher
+@@ -267,6 +275,9 @@
+             dashboard.transform: Matrix4x4 {
+                 matrix: dashBg.deformMatrix
+             }
++            faceUnlock.transform: Matrix4x4 {
++                matrix: faceUnlockBg.deformMatrix
++            }
+             launcher.transform: Matrix4x4 {
+                 matrix: launcherBg.deformMatrix
+             }
+--- a/modules/Shortcuts.qml
++++ b/modules/Shortcuts.qml
+@@ -2,6 +2,7 @@
+ import Quickshell
+ import Quickshell.Io
+ import Caelestia
++import Caelestia.Config
+ import qs.components.misc
+ import qs.services
+ import qs.modules.nexus
+@@ -136,6 +137,33 @@
+     }
+ 
+     IpcHandler {
++        function start(): void {
++            FaceUnlock.show();
++        }
++
++        function stop(): void {
++            FaceUnlock.hide();
++        }
++
++        function toggle(): void {
++            if (FaceUnlock.active)
++                FaceUnlock.hide();
++            else
++                FaceUnlock.show();
++        }
++
++        target: "faceunlock"
++    }
++
++    IpcHandler {
++        function togglePersistent(): void {
++            GlobalConfig.bar.persistent = !GlobalConfig.bar.persistent;
++        }
++
++        target: "bar"
++    }
++
++    IpcHandler {
+         function open(): void {
+             WindowFactory.create();
+         }

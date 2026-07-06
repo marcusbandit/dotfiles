@@ -1,0 +1,239 @@
+--- /dev/null
++++ b/modules/xhisper/Xhisper.qml
+@@ -0,0 +1,218 @@
++import qs.components
++import qs.components.containers
++import qs.components.effects
++import qs.services
++import Quickshell
++import Quickshell.Wayland
++import Quickshell.Io
++import QtQuick
++
++Scope {
++    id: xhisperScope
++
++    property string xhisperState: "hidden" // "hidden" | "recording" | "transcribing"
++    property real volumeLevel: 0.0         // 0.0 – 1.0, updated by xhisper-volume
++    property real gapBottom: 10            // matches Hyprland gaps_out, loaded on startup
++
++    readonly property real pillW: 160
++    readonly property real pillH: 52
++
++    // Read gaps_out once on load so the pill gap matches the system edge gap
++    Process {
++        id: gapQuery
++        running: true
++        command: ["sh", "-c", "hyprctl getoption general:gaps_out -j 2>/dev/null | jq -r 'if .int > 0 then .int else 10 end' 2>/dev/null || echo 10"]
++        stdout: StdioCollector {
++            onStreamFinished: {
++                const v = parseInt(text.trim());
++                if (!isNaN(v) && v > 0)
++                    xhisperScope.gapBottom = v;
++            }
++        }
++    }
++
++    // One-shot volume sampler — restarted by volumePollTimer
++    Process {
++        id: volumeProc
++        command: ["/home/bandit/.local/bin/xhisper-volume"]
++        stdout: StdioCollector {
++            onStreamFinished: {
++                const raw = parseFloat(text.trim());
++                if (!isNaN(raw))
++                    // Power curve: boosts quiet sounds visually (0.05 raw → ~0.22 scaled)
++                    xhisperScope.volumeLevel = raw > 0 ? Math.pow(raw, 0.4) : 0.0;
++            }
++        }
++    }
++
++    // Polls mic volume at ~20 Hz while recording
++    Timer {
++        id: volumePollTimer
++        interval: 50
++        repeat: true
++        running: xhisperScope.xhisperState === "recording"
++        triggeredOnStart: true
++        onTriggered: volumeProc.running = true
++        onRunningChanged: {
++            if (!running)
++                xhisperScope.volumeLevel = 0.0;
++        }
++    }
++
++    Variants {
++        model: Quickshell.screens
++
++        StyledWindow {
++            id: win
++
++            required property ShellScreen modelData
++
++            screen: modelData
++            name: "xhisper"
++            WlrLayershell.exclusionMode: ExclusionMode.Ignore
++            WlrLayershell.layer: WlrLayer.Overlay
++            WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
++            mask: clickThrough
++
++            anchors.top: true
++            anchors.bottom: true
++            anchors.left: true
++            anchors.right: true
++
++            Region { id: clickThrough }
++
++            readonly property bool shouldShow: xhisperScope.xhisperState !== "hidden"
++
++            readonly property var activeWin: Hypr.activeToplevel?.lastIpcObject
++            readonly property real targetX: (activeWin?.at[0] ?? 0) - modelData.x + (activeWin?.size[0] ?? 0) / 2 - xhisperScope.pillW / 2
++            readonly property real targetY: (activeWin?.at[1] ?? 0) - modelData.y + (activeWin?.size[1] ?? 0) - xhisperScope.pillH - xhisperScope.gapBottom
++
++            property real smoothX: targetX
++            property real smoothY: targetY
++
++            onShouldShowChanged: {
++                if (shouldShow) {
++                    smoothX = targetX;
++                    smoothY = targetY;
++                }
++            }
++
++            Timer {
++                interval: 16
++                repeat: true
++                running: win.shouldShow
++                onTriggered: {
++                    const dt = interval / 1000.0;
++                    const f = 1 - Math.exp(-10.0 * dt);
++                    win.smoothX += (win.targetX - win.smoothX) * f;
++                    win.smoothY += (win.targetY - win.smoothY) * f;
++                }
++            }
++
++            Item {
++                x: win.smoothX
++                y: win.smoothY
++                width: xhisperScope.pillW
++                height: xhisperScope.pillH
++
++                opacity: win.shouldShow ? 1 : 0
++                scale: win.shouldShow ? 1 : 0.88
++
++                Behavior on opacity { Anim {} }
++                Behavior on scale { Anim {} }
++
++                StyledRect {
++                    id: pill
++
++                    anchors.fill: parent
++                    radius: height / 2
++                    color: Colours.palette.m3surfaceContainer
++                    border.width: 1
++                    border.color: Colours.palette.m3outlineVariant
++
++                    Elevation {
++                        anchors.fill: parent
++                        radius: parent.radius
++                        z: -1
++                        level: 3
++                    }
++
++                    // Unified bars — recording drives height via volume,
++                    // transcribing settles height and adds sine Y-wave.
++                    // Exponential smoothing makes the handoff seamless.
++                    Row {
++                        anchors.centerIn: parent
++                        spacing: 6
++                        height: 38
++                        visible: xhisperScope.xhisperState !== "hidden"
++
++                        Repeater {
++                            model: 5
++
++                            delegate: Rectangle {
++                                id: bar
++
++                                required property int index
++
++                                readonly property real barFactor: [0.32, 0.62, 1.0, 0.55, 0.26][index]
++                                readonly property real barSpeed:  [11.0, 7.0, 15.0, 8.5, 12.0][index]
++
++                                width: 4
++                                radius: 2
++                                anchors.verticalCenter: parent.verticalCenter
++                                color: Colours.palette.m3primary
++
++                                property real smoothH: 4
++                                property real smoothY: 0
++                                height: smoothH
++                                transform: Translate { y: bar.smoothY }
++
++                                Timer {
++                                    interval: 16
++                                    repeat: true
++                                    running: xhisperScope.xhisperState !== "hidden"
++                                    onTriggered: {
++                                        const dt = interval / 1000.0;
++                                        const state = xhisperScope.xhisperState;
++
++                                        // Height engine
++                                        let hTarget;
++                                        if (state === "recording") {
++                                            const vol = xhisperScope.volumeLevel;
++                                            const noise = (Math.random() - 0.5) * vol * 22;
++                                            hTarget = 4 + (vol * 52 * bar.barFactor) + noise;
++                                        } else {
++                                            hTarget = 18;
++                                        }
++                                        bar.smoothH += (hTarget - bar.smoothH) * (1 - Math.exp(-bar.barSpeed * dt));
++
++                                        // Y-wave engine
++                                        const phase = bar.index * (2 * Math.PI / 5);
++                                        const yTarget = state === "transcribing"
++                                            ? 10 * Math.sin(Date.now() / 200 + phase)
++                                            : 0;
++                                        bar.smoothY += (yTarget - bar.smoothY) * (1 - Math.exp(-8.0 * dt));
++                                    }
++                                    onRunningChanged: {
++                                        if (!running) {
++                                            bar.smoothH = 4;
++                                            bar.smoothY = 0;
++                                        }
++                                    }
++                                }
++                            }
++                        }
++                    }
++                }
++            }
++        }
++    }
++
++    IpcHandler {
++        target: "xhisper"
++
++        function set(state: string): void {
++            xhisperScope.xhisperState = state;
++        }
++    }
++}
+--- a/shell.qml
++++ b/shell.qml
+@@ -9,6 +9,7 @@
+ import "modules/background"
+ import "modules/areapicker"
+ import "modules/lock"
++import "modules/xhisper"
+ import Quickshell
+ 
+ ShellRoot {
+@@ -19,6 +20,7 @@
+     Background {}
+     Drawers {}
+     AreaPicker {}
++    Xhisper {}
+     Lock {
+         id: lock
+     }
