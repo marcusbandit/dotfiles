@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/modules/xhisper/Xhisper.qml
-@@ -0,0 +1,218 @@
+@@ -0,0 +1,287 @@
 +import qs.components
 +import qs.components.containers
 +import qs.components.effects
@@ -13,12 +13,49 @@
 +Scope {
 +    id: xhisperScope
 +
-+    property string xhisperState: "hidden" // "hidden" | "recording" | "transcribing"
++    property string xhisperState: "hidden" // "hidden" | "recording" | "transcribing" | "formatting"
 +    property real volumeLevel: 0.0         // 0.0 – 1.0, updated by xhisper-volume
 +    property real gapBottom: 10            // matches Hyprland gaps_out, loaded on startup
 +
 +    readonly property real pillW: 160
 +    readonly property real pillH: 52
++
++    // Post-recording stages show a cycling status line so the wait is not a
++    // black box: whisper flavour while transcribing, llama flavour while the
++    // formatter runs. Messages rotate Claude-style, random but never twice
++    // in a row.
++    readonly property bool processing: xhisperState === "transcribing" || xhisperState === "formatting"
++    readonly property var stageMessages: ({
++        transcribing: ["Untangling syllables", "Consulting whisper", "Deciphering the mumbles", "Rewinding the tape", "Turning air into text", "Reading between the pauses"],
++        formatting: ["Waking the llama", "Combing the commas", "The llama is tidying up", "Herding stray sentences", "Sprinkling punctuation", "Teaching commas manners"]
++    })
++    property string statusText: ""
++    property int msgIndex: -1
++
++    function pickStatus(): void {
++        const pool = stageMessages[xhisperState];
++        if (!pool) {
++            statusText = "";
++            return;
++        }
++        let i = Math.floor(Math.random() * pool.length);
++        if (pool.length > 1 && i === msgIndex)
++            i = (i + 1) % pool.length;
++        msgIndex = i;
++        statusText = pool[i] + "…";
++    }
++
++    onXhisperStateChanged: {
++        msgIndex = -1;
++        pickStatus();
++    }
++
++    Timer {
++        interval: 2400
++        repeat: true
++        running: xhisperScope.processing
++        onTriggered: xhisperScope.pickStatus()
++    }
 +
 +    // Read gaps_out once on load so the pill gap matches the system edge gap
 +    Process {
@@ -87,8 +124,17 @@
 +            readonly property bool shouldShow: xhisperScope.xhisperState !== "hidden"
 +
 +            readonly property var activeWin: Hypr.activeToplevel?.lastIpcObject
-+            readonly property real targetX: (activeWin?.at[0] ?? 0) - modelData.x + (activeWin?.size[0] ?? 0) / 2 - xhisperScope.pillW / 2
-+            readonly property real targetY: (activeWin?.at[1] ?? 0) - modelData.y + (activeWin?.size[1] ?? 0) - xhisperScope.pillH - xhisperScope.gapBottom
++            // No active toplevel (fresh shell start, empty workspace): fall
++            // back to bottom-center of the screen instead of parking the
++            // pill at negative offscreen coordinates. Also kills the
++            // "Cannot read property '0' of undefined" log spam.
++            readonly property bool haveWin: (activeWin?.at ?? undefined) !== undefined && (activeWin?.size ?? undefined) !== undefined
++            readonly property real targetX: haveWin
++                ? activeWin.at[0] - modelData.x + activeWin.size[0] / 2 - pillItem.width / 2
++                : (modelData.width - pillItem.width) / 2
++            readonly property real targetY: haveWin
++                ? activeWin.at[1] - modelData.y + activeWin.size[1] - xhisperScope.pillH - xhisperScope.gapBottom
++                : modelData.height - xhisperScope.pillH - xhisperScope.gapBottom * 4
 +
 +            property real smoothX: targetX
 +            property real smoothY: targetY
@@ -113,14 +159,19 @@
 +            }
 +
 +            Item {
++                id: pillItem
++
 +                x: win.smoothX
 +                y: win.smoothY
-+                width: xhisperScope.pillW
++                // Grows to fit the status line while processing, never below
++                // the recording pill's fixed width
++                width: Math.max(xhisperScope.pillW, contentRow.implicitWidth + 36)
 +                height: xhisperScope.pillH
 +
 +                opacity: win.shouldShow ? 1 : 0
 +                scale: win.shouldShow ? 1 : 0.88
 +
++                Behavior on width { Anim {} }
 +                Behavior on opacity { Anim {} }
 +                Behavior on scale { Anim {} }
 +
@@ -140,11 +191,18 @@
 +                        level: 3
 +                    }
 +
-+                    // Unified bars — recording drives height via volume,
-+                    // transcribing settles height and adds sine Y-wave.
-+                    // Exponential smoothing makes the handoff seamless.
++                    // Bars + (while processing) a cycling status message
 +                    Row {
++                        id: contentRow
++
 +                        anchors.centerIn: parent
++                        spacing: 12
++
++                        // Unified bars — recording drives height via volume,
++                        // processing settles height and adds sine Y-wave.
++                        // Exponential smoothing makes the handoff seamless.
++                        Row {
++                        anchors.verticalCenter: parent.verticalCenter
 +                        spacing: 6
 +                        height: 38
 +                        visible: xhisperScope.xhisperState !== "hidden"
@@ -191,7 +249,7 @@
 +
 +                                        // Y-wave engine
 +                                        const phase = bar.index * (2 * Math.PI / 5);
-+                                        const yTarget = state === "transcribing"
++                                        const yTarget = xhisperScope.processing
 +                                            ? 10 * Math.sin(Date.now() / 200 + phase)
 +                                            : 0;
 +                                        bar.smoothY += (yTarget - bar.smoothY) * (1 - Math.exp(-8.0 * dt));
@@ -204,6 +262,17 @@
 +                                    }
 +                                }
 +                            }
++                        }
++                        }
++
++                        StyledText {
++                            id: statusLabel
++
++                            anchors.verticalCenter: parent.verticalCenter
++                            visible: xhisperScope.processing
++                            animate: true
++                            text: xhisperScope.statusText
++                            color: Colours.palette.m3onSurfaceVariant
 +                        }
 +                    }
 +                }
