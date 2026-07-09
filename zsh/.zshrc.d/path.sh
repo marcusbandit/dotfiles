@@ -1,6 +1,8 @@
 # === BASE SYSTEM PATH ===
-# Always keep these first so core utilities (like clear, ls, grep) work properly
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# Keep the inherited PATH (nix shell, conda, etc. prepend themselves there)
+# and append the base dirs as a safety net so core utilities always resolve.
+# A hard reset here would wipe nix shell's /nix/store entries on every new shell.
+export PATH="${PATH:+$PATH:}/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # === NPM GLOBAL BINARIES ===
 # Global npm packages
