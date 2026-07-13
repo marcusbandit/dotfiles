@@ -1,6 +1,6 @@
 #— set these once per session —#
-export BRIDGE=192.168.0.247
-export USERNAME="dwK-ASrDOMrzFtQGo82vvs2SJDK2jKMygzTPh9Ew"
+export BRIDGE=192.168.88.247
+export USERNAME="***REMOVED***"
 
 #— get full light info —#
 hue_get() {
