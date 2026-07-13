@@ -1,26 +1,19 @@
 --- /dev/null
-+++ b/modules/cameraindicator/CameraIndicator.qml
-@@ -0,0 +1,149 @@
-+pragma ComponentBehavior: Bound
++++ b/modules/cameraindicator/CameraDetector.qml
+@@ -0,0 +1,91 @@
++pragma Singleton
 +
-+import qs.components
-+import qs.components.containers
-+import qs.services
-+import Caelestia.Components
-+import Caelestia.Config
-+import Quickshell
-+import Quickshell.Wayland
-+import Quickshell.Io
 +import QtQuick
++import Quickshell
++import Quickshell.Io
++import qs.services
 +
-+// A camera-in-use privacy indicator: a small dot on a native shell surface,
-+// pinned to the top-right like a notification, that lights whenever anything
-+// is using the camera. No interaction, click-through, purely a safety cue.
-+Scope {
++// Camera-in-use detection for the privacy indicator. A singleton so the
++// watchers, poll and IPC handler exist exactly once, shared by the panel
++// on every screen.
++Singleton {
 +    id: root
 +
-+    readonly property color dotColour: "#3b82f6"
-+    readonly property int dotSize: 9
 +    readonly property int minVisibleMs: 2000 // keep the dot up this long after an open
 +    readonly property int pollMs: 1000
 +
@@ -98,55 +91,44 @@
 +            root.forced = v === "on";
 +        }
 +    }
++}
+--- /dev/null
++++ b/modules/cameraindicator/Wrapper.qml
+@@ -0,0 +1,37 @@
++import QtQuick
++import Caelestia.Config
++import qs.components
++import qs.modules.cameraindicator
 +
-+    // --- the indicator: a dot on a shell surface, styled like a notification --
-+    Variants {
-+        model: Quickshell.screens
++Item {
++    id: root
 +
-+        StyledWindow {
-+            id: win
++    readonly property color dotColour: "#3b82f6"
++    readonly property int dotSize: 9
 +
-+            required property ShellScreen modelData
++    readonly property bool shouldBeActive: CameraDetector.active
++    property real offsetScale: shouldBeActive ? 0 : 1
 +
-+            screen: modelData
-+            name: "camera"
-+            visible: root.active
++    // The chip body is drawn by the shared shell surface (cameraBg BlobRect
++    // in ContentWindow), so this wrapper only holds the dot and lets the
++    // border blob morph around it, matching the dashboard/notifications.
++    visible: offsetScale < 1
++    anchors.topMargin: (-implicitHeight - 5) * offsetScale
++    implicitWidth: dot.implicitWidth + Tokens.padding.medium * 2
++    implicitHeight: dot.implicitHeight + Tokens.padding.medium * 2
++    opacity: 1 - offsetScale
 +
-+            WlrLayershell.exclusionMode: ExclusionMode.Ignore
-+            WlrLayershell.layer: WlrLayer.Overlay
-+            WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
-+            mask: clickThrough
++    Behavior on offsetScale {
++        Anim {}
++    }
 +
-+            anchors.top: true
-+            anchors.bottom: true
-+            anchors.left: true
-+            anchors.right: true
++    StyledRect {
++        id: dot
 +
-+            Region {
-+                id: clickThrough
-+            }
-+
-+            StyledRect {
-+                id: chip
-+
-+                anchors.top: parent.top
-+                anchors.right: parent.right
-+                anchors.topMargin: Tokens.padding.large
-+                anchors.rightMargin: Tokens.padding.large
-+
-+                color: Colours.tPalette.m3surfaceContainer
-+                radius: Tokens.rounding.large
-+                implicitWidth: root.dotSize + Tokens.padding.small * 2
-+                implicitHeight: implicitWidth
-+
-+                StyledRect {
-+                    anchors.centerIn: parent
-+                    implicitWidth: root.dotSize
-+                    implicitHeight: root.dotSize
-+                    radius: Tokens.rounding.full
-+                    color: root.dotColour
-+                }
-+            }
-+        }
++        anchors.centerIn: parent
++        implicitWidth: root.dotSize
++        implicitHeight: root.dotSize
++        radius: Tokens.rounding.full
++        color: root.dotColour
 +    }
 +}

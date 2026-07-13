@@ -420,7 +420,15 @@
 +}
 --- a/modules/drawers/Panels.qml
 +++ b/modules/drawers/Panels.qml
-@@ -12,6 +12,7 @@
+@@ -3,6 +3,7 @@
+ import Caelestia.Config
+ import qs.components
+ import qs.modules.bar as Bar
++import qs.modules.cameraindicator as CameraIndicator
+ import qs.modules.dashboard as Dashboard
+ import qs.modules.launcher as Launcher
+ import qs.modules.notifications as Notifications
+@@ -12,6 +13,7 @@
  import qs.modules.utilities as Utilities
  import qs.modules.bar.popouts as BarPopouts
  import qs.modules.utilities.toasts as Toasts
@@ -428,7 +436,12 @@
  
  Item {
      id: root
-@@ -28,6 +29,7 @@
+@@ -24,10 +26,12 @@
+     readonly property alias osd: osd
+     readonly property alias osdWrapper: osdWrapper
+     readonly property alias notifications: notifications
++    readonly property alias cameraIndicator: cameraIndicator
+     readonly property alias session: session
      readonly property alias sessionWrapper: sessionWrapper
      readonly property alias launcher: launcher
      readonly property alias dashboard: dashboard
@@ -436,7 +449,31 @@
      readonly property alias popouts: popoutsWrapper.content
      readonly property alias popoutsWrapper: popoutsWrapper
      readonly property alias utilities: utilities
-@@ -114,6 +116,13 @@
+@@ -74,6 +78,23 @@
+         anchors.right: parent.right
+     }
+ 
++    CameraIndicator.Wrapper {
++        id: cameraIndicator
++
++        anchors.top: parent.top
++        anchors.right: parent.right
++        // Overlap the frame's rounded corner so the blob pocket fuses with the
++        // corner arc, and shift left when notifications pop in (their wrapper
++        // keeps its full width even when empty, so only offset by it while it
++        // actually shows something).
++        anchors.rightMargin: Config.border.rounding / 2
++            + (notifications.visible ? notifications.width + Tokens.padding.medium : 0)
++
++        Behavior on anchors.rightMargin {
++            Anim {}
++        }
++    }
++
+     Item {
+         id: sessionWrapper
+ 
+@@ -114,6 +135,13 @@
  
          anchors.horizontalCenter: parent.horizontalCenter
          anchors.top: parent.top
@@ -482,7 +519,21 @@
              id: launcherBg
  
              panel: panels.launcher
-@@ -267,6 +275,9 @@
+@@ -211,6 +219,13 @@
+         }
+ 
+         PanelBg {
++            id: cameraBg
++
++            panel: panels.cameraIndicator
++            deformAmount: 0.03
++        }
++
++        PanelBg {
+             id: utilsBg
+ 
+             panel: panels.utilities
+@@ -267,6 +282,9 @@
              dashboard.transform: Matrix4x4 {
                  matrix: dashBg.deformMatrix
              }
@@ -491,6 +542,16 @@
 +            }
              launcher.transform: Matrix4x4 {
                  matrix: launcherBg.deformMatrix
+             }
+@@ -282,6 +300,9 @@
+             notifications.transform: Matrix4x4 {
+                 matrix: notifsBg.deformMatrix
+             }
++            cameraIndicator.transform: Matrix4x4 {
++                matrix: cameraBg.deformMatrix
++            }
+             utilities.transform: Matrix4x4 {
+                 matrix: utilsBg.deformMatrix
              }
 --- a/modules/Shortcuts.qml
 +++ b/modules/Shortcuts.qml

@@ -52,6 +52,10 @@ diff. (Or just hand-write the diff.)
 - **03-howdy-face-unlock.patch**: howdy face unlock on the lock screen
 - **04-faceunlock-indicator.patch**: face-scan indicator pill, driven by the
   `faceunlock start/stop` IPC from the howdy watcher service
+  - also carries the camera indicator's `modules/drawers/Panels.qml` +
+    `modules/drawers/ContentWindow.qml` hunks (panel instance, `cameraBg`
+    PanelBg, deform transform), since those files belong to this patch
+    (one-file-one-patch rule); the camera module itself is patch 13
 - **05-dashboard-declutter.patch**: `modules/dashboard/Dash.qml` +
   `modules/dashboard/dash/Media.qml`
   - remove the small weather widget, the user/avatar card, and the resources
@@ -128,6 +132,15 @@ diff. (Or just hand-write the diff.)
 - **12-behavior-tweaks.patch**: `assets/wrap_term_launch.sh` + `services/Brightness.qml`
   - terminals keep their own themes (sequences.txt push disabled)
   - monitor `HDMI-A-1` brightness via `~/.local/bin/shader-brightness` instead of ddcutil
+- **13-camera-indicator.patch**: camera-in-use privacy dot as a blob panel
+  - `modules/cameraindicator/CameraDetector.qml`: singleton detection
+    (inotify open pulse + fuser hold poll + FaceUnlock OR) and the
+    `camera set on/off` IPC for testing
+  - `modules/cameraindicator/Wrapper.qml`: panel wrapper (blue dot, no own
+    background); the chip body is a `cameraBg` BlobRect so the shell border
+    morphs a pocket around it, top edge left of the notifications
+  - drawers hunks ride in patch 04, shell.qml is untouched (the old
+    standalone Overlay window was removed on 2026-07-13)
 
 Banditbox divergences from kangaeru's series: 01 also swaps the editor to
 `satty -f` and adds a Scribble action; 04 also carries the `bar togglePersistent`

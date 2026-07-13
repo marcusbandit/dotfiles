@@ -290,21 +290,19 @@
 +}
 --- a/shell.qml
 +++ b/shell.qml
-@@ -9,6 +9,8 @@
+@@ -9,6 +9,7 @@
  import "modules/background"
  import "modules/areapicker"
  import "modules/lock"
 +import "modules/xhisper"
-+import "modules/cameraindicator"
  import Quickshell
  
  ShellRoot {
-@@ -19,6 +21,8 @@
+@@ -19,6 +20,7 @@
      Background {}
      Drawers {}
      AreaPicker {}
 +    Xhisper {}
-+    CameraIndicator {}
      Lock {
          id: lock
      }
