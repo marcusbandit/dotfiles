@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/modules/cameraindicator/CameraDetector.qml
-@@ -0,0 +1,91 @@
+@@ -0,0 +1,97 @@
 +pragma Singleton
 +
 +import QtQuick
@@ -16,6 +16,12 @@
 +
 +    readonly property int minVisibleMs: 2000 // keep the dot up this long after an open
 +    readonly property int pollMs: 1000
++
++    // Physical capture nodes only: real cameras have a device link in sysfs,
++    // v4l2loopback/OBS-virtual nodes live under /sys/devices/virtual and do
++    // not. Watching /dev/video* raw would count a permanently-held loopback
++    // (e.g. an ffmpeg cam-echo fan-out) as "camera on" forever.
++    readonly property string realDevs: "devs=$(for d in /sys/class/video4linux/video*; do [ -e \"$d/device\" ] && printf '/dev/%s ' \"${d##*/}\"; done)"
 +
 +    // Three detection sources, OR'd together:
 +    //   held    - a process is *holding* a video node open (sustained use: calls,
@@ -33,7 +39,7 @@
 +        id: watch
 +
 +        running: true
-+        command: ["sh", "-c", "exec inotifywait -q -m -e open /dev/video* 2>/dev/null"]
++        command: ["sh", "-c", `${root.realDevs}; [ -n "$devs" ] || exec sleep 600; exec inotifywait -q -m -e open $devs 2>/dev/null`]
 +        stdout: SplitParser {
 +            onRead: openPulse.restart() // any open -> show for >= minVisibleMs
 +        }
@@ -75,7 +81,7 @@
 +    Process {
 +        id: poll
 +
-+        command: ["sh", "-c", "fuser /dev/video* >/dev/null 2>&1 && echo on || echo off"]
++        command: ["sh", "-c", `${root.realDevs}; [ -n "$devs" ] && fuser $devs >/dev/null 2>&1 && echo on || echo off`]
 +        stdout: StdioCollector {
 +            onStreamFinished: root.held = text.trim() === "on"
 +        }
