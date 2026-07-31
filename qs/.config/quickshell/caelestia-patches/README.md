@@ -104,6 +104,27 @@ diff. (Or just hand-write the diff.)
   - `dash/Media.qml`: declare an implicitHeight (the card used to be stretched
     by the old two-row grid), drop the bongocat gif and its beat-tracker
     ServiceRef, and use `rounding.large` on the main dash cards (see 06)
+- **08-wifi-qr-scanner.patch**: `assets/wifi-qr-scan.py` (new file)
+  - camera QR scanner behind a "Scan QR code" button in the wifi popout: point
+    the webcam at a `WIFI:S:…;T:WPA;P:…;;` code (the kind routers print and
+    phones generate) and it joins the network
+  - the script drives ffmpeg (already a dependency-free system tool here),
+    publishes each frame as a JPEG under `$XDG_RUNTIME_DIR/caelestia/` for the
+    popout to show as a live preview, and prints `READY` / `CODE <json>` /
+    `ERROR` lines the QML reads. It picks the colour camera by preferring
+    MJPG/YUYV formats, which skips the IR camera howdy uses (`CAELESTIA_QR_DEVICE`
+    overrides)
+  - decoding uses zxing-cpp in a private venv at
+    `~/.local/share/caelestia/wifi-qr-venv`, created on first run and re-execed
+    into. Deliberately NOT a pacman package: `zbar` would have needed a full
+    `-Syu` off a stale db. After first setup it never touches the network, which
+    matters because scanning a wifi QR is what you do when you have no internet
+  - the QML is invoked as `python3 <script>`, not via its shebang: patch files
+    carry no file mode, so the executable bit is gone after a `sync`
+  - the popout half of this feature (the button, the viewfinder view, the
+    `WIFI:` parser, connect handling) lives in **07** because
+    `modules/bar/popouts/Network.qml` already belongs to that patch (one file
+    must not be covered by two patches)
 - **06-dashboard-rounding.patch**: performance tab cards
   - unify card corner radius to `Tokens.rounding.large` (what BatteryTank uses)
     across HeroCard, NetworkCard, StorageCard, MemoryCard

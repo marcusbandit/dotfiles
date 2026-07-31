@@ -251,15 +251,158 @@
      component EthernetDevice: QtObject {
 --- a/modules/bar/popouts/Network.qml
 +++ b/modules/bar/popouts/Network.qml
-@@ -15,21 +15,115 @@
+@@ -3,6 +3,7 @@
+ import QtQuick
+ import QtQuick.Layouts
+ import Quickshell
++import Quickshell.Io
+ import Caelestia.Config
+ import qs.components
+ import qs.components.controls
+@@ -15,21 +16,254 @@
      required property PopoutState popouts
  
      property string connectingToSsid: ""
 -    property string view: "wireless" // "wireless" or "ethernet"
-+    property string view: "wireless" // "wireless", "ethernet" or "details"
++    property string view: "wireless" // "wireless", "ethernet", "details" or "qrscan"
      property var passwordNetwork: null
      property bool showPasswordDialog: false
 +    property bool hiddenJoin: false
++
++    // QR scanner: "starting" -> "setup" (first run only) -> "scanning" -> "connecting"
++    // -> "connected", with "notwifi" as a transient nudge and "error" as the dead end
++    property string qrState: "idle"
++    property string qrPreview: ""
++    property string qrError: ""
++    property string qrSsid: ""
++    property int qrFrame: 0
++
++    function startQrScan(): void {
++        root.qrPreview = "";
++        root.qrError = "";
++        root.qrSsid = "";
++        root.qrFrame = 0;
++        qrFrameA.opacity = 0;
++        qrFrameB.opacity = 0;
++        root.qrState = "starting";
++        root.view = "qrscan";
++        // Pin the popout: the view switch changes its size, which would
++        // otherwise strand the cursor outside and hover-close it
++        root.popouts.pinned = true;
++    }
++
++    function stopQrScan(): void {
++        root.qrState = "idle";
++        root.qrPreview = "";
++        root.view = "wireless";
++        root.popouts.pinned = false;
++    }
++
++    function handleQrLine(line: string): void {
++        if (line.startsWith("READY ")) {
++            root.qrPreview = line.slice(6);
++            if (root.qrState === "starting" || root.qrState === "setup")
++                root.qrState = "scanning";
++        } else if (line.startsWith("SETUP ")) {
++            root.qrState = "setup";
++        } else if (line.startsWith("ERROR ")) {
++            const message = line.slice(6);
++            root.qrError = message === "timeout" ? qsTr("Nothing scanned. Give it another go") : message;
++            root.qrState = "error";
++        } else if (line.startsWith("CODE ")) {
++            root.handleQrCode(JSON.parse(line.slice(5)));
++        }
++    }
++
++    // WIFI:S:<ssid>;T:<WPA|WEP|nopass>;P:<password>;H:<true|false>;; where \ escapes
++    // the delimiters, and a quoted value is a literal string rather than hex
++    function parseWifiQr(payload: string): var {
++        if (!payload.toUpperCase().startsWith("WIFI:"))
++            return null;
++
++        const fields = {};
++        let key = "";
++        let buf = "";
++        let readingKey = true;
++
++        for (let i = 5; i < payload.length; i++) {
++            const c = payload[i];
++            if (c === "\\") {
++                buf += payload[++i] ?? "";
++            } else if (readingKey && c === ":") {
++                key = buf.toUpperCase();
++                buf = "";
++                readingKey = false;
++            } else if (c === ";") {
++                if (!readingKey)
++                    fields[key] = buf;
++                key = "";
++                buf = "";
++                readingKey = true;
++            } else {
++                buf += c;
++            }
++        }
++
++        const unquote = v => v && v.length > 1 && v.startsWith('"') && v.endsWith('"') ? v.slice(1, -1) : (v ?? "");
++        const ssid = unquote(fields["S"]);
++        if (!ssid)
++            return null;
++
++        return {
++            ssid: ssid,
++            password: unquote(fields["P"]),
++            identity: unquote(fields["I"]),
++            type: (fields["T"] ?? "").toUpperCase(),
++            hidden: (fields["H"] ?? "").toLowerCase() === "true"
++        };
++    }
++
++    function handleQrCode(payload: string): void {
++        const network = root.parseWifiQr(payload);
++        if (!network) {
++            root.qrState = "notwifi";
++            qrNotWifiTimer.restart();
++            return;
++        }
++
++        root.qrSsid = network.ssid;
++        root.qrState = "connecting";
++
++        const known = [...Nmcli.networks].find(n => n.ssid === network.ssid); // qmllint disable missing-property
++        const handle = result => root.handleQrResult(result);
++
++        if (network.type.includes("EAP")) {
++            if (network.identity)
++                Nmcli.connectEnterprise(network.ssid, network.identity, network.password, handle);
++            else
++                root.failQrScan(qsTr("That code is for a network needing a username"));
++        } else if (network.hidden || !known) {
++            // Not in the scan list: treat it as hidden rather than failing outright
++            Nmcli.connectHidden(network.ssid, network.password, handle);
++        } else {
++            Nmcli.connectToNetwork(network.ssid, network.password, known.bssid ?? "", handle);
++        }
++    }
++
++    function handleQrResult(result: var): void {
++        if (root.qrState !== "connecting")
++            return;
++
++        if (result?.success) {
++            root.qrState = "connected";
++            qrDoneTimer.restart();
++        } else if (result?.needsPassword) {
++            root.failQrScan(qsTr("The password in that code was rejected"));
++        } else {
++            root.failQrScan(qsTr("Could not connect to %1").arg(root.qrSsid));
++        }
++    }
++
++    function failQrScan(message: string): void {
++        root.qrError = message;
++        root.qrState = "error";
++    }
  
      spacing: Tokens.spacing.small
      width: Tokens.sizes.bar.networkWidth
@@ -269,7 +412,11 @@
 +    // Reset to the network list whenever the popout closes
 +    Connections {
 +        function onHasCurrentChanged(): void {
-+            if (!root.popouts.hasCurrent && root.view === "details")
++            if (root.popouts.hasCurrent)
++                return;
++            if (root.view === "qrscan")
++                root.stopQrScan();
++            else if (root.view === "details")
 +                root.view = "wireless";
 +        }
 +
@@ -371,7 +518,7 @@
      }
  
      Toggle {
-@@ -40,14 +134,26 @@
+@@ -40,14 +274,26 @@
          toggle.onToggled: Nmcli.enableWifi(checked)
      }
  
@@ -402,7 +549,7 @@
      }
  
      Repeater {
-@@ -60,18 +166,49 @@
+@@ -60,18 +306,49 @@
              }).slice(0, 8)
          }
  
@@ -454,7 +601,7 @@
  
              opacity: 0
              scale: 0.7
-@@ -91,74 +228,70 @@
+@@ -91,74 +368,70 @@
                  Anim {}
              }
  
@@ -462,28 +609,17 @@
 -                text: Icons.getNetworkIcon(networkItem.modelData.strength)
 -                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurfaceVariant
 -            }
--
--            MaterialIcon {
--                visible: networkItem.modelData.isSecure
--                text: "lock"
--                fontStyle: Tokens.font.icon.small
--            }
 +            // The whole row connects/disconnects
 +            StateLayer {
 +                radius: parent.radius
 +                disabled: networkItem.loading || !Nmcli.wifiEnabled
-+
+ 
+-            MaterialIcon {
+-                visible: networkItem.modelData.isSecure
+-                text: "lock"
+-                fontStyle: Tokens.font.icon.small
 +                onClicked: networkItem.toggleConnect()
-+            }
-+
-+            RowLayout {
-+                id: rowContent
-+
-+                anchors.left: parent.left
-+                anchors.right: parent.right
-+                anchors.verticalCenter: parent.verticalCenter
-+                anchors.leftMargin: Tokens.padding.small
-+                spacing: Tokens.spacing.small
+             }
  
 -            StyledText {
 -                Layout.leftMargin: Tokens.spacing.extraSmall
@@ -494,11 +630,18 @@
 -                font: Tokens.font.body.builders.medium.weight(networkItem.modelData.active ? Font.Medium : Font.Normal).build()
 -                color: networkItem.modelData.active ? Colours.palette.m3primary : Colours.palette.m3onSurface
 -            }
--
++            RowLayout {
++                id: rowContent
+ 
 -            StyledRect {
 -                implicitWidth: implicitHeight
 -                implicitHeight: wirelessConnectIcon.implicitHeight + Tokens.padding.extraSmall
--
++                anchors.left: parent.left
++                anchors.right: parent.right
++                anchors.verticalCenter: parent.verticalCenter
++                anchors.leftMargin: Tokens.padding.small
++                spacing: Tokens.spacing.small
+ 
 -                radius: Tokens.rounding.full
 -                color: Qt.alpha(Colours.palette.m3primary, networkItem.modelData.active ? 1 : 0)
 -
@@ -585,7 +728,7 @@
                          }
                      }
                  }
-@@ -220,6 +353,48 @@
+@@ -220,6 +493,364 @@
          }
      }
  
@@ -631,10 +774,326 @@
 +        }
 +    }
 +
++    StyledRect {
++        visible: root.view === "wireless"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.spacing.small : 0
++        Layout.fillWidth: true
++        implicitHeight: qrBtn.implicitHeight + Tokens.padding.small
++
++        radius: Tokens.rounding.full
++        color: Colours.palette.m3tertiaryContainer
++
++        StateLayer {
++            color: Colours.palette.m3onTertiaryContainer
++            disabled: !Nmcli.wifiEnabled
++            onClicked: root.startQrScan()
++        }
++
++        RowLayout {
++            id: qrBtn
++
++            anchors.centerIn: parent
++            spacing: Tokens.spacing.small
++
++            MaterialIcon {
++                id: qrIcon
++
++                Layout.topMargin: Math.round(fontInfo.pointSize * 0.0575)
++                text: "qr_code_scanner"
++                color: Colours.palette.m3onTertiaryContainer
++            }
++
++            StyledText {
++                Layout.topMargin: -Math.round(qrIcon.fontInfo.pointSize * 0.0575)
++                text: qsTr("Scan QR code")
++                color: Colours.palette.m3onTertiaryContainer
++            }
++        }
++    }
++
++    // QR scanner view
++    RowLayout {
++        visible: root.view === "qrscan"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.padding.medium : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        Layout.fillWidth: true
++        spacing: Tokens.spacing.small
++
++        HeaderButton {
++            icon: "arrow_back"
++
++            onClicked: root.stopQrScan()
++        }
++
++        StyledText {
++            Layout.fillWidth: true
++            text: qsTr("Scan Wi-Fi QR code")
++            font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
++        }
++    }
++
++    StyledClippingRect {
++        id: qrViewfinder
++
++        visible: root.view === "qrscan"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.spacing.small : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        Layout.fillWidth: true
++        implicitHeight: Math.round(width * 9 / 16)
++
++        radius: Tokens.rounding.large
++        color: Colours.palette.m3surfaceContainerHighest
++
++        // Two buffers: the next frame loads into whichever one is hidden, so swapping
++        // to it is instant instead of blinking through an empty image
++        Image {
++            id: qrFrameA
++
++            anchors.fill: parent
++            fillMode: Image.PreserveAspectCrop
++            cache: false
++            asynchronous: true
++            opacity: 0
++            // Front facing camera, so mirror it - aiming works the way a mirror does
++            transform: Scale {
++                origin.x: qrFrameA.width / 2
++                xScale: -1
++            }
++
++            onStatusChanged: {
++                if (status === Image.Ready) {
++                    opacity = 1;
++                    qrFrameB.opacity = 0;
++                }
++            }
++        }
++
++        Image {
++            id: qrFrameB
++
++            anchors.fill: parent
++            fillMode: Image.PreserveAspectCrop
++            cache: false
++            asynchronous: true
++            opacity: 0
++            transform: Scale {
++                origin.x: qrFrameB.width / 2
++                xScale: -1
++            }
++
++            onStatusChanged: {
++                if (status === Image.Ready) {
++                    opacity = 1;
++                    qrFrameA.opacity = 0;
++                }
++            }
++        }
++
++        // Viewfinder brackets, one per corner, placed off the corner index
++        Repeater {
++            model: 4
++
++            Item {
++                id: corner
++
++                required property int index
++                readonly property bool atRight: index % 2 === 1
++                readonly property bool atBottom: index >= 2
++                readonly property int arm: Math.round(Math.min(qrViewfinder.width, qrViewfinder.height) * 0.14)
++                readonly property int thickness: 3
++
++                x: atRight ? qrViewfinder.width - Tokens.padding.large - width : Tokens.padding.large
++                y: atBottom ? qrViewfinder.height - Tokens.padding.large - height : Tokens.padding.large
++                implicitWidth: arm
++                implicitHeight: arm
++                width: arm
++                height: arm
++                opacity: root.qrState === "scanning" || root.qrState === "notwifi" ? 1 : 0.4
++
++                Behavior on opacity {
++                    Anim {
++                        type: Anim.DefaultEffects
++                    }
++                }
++
++                StyledRect {
++                    y: corner.atBottom ? corner.arm - height : 0
++                    implicitWidth: corner.arm
++                    implicitHeight: corner.thickness
++                    radius: Tokens.rounding.full
++                    color: Colours.palette.m3primary
++                }
++
++                StyledRect {
++                    x: corner.atRight ? corner.arm - width : 0
++                    implicitWidth: corner.thickness
++                    implicitHeight: corner.arm
++                    radius: Tokens.rounding.full
++                    color: Colours.palette.m3primary
++                }
++            }
++        }
++
++        StyledRect {
++            id: qrSweep
++
++            width: parent.width
++            implicitHeight: 2
++            color: Colours.palette.m3primary
++            opacity: root.qrState === "scanning" ? 0.5 : 0
++            visible: opacity > 0
++
++            SequentialAnimation on y {
++                running: qrSweep.visible
++                loops: Animation.Infinite
++
++                NumberAnimation {
++                    from: 0
++                    to: qrViewfinder.height - qrSweep.height
++                    duration: 1800
++                    easing.type: Easing.InOutSine
++                }
++                NumberAnimation {
++                    from: qrViewfinder.height - qrSweep.height
++                    to: 0
++                    duration: 1800
++                    easing.type: Easing.InOutSine
++                }
++            }
++
++            Behavior on opacity {
++                Anim {
++                    type: Anim.DefaultEffects
++                }
++            }
++        }
++
++        CircularIndicator {
++            anchors.centerIn: parent
++            running: root.qrPreview === "" && root.qrState !== "error"
++        }
++
++        MaterialIcon {
++            anchors.centerIn: parent
++            visible: root.qrState === "error" && root.qrPreview === ""
++            text: "videocam_off"
++            color: Colours.palette.m3onSurfaceVariant
++            fontStyle: Tokens.font.icon.builders.extraLarge.scale(2).build()
++        }
++    }
++
++    StyledText {
++        visible: root.view === "qrscan"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.spacing.small : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        Layout.fillWidth: true
++
++        horizontalAlignment: Text.AlignHCenter
++        wrapMode: Text.Wrap
++        font: Tokens.font.body.small
++        text: {
++            switch (root.qrState) {
++            case "setup":
++                return qsTr("Setting up the QR decoder...");
++            case "starting":
++                return qsTr("Starting the camera...");
++            case "scanning":
++                return qsTr("Hold the network's QR code up to the camera");
++            case "notwifi":
++                return qsTr("That code isn't a Wi-Fi network. Still looking...");
++            case "connecting":
++                return qsTr("Connecting to %1...").arg(root.qrSsid);
++            case "connected":
++                return qsTr("Connected to %1").arg(root.qrSsid);
++            case "error":
++                return root.qrError;
++            default:
++                return "";
++            }
++        }
++        color: {
++            if (root.qrState === "error")
++                return Colours.palette.m3error;
++            if (root.qrState === "connected")
++                return Colours.palette.m3primary;
++            return Colours.palette.m3onSurfaceVariant;
++        }
++    }
++
++    TextButton {
++        visible: root.view === "qrscan" && root.qrState === "error"
++        Layout.preferredHeight: visible ? implicitHeight : 0
++        Layout.topMargin: visible ? Tokens.spacing.small : 0
++        Layout.rightMargin: Tokens.padding.extraSmall
++        Layout.alignment: Qt.AlignHCenter
++
++        text: qsTr("Scan again")
++        onClicked: root.startQrScan()
++    }
++
++    Process {
++        id: qrScanner
++
++        running: root.view === "qrscan" && ["starting", "setup", "scanning", "notwifi"].includes(root.qrState)
++        // Run through python3 rather than the shebang: patch files carry no file
++        // mode, so the executable bit would be gone after a `caelestia-patches sync`
++        command: ["python3", Quickshell.shellPath("assets/wifi-qr-scan.py")]
++
++        stdout: SplitParser {
++            onRead: data => root.handleQrLine(data)
++        }
++
++        stderr: SplitParser {
++            onRead: data => console.warn("Network.qml: qr scanner:", data)
++        }
++
++        onExited: (exitCode, exitStatus) => {
++            // Only a crash matters here; a clean exit means we stopped it ourselves
++            if (exitCode !== 0 && root.qrState !== "error" && root.view === "qrscan")
++                root.failQrScan(qsTr("The QR scanner stopped unexpectedly"));
++        }
++    }
++
++    // Pull the newest frame into whichever image buffer is currently hidden. The
++    // query string is what makes the reload happen - the file path never changes
++    Timer {
++        running: root.view === "qrscan" && root.qrPreview !== ""
++        interval: 100
++        repeat: true
++        onTriggered: {
++            const target = qrFrameA.opacity === 1 ? qrFrameB : qrFrameA;
++            target.source = `file://${root.qrPreview}?${++root.qrFrame}`;
++        }
++    }
++
++    Timer {
++        id: qrNotWifiTimer
++
++        interval: 2500
++        onTriggered: {
++            if (root.qrState === "notwifi")
++                root.qrState = "scanning";
++        }
++    }
++
++    Timer {
++        id: qrDoneTimer
++
++        interval: 1200
++        onTriggered: {
++            if (root.qrState === "connected")
++                root.stopQrScan();
++        }
++    }
++
      // Ethernet section
      StyledText {
          visible: root.view === "ethernet"
-@@ -340,6 +515,149 @@
+@@ -340,8 +971,158 @@
          }
      }
  
@@ -783,7 +1242,28 @@
 +
      Connections {
          function onActiveChanged(): void {
++            // The QR flow watches the active network too: nmcli sometimes lands the
++            // connection without the command callback ever reporting success
++            if (root.qrState === "connecting" && Nmcli.active && Nmcli.active.ssid === root.qrSsid) {
++                root.qrState = "connected";
++                qrDoneTimer.restart();
++            }
++
              if (Nmcli.active && root.connectingToSsid === Nmcli.active.ssid) {
+                 root.connectingToSsid = "";
+                 // Close password dialog if we successfully connected
+@@ -360,6 +1141,11 @@
+                 scanIcon.rotation = 0;
+         }
+ 
++        function onConnectionFailed(ssid: string): void {
++            if (root.qrState === "connecting" && ssid === root.qrSsid)
++                root.failQrScan(qsTr("The password in that code was rejected"));
++        }
++
+         target: Nmcli
+     }
+ 
 --- a/modules/bar/components/StatusIcons.qml
 +++ b/modules/bar/components/StatusIcons.qml
 @@ -150,9 +150,11 @@
