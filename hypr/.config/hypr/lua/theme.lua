@@ -113,6 +113,45 @@ M.border_inactive = {
 M.shadow = M.rgba("shadow", "ee")
 
 --------------------------------------------------------------------------------
+-- Corner radii
+--
+-- Radii, not colours, but they live here for the same reason the colours do:
+-- two files consume them (lua/look.lua sets the global, lua/rules.lua pulls
+-- windows back to it), so a radius is defined exactly once.
+--
+-- READ THIS BEFORE TOUCHING decoration.rounding. The global is set to `bezel`,
+-- NOT to `window`, and lua/rules.lua pulls everything except the Android
+-- Emulator's phone body back down to `window`. The config is inverted on
+-- purpose and it is not a mistake.
+--
+-- WHY: Hyprland 0.56.2 caps the per-window rounding rule at 20 -
+--
+--     {"rounding", []() -> ILuaConfigValue* { return new CLuaConfigInt(0, 0, 20); }, ...}
+--     /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp
+--
+-- while the global decoration.rounding is uncapped (WindowRuleApplicator.hpp
+-- declares it with a std::nullopt max). So any radius above 20 is reachable
+-- ONLY by making it the global and demoting every other window with a rule.
+-- Setting `bezel` to 20 or less would let this invert back; nothing else does.
+--
+-- Re-check the cap before assuming it still holds:
+--
+--     grep -n '"rounding"' /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp
+--
+-- The superellipse exponent (decoration.rounding_power, 4.0) is global and
+-- applies to both, so every corner in the system stays G2 rather than a plain
+-- circular arc.
+M.rounding = {
+    --- Every ordinary window.
+    window = 15,
+
+    --- The Android Emulator's phone body. A bezel radius is a property of the
+    --- phone, not of the window theme, so it is an independent number and must
+    --- not be derived from `window`.
+    bezel  = 30,
+}
+
+--------------------------------------------------------------------------------
 -- Window-state borders
 --
 -- Different metals rather than different hues, so floating and pinned still

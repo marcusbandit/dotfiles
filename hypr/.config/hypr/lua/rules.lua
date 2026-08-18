@@ -47,6 +47,28 @@ hl.window_rule({
     suppress_event = "maximize",
 })
 
+-- Give every ordinary window the ordinary corner radius.
+--
+-- This rule exists because decoration.rounding in lua/look.lua is NOT the
+-- window radius: it is the Android Emulator's bezel, because Hyprland caps the
+-- per-window rounding rule at 20 and only the global is uncapped. So the big
+-- number is the global and this rule demotes everything else back down. Full
+-- reasoning sits next to the numbers in lua/theme.lua.
+--
+-- "negative:" is Hyprland's own inversion prefix on a match value (RE2 has no
+-- lookahead, so `^(?!Emulator)` would NOT work here). It also matches a window
+-- with no class at all, since an empty string fails ^(Emulator)$ and the
+-- inversion then passes, which is what we want: an unclassed window is an
+-- ordinary window.
+--
+-- Later rules override earlier ones for the same effect, so this sits at the
+-- top and the per-app rounding rules further down (mpv, Sober) still win.
+hl.window_rule({
+    name     = "global-rounding",
+    match    = { class = "negative:^(Emulator)$" },
+    rounding = theme.rounding.window,
+})
+
 --------------------------------------------------------------------------------
 -- VISUAL / BORDER RULES
 --
@@ -108,20 +130,16 @@ hl.window_rule({
 -- in lua/look.lua: a bezel radius is a property of the phone, so it must not
 -- drift when the global window rounding is retuned.
 --
--- 20 is the CEILING, not a taste choice. Hyprland 0.56.2 declares the window
--- rule as CLuaConfigInt(0, 0, 20) in
--- /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp, so a
--- per-window rounding above 20 is rejected at parse time. Only the global
--- decoration.rounding is uncapped. Verify before raising this:
+-- The phone body carries NO rounding rule on purpose. It is the one window in
+-- the system that falls through to the global decoration.rounding, which is set
+-- to theme.rounding.bezel; a rule here would be capped at 20 and could only
+-- make the corner smaller. To retune the bezel, change theme.rounding.bezel.
 --
---     grep -n '"rounding"' /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp
---
--- rounding_power is left alone so the corner inherits the global 4.0
--- superellipse exponent and stays G2, not a circular arc.
-local emulator_rounding = 20
+-- rounding_power is left alone, so the corner inherits the global 4.0
+-- superellipse exponent and stays G2 rather than a circular arc.
 
 -- Class only: covers the phone body AND the thin side-toolbar the emulator
--- spawns with the same class, both of which want to float and centre.
+-- spawns under the same class, both of which want to float and centre.
 hl.window_rule({
     name   = "android-emulator",
     match  = { class = "^(Emulator)$" },
@@ -129,14 +147,19 @@ hl.window_rule({
     center = true,
 })
 
--- Rounding is scoped to the phone body by title. The side-toolbar is ~61px
--- wide, so a 20px radius would render it as a lozenge rather than a panel.
--- The toolbar's title is the bare "Emulator"; the body's carries the AVD name,
--- e.g. "Android Emulator - jetlag_pixel:5554".
+-- The emulator's side-toolbar is ~61px wide, so the bezel radius would render
+-- it as a lozenge rather than a panel. It shares the class with the phone body,
+-- so the global-rounding rule above cannot reach it and it needs demoting here.
+--
+-- Matched by inverting the BODY's title rather than by matching the toolbar's
+-- own, so anything else the emulator ever spawns under this class is demoted by
+-- default and only the phone body is special. The body's title carries the AVD
+-- name, e.g. "Android Emulator - jetlag_pixel:5554"; the toolbar's is the bare
+-- "Emulator".
 hl.window_rule({
-    name     = "android-emulator-bezel",
-    match    = { class = "^(Emulator)$", title = "^(Android Emulator).*" },
-    rounding = emulator_rounding,
+    name     = "android-emulator-toolbar",
+    match    = { class = "^(Emulator)$", title = "negative:^(Android Emulator).*" },
+    rounding = theme.rounding.window,
 })
 
 --------------------------------------------------------------------------------
