@@ -101,6 +101,44 @@ hl.window_rule({
     center = true,
 })
 
+-- Android Emulator (Jet Lag dev) - phone-shaped, always floating and centred.
+--
+-- The emulator draws a phone, so it wants a phone's bezel corner, not a
+-- window's. Deliberately a FIXED number, NOT derived from decoration.rounding
+-- in lua/look.lua: a bezel radius is a property of the phone, so it must not
+-- drift when the global window rounding is retuned.
+--
+-- 20 is the CEILING, not a taste choice. Hyprland 0.56.2 declares the window
+-- rule as CLuaConfigInt(0, 0, 20) in
+-- /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp, so a
+-- per-window rounding above 20 is rejected at parse time. Only the global
+-- decoration.rounding is uncapped. Verify before raising this:
+--
+--     grep -n '"rounding"' /usr/include/hyprland/src/config/lua/bindings/LuaBindingsInternal.hpp
+--
+-- rounding_power is left alone so the corner inherits the global 4.0
+-- superellipse exponent and stays G2, not a circular arc.
+local emulator_rounding = 20
+
+-- Class only: covers the phone body AND the thin side-toolbar the emulator
+-- spawns with the same class, both of which want to float and centre.
+hl.window_rule({
+    name   = "android-emulator",
+    match  = { class = "^(Emulator)$" },
+    float  = true,
+    center = true,
+})
+
+-- Rounding is scoped to the phone body by title. The side-toolbar is ~61px
+-- wide, so a 20px radius would render it as a lozenge rather than a panel.
+-- The toolbar's title is the bare "Emulator"; the body's carries the AVD name,
+-- e.g. "Android Emulator - jetlag_pixel:5554".
+hl.window_rule({
+    name     = "android-emulator-bezel",
+    match    = { class = "^(Emulator)$", title = "^(Android Emulator).*" },
+    rounding = emulator_rounding,
+})
+
 --------------------------------------------------------------------------------
 -- BROWSER RULES
 --------------------------------------------------------------------------------
