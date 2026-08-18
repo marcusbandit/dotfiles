@@ -49,7 +49,14 @@ hl.config({
         -- so the corner is G2-continuous. Radius is bumped to keep the apparent
         -- corner size, since a superellipse bites less off the diagonal at the
         -- same r.
-        rounding       = 15,
+        --
+        -- THIS IS NOT THE WINDOW RADIUS. It is the Android Emulator's bezel,
+        -- and lua/rules.lua pulls every other window down to theme.rounding
+        -- .window with the "global-rounding" rule. The inversion is forced by
+        -- Hyprland capping the per-window rounding rule at 20; the full
+        -- explanation lives next to the numbers in lua/theme.lua. Read it
+        -- before changing this line.
+        rounding       = theme.rounding.bezel,
         rounding_power = 4.0,
 
         active_opacity   = 1.0,
