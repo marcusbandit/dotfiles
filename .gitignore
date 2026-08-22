@@ -6,3 +6,4 @@ zsh/.zshrc.d/access-tokens.sh
 # repo rather than being carried to every other box.
 qs/.config/quickshell/caelestia.bak-*/
 tmux/.config/tmux/tmux.conf.bak.*
+qs/.config/quickshell/caelestia.old-*/
