@@ -1,2 +1,8 @@
+# Local-only secrets, never published
 zsh/.zshrc.d/access-tokens.sh
-zsh/.zshrc.d/access-tokens.sh
+
+# Timestamped local backups. These are snapshots taken before a risky edit and
+# are only meaningful on the machine that took them, so they stay out of the
+# repo rather than being carried to every other box.
+qs/.config/quickshell/caelestia.bak-*/
+tmux/.config/tmux/tmux.conf.bak.*
