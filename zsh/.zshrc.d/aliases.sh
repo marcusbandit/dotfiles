@@ -10,7 +10,9 @@ alias clear='clear && printf "\033c"'
 alias hyprconfig='nvim ~/.config/hypr/hyprland.conf'
 alias pip='pip --require-virtualenv'
 alias cat='bat'
-alias u='yay -Suy --noconfirm'
+# System upgrade. Now ~/bin/u: same unattended `yay -Syu --noconfirm` fast path,
+# but on ANY failure it diagnoses, pauses, and offers to hand it to Claude
+# instead of dying. `u --confirm` answers pacman's prompts yourself.
 alias speedtest='speedtest --secure --bytes'
 alias codex='codex --dangerously-bypass-approvals-and-sandbox'
 # OpenCode

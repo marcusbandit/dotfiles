@@ -19,6 +19,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # === APP-SPECIFIC BINARIES ===
 export PATH="/usr/lib/zen-browser/zen:$PATH"   # Zen Browser
 export PATH="$HOME/.spicetify:$PATH"           # spicetify
+export PATH="$HOME/strata/target/release:$PATH" # strata (rust build)
 
 # === CONDA / MINIFORGE ===
 # Deliberately NOT on PATH here: conda is opt-in and set up in ~/.zshrc (CONDA_MANUAL).
