@@ -94,6 +94,21 @@ hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("banditshell launcher toggle"))
 -- sums worked through a step at a time rather than for every one of them.
 hl.bind("SUPER + K", hl.dsp.exec_cmd("banditshell calculator toggle"))
 
+-- The same calculator with the whole screen, which is what the launcher's
+-- Calculator entry runs and what the control on the panel's own readout moves it
+-- to. On a key as well because the button needs the panel already out, and the
+-- big one is sometimes what you wanted from the start.
+--
+-- SUPER+SHIFT+K IS TAKEN (the on-screen board, at the bottom of this file), so
+-- this is on ALT. Both verbs toggle, and the shape is sticky: whichever you last
+-- used is the one SUPER+K reopens.
+hl.bind("SUPER + ALT + K", hl.dsp.exec_cmd("banditshell calculator app"))
+
+-- The key some keyboards grew for this. Costs nothing on the ones that did not:
+-- Hyprland never fires a bind whose keysym the layout cannot resolve. `bindl` so
+-- it keeps working with the session locked, like the volume keys below.
+hl.bind("XF86Calculator", hl.dsp.exec_cmd("banditshell calculator toggle"), { locked = true })
+
 -- The original carried an inline window rule: `exec, [pseudeo; size 3440 1440;] $browser`.
 -- It is deliberately NOT ported. Two independent reasons: "pseudeo" was a typo for
 -- "pseudo", so hyprlang never recognised the rule and it has been inert all along,
@@ -227,6 +242,33 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 -- Brightness
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl s 10%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 10%-"), { locked = true, repeating = true })
+
+-- Tablet mode.
+--
+-- The hinge is an evdev SWITCH rather than a key, and these two binds are the
+-- only way the shell can ever hear about it: the device nodes are root:input and
+-- this user is deliberately not in that group, because membership there is the
+-- ability to read every keystroke on the machine. Hyprland already has the
+-- device open, so it does the reading and the shell is told the answer.
+--
+-- `locked` on both, because folding the machine while the screen is locked is a
+-- perfectly ordinary thing to do and the shell should still know about it when
+-- the session comes back.
+--
+-- The device name is what `hyprctl devices` prints under Switches. If a future
+-- kernel renames it these binds stop firing SILENTLY, which is what
+-- `banditshell tablet status` is for: it says whether the shell was ever told
+-- anything, and by whom.
+local tablet_switch = "Lenovo Yoga Tablet Mode Control switch"
+
+hl.bind("switch:on:" .. tablet_switch,  hl.dsp.exec_cmd("banditshell tablet on compositor"),  { locked = true })
+hl.bind("switch:off:" .. tablet_switch, hl.dsp.exec_cmd("banditshell tablet off compositor"), { locked = true })
+
+-- The board by hand, for the cases the hinge does not cover: the real keyboard
+-- across the desk, or a folded machine where the board is in the way of
+-- something being read. Next to SUPER + K, which is the calculator's keypad,
+-- because they are the shell's two keyboards.
+hl.bind("SUPER + SHIFT + K", hl.dsp.exec_cmd("banditshell keyboard toggle")) -- Toggle the on-screen keyboard
 
 -- Media
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
