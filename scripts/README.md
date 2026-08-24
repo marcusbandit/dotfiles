@@ -12,7 +12,7 @@ scripts/
 │       ├── discord_kill.sh
 │       ├── ollama-tui
 │       ├── rofi-dark
-│       ├── swww-random
+│       ├── awww-random
 │       ├── toggle-waybar
 │       ├── type-clipboard
 │       └── waybar-cursor-toggle
@@ -25,7 +25,7 @@ scripts/
 - **toggle-waybar**: Manual toggle script for Waybar visibility (bound to SUPER+Z)
 - **discord_kill.sh**: Script to kill Discord processes
 - **rofi-dark**: Dark theme configuration for Rofi
-- **swww-random**: Random wallpaper setter using swww
+- **awww-random**: Random wallpaper setter using awww
 - **type-clipboard**: Clipboard typing utility
 - **ollama-tui**: Terminal UI for Ollama
 - **com.joaomgcd.taskerpermissions-0.2.0.AppImage**: Tasker permissions app

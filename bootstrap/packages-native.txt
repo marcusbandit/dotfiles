@@ -360,7 +360,7 @@ swappy
 sway
 swaync
 sweethome3d
-swww
+awww
 symbolic-preview
 symlinks
 sysc-walls

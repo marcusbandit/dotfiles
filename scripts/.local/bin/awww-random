@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Sequential wallpaper cycler for swww (single monitor at cursor)
+# Sequential wallpaper cycler for awww (single monitor at cursor)
 # Scans ~/.config/wallpapers for image files organized by aspect ratio folders
 # and cycles through wallpapers for the screen where the mouse cursor is located.
 
 set -euo pipefail
 
 WPDIR="${1:-$HOME/.config/wallpapers}"
-CYCLE_STATE_FILE="$HOME/.config/wallpapers/.swww-cycle-state"
+CYCLE_STATE_FILE="$HOME/.config/wallpapers/.awww-cycle-state"
 
 # Verify directory exists
 if [[ ! -d "$WPDIR" ]]; then
@@ -148,7 +148,7 @@ get_active_monitor() {
     echo "$monitors" | jq -r '.[0].name'
 }
 
-# Parse swww query output to get screen information
+# Parse awww query output to get screen information
 parse_screens() {
     local screens=()
     while IFS= read -r line; do
@@ -160,7 +160,7 @@ parse_screens() {
             local aspect=$(calculate_aspect_ratio "$width" "$height")
             screens+=("$output:$width:$height:$aspect")
         fi
-    done < <(swww query)
+    done < <(awww query)
 
     printf '%s\n' "${screens[@]}"
 }
@@ -183,7 +183,7 @@ if [[ "$is_fullscreen" != "0" && "$is_fullscreen" != "null" ]]; then
     tx="$(randf),$(randf)"
 
     # Apply black wallpaper to active monitor only
-    swww img /home/bandit/.config/wallpapers/black.png \
+    awww img /home/bandit/.config/wallpapers/black.png \
         --outputs "$active_monitor" \
         --transition-type any \
         --transition-duration 0.9 \
@@ -236,7 +236,7 @@ else
 fi
 
 # Collect image and video files from the appropriate directory (sorted for consistent order)
-# Supports all formats that swww can handle: images (jpg, png, gif, webp, bmp, tiff, etc.) and videos (mp4, mkv, webm, etc.)
+# Supports all formats that awww can handle: images (jpg, png, gif, webp, bmp, tiff, etc.) and videos (mp4, mkv, webm, etc.)
 mapfile -t files < <(
     find -L "$search_dir" -type f \
         \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.bmp' -o -iname '*.gif' \
@@ -296,7 +296,7 @@ tx="$(randf),$(randf)"
 # Apply wallpaper to this specific output
 if [[ "$use_fallback" == "true" ]]; then
     # Use uncropped resize for error images
-    swww img "$pick" \
+    awww img "$pick" \
         --outputs "$output" \
         --transition-type any \
         --transition-duration 0.9 \
@@ -305,7 +305,7 @@ if [[ "$use_fallback" == "true" ]]; then
         --resize fit
 else
     # Use cropped resize for normal wallpapers
-    swww img "$pick" \
+    awww img "$pick" \
         --outputs "$output" \
         --transition-type any \
         --transition-duration 0.9 \
