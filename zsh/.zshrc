@@ -175,10 +175,19 @@ eval "$(zoxide init --cmd cd zsh)"
 export XCURSOR_THEME=Bibata-Modern-DodgerBlue
 export XCURSOR_SIZE=24
 
-# Auto-start tmux if not already in tmux and in an interactive shell
-if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]] && [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]]; then
-    # Create a new tmux session each time
-    /home/bandit/.local/bin/tmux-wrapper.sh
+# Auto-start tmux if not already in tmux and in an interactive shell.
+# Local terminals get a brand new session each time (every kitty window is its
+# own session). SSH logins instead rejoin the most recently used DETACHED
+# session, so a dropped connection is a detach and not a lost afternoon; if every
+# session is already attached it creates a new one rather than mirroring, which
+# would resize the other client's view. Escape hatch, unchanged: NO_TMUX=1.
+# Only interactive shells are wrapped, so `ssh banditbox <cmd>` is unaffected.
+if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]]; then
+    if [[ -n "$SSH_TTY" ]]; then
+        /home/bandit/.local/bin/tmux-wrapper.sh --attach-or-create
+    else
+        /home/bandit/.local/bin/tmux-wrapper.sh
+    fi
 fi
 
 if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]]; then
