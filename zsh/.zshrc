@@ -85,6 +85,9 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/bandit_theme.json)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# SSH agent is provided by gcr-ssh-agent (gnome-keyring's replacement, ships with gcr-4).
+# Socket is at $XDG_RUNTIME_DIR/gcr/ssh; SSH_AUTH_SOCK is exported in ~/.zshrc.d/ssh_agent.sh.
+
 plugins=(
     git
     history
@@ -173,7 +176,7 @@ export XCURSOR_THEME=Bibata-Modern-DodgerBlue
 export XCURSOR_SIZE=24
 
 # Auto-start tmux if not already in tmux and in an interactive shell
-if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]] && [[ -z "$TMUX" ]]; then
+if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "$SSH_TTY" ]] && [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]]; then
     # Create a new tmux session each time
     /home/bandit/.local/bin/tmux-wrapper.sh
 fi
@@ -185,3 +188,5 @@ if [[ -o interactive ]] && [[ -t 1 ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ -z "
 fi
 
 export PATH=$PATH:/home/bandit/.spicetify
+
+source /home/bandit/.config/broot/launcher/bash/br

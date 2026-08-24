@@ -1,0 +1,1 @@
+/home/bandit/Projects/Tools/uxtrace/shell/uxtrace.zsh

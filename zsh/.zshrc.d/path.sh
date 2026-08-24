@@ -22,6 +22,14 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # ZenBrowser
 export PATH="/usr/lib/zen-browser/zen:$PATH"
 
+# === ANDROID SDK ===
+# platform-tools first so `adb` is the SDK's build (37.x from the android-tools package
+# and 36.x from the SDK fight over the adb server otherwise).
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export ANDROID_HOME="$ANDROID_SDK_ROOT"
+export ANDROID_AVD_HOME="$HOME/.config/.android/avd"
+export PATH="$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH"
+
 # === CONDA / MINIFORGE ===
 # Always put this LAST to avoid overriding system binaries like `clear`
 #export PATH="$PATH:$HOME/miniforge/bin"
