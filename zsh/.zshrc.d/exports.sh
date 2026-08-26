@@ -13,7 +13,7 @@ export CVR=45577473
 # export GDK_DPI_SCALE=0.5
 
 # KDE QT
-export QT_QPA_PLATFORMTHEME=qt5ct # Or qt5ct. I will change if needed
+export QT_QPA_PLATFORMTHEME=qt6ct # qt6ct: Qt6 apps (qbittorrent etc). Qt5 apps fall back to generic.
 
 export _ZO_DOCTOR=0
 
