@@ -12,7 +12,6 @@ bibata-cursor-theme-bin
 blueberry
 btop-gpu-git
 c
-caelestia-cli
 caffeine
 ccze
 ccze-debug

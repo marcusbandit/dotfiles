@@ -31,7 +31,6 @@ btop-gpu-git
 btrfs-progs
 c
 caddy
-caelestia-cli
 caffeine
 cage
 calc
