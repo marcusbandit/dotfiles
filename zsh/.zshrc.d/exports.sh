@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export TERMINAL=kitty
+export TERMINAL=ghostty
 export LESS="-R --mouse --wheel-lines=3"
 
 export GTK_USE_PORTAL=0
