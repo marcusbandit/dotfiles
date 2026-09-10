@@ -15,7 +15,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Config
-DOTFILES_REPO="https://github.com/marcusbandit/shell.git"
+DOTFILES_REPO="https://github.com/marcusbandit/dotfiles.git"
 DOTFILES_DIR="$HOME/dotfiles"
 BACKUP_DIR="$HOME/.rice-backup-$(date +%Y%m%d_%H%M%S)"
 
