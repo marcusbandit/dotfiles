@@ -1,11 +1,11 @@
-#— set these once per session —#
-export BRIDGE=192.168.88.247
-export USERNAME="***REMOVED***"
+# Hue bridge controls. Token and bridge IP live in the 600-perms api-keys env file.
+[[ -r $HOME/.config/marcusbandit-api-keys.env ]] &&
+    source "$HOME/.config/marcusbandit-api-keys.env"
 
 #— get full light info —#
 hue_get() {
     curl -s -X GET \
-        "http://${BRIDGE}/api/${USERNAME}/lights/$1" |
+        "http://${HUE_BRIDGE}/api/${HUE_TOKEN}/lights/$1" |
         jq
 }
 
@@ -21,7 +21,7 @@ hue_set() {
     curl -s -X PUT \
         -H "Content-Type: application/json" \
         -d "${*}" \
-        "http://${BRIDGE}/api/${USERNAME}/lights/${ID}/state" |
+        "http://${HUE_BRIDGE}/api/${HUE_TOKEN}/lights/${ID}/state" |
         jq
 }
 

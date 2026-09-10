@@ -1,1 +1,0 @@
-../../../dotfiles/hypr/.config/hypr/scripts/fmt_keybinds.py
