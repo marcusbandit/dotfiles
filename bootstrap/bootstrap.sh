@@ -20,7 +20,7 @@ DOTFILES_DIR="$HOME/dotfiles"
 BACKUP_DIR="$HOME/.rice-backup-$(date +%Y%m%d_%H%M%S)"
 
 # Stow packages to install (order matters for dependencies)
-STOW_PACKAGES=(zsh nvim tmux hypr waybar qs sddm wallpapers scripts)
+STOW_PACKAGES=(zsh nvim tmux ghostty hypr waybar qs sddm wallpapers scripts)
 
 # =============================================================================
 # Helper Functions
