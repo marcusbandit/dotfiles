@@ -1,0 +1,252 @@
+#!/usr/bin/env python3
+"""upick: full-terminal unicode glyph grid picker, kitty-style.
+
+Search by name or hex, arrow around a dense glyph grid, space to
+multi-select, enter to print the picks (one per line) on stdout.
+Esc cancels with exit code 1.
+"""
+
+import argparse
+import curses
+import locale
+import os
+import sys
+import unicodedata
+
+CACHE = os.path.join(
+    os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache")),
+    "unicode-list.txt",
+)
+
+
+def build_cache(path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        for cp in range(0x110000):
+            c = chr(cp)
+            if c in "\n\r\t":
+                continue
+            try:
+                name = unicodedata.name(c)
+            except ValueError:
+                continue
+            f.write(f"U+{cp:04X}\t{c}\t{name}\n")
+    os.replace(tmp, path)
+
+
+def load_items():
+    if not os.path.exists(CACHE) or os.path.getsize(CACHE) == 0:
+        build_cache(CACHE)
+    # raw lines kept for display (parsed lazily), lowered copies for search
+    raw = []
+    keys = []
+    with open(CACHE, encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            raw.append(line)
+            keys.append(line.lower())
+    return raw, keys
+
+
+def cwidth(c):
+    if unicodedata.combining(c) or unicodedata.category(c) in ("Mn", "Me", "Cf"):
+        return 0
+    if unicodedata.east_asian_width(c) in ("W", "F"):
+        return 2
+    return 1
+
+
+class Picker:
+    def __init__(self, raw, keys, query="", single=False):
+        self.raw = raw
+        self.keys = keys
+        self.query = query
+        self.single = single
+        self.selected = set()  # item ids, stable across refilters
+        self.filtered = []
+        self.cursor = 0
+        self.top = 0
+        self.rows = 1
+        self.cols = 1
+        self.cellw = 4
+        self.refilter()
+
+    def refilter(self):
+        tokens = self.query.lower().split()
+        if tokens:
+            self.filtered = [i for i, k in enumerate(self.keys)
+                             if all(t in k for t in tokens)]
+        else:
+            self.filtered = list(range(len(self.keys)))
+        self.cursor = 0
+        self.top = 0
+
+    def layout(self, H, W):
+        self.rows = max(1, H - 2)
+        self.cols = max(1, W // 4)
+        self.cellw = max(3, W // self.cols)
+
+    def scroll_into_view(self):
+        row = self.cursor // self.cols
+        if row < self.top:
+            self.top = row
+        elif row >= self.top + self.rows:
+            self.top = row - self.rows + 1
+
+    def addstr(self, scr, y, x, s, attr=0):
+        try:
+            scr.addstr(y, x, s, attr)
+        except curses.error:
+            pass
+
+    def draw(self, scr):
+        H, W = scr.getmaxyx()
+        self.layout(H, W)
+        scr.erase()
+
+        hover = self.filtered[self.cursor] if self.filtered else None
+
+        if hover is not None:
+            hexs, glyph, name = self.raw[hover].split("\t")
+            tail = f"  [{len(self.selected)} selected]" if self.selected else ""
+            self.addstr(scr, 0, 0, f"{hexs}  {glyph}  {name}{tail}"[:W - 1],
+                        curses.A_BOLD)
+
+        first = self.top * self.cols
+        for pos in range(first, min(first + self.rows * self.cols,
+                                    len(self.filtered))):
+            rel = pos - first
+            r, c = divmod(rel, self.cols)
+            item_id = self.filtered[pos]
+            hexs, glyph, name = self.raw[item_id].split("\t")
+            attr = curses.A_NORMAL
+            if item_id in self.selected:
+                attr |= curses.A_BOLD
+            if pos == self.cursor:
+                attr |= curses.A_REVERSE
+            x = c * self.cellw
+            pad = " " * max(0, self.cellw - cwidth(glyph))
+            self.addstr(scr, r + 1, x, (glyph + pad)[:self.cellw], attr)
+
+        matches = f"{len(self.filtered)} matches"
+        help_ = "" if self.single else "space select · enter insert · esc cancel"
+        bar = f"/{self.query}"
+        room = W - 2 - len(bar) - len(matches) - len(help_)
+        if room > 1:
+            bar += " " + help_
+        self.addstr(scr, H - 1, 0, f"{bar}{matches.rjust(W - 1 - len(bar))}"[:W - 1])
+        try:
+            scr.move(H - 1, min(len(self.query) + 1, W - 1))
+            curses.curs_set(1)
+        except curses.error:
+            pass
+        scr.refresh()
+
+    def run(self, scr):
+        scr.keypad(True)
+        curses.noecho()
+        curses.cbreak()
+        try:
+            curses.start_color()
+            curses.use_default_colors()
+        except curses.error:
+            pass
+        while True:
+            self.draw(scr)
+            ch = scr.getch()
+            if ch in (curses.KEY_ENTER, 10, 13):
+                glyph_of = lambda i: self.raw[i].split("\t")[1]
+                if self.single and self.filtered:
+                    return [glyph_of(self.filtered[self.cursor])]
+                picks = sorted(self.selected) or ([self.filtered[self.cursor]]
+                                                  if self.filtered else [])
+                return [glyph_of(i) for i in picks]
+            if ch == 27 or ch == 3:  # esc / ctrl-c
+                return None
+            if ch in (curses.KEY_BACKSPACE, 127, 8):
+                self.query = self.query[:-1]
+                self.refilter()
+            elif ch == curses.KEY_LEFT:
+                self.cursor = max(0, self.cursor - 1)
+                self.scroll_into_view()
+            elif ch == curses.KEY_RIGHT and self.cursor < len(self.filtered) - 1:
+                self.cursor += 1
+                self.scroll_into_view()
+            elif ch == curses.KEY_UP:
+                self.cursor = max(0, self.cursor - self.cols)
+                self.scroll_into_view()
+            elif ch == curses.KEY_DOWN:
+                self.cursor = min(len(self.filtered) - 1,
+                                  self.cursor + self.cols)
+                self.scroll_into_view()
+            elif ch == curses.KEY_PPAGE:
+                self.cursor = max(0, self.cursor - self.rows * self.cols)
+                self.scroll_into_view()
+            elif ch == curses.KEY_NPAGE:
+                self.cursor = min(len(self.filtered) - 1,
+                                  self.cursor + self.rows * self.cols)
+                self.scroll_into_view()
+            elif ch == curses.KEY_HOME:
+                self.cursor = 0
+                self.top = 0
+            elif ch == curses.KEY_END:
+                self.cursor = max(0, len(self.filtered) - 1)
+                self.scroll_into_view()
+            elif ch == ord(" ") and not self.single and self.filtered:
+                item_id = self.filtered[self.cursor]
+                self.selected.symmetric_difference_update({item_id})
+                if self.cursor < len(self.filtered) - 1:
+                    self.cursor += 1
+                    self.scroll_into_view()
+            elif ch == curses.KEY_RESIZE:
+                pass
+            elif ch is not None and ch >= 32:
+                self.query += chr(ch)
+                self.refilter()
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        description="full-terminal unicode glyph grid picker")
+    ap.add_argument("--single", action="store_true",
+                    help="exit after one pick, disable multi-select")
+    ap.add_argument("query", nargs="*", help="initial search query")
+    args = ap.parse_args()
+
+    locale.setlocale(locale.LC_ALL, "")
+    os.environ.setdefault("ESCDELAY", "25")
+    raw, keys = load_items()
+    picker = Picker(raw, keys, " ".join(args.query), args.single)
+
+    # Widget mode: stdout is captured by the shell and the child's stdin is
+    # not reliably the terminal. Put /dev/tty on fd 0 and fd 1 so the UI
+    # both renders there and reads keys from there; keep the real stdout
+    # aside for the results.
+    result_fd = None
+    if not sys.stdout.isatty():
+        try:
+            result_fd = os.dup(1)
+            tty_fd = os.open("/dev/tty", os.O_RDWR)
+        except OSError as e:
+            print(f"upick: no terminal available: {e}", file=sys.stderr)
+            sys.exit(2)
+        os.dup2(tty_fd, 0)
+        os.dup2(tty_fd, 1)
+        os.close(tty_fd)
+
+    try:
+        glyphs = curses.wrapper(lambda s: picker.run(s))
+    finally:
+        if result_fd is not None:
+            os.dup2(result_fd, 1)
+            os.close(result_fd)
+
+    if glyphs is None:
+        sys.exit(1)
+    sys.stdout.write("\n".join(glyphs) + "\n")
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    main()

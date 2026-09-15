@@ -1,0 +1,8 @@
+# bash completion for upick
+_upick() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    --*) COMPREPLY=($(compgen -W "--single --help" -- "$cur")) ;;
+  esac
+}
+complete -F _upick upick
